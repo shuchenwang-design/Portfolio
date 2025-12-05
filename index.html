@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Home Page</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- My Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="head">
+        <h1 style="line-height:1.8rem; margin-left:0.5rem;">Her Voice Behind the Poems<br><a href="rt-motion" id="goToRtMotion" rel="preload">Go To Case Study ←</a></h1>
+        <div class="dynamic-text" id="dynamic-text" style="font-variation-settings: &quot;wght&quot; 805;">RAIN AND<br>TEARS
+        </div>
+    </div>
+    <div class="slideshow-container" id="background-image" style="opacity: 65%;">
+        <video alt="home" autoplay="" class="slideshow-image" loop="" muted="" playsinline="" src="https://freight.cargo.site/t/original/i/D2611091149679338779014498303064/Homepage.mp4"></video>
+    </div>
+
+    <script>
+    function updateText(e) {
+        const dynamicText = document.getElementById('dynamic-text');
+        if (!dynamicText) return;
+        const multiplierWidth = e.clientX / window.innerWidth;
+        const multiplierHeight = e.clientY / window.innerHeight;
+        const multiplierDistance = Math.sqrt(multiplierWidth ** 2 + multiplierHeight ** 2);const randomWeight = Math.floor(multiplierDistance * (900 - 400) + 400);
+        dynamicText.style.fontVariationSettings = `"wght" ${randomWeight}`;
+    }
+    window.addEventListener("mousemove", updateText);
+    </script>
+
+</body>
