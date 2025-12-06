@@ -1,6 +1,5 @@
 @font-face {
   font-family: "Inkai Variable";
-  font-weight: 400;
   font-style: normal;
   src: url("https://freight.cargo.site/m/F2463903275489634947238031735896/InkaiVF.woff") format("woff");
 }
@@ -12,8 +11,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-size: 16px;
+    font-size: 12px;
 }
+
+
 
 .head{
 	position: absolute; 
@@ -32,7 +33,6 @@ body {
     text-align: left;
     column-span: all; 
     margin-top: 1rem;
-	font-weight: 400;
 	font-style: normal;
 }
 
