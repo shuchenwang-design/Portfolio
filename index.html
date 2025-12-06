@@ -6,18 +6,19 @@
     <title>Portfolio Home Page</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = {theme: {extend: {
+        colors: {
+            'rust-100': '#D35B39',
+        }}}}</script>
+
     <!-- Load Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- My Style Sheet -->
     <link rel="stylesheet" href="style.css">
-    <script>tailwind.config = {theme: {extend: {
-        colors: {
-            'rust-100': '#D35B39',
-        }}}}
-</script>
 </head>
+
 <body>
     <div class="head grid grid-cols-1 min-[1000px]:grid-cols-12">
         <div class="col-start-1 col-span-1 min-[1000px]:col-start-7 min-[1000px]:col-span-6 "><label class="text-base ml-2 block">Her Voice Behind the Poems<br><a class="hover:text-black hover:bg-white border p-[4px_8px] mt-1 inline-block rounded-lg" href="rt-motion" id="goToRtMotion" rel="preload">Case Study ←</a></label>
@@ -25,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="relativew-full h-[95vh] flex opacity-65" id="background-image">
+    <div class="relative w-full h-[95vh] flex opacity-65" id="background-image">
         <video alt="home" autoplay="" class="mt-[-5rem] w-full object-cover" loop="" muted="" playsinline="" src="https://freight.cargo.site/t/original/i/D2611091149679338779014498303064/Homepage.mp4"></video>
     </div>
 
