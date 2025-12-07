@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Inkai Variable";
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/F2463903275489634947238031735896/InkaiVF.woff") format("woff");
+}
+
+body {
+    background-color: #000000; 
+    font-family: Inkai Variable;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 12px;
+}
+
+
+
+.head{
+	position: absolute; 
+    top: 90vh; 
+    transform: translateY(-100%); 
+    margin-left: 1rem;
+    margin-right: 1rem;
+    z-index: 2;
+    width: 96%;
+}
+
+.dynamic-text {
+    font-family: Inkai Variable;
+    font-size: 9vw;
+    line-height: 120%;
+    text-align: left;
+    column-span: all; 
+    margin-top: 1rem;
+	font-style: normal;
+}
+
+.slideshow-container {
+    overflow: hidden;
+}
+
+.slideshow-image {
+    width: auto; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.slideshow-wrapper {
+    display: flex; 
+    height: 100%;
+    width: max-content; 
+}

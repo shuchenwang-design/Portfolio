@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fur Pattern Generator</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #424306; 
+            font-family: 'Montserrat', sans-serif;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Prevent body scroll */
+            display: flex;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #424306; }
+        ::-webkit-scrollbar-thumb { background: #936FEE; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FBE3B9; }
+
+        /* Controls */
+        .control-input {
+            width: 100%; height: 6px; background-color: #FBE3B9; border-radius: 3px;
+            appearance: none; cursor: pointer; transition: background 0.2s;
+        }
+        .control-input::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%;
+            background: #D17A00; cursor: pointer; box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+        .control-input::-moz-range-thumb {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: #D17A00; cursor: pointer; border: none;
+        }
+
+        /* Double Slider */
+        .double-slider-group { position: relative; height: 20px; display: flex; align-items: center; }
+        .double-slider-group input { position: absolute; height: 0; pointer-events: none; width: 100%; top: 50%; transform: translateY(-50%); }
+        .double-slider-group input::-webkit-slider-thumb { pointer-events: all; position: relative; z-index: 10; margin-top: 0;}
+        .double-slider-group input::-moz-range-thumb { pointer-events: all; position: relative; z-index: 10; margin-top: 0;}
+        .slider-track { position: absolute; width: 100%; height: 6px; background-color: #FBE3B9; border-radius: 3px; top: 50%; transform: translateY(-50%); }
+        .slider-range { position: absolute; height: 6px; background-color: #D17A00; border-radius: 3px; top: 50%; transform: translateY(-50%); }
+
+        .control-label { display: block; margin-bottom: 1px; font-size: 0.7rem; font-weight: 500; color: 9FA8DA; letter-spacing: 0.02em; }
+        
+        /* Layout Containers */
+        .panel {
+            background-color: #767800;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            height: 100%;
+            flex-shrink: 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .sidebar-left { width: 280px; border-right: 1px solid #767800; }
+        .sidebar-right { width: 280px; border-left: 1px solid #767800; }
+        
+        .main-viewport {
+            flex-grow: 1;
+            background-color: #424306;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Canvas Container */
+        #canvas-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* The Canvas itself */
+        canvas#previewCanvas {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background-color: #D17A00;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            aspect-ratio: 1/1; 
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        /* Buttons & Inputs */
+        .mode-button {
+            padding: 6px 12px; font-size: 0.75rem; border-radius: 4px; font-weight: 700; background-color: #424306;
+            transition: all 0.1s; flex-grow: 1; text-align: center; text-transform: uppercase;
+        }
+        .mode-button.active { background-color: #D17A00; color: #FBE3B9; }
+        .mode-button.inactive { background-color: #FBE3B9; color: #424306; }
+        
+        /* Fixed Color Input Styling (No white space) */
+        .color-circle {
+            width: 2rem; height: 2rem; border-radius: 50%; padding: 0; border: none;
+            overflow: hidden; cursor: pointer; -webkit-appearance: none; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .color-square {
+            width: 2rem; height: 2rem; border-radius: 4px; padding: 2; border: none;
+            overflow: hidden; cursor: pointer; -webkit-appearance: none; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        /* Specific overrides for Webkit to remove internal padding */
+        .color-circle::-webkit-color-swatch-wrapper, .color-square::-webkit-color-swatch-wrapper { padding: 0; }
+        .color-circle::-webkit-color-swatch, .color-square::-webkit-color-swatch { border: none; }
+        
+        #statusMessage {
+            position: absolute;
+            bottom: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #424306;
+            color: #FBE3B9;
+            padding: 8px 24px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            pointer-events: none;
+            z-index: 50;
+            transition: opacity 0.5s;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* Updated header style to be shared */
+        .section-header {
+            font-size: 0.7rem; text-transform: uppercase; color: #FBE3B9; font-weight: 700; 
+            margin-top: 8px; margin-bottom: 4px; padding-bottom: 2px; border-bottom: 1px solid #424306;
+        }
+        
+        .viewport-controls {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 30;
+            display: flex;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LEFT SIDEBAR: CONTROLS -->
+    <div class="panel sidebar-left space-y-3">
+        <h1 class="text-xl font-bold text-[#FBE3B9] mb-1 tracking-tight">Fur Generator</h1>
+
+        <!-- Mode Selection -->
+        <div class="flex space-x-1 mb-2">
+            <button id="modeScatter" class="mode-button">Scatter</button>
+            <button id="modeDraw" class="mode-button">Draw</button>
+            <button id="modeImage" class="mode-button">Image</button>
+        </div>
+
+        <!-- Image Controls -->
+        <div id="imageControls" class="space-y-2 hidden bg-[#424306] p-3 rounded-lg border border-[#424306]">
+            <div class="control-group">
+                <label class="control-label mb-1">Upload Image</label>
+                <input type="file" id="imageUpload" accept="image/jpeg, image/png" class="text-xs text-indigo-200 w-full file:bg-[#D17A00] file:text-[#FBE3B9] file:border-0 file:rounded-sm file:px-2 file:py-1 file:text-xs file:font-bold hover:file:bg-[#a96600] cursor-pointer"/>
+            </div>
+            <div class="control-group">
+                <label class="control-label" id="samplingLabel">Sample: 8x8 px</label>
+                <input type="range" id="samplingCellSize" min="2" max="32" value="8" step="1" class="control-input">
+            </div>
+        </div>
+
+        <!-- Colors -->
+        <div class="section-header">Colors</div>
+        <div class="control-group">
+            <label class="control-label mb-2">Fur & Background</label>
+            <div class="flex items-center space-x-4 mb-2">
+                <div class="flex space-x-2">
+                    <input type="color" id="furColor1" value="#FBE3B9" class="color-circle" title="Fur 1">
+                    <input type="color" id="furColor2" value="#F2BA67" class="color-circle" title="Fur 2">
+                    <input type="color" id="furColor3" value="#B64F05" class="color-circle" title="Fur 3">
+                </div>
+                <div class="h-6 w-px bg-[#424306]"></div>
+                <input type="color" id="bgColor" value="#D17A00" class="color-square" title="Background">
+            </div>
+        </div>
+
+        <!-- Basic Parameters -->
+        <div class="section-header">Base Properties</div>
+        
+        <div class="control-group">
+            <label class="control-label" id="furAmountLabel">Amount: 500</label>
+            <input type="range" id="furAmount" min="5" max="5000" value="500" step="1" class="control-input">
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="globalRotationLabel">Global Rotation: 0°</label>
+            <input type="range" id="globalRotation" min="-180" max="180" value="0" step="1" class="control-input">
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="maxThicknessLabel">Thickness (40 px)</label>
+            <input type="range" id="maxThickness" min="5" max="200" value="40" step="1" class="control-input">
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="maxLengthLabel">Length (300 units)</label>
+            <input type="range" id="maxLength" min="50" max="600" value="300" step="1" class="control-input">
+        </div>
+
+        <!-- Geometry Logic Parameters -->
+        <div class="section-header">Shape Geometry</div>
+        
+        <div class="control-group">
+            <label class="control-label" id="twistLabel">Twist (N): 3</label>
+            <input type="range" id="twist" min="1" max="10" value="3" step="1" class="control-input">
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="crimpFactorLabel">Arc Curviness (0.50)</label>
+            <input type="range" id="crimpFactor" min="0.00" max="0.80" value="0.50" step="0.01" class="control-input">
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="amplitudeLabel">Amplitude: 20</label>
+            <input type="range" id="curviness" min="0" max="100" value="20" step="1" class="control-input">
+        </div>
+
+        <!-- Randomization -->
+        <div class="section-header">Randomization</div>
+        
+        <div class="control-group">
+            <label class="control-label" id="rotationLabel">Rotation Spread</label>
+            <div class="double-slider-group">
+                <div class="slider-track"></div>
+                <div class="slider-range" id="rotationRangeVisual"></div>
+                <input type="range" id="rotationMin" min="0" max="360" value="0" step="1" class="control-input">
+                <input type="range" id="rotationMax" min="0" max="360" value="0" step="1" class="control-input">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="distanceLabel">Position Offset</label>
+            <div class="double-slider-group">
+                <div class="slider-track"></div>
+                <div class="slider-range" id="distanceRangeVisual"></div>
+                <input type="range" id="distanceMin" min="0" max="100" value="0" step="1" class="control-input">
+                <input type="range" id="distanceMax" min="0" max="100" value="0" step="1" class="control-input">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" id="lengthRandomizationLabel">Length Variation</label>
+            <div class="double-slider-group">
+                <div class="slider-track"></div>
+                <div class="slider-range" id="lengthRangeVisual"></div>
+                <input type="range" id="lengthMinPercent" min="20" max="180" value="100" step="10" class="control-input">
+                <input type="range" id="lengthMaxPercent" min="20" max="180" value="100" step="10" class="control-input">
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN VIEWPORT: CANVAS -->
+    <div class="main-viewport">
+        <!-- Top Left Controls (Regenerate / Clear) -->
+        <div class="viewport-controls">
+            <button id="regenerateButton" class="px-4 py-2 bg-[#5C2BE5] hover:bg-[#4F13E7] hover:scale-105 text-white font-bold rounded-lg shadow-lg text-xs tracking-wider uppercase transition-all">
+                Regenerate
+            </button>
+            <button id="clearButton" class="px-4 py-2 bg-[#CD5906] hover:bg-[#B64F05] hover:scale-105 text-white font-bold rounded-lg shadow-lg text-xs tracking-wider uppercase transition-all">
+                Clear
+            </button>
+        </div>
+
+        <!-- Top Right Download Button -->
+        <button id="downloadButton" class="absolute top-6 right-6 z-30 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-xl text-xs uppercase tracking-wide transition-all hover:scale-105">
+            Download
+        </button>
+
+        <div id="canvas-container">
+            <canvas id="previewCanvas"></canvas>
+            
+            <!-- Status Message inside container -->
+            <div id="statusMessage" class="hidden"></div>
+        </div>
+        
+        <!-- Hidden High Res Canvases -->
+        <!-- highResCanvas accumulates transparent fur layers in Draw mode -->
+        <canvas id="highResCanvas" style="display: none;"></canvas>
+        <!-- bigResCanvas is for temporary active path drawing or scatter/image generation -->
+        <canvas id="bigResCanvas" style="display: none;"></canvas>
+        <!-- tempCanvas for download compositing -->
+        <canvas id="tempCanvas" style="display: none;"></canvas>
+    </div>
+
+    <!-- RIGHT SIDEBAR: FUR PREVIEW -->
+    <div class="panel sidebar-right">
+        <div class="section-header mb-4 text-center">Single Strand Preview</div>
+        
+        <!-- Container for the single strand preview -->
+        <div class="flex-grow flex items-center justify-center bg-[#3a3a12] rounded-lg border border-[#424306] p-0 shadow-inner mb-4 relative overflow-hidden w-full aspect-square" id="preview-container">
+            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#424306 1px, transparent 1px), linear-gradient(90deg, #424306 1px, transparent 1px); background-size: 20px 20px;"></div>
+            <!-- Square preview canvas -->
+            <canvas id="strandPreviewCanvas" class="w-full h-full relative z-10"></canvas>
+        </div>
+        
+        <button id="downloadStrandButton" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-[#FBE3B9] font-bold rounded shadow text-xs uppercase tracking-wide transition-colors mb-4">
+            Download Strand
+        </button>
+        
+        <div class="text-xs text-indigo-200 font-regular text-center leading-relaxed mt-auto">
+            <p>Twist • Amplitude • Thickness • Curviness • Length</p>
+        </div>
+    </div>
+
+<script>
+    // --- Configuration ---
+    const RESOLUTION = 2048; 
+    const HIGH_RES_WIDTH = RESOLUTION;
+    const HIGH_RES_HEIGHT = RESOLUTION;
+    const BIG_RES_WIDTH = Math.round(HIGH_RES_WIDTH * 1.2);
+    const BIG_RES_HEIGHT = Math.round(HIGH_RES_HEIGHT * 1.2);
+    const BIG_RES_OFFSET_X = (BIG_RES_WIDTH - HIGH_RES_WIDTH) / 2;
+    const BIG_RES_OFFSET_Y = (BIG_RES_HEIGHT - HIGH_RES_HEIGHT) / 2;
+    const DENSITY_UNIT = 1000;
+    const MAX_STRAND_POOL = 5000;
+    const DEFAULT_IMAGE_URL = 'https://freight.cargo.site/t/original/i/B2667905040449165242817260502104/Default.jpg'; 
+
+    // --- State Variables ---
+    let drawingMode = 'scatter';
+    let isDrawing = false;
+    let drawnPath = [];
+    let strandLocationPool = [];
+    let currentSeed;
+    let currentImage = new Image();
+    currentImage.crossOrigin = "Anonymous";
+
+    // --- PRNG ---
+    let prngSeed = 1;
+    function setSeed(s) {
+        prngSeed = s % 233280;
+        if (prngSeed <= 0) prngSeed = 1;
+    }
+    function seededRandom() {
+        prngSeed = (prngSeed * 9301 + 49297) % 233280;
+        return prngSeed / 233280;
+    }
+
+    // --- Elements ---
+    const previewCanvas = document.getElementById('previewCanvas');
+    const highResCanvas = document.getElementById('highResCanvas');
+    const bigResCanvas = document.getElementById('bigResCanvas');
+    const tempCanvas = document.getElementById('tempCanvas');
+    const strandPreviewCanvas = document.getElementById('strandPreviewCanvas');
+    const canvasContainer = document.getElementById('canvas-container');
+    const statusMessage = document.getElementById('statusMessage');
+
+    const previewCtx = previewCanvas.getContext('2d');
+    const highResCtx = highResCanvas.getContext('2d');
+    const bigResCtx = bigResCanvas.getContext('2d');
+    const tempCtx = tempCanvas.getContext('2d');
+    const strandPreviewCtx = strandPreviewCanvas.getContext('2d');
+
+    // Inputs
+    const furAmountInput = document.getElementById('furAmount');
+    const rotationMinInput = document.getElementById('rotationMin');
+    const rotationMaxInput = document.getElementById('rotationMax');
+    const distanceMinInput = document.getElementById('distanceMin');
+    const distanceMaxInput = document.getElementById('distanceMax');
+    const lengthMinPercentInput = document.getElementById('lengthMinPercent');
+    const lengthMaxPercentInput = document.getElementById('lengthMaxPercent');
+    const twistInput = document.getElementById('twist');
+    const curvinessInput = document.getElementById('curviness'); 
+    const crimpFactorInput = document.getElementById('crimpFactor'); 
+    const maxThicknessInput = document.getElementById('maxThickness');
+    const maxLengthInput = document.getElementById('maxLength');
+    const globalRotationInput = document.getElementById('globalRotation');
+    
+    const colorInputs = [
+        document.getElementById('furColor1'),
+        document.getElementById('furColor2'),
+        document.getElementById('furColor3')
+    ];
+    const bgColorInput = document.getElementById('bgColor');
+
+    // Set Canvas Sizes
+    highResCanvas.width = HIGH_RES_WIDTH;
+    highResCanvas.height = HIGH_RES_HEIGHT;
+    previewCanvas.width = HIGH_RES_WIDTH;
+    previewCanvas.height = HIGH_RES_HEIGHT;
+    bigResCanvas.width = BIG_RES_WIDTH;
+    bigResCanvas.height = BIG_RES_HEIGHT;
+    
+    const previewContainer = document.getElementById('preview-container');
+    strandPreviewCanvas.width = previewContainer.clientWidth;
+    strandPreviewCanvas.height = previewContainer.clientHeight;
+
+    // --- Data Collection ---
+    function getParams() {
+        return {
+            maxLength: parseFloat(maxLengthInput.value),
+            maxThickness: parseFloat(maxThicknessInput.value),
+            twist: parseInt(twistInput.value),
+            amplitude: parseFloat(curvinessInput.value),
+            arcCurviness: parseFloat(crimpFactorInput.value),
+            globalRotationRad: parseFloat(globalRotationInput.value) * (Math.PI / 180),
+            rotationMinRad: parseFloat(rotationMinInput.value) * (Math.PI / 180),
+            rotationMaxRad: parseFloat(rotationMaxInput.value) * (Math.PI / 180),
+            distanceMin: parseFloat(distanceMinInput.value),
+            distanceMax: parseFloat(distanceMaxInput.value),
+            lengthMinP: parseFloat(lengthMinPercentInput.value) / 100,
+            lengthMaxP: parseFloat(lengthMaxPercentInput.value) / 100,
+        };
+    }
+
+    // --- Utility Functions ---
+    
+    function clearCanvas(ctx, w, h, bgColor) {
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, w, h);
+    }
+
+    // --- Geometry Logic ---
+    
+    function generateSpinePoints(length, twist, amplitude, arcCurviness) {
+        const segments = 2 * twist;
+        const totalPoints = segments + 1;
+        let points = [];
+
+        const p0 = {x: 0, y: 0};
+        const p2 = {x: 0, y: -length};
+        const p1 = {x: arcCurviness * length, y: -length/2};
+
+        for (let i = 0; i < totalPoints; i++) {
+            const t = i / segments;
+            const mt = 1 - t;
+            const bx = mt*mt*p0.x + 2*mt*t*p1.x + t*t*p2.x;
+            const by = mt*mt*p0.y + 2*mt*t*p1.y + t*t*p2.y;
+            
+            const tx = 2*mt*(p1.x - p0.x) + 2*t*(p2.x - p1.x);
+            const ty = 2*mt*(p1.y - p0.y) + 2*t*(p2.y - p1.y);
+            const lenT = Math.sqrt(tx*tx + ty*ty);
+            const nx = -ty / lenT;
+            const ny = tx / lenT;
+
+            points.push({ x: bx, y: by, nx: nx, ny: ny });
+        }
+
+        const filteredPoints = [points[0]]; 
+        const internalPoints = [];
+        for (let i = 1; i < points.length - 1; i++) {
+            internalPoints.push(points[i]);
+        }
+
+        const N = twist;
+        const pointsToRemove = Math.floor((2 * N - 1) / 2);
+        
+        const indices = internalPoints.map((_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(seededRandom() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        
+        const keepIndices = new Set(indices.slice(pointsToRemove));
+        
+        for (let i = 0; i < internalPoints.length; i++) {
+            if (keepIndices.has(i)) {
+                filteredPoints.push(internalPoints[i]);
+            }
+        }
+        filteredPoints.push(points[points.length - 1]); 
+
+        for (let i = 1; i < filteredPoints.length - 1; i++) {
+            const p = filteredPoints[i];
+            const displacement = (seededRandom() - 0.5) * 2 * amplitude;
+            p.x += p.nx * displacement;
+            p.y += p.ny * displacement;
+        }
+        return filteredPoints;
+    }
+
+    function drawComplexStrand(ctx, startX, startY, baseAngle, params, color) {
+        const { maxLength, maxThickness, twist, amplitude, arcCurviness, lengthMinP, lengthMaxP } = params;
+
+        const lenFactor = lengthMinP + seededRandom() * (lengthMaxP - lengthMinP);
+        const actualLength = maxLength * lenFactor;
+        const thickness = maxThickness * (0.8 + seededRandom() * 0.4);
+
+        const spine = generateSpinePoints(actualLength, twist, amplitude, arcCurviness);
+
+        ctx.save();
+        ctx.translate(startX, startY);
+        ctx.rotate(baseAngle + Math.PI/2); 
+
+        ctx.fillStyle = color;
+        ctx.beginPath();
+
+        const pathPoints = [];
+        const stepsPerSegment = 10; 
+
+        function spline(p0, p1, p2, p3, t) {
+            const v0 = (p2 - p0) * 0.5;
+            const v1 = (p3 - p1) * 0.5;
+            const t2 = t * t;
+            const t3 = t * t2;
+            return (2 * p1 - 2 * p2 + v0 + v1) * t3 + (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 + v0 * t + p1;
+        }
+
+        for (let i = 0; i < spine.length - 1; i++) {
+            const p0 = spine[Math.max(0, i - 1)];
+            const p1 = spine[i];
+            const p2 = spine[i + 1];
+            const p3 = spine[Math.min(spine.length - 1, i + 2)];
+
+            for (let j = 0; j < stepsPerSegment; j++) {
+                const t = j / stepsPerSegment;
+                pathPoints.push({
+                    x: spline(p0.x, p1.x, p2.x, p3.x, t),
+                    y: spline(p0.y, p1.y, p2.y, p3.y, t)
+                });
+            }
+        }
+        pathPoints.push(spine[spine.length - 1]); 
+
+        for (let i = 0; i < pathPoints.length; i++) {
+            const p = pathPoints[i];
+            const next = pathPoints[Math.min(i + 1, pathPoints.length - 1)];
+            const prev = pathPoints[Math.max(0, i - 1)];
+            const angle = Math.atan2(next.y - prev.y, next.x - prev.x);
+            
+            const t = i / (pathPoints.length - 1);
+            const width = thickness * Math.sin(t * Math.PI) * 0.5;
+
+            const nx = -Math.sin(angle);
+            const ny = Math.cos(angle);
+
+            const ox = nx * width;
+            const oy = ny * width;
+
+            if (i === 0) ctx.moveTo(p.x + ox, p.y + oy);
+            else ctx.lineTo(p.x + ox, p.y + oy);
+        }
+
+        for (let i = pathPoints.length - 1; i >= 0; i--) {
+            const p = pathPoints[i];
+            const next = pathPoints[Math.min(i + 1, pathPoints.length - 1)];
+            const prev = pathPoints[Math.max(0, i - 1)];
+            const angle = Math.atan2(next.y - prev.y, next.x - prev.x);
+            
+            const t = i / (pathPoints.length - 1);
+            const width = thickness * Math.sin(t * Math.PI) * 0.5;
+
+            const nx = -Math.sin(angle);
+            const ny = Math.cos(angle);
+
+            const ox = -nx * width; 
+            const oy = -ny * width;
+            
+            ctx.lineTo(p.x + ox, p.y + oy);
+        }
+
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    }
+
+    // --- Main Logic ---
+
+    function generateLocationPool() {
+        setSeed(currentSeed);
+        strandLocationPool = [];
+        
+        if (drawingMode === 'scatter' || drawingMode === 'image') {
+            const numLocations = Math.ceil(BIG_RES_WIDTH * BIG_RES_HEIGHT / 2000); 
+            const poolSize = 8000; 
+            for(let i=0; i<poolSize; i++) {
+                strandLocationPool.push({
+                    x: seededRandom() * BIG_RES_WIDTH,
+                    y: seededRandom() * BIG_RES_HEIGHT,
+                    baseAngle: -Math.PI / 2, // Grow UP default
+                    colorIdx: Math.floor(seededRandom() * 3)
+                });
+            }
+        }
+    }
+
+    function rgbToLuminance(r, g, b) {
+        return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    }
+
+    function render(targetCtx, clear = true, bgColor, transparentBackground = false) {
+        const params = getParams();
+        const colors = colorInputs.map(c => c.value);
+        
+        if (clear) {
+            if (transparentBackground) {
+                targetCtx.clearRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
+            } else {
+                targetCtx.fillStyle = bgColor;
+                targetCtx.fillRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
+            }
+        }
+
+        setSeed(currentSeed);
+        let strandsToDraw = [];
+
+        if (drawingMode === 'scatter') {
+            const count = parseInt(furAmountInput.value);
+            const pool = strandLocationPool.slice(0, count);
+            
+            pool.forEach(loc => {
+                const dist = params.distanceMin + seededRandom() * (params.distanceMax - params.distanceMin);
+                const ang = seededRandom() * Math.PI * 2;
+                const finalX = loc.x + Math.cos(ang) * dist;
+                const finalY = loc.y + Math.sin(ang) * dist;
+
+                const rotSpread = params.rotationMinRad + seededRandom() * (params.rotationMaxRad - params.rotationMinRad);
+                const finalAngle = loc.baseAngle + rotSpread + params.globalRotationRad;
+
+                strandsToDraw.push({ x: finalX, y: finalY, angle: finalAngle, color: colors[loc.colorIdx] });
+            });
+
+        } else if (drawingMode === 'draw') {
+            if (drawnPath.length < 2) return;
+            const density = parseInt(furAmountInput.value); 
+            const scale = HIGH_RES_WIDTH; 
+            
+            for(let i=0; i<drawnPath.length-1; i++) {
+                const p1 = drawnPath[i];
+                const p2 = drawnPath[i+1];
+                if(p2.startOfStroke) continue;
+
+                const dx = (p2.x - p1.x) * scale;
+                const dy = (p2.y - p1.y) * scale;
+                const len = Math.sqrt(dx*dx + dy*dy);
+                const angle = Math.atan2(dy, dx); 
+
+                const numStrands = Math.ceil(len / 1000 * density);
+                for(let k=0; k<numStrands; k++) {
+                    const t = k / numStrands;
+                    const bx = (p1.x + (p2.x - p1.x)*t) * scale;
+                    const by = (p1.y + (p2.y - p1.y)*t) * scale;
+
+                    const dist = params.distanceMin + seededRandom() * (params.distanceMax - params.distanceMin);
+                    const rAng = seededRandom() * Math.PI * 2;
+                    const finalX = bx + Math.cos(rAng) * dist;
+                    const finalY = by + Math.sin(rAng) * dist;
+
+                    const rotSpread = params.rotationMinRad + seededRandom() * (params.rotationMaxRad - params.rotationMinRad);
+                    const finalAngle = angle + (Math.PI/2) + rotSpread + params.globalRotationRad;
+                    
+                    const cIdx = Math.floor(seededRandom() * 3);
+                    strandsToDraw.push({ x: finalX, y: finalY, angle: finalAngle, color: colors[cIdx] });
+                }
+            }
+
+        } else if (drawingMode === 'image') {
+            if(!currentImage.src || currentImage.width === 0) return;
+            
+            const cellSize = parseInt(document.getElementById('samplingCellSize').value);
+            const w = tempCanvas.width;
+            const h = tempCanvas.height;
+            tempCtx.drawImage(currentImage, 0, 0, w, h);
+            const imgData = tempCtx.getImageData(0,0,w,h).data;
+            const cols = Math.floor(w / cellSize);
+            const rows = Math.floor(h / cellSize);
+            const maxDensity = parseInt(furAmountInput.value); 
+            const scaleX = BIG_RES_WIDTH / w;
+            const scaleY = BIG_RES_HEIGHT / h;
+
+            for(let r=0; r<rows; r++) {
+                for(let c=0; c<cols; c++) {
+                    const cx = (c + 0.5) * cellSize;
+                    const cy = (r + 0.5) * cellSize;
+                    const idx = (Math.floor(cy)*w + Math.floor(cx)) * 4;
+                    const lum = (0.2126*imgData[idx] + 0.7152*imgData[idx+1] + 0.0722*imgData[idx+2]) / 255;
+                    const spawnCount = lum * (maxDensity / 100); 
+                    
+                    if (seededRandom() < spawnCount % 1) spawnStrandAt(cx, cy);
+                    for(let k=0; k<Math.floor(spawnCount); k++) spawnStrandAt(cx, cy);
+                }
+            }
+
+            function spawnStrandAt(cx, cy) {
+                const bx = cx * scaleX;
+                const by = cy * scaleY;
+                const dist = params.distanceMin + seededRandom() * (params.distanceMax - params.distanceMin);
+                const rAng = seededRandom() * Math.PI * 2;
+                const finalX = bx + Math.cos(rAng) * dist;
+                const finalY = by + Math.sin(rAng) * dist;
+                const rotSpread = params.rotationMinRad + seededRandom() * (params.rotationMaxRad - params.rotationMinRad);
+                const finalAngle = -Math.PI/2 + rotSpread + params.globalRotationRad;
+                const cIdx = Math.floor(seededRandom() * 3);
+                strandsToDraw.push({ x: finalX, y: finalY, angle: finalAngle, color: colors[cIdx] });
+            }
+        }
+
+        strandsToDraw.forEach(s => {
+            drawComplexStrand(targetCtx, s.x, s.y, s.angle, params, s.color);
+        });
+        
+        const count = strandsToDraw.length;
+        statusMessage.textContent = `${count} strands generated`;
+        statusMessage.classList.remove('hidden');
+        setTimeout(() => statusMessage.classList.add('hidden'), 2000);
+    }
+
+    function updatePreview() {
+        updateSliders();
+        const bgColor = bgColorInput.value;
+
+        if (drawingMode === 'draw') {
+            bigResCtx.clearRect(0, 0, BIG_RES_WIDTH, BIG_RES_HEIGHT);
+            if (drawnPath.length > 0) render(bigResCtx, false, 'transparent', true); 
+            
+            previewCtx.fillStyle = bgColor;
+            previewCtx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+            
+            previewCtx.drawImage(highResCanvas, 0, 0, previewCanvas.width, previewCanvas.height);
+            previewCtx.drawImage(bigResCanvas, 0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT, 0, 0, previewCanvas.width, previewCanvas.height);
+
+        } else {
+            render(bigResCtx, true, bgColor, false); 
+            highResCtx.drawImage(bigResCanvas, -BIG_RES_OFFSET_X, -BIG_RES_OFFSET_Y);
+            previewCtx.drawImage(highResCanvas, 0, 0, previewCanvas.width, previewCanvas.height);
+        }
+        
+        updateStrandPreview();
+    }
+    
+    function updateStrandPreview() {
+        const ctx = strandPreviewCtx;
+        const w = ctx.canvas.width = ctx.canvas.clientWidth;
+        const h = ctx.canvas.height = ctx.canvas.clientHeight;
+        const bgColor = bgColorInput.value;
+        const params = getParams();
+        const colors = colorInputs.map(c => c.value);
+        
+        const previewParams = {
+            ...params,
+            lengthMinP: 1.0,
+            lengthMaxP: 1.0,
+            rotationMinRad: 0,
+            rotationMaxRad: 0,
+            distanceMin: 0,
+            distanceMax: 0,
+        };
+        
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, w, h);
+        
+        const actualLength = previewParams.maxLength;
+        const padding = 40;
+        const availHeight = h - padding;
+        let scale = 1;
+        if (actualLength > availHeight) {
+            scale = availHeight / actualLength;
+        }
+        
+        setSeed(999); 
+        
+        ctx.save();
+        ctx.translate(w/2, h/2); 
+        ctx.scale(scale, scale);
+        
+        const centerOffsetX = (previewParams.arcCurviness * actualLength) / 2;
+        ctx.translate(-centerOffsetX, actualLength/2); 
+        
+        drawComplexStrand(ctx, 0, 0, -Math.PI/2, previewParams, colors[0]); 
+        
+        ctx.restore();
+    }
+
+    function updateSliders() {
+        document.getElementById('maxThicknessLabel').innerText = `Thickness (${maxThicknessInput.value} px)`;
+        document.getElementById('maxLengthLabel').innerText = `Length (${maxLengthInput.value} units)`;
+        document.getElementById('globalRotationLabel').innerText = `Global Rotation: ${globalRotationInput.value}°`;
+        
+        function setRange(minId, maxId, visualId) {
+            const minEl = document.getElementById(minId);
+            const maxEl = document.getElementById(maxId);
+            const vis = document.getElementById(visualId);
+            const mn = parseFloat(minEl.value);
+            const mx = parseFloat(maxEl.value);
+            if(mn > mx) { minEl.value = mx; } 
+            
+            const range = parseFloat(minEl.max) - parseFloat(minEl.min);
+            const l = ((parseFloat(minEl.value) - parseFloat(minEl.min)) / range) * 100;
+            const w = ((parseFloat(maxEl.value) - parseFloat(minEl.value)) / range) * 100;
+            vis.style.left = l + "%";
+            vis.style.width = w + "%";
+            
+            if(minId === 'rotationMin') document.getElementById('rotationLabel').innerText = `Rotation: ${minEl.value}° - ${maxEl.value}°`;
+            if(minId === 'distanceMin') document.getElementById('distanceLabel').innerText = `Offset: ${minEl.value} - ${maxEl.value}`;
+            if(minId === 'lengthMinPercent') document.getElementById('lengthRandomizationLabel').innerText = `Length: ${minEl.value}% - ${maxEl.value}%`;
+        }
+        setRange('rotationMin', 'rotationMax', 'rotationRangeVisual');
+        setRange('distanceMin', 'distanceMax', 'distanceRangeVisual');
+        setRange('lengthMinPercent', 'lengthMaxPercent', 'lengthRangeVisual');
+        
+        document.getElementById('twistLabel').innerText = `Twist (N): ${twistInput.value}`;
+        document.getElementById('amplitudeLabel').innerText = `Amplitude: ${curvinessInput.value}`;
+        document.getElementById('furAmountLabel').innerText = `Amount/Density: ${furAmountInput.value}`;
+        document.getElementById('crimpFactorLabel').innerText = `Arc Curviness (${crimpFactorInput.value})`;
+    }
+
+    // --- Init & Events ---
+    
+    function setDrawingMode(mode) {
+        if(drawingMode === mode) return;
+        drawingMode = mode;
+        
+        ['modeScatter', 'modeDraw', 'modeImage'].forEach(id => {
+            const btn = document.getElementById(id);
+            btn.className = id === 'mode' + mode.charAt(0).toUpperCase() + mode.slice(1) ? 'mode-button active' : 'mode-button inactive';
+        });
+        
+        document.getElementById('imageControls').classList.toggle('hidden', mode !== 'image');
+        document.getElementById('canvas-container').style.cursor = mode === 'draw' ? 'crosshair' : 'default';
+        
+        if(mode === 'scatter') furAmountInput.value = 500;
+        else if(mode === 'draw') { furAmountInput.value = 15; handleClear(); }
+        else if(mode === 'image') { furAmountInput.value = 500; handleClear(); }
+        
+        handleRegenerate();
+    }
+
+    function handleRegenerate() {
+        currentSeed = Date.now();
+        if(drawingMode !== 'draw') generateLocationPool();
+        updatePreview();
+    }
+
+    function handleClear() {
+        // In Draw mode, clear to transparent accumulation. 
+        // In other modes, clear to solid BG (which updatePreview will do anyway by calling render with BG).
+        // But for consistency, let's just reset the accumulated HighRes buffer.
+        
+        highResCtx.clearRect(0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT);
+        bigResCtx.clearRect(0, 0, BIG_RES_WIDTH, BIG_RES_HEIGHT);
+        drawnPath = [];
+        updatePreview(); 
+    }
+
+    function handleDownload() {
+        const bgColor = bgColorInput.value;
+        const tempW = HIGH_RES_WIDTH;
+        const tempH = HIGH_RES_HEIGHT;
+        tempCanvas.width = tempW;
+        tempCanvas.height = tempH;
+        
+        const ctx = tempCanvas.getContext('2d');
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, tempW, tempH);
+        
+        if (drawingMode === 'draw') {
+            ctx.drawImage(highResCanvas, 0, 0); 
+            ctx.drawImage(bigResCanvas, 0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT, 0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT);
+        } else {
+            ctx.drawImage(highResCanvas, 0, 0);
+        }
+
+        const link = document.createElement('a');
+        link.download = `fur_pattern_${Date.now()}.png`;
+        link.href = tempCanvas.toDataURL();
+        link.click();
+    }
+    
+    function handleStrandDownload() {
+        const link = document.createElement('a');
+        link.download = `single_strand_${Date.now()}.png`;
+        link.href = strandPreviewCanvas.toDataURL();
+        link.click();
+    }
+
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        if(input.type === 'file' || input.type === 'button') return;
+        input.addEventListener('input', () => {
+            if(drawingMode !== 'draw') updatePreview(); 
+            else if(drawingMode === 'draw' && drawnPath.length > 0) updatePreview(); 
+            else updateSliders(); 
+        });
+    });
+
+    document.getElementById('imageUpload').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+            currentImage.src = evt.target.result;
+            currentImage.onload = () => handleRegenerate();
+        };
+        reader.readAsDataURL(file);
+    });
+
+    document.getElementById('modeScatter').onclick = () => setDrawingMode('scatter');
+    document.getElementById('modeDraw').onclick = () => setDrawingMode('draw');
+    document.getElementById('modeImage').onclick = () => setDrawingMode('image');
+    document.getElementById('regenerateButton').onclick = handleRegenerate;
+    document.getElementById('clearButton').onclick = handleClear;
+    document.getElementById('downloadButton').onclick = handleDownload;
+    document.getElementById('downloadStrandButton').onclick = handleStrandDownload;
+
+    function getMousePos(evt) {
+        const rect = previewCanvas.getBoundingClientRect();
+        const clientX = evt.clientX || evt.touches[0].clientX;
+        const clientY = evt.clientY || evt.touches[0].clientY;
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+        return { x: x / rect.width, y: y / rect.height };
+    }
+
+    function startDraw(e) {
+        if(drawingMode !== 'draw') return;
+        isDrawing = true;
+        
+        if(drawnPath.length > 0) {
+            highResCtx.drawImage(
+                bigResCanvas, 
+                0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT, 
+                0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT
+            );
+        }
+        drawnPath = [];
+        bigResCtx.clearRect(0, 0, BIG_RES_WIDTH, BIG_RES_HEIGHT);
+        drawnPath.push({ ...getMousePos(e), startOfStroke: true });
+    }
+
+    function moveDraw(e) {
+        if(!isDrawing) return;
+        e.preventDefault();
+        const pos = getMousePos(e);
+        const last = drawnPath[drawnPath.length-1];
+        if(Math.hypot(pos.x - last.x, pos.y - last.y) > 0.001) {
+            drawnPath.push({ ...pos, startOfStroke: false });
+            updatePreview(); 
+        }
+    }
+
+    function endDraw() {
+        if(isDrawing) {
+            isDrawing = false;
+        }
+    }
+
+    previewCanvas.addEventListener('mousedown', startDraw);
+    previewCanvas.addEventListener('mousemove', moveDraw);
+    window.addEventListener('mouseup', endDraw);
+    previewCanvas.addEventListener('touchstart', startDraw, {passive: false});
+    previewCanvas.addEventListener('touchmove', moveDraw, {passive: false});
+    window.addEventListener('touchend', endDraw);
+
+    function init() {
+        currentSeed = Date.now();
+        currentImage.onload = () => { if(drawingMode === 'image') handleRegenerate(); }
+        currentImage.src = DEFAULT_IMAGE_URL;
+        
+        generateLocationPool();
+        updatePreview();
+        
+        const ro = new ResizeObserver(() => {
+            updatePreview(); 
+        });
+        ro.observe(canvasContainer);
+    }
+
+    init();
+
+</script>
+</body>
+</html>
