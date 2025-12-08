@@ -1,21 +1,24 @@
 [
     {
+        "id": "ripple",
         "title": "Ripple: Spreading Love for Performances",
         "image": "https://freight.cargo.site/t/original/i/J2650437434977960375970492005464/Ripple-1.jpg",
         "date": "Revised OCT 2025–NOV 2025",
-        "genre": "UI/UX Design",
-        "software": "",
-        "link": "/ripple/"
+        "genre": "VIS, UI, UX",
+        "software": "Figma, Illustrator",
+        "link": "https://shuchen-wang.cargo.site/ripple"
     },
     {
+        "id": "science-snacks",
         "title": "Science Snacks: Resonate with Friends",
         "image": "https://freight.cargo.site/t/original/i/N2400630228800626234129379441752/SS01.jpg",
         "date": "OCT 2024-JAN 2025",
-        "genre": "Branding",
-        "software": "",
-        "link": "/science-snacks/"
+        "genre": "VIS, Typography, Motion, Data Visualization",
+        "software": "Indesign, Rhino, Cinema 4D",
+        "link": "https://shuchen-wang.cargo.site/sciencesnacks"
     },
     {
+        "id": "gms",
         "title": "Gray Muzzle Society",
         "image": "https://freight.cargo.site/t/original/i/G2680563682175123870866877922392/GMS-Head.jpg",
         "date": "Revised in NOV 2025",
@@ -24,67 +27,228 @@
         "link": "/archive/gray-muzzle-society/"
     },
     {
-        "title": "Inkai Typeface Design & Specimen",
+        "id": "inkai-specimen",
+        "title": "Inkai Typeface Specimen",
         "image": "https://freight.cargo.site/t/original/i/Y2443103519159778022661072043096/IS_photo3.jpg",
         "date": "NOV 2024-FEB 2025",
         "genre": "Typography",
         "software": "",
-        "link": "/inkai/"
+        "link": "https://shuchen-wang.cargo.site/inkaispecimen"
     },
     {
-        "title": "Drowsy Typeface Design & Specimen",
+        "id": "inkai-typeface",
+        "title": "Inkai Typeface Design",
+        "image": "https://freight.cargo.site/t/original/i/G2169579931081960479622068124760/Specimen_0118_36-37.jpg",
+        "date": "NOV 2024-FEB 2025",
+        "genre": "Typography",
+        "software": "",
+        "link": "https://shuchen-wang.cargo.site/inkai"
+    },
+    {
+       "id": "drowsy-specimen",
+        "title": "Drowsy Typeface Specimen",
         "image": "https://freight.cargo.site/t/original/i/G2299683334026290885364023508056/Drowsy1.jpg",
         "date": "OCT 2024-JAN 2025",
         "genre": "Typography",
         "software": "",
-        "link": "/drowsy-type/"
+        "link": "https://shuchen-wang.cargo.site/drowsyspecimen"
     },
     {
+       "id": "drowsy-typeface",
+        "title": "Drowsy Typeface Design",
+        "image": "https://freight.cargo.site/t/original/i/W2385996403760756075064014879832/Drowsy_repre.jpg",
+        "date": "OCT 2024-JAN 2025",
+        "genre": "Typography",
+        "software": "",
+        "link": "https://shuchen-wang.cargo.site/drowsyspecimen"
+    },
+    {
+        "id": "intoit",
         "title": "Into It: Interactive Book Publisher",
         "image": "https://freight.cargo.site/t/original/i/J2502537671548788783177848274008/IntoIt-1.jpg",
         "date": "JAN 2024–FEB 2024",
         "genre": "Editorial / Interactive",
         "software": "",
-        "link": "/into-it/"
+        "link": "https://shuchen-wang.cargo.site/intoit"
     },
     {
+        "id": "instacart",
+        "title": "Instacart User-flow Re-design",
+        "image": "https://freight.cargo.site/t/original/i/I2381361807605612158771580320856/Insta_thumbnail.png",
+        "date": "JAN 2024–FEB 2024",
+        "genre": "UX, UI",
+        "software": "",
+        "link": "/uiux/#sec-instacart"
+    },
+    {
+        "id": "ewarchive",
         "title": "Earthworm Archive",
         "image": "https://freight.cargo.site/t/original/i/L2176902336498101759684789877848/EWGallery_1.png",
         "date": "FEB 2024–APR 2024",
         "genre": "Archive Design",
         "software": "",
-        "link": "/earthworm-archive/"
+        "link": "https://shuchen-wang.cargo.site/earthworm-archive"
     },
     {
+        "id": "typolyrics",
         "title": "Typolyrics of Internationale",
         "image": "https://freight.cargo.site/t/original/i/J2172698093824846147040166755416/LyricsPhoto01.png",
         "date": "NOV 2024–DEC 2024",
         "genre": "Typography",
         "software": "",
-        "link": "/typolyrics/"
+        "link": "https://shuchen-wang.cargo.site/typolyrics"
     },
     {
+        "id": "biodiagram",
         "title": "Biodiagram: 73 Items that Connect Me To Home",
         "image": "https://freight.cargo.site/t/original/i/E2180736016696760069755934817368/BD1.png",
         "date": "SEP 2024–OCT 2024",
         "genre": "Data Visualization",
         "software": "",
-        "link": "/biodiagram/"
+        "link": "https://shuchen-wang.cargo.site/biodiagram-73items"
     },
     {
+        "id": "desire-branding",
         "title": "Palace of Desire: TV Series Rebranding",
         "image": "https://freight.cargo.site/t/original/i/Q2502065986015427764803042753624/Desire-1.jpg",
         "date": "JAN 2024–FEB 2024",
         "genre": "Branding",
         "software": "",
-        "link": "/palace-of-desire/"
+        "link": "https://shuchen-wang.cargo.site/palaceofdesire"
     },
     {
+        "id": "rt-book",
         "title": "Rain And Tears: Thesis Book",
         "image": "https://freight.cargo.site/t/original/i/Z2502569917158405902275036003416/RT-ThesisBook-1.jpg",
         "date": "APR 2025–MAY 2025",
         "genre": "Editorial Design",
         "software": "",
-        "link": "/thesis-book/"
+        "link": "https://shuchen-wang.cargo.site/rt-thesisbook"
+    },
+    {
+        "id": "rt-motion",
+        "title": "Rain And Tears: Her Voice Behind the Poems",
+        "image": "/assets/rt/motion/herVoice-cover.jpg",
+        "date": "APR 2025–MAY 2025",
+        "genre": "Editorial Design",
+        "software": "",
+        "link": "/archive/rt/motion/"
+    },
+    {
+        "id": "rt-zine",
+        "title": "Rain And Tears: Changing Phases of the Divine Woman's Imagery",
+        "image": "https://freight.cargo.site/t/original/i/X2388885658993309929211445853272/RT_scan.jpg",
+        "date": "SEP 2024–MAY 2025",
+        "genre": "Typography, Lettering, Illustration",
+        "software": "Indesign, Rhino",
+        "link": "https://shuchen-wang.cargo.site/rt-magazine"
+    },
+    {
+        "id": "rt-exhibition",
+        "title": "Rain And Tears: Thesis Exhibition",
+        "image": "https://freight.cargo.site/t/original/i/V2389429054067541692770431482968/Shuchen_Thesis_Exhibition01.jpg",
+        "date": "JAN 2025–MAR 2025",
+        "genre": "Typography, Lettering, Illustration",
+        "software": "Indesign, Illustrator, Rhino, TouchDesigner",
+        "link": "https://shuchen-wang.cargo.site/rt-exhibition"
+    },
+    {
+        "id": "6esens",
+        "title": "SIXIÈME SENS",
+        "image": "/assets/6esens-cover.jpg",
+        "date": "",
+        "genre": "3D, Motion",
+        "software": "Cinema 4D, Octane Render",
+        "link": "/motion/#sec-6esens"
+    },
+    {
+        "id": "figgarden",
+        "title": "Secret Garden of Figs",
+        "image": "/assets/fig-cover.jpg",
+        "date": "",
+        "genre": "3D, Motion",
+        "software": "Cinema 4D, Octane Render",
+        "link": "/motion/#sec-figgarden"
+    },
+    {
+        "id": "retour-typeface",
+        "title": "Retour Regular Typeface Design",
+        "image": "",
+        "date": "FEB 2025–ONGOING",
+        "genre": "Typeface Design",
+        "software": "RoboFont",
+        "link": "/typeface/#retour-container"
+    },
+    {
+        "id": "desire-typeface",
+        "title": "Desire Typeface Design",
+        "image": "https://freight.cargo.site/t/original/i/I2384694650622995350231567252568/Desire_1.jpg",
+        "date": "JAN 2024–MAR 2024",
+        "genre": "Typeface Design",
+        "software": "Glyphs",
+        "link": "/typeface/#desire-container"
+    },
+    {
+        "id": "jjw-typeface",
+        "title": "Jess Jess Write",
+        "image": "https://freight.cargo.site/t/original/i/B2632628075478398815420389997656/JJW_1.jpg",
+        "date": "JUNE 2024–JUL 2024",
+        "genre": "VIS, Typeface Design",
+        "software": "Figma, Glyphs",
+        "link": "/typeface/#jess-container"
+    },
+    {
+        "id": "srj",
+        "title": "Shakespeare's R &amp; J",
+        "image": "https://freight.cargo.site/t/original/i/D2344292549804860666666683677784/SRJ_storyboard.png",
+        "date": "",
+        "genre": "Motion",
+        "software": "After Effects, Illustrator, Cinema 4D",
+        "link": "/motion/#sec-srj"
+    },
+    {
+        "id": "ewfacts",
+        "title": "Earthworm Facts",
+        "image": "https://freight.cargo.site/t/original/i/W2222028278745421990057988013144/EWIN_storyBoard.png",
+        "date": "",
+        "genre": "Motion",
+        "software": "After Effects, Illustrator, Cinema 4D",
+        "link": "/motion/#sec-ewfacts"
+    },
+    {
+        "id": "mounou",
+        "title": "MOUNOU",
+        "image": "https://freight.cargo.site/t/original/i/W2381570842438553364742292061272/Mounou_opener.jpg",
+        "date": "",
+        "genre": "VIS, Typography",
+        "software": "Indesign, Figma, Illustrator",
+        "link": "/publication/#sec-mounou"
+    },
+    {
+        "id": "jjp",
+        "title": "Jess Jess Press",
+        "image": "https://freight.cargo.site/t/original/i/X2632628075496845559494099549272/JJW_2.jpg",
+        "date": "",
+        "genre": "VIS",
+        "software": "Figma, Indesign",
+        "link": "/branding/#sec-jjp"
+    },
+    {
+        "id": "ziyou",
+        "title": "Ziyou Craft Beer",
+        "image": "https://freight.cargo.site/t/original/i/U2380943285145949713555502873688/Ziyou_Render.jpg",
+        "date": "",
+        "genre": "VIS, Packaging",
+        "software": "Figma, Illustrator, Indesign",
+        "link": "/branding/#sec-ziyou"
+    },
+    {
+        "id": "speechless-typeface",
+        "title": "Speechless Typeface Design",
+        "image": "",
+        "date": "OCT 2023–JAN 2024",
+        "genre": "Typeface Design",
+        "software": "Glyphs",
+        "link": "/typeface/#speechless-container"
     }
 ]
