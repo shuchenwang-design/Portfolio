@@ -8,7 +8,7 @@ function toggleFeature(containerId, feature, btnElement) {
         console.error(`Container #${containerId} not found.`);
         return;
     }
-
+    
     const currentValue = getComputedStyle(container).getPropertyValue(`--${feature}`).trim();
     const newValue = (currentValue === '1') ? '0' : '1';
     
