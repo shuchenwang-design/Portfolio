@@ -7,6 +7,9 @@
     <script src="/tailwind.config.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <style>
+
+    </style>
 </head>
 <body class="bg-black text-white">
 
@@ -15,7 +18,7 @@
     <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12">
         
         <div class="col-start-1 lg:col-start-3 lg:col-end-13 mx-4 my-12 space-y-4">
-            <div alt="desire" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="desire" id="sec-desire" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Palace of Desire<br>TV Series Rebranding</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -28,7 +31,7 @@
                 </div>
     
             </div>
-            <div alt="gms" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="gms" id="sec-gms" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Gray Muzzle Society<br>Non-profit Organization Rebranding</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -44,7 +47,7 @@
                 </div>
     
             </div>
-            <div alt="intoIt" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="intoIt" id="sec-intoit" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Into It<br>Interactive Book Publisher Rebranding</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -58,7 +61,7 @@
                 </div>
     
             </div>
-            <div alt="ripple" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="ripple" id="sec-ripple" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Ripple<br>A Social Media App for Performance Lovers</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -72,7 +75,7 @@
                 </div>
     
             </div>
-            <div alt="jjp" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="jjp" id="sec-jjp" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Jess Jess Press<br>A RISO Studio and Zine Publisher</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -88,7 +91,7 @@
                 </div>
     
             </div>
-            <div alt="mounou" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="mounou" id="sec-mounou" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">MOUNOU</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -102,7 +105,7 @@
                 </div>
     
             </div>
-            <div alt="ziyou" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="ziyou" id="sec-ziyou" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Ziyou Craft Beer Branding</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -118,6 +121,18 @@
             </div>
         </div>
     </div>
+
+    <nav class="fixed bottom-64 left-24 z-50 text-xs hidden lg:block">
+        <ul class="flex flex-col gap-1">
+            <li><a href="#sec-desire" class="toc-link hover:text-rust-100">Palace of Desire</a></li>
+            <li><a href="#sec-gms" class="toc-link">Gray Muzzle Society</a></li>
+            <li><a href="#sec-intoit" class="toc-link">Into It</a></li>
+            <li><a href="#sec-ripple" class="toc-link">Ripple</a></li>
+            <li><a href="#sec-jjp" class="toc-link">Jess Jess Press</a></li>
+            <li><a href="#sec-mounou" class="toc-link">Mounou</a></li>
+            <li><a href="#sec-ziyou" class="toc-link">Ziyou Craft Beer</a></li>
+        </ul>
+    </nav>
 
     <script src="/nav.js"></script>
     

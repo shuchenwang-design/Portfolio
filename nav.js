@@ -62,3 +62,42 @@ function highlightActivePage(basePath) {
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Select all the sections we want to track
+    const sections = document.querySelectorAll('div[id^="sec-"]');
+    const navLinks = document.querySelectorAll('.toc-link');
+
+    // 2. Create the Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // Get the ID of the section currently on screen
+                const id = entry.target.getAttribute('id');
+                
+                // Remove active class from ALL links
+                navLinks.forEach(link => {
+                    link.classList.remove('active-toc-link');
+                });
+
+                // Add active class ONLY to the matching link
+                const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active-toc-link');
+                }
+            }
+        });
+    }, {
+        // Options:
+        // rootMargin: '-50% 0px -50% 0px' creates a "line" in the middle of the screen.
+        // The animation triggers when a section crosses this middle line.
+        rootMargin: '-45% 0px -45% 0px' 
+    });
+
+    // 3. Tell the observer to watch every section
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});

@@ -8,12 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <style>
+        html {
+    scroll-behavior: smooth;
+}
         .style-button {
             border: 1px solid black;
             padding: 2px 6px;
             border-radius: 6px;
         }
         
+        #inkai-container {
+            --liga: 1;
+        }
+        #inkai-container * {
+            font-feature-settings: 
+            "liga" var(--liga);
+            transition: all 0.2s ease; /* Optional: smooth transition */
+        }
+
         #drowsy-container {
             --ss01: 0;
             --ss02: 0;
@@ -58,7 +70,7 @@
         }
 
 
-        #wave-text {
+        #wave-text, #breathing-text {
              transition: none !important;
         }
 
@@ -75,16 +87,16 @@
 
     <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12">
         
-        <div class="col-start-1 lg:col-start-3 lg:col-end-13 mx-4 my-12 ">
+        <div class="col-start-1 lg:col-start-2 lg:col-end-13 lg:ml-8 ">
             <!-- retour -->
-            <div alt="retour" class="font-retour grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#DAAD65] p-4 text-black">
+            <div alt="retour" id="retour-container" class="font-retour pt-12 grid grid-cols-1 lg:grid-cols-10 gap-x-8 bg-[#DAAD65] p-4 text-black">
                 <hr class="border-black col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Retour Regular</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
                     FEB 2025–ongoing</label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
                     <a class="hover:text-rust-100" href="/archive/typeface/retour/" rel="preload">Typeface Preview ←</a></label>
-                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-10 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
                     <h1 class="col-span-1 lg:col-span-5 text-8xl text-center">
                         <a href="/archive/typeface/retour/" rel="preload">Retour Regular</a>
                     </h1>
@@ -95,59 +107,64 @@
                         <p class="text-xl" contenteditable="">J'ai tout laissé derrière moi pour suivre mon étoile. Et je n'oublierai jamais ce qui s'est passé. Je l'ai mis dans un tiroir et j'ai jeté la clé.</p>
                         <hr class="border-black mt-4 mb-2">
                         <label class="">16px/20px</label>
-                        <p class="text-base" contenteditable="">J'ai tout laissé derrière moi pour suivre mon étoile. Et je n'oublierai jamais ce qui s'est passé. Je l'ai mis dans un tiroir et j'ai jeté la clé.</p>
+                        <p class="text-base outline-none" contenteditable="">J'ai tout laissé derrière moi pour suivre mon étoile. Et je n'oublierai jamais ce qui s'est passé. Je l'ai mis dans un tiroir et j'ai jeté la clé.</p>
                         <hr class="border-black mt-4 mb-2">
                         <label class="">12px/16px</label>
-                        <p class="text-xs" contenteditable="">J'ai tout laissé derrière moi pour suivre mon étoile. Et je n'oublierai jamais ce qui s'est passé. Je l'ai mis dans un tiroir et j'ai jeté la clé.</p>
+                        <p class="text-xs outline-none" contenteditable="">J'ai tout laissé derrière moi pour suivre mon étoile. Et je n'oublierai jamais ce qui s'est passé. Je l'ai mis dans un tiroir et j'ai jeté la clé.</p>
                     </div>
                     
                 </div>
     
             </div>
             <!-- inkai -->
-            <div alt="inkai" class="font-inkai grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#f6f0ec] p-4 text-black">
+            <div alt="inkai" id="inkai-container" class="font-inkai grid grid-cols-1 lg:grid-cols-10 gap-x-8 bg-[#f6f0ec] p-4 text-black">
                 <hr class="border-black col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">INKAI Variable 墨楷</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
                     FEB 2025–ongoing</label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
-                    <a class="hover:text-rust-100" href="/archive/typeface/retour/" rel="preload">Typeface Preview ←</a></label>
-                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
-                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/retour/" rel="preload">INKAI Variable<br>墨楷</a></h1>
+                    <a class="hover:text-rust-100" href="/archive/typeface/inkai/" rel="preload">Typeface Preview ←</a></label>
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-10 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/inkai/" rel="preload">INKAI<br>Variable<br>墨楷</a></h1>
                     <div class="col-span-1 lg:col-span-4">
-                        <label class="">EDITABLE QUICK PREVIEW</label>
+                        <div class="flex self-stretch justify-between items-end">
+                            <label class="">EDITABLE QUICK PREVIEW</label>
+                            <div class="flex flex-row gap-2">
+                                <label onclick="toggleFeature('inkai-container', 'liga', this)" class="block style-button cursor-pointer active-set">liga</label>
+                            </div>
+                        </div>
                         <hr class="border-black mt-2 mb-2">
                         <div class="flex self-stretch justify-between">
-                            <label class="block">24px/32px</label>
-                            <label class="block">Dynamic Weight (cap letters only)</label>
+                            <label class="block">24|32</label>
+                            <label class="block">Dynamic Weight (CAP ONLY)</label>
                         </div>
                         <p id="breathing-text" contenteditable="" class="text-2xl font-[900] uppercase outline-none">
                             Marries Chinese traditional calligraphy especially Kaishu with Latin typography
                         </p>
                         <hr class="border-black mt-4 mb-2">
                         <div class="flex self-stretch justify-between">
-                            <label class="block">24px/32px</label>
+                            <label class="block">24|32</label>
                             <label class="block">Regular</label>
                         </div>
-                        <p class="text-2xl" contenteditable="">Marries Chinese traditional calligraphy especially Kaishu with Latin typography.</p>
+                        <p class="text-2xl outline-none" contenteditable="">Marries Chinese traditional calligraphy especially Kaishu with Latin typography.</p>
                         <hr class="border-black mt-4 mb-2">
-                        <label class="">12px/16px</label>
-                        <p class="text-xs" contenteditable="">INKAI marries Chinese traditional calligraphy especially Kaishu (regular script) with Latin typography. It has sharp edges and powerful vision, creating a harmonious balance between traditional Chinese calligraphy and modern typographic principles. Designed for optimal readability, INKAI delivers both cultural richness and practical functionality.</p>
+                        <label class="">12|16</label>
+                        <p class="text-xs outline-none" contenteditable="">INKAI marries Chinese traditional calligraphy especially Kaishu (regular script) with Latin typography. It has sharp edges and powerful vision, creating a harmonious balance between traditional Chinese calligraphy and modern typographic principles. Designed for optimal readability, INKAI delivers both cultural richness and practical functionality.</p>
                     </div>
                     
                 </div>
     
             </div>
             <!-- drowsy -->
-            <div alt="drowsy" id="drowsy-container" class="font-drowsy grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#5EA1FE] p-4 text-black">
+            <div alt="drowsy" id="drowsy-container" class="font-drowsy grid grid-cols-10 lg:grid-cols-10 gap-x-8 bg-[#5EA1FE] p-4 text-black">
                 <hr class="border-black col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Drowsy Medium</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    FEB 2025–ongoing</label>
+                    OCT 2024–ongoing</label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
-                    <a class="hover:text-rust-100" href="/archive/typeface/retour/" rel="preload">Typeface Preview ←</a></label>
-                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
-                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/retour/" rel="preload">Drowsy Medium</a></h1>
+                    <a class="hover:text-rust-100" href="/archive/typeface/drowsy/" rel="preload">Typeface Preview ←</a></label>
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-10 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/drowsy/" rel="preload">Drowsy Medium</a></h1>
                     <div class="col-span-1 lg:col-span-4">
                         
                         <div class="flex self-stretch justify-between items-end">
@@ -172,29 +189,29 @@
                             <label class="block">24|32</label>
                             <label class="block">Regular</label>
                         </div>
-                        <p class="text-2xl" contenteditable="">Human is always* encouraged to be drowsy in the infinite time & space.</p>
+                        <p class="text-2xl outline-none" contenteditable="">Human is always* encouraged to be drowsy in the infinite time & space.</p>
                         <hr class="border-black mt-4 mb-2">
                         <label class="">16|20</label>
-                        <p class="text-base" contenteditable="">Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic.</p>
+                        <p class="text-base outline-none" contenteditable="">Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic.</p>
                     </div>
                     
                 </div>
     
             </div>
             <!-- jjw -->
-            <div alt="jessJessWrite" id="jess-container" class="font-jjw grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#F8F4C9] p-4 text-black">
+            <div alt="jessJessWrite" id="jess-container" class="font-jjw grid grid-cols-1 lg:grid-cols-10 gap-x-8 bg-[#F8F4C9] p-4 text-black">
                 <hr class="border-black col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">jess jess write variable</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
                     JUN 2025–JUL 2025</label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
                     <a class="hover:text-rust-100" href="/archive/typeface/jess-jess-write/" rel="preload">Typeface Preview ←</a></label>
-                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
-                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/jess-jess-write/" rel="preload">jess jess write variable</a></h1>
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-10 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/jess-jess-write/" rel="preload">jess jess<br>write<br>variable</a></h1>
                     <div class="col-span-1 lg:col-span-4">
                         
                         <div class="flex self-stretch justify-between items-end">
-                            <label class="">EDITABLE QUICK PREVIEW</label>
+                            <label class="w-[170px]">EDITABLE QUICK PREVIEW</label>
                             <div class="flex flex-row gap-2">
                                 <label onclick="toggleFeature('jess-container', 'ss01', this)" class="block style-button cursor-pointer">SS01</label>
                                 <label onclick="toggleFeature('jess-container', 'ss02', this)" class="block style-button cursor-pointer">SS02</label>
@@ -217,14 +234,14 @@
                             <label class="block">16|20</label>
                             <label class="block">Regular</label>
                         </div>
-                        <p class="text-base" contenteditable="">I stressed out and systemized the characteristics of original hand-written type. And insert cat motifs of Jess Jess Press as discretionary ligatures.<br>cats1 cats2 cats3 cats4 cats5 cats6 star1 cats1 cats2 cats3 cats4 cats5 cats6 star1</p>
+                        <p class="text-base outline-none" contenteditable="">I stressed out and systemized the characteristics of original hand-written type. And insert cat motifs of Jess Jess Press as discretionary ligatures.<br>cats1 cats2 cats3 cats4 cats5 cats6 star1 cats1 cats2 cats3 cats4 cats5 cats6 star1</p>
 
                         <hr class="border-black mt-4 mb-2">
                          <div class="flex self-stretch justify-between">
                             <label class="block">12|16</label>
                             <label class="font-[200] block">Thin</label>
                         </div>
-                        <p class="font-[200]" contenteditable="">Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic.</p>
+                        <p class="font-[200] outline-none" contenteditable="">Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic.</p>
                         <p class="font-[200]">cats1 cats2 cats3 cats4 cats5 cats6 star1 cats1 cats2 cats3 cats4 cats5 cats6 star1</p>
                     </div>
                     
@@ -232,14 +249,14 @@
     
             </div>
             <!-- desire -->
-            <div alt="desire" class="font-desire tracking-tight grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#E65F3A] p-4 text-black">
+            <div alt="desire" id="desire-container" class="font-desire tracking-tight grid grid-cols-1 lg:grid-cols-10 gap-x-8 bg-[#E65F3A] p-4 text-black">
                 <hr class="border-black col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Desire Variable</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
                     time placeholder</label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
                     <a class="hover:text-rust-100" href="/archive/typeface/desire/" rel="preload">Typeface Preview ←</a></label>
-                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-10 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
                     <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/desire/" rel="preload">Desire Variable</a></h1>
                     <div class="col-span-1 lg:col-span-4">
                         <label class="font-inkai">EDITABLE QUICK PREVIEW</label>
@@ -267,14 +284,14 @@
                 </div>
             </div>
             <!-- speechless -->
-            <div alt="speechless" id="speechless-container" class="font-speechless lining-nums grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#EFF6D7] p-4 text-black">
+            <div alt="speechless" id="speechless-container" class="font-speechless lining-nums grid grid-cols-1 lg:grid-cols-10 gap-x-8 bg-[#EFF6D7] p-4 text-black">
                 <hr class="border-black col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Speechless Variable</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
                     NOV 2023–MAR 2024</label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
                     <a class="hover:text-rust-100" href="/archive/typeface/speechless/" rel="preload">Typeface Preview ←</a></label>
-                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-10 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
                     <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/speechless/" rel="preload">Speechless Variable</a></h1>
                     <div class="col-span-1 lg:col-span-4">
                         
@@ -310,6 +327,9 @@
                     
                 </div>
     
+            </div>
+            <div><h1 class="text-center text-3xl p-24">→ 
+                <a class="hover:font-[900] transition-all duration-500 hover:text-4xl" href="/archive/" rel="preload">MORE IN ARCHIVE</a> ←</h1>
             </div>
         </div>
     </div>
