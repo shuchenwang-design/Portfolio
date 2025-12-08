@@ -50,7 +50,7 @@ function loadNavigation() {
     const isGitHub = window.location.hostname.includes('github.io');
     
     // IMPORTANT: If you rename your repo, update this string!
-    const repoName = ''; 
+    const repoName = '/Portfolio'; 
     
     // Set base path: use repo name if on GitHub, otherwise empty (root)
     const basePath = isGitHub ? repoName : '';

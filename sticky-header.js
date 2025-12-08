@@ -53,3 +53,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // Start watching the head section
     observer.observe(triggerSection);
 });
+
