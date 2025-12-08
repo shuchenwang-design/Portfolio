@@ -1,5 +1,5 @@
-<div class="fixed mt-4 ml-4 z-50 w-[max-content]">
-    <label id="main-nav" class="leading-[1.3rem]">
+<div class="fixed mt-4 ml-4 z-50 ">
+    <label id="desktop-nav" class="leading-[1.3rem]">
         <a href="/" id="home_nav" rel="history">GALLERY</a>
         <hr class="w-full bg-white h-1/4 mb-2">
         <a href="/archive/" id="archive_nav" rel="history">ARCHIVE</a>
@@ -15,7 +15,34 @@
     </label>
 </div>
 
-<div alt="name" class="fixed grid grid-cols-1 min-[1000px]:grid-cols-12 w-full mt-4 z-50">
-    <div class="min-[1000px]:col-start-9 min-[1000px]:col-end-11 mr-4 hover:font-[900] text-right hover:scale-[1.2] origin-center transition duration-200"><span><a href="#" rel="top">SHUCHEN WANG</a></span>
+<div id="mobile-menu-overlay" class="lg:hidden fixed top-0 left-0 w-full h-[80vh] z-[90] 
+     transform -translate-y-full transition-transform duration-700 ease-in-out
+     bg-gradient-to-b from-black via-black/90 to-transparent pointer-events-none">
+    
+    <div class="p-4 pt-16 ml-2">
+        <label id="mobile-nav" class="leading-[1.3rem] text-white block">
+            <a href="/" rel="history">GALLERY</a>
+            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            
+            <a href="/archive/" rel="history">ARCHIVE</a>
+            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            
+            <div class="flex flex-col gap-1">
+                <a href="/archive/typeface/">Typeface</a>
+                <a href="/archive/branding/">Branding</a>
+                <a href="/archive/uiux/">UIUX</a>
+                <a href="/archive/posters/">Posters</a>
+                <a href="/archive/publication/">Publication</a>
+                <a href="/archive/motion/">Motion</a>
+            </div>
+            
+            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            <a href="/about/">ABOUT</a>
+        </label>
+    </div>
+</div>
+
+<div alt="name" class="fixed grid grid-cols-1 lg:grid-cols-12 w-full mt-4 z-50">
+    <div class="lg:col-start-9 lg:col-end-11 mr-4 hover:font-[900] text-right hover:scale-[1.2] origin-right transition duration-200"><span><a href="#" rel="top">SHUCHEN WANG</a></span>
     </div>
 </div>
