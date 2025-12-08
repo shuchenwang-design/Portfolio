@@ -9,6 +9,13 @@ tailwind.config = {
             fontFamily: {
                 // You can even add your font here so you just type font-inkai
                 'inkai': ['Inkai Variable', 'sans-serif'], 
+                'retour': ['Retour'],
+                'Atleigh': ['Atleigh'],
+                'drowsy': ['Drowsy'],
+                'desire': ['Desire Variable'],
+                'speechless': ['Speechless Variable'],
+                'jjw': ['Jess Jess Write Variable'],
+
             }
         }
     }

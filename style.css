@@ -3,6 +3,40 @@
   font-style: normal;
   src: url("https://freight.cargo.site/m/F2463903275489634947238031735896/InkaiVF.woff") format("woff");
 }
+@font-face {
+  font-family: "Atleigh";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/C2657159710200202142124215581784/Atleigh-Headline.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Drowsy";
+  font-weight: 500;
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/X2386125074910418307604082277464/Drowsy-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Speechless Variable";
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/M2350784702946247318365442096216/SpeechlessVF.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Desire Variable";
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/L2350763540749212238399280462936/Desire-VF.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jess Jess Write Variable";
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/N2350726380558039001603351198808/JessJessWriteVF.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Retour";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/N2350658101133888530489165429848/Retour-Regular_otf.woff2") format("woff2");
+}
+
 
 body {
     background-color: #000000; 
