@@ -17,9 +17,13 @@
         #drowsy-container {
             --ss01: 0;
             --ss02: 0;
+            --liga: 1;
         }
         #drowsy-container * {
-            font-feature-settings: "ss01" var(--ss01), "ss02" var(--ss02);
+            font-feature-settings: 
+            "ss01" var(--ss01), 
+            "ss02" var(--ss02), 
+            "liga" var(--liga);
             transition: all 0.2s ease; /* Optional: smooth transition */
         }
         #drowsy-container #style-shift {
@@ -30,7 +34,7 @@
             --ss01: 0;
             --ss02: 0;
             --calt: 1; /* Contextual Alternates (Default On) */
-            --dlig: 0; /* Discretionary Ligatures (Default Off) */
+            --dlig: 1; /* Discretionary Ligatures (Default Off) */
             --liga: 1; /* Standard Ligatures (Default On) */
         }
         #jess-container * {
@@ -42,6 +46,20 @@
                 "liga" var(--liga);
             
             transition: all 0.2s ease;
+        }
+
+        #speechless-container {
+            --liga: 1;
+        }
+        #speechless-container * {
+            font-feature-settings: 
+            "liga" var(--liga);
+            transition: all 0.2s ease; /* Optional: smooth transition */
+        }
+
+
+        #wave-text {
+             transition: none !important;
         }
 
         
@@ -135,8 +153,9 @@
                         <div class="flex self-stretch justify-between items-end">
                             <label class="">EDITABLE QUICK PREVIEW</label>
                             <div class="flex flex-row gap-2">
-                                <label onclick="toggleStyle('ss01', this)" class="block style-button cursor-pointer">SS01</label>
-                                <label onclick="toggleStyle('ss02', this)" class="block style-button cursor-pointer">SS02</label>
+                                <label onclick="toggleFeature('drowsy-container', 'ss01', this)" class="block style-button cursor-pointer">SS01</label>
+                                <label onclick="toggleFeature('drowsy-container', 'ss02', this)" class="block style-button cursor-pointer">SS02</label>
+                                <label onclick="toggleFeature('drowsy-container', 'liga', this)" class="block style-button cursor-pointer active-set">liga</label>
                             </div>
                         </div>
                         <hr class="border-black mt-2 mb-2">
@@ -153,11 +172,10 @@
                             <label class="block">24|32</label>
                             <label class="block">Regular</label>
                         </div>
-                        <p class="text-2xl" contenteditable="">Be drowsy in the infinite time and space.</p>
+                        <p class="text-2xl" contenteditable="">Human is always* encouraged to be drowsy in the infinite time & space.</p>
                         <hr class="border-black mt-4 mb-2">
                         <label class="">16|20</label>
                         <p class="text-base" contenteditable="">Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic.</p>
-                        <p class="mt-4 w-[320px]">** Check the difference among all styles by activating or inactivating buttons saying SS01 and SS02 **</p>
                     </div>
                     
                 </div>
@@ -172,17 +190,17 @@
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
                     <a class="hover:text-rust-100" href="/archive/typeface/jess-jess-write/" rel="preload">Typeface Preview ←</a></label>
                 <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
-                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/retour/" rel="preload">jess jess write variable</a></h1>
+                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/jess-jess-write/" rel="preload">jess jess write variable</a></h1>
                     <div class="col-span-1 lg:col-span-4">
                         
                         <div class="flex self-stretch justify-between items-end">
                             <label class="">EDITABLE QUICK PREVIEW</label>
                             <div class="flex flex-row gap-2">
-                                <label onclick="toggleStyle('jess-container', 'ss01', this)" class="block style-button cursor-pointer">SS01</label>
-                                <label onclick="toggleStyle('jess-container', 'ss02', this)" class="block style-button cursor-pointer">SS02</label>
-                                <label onclick="toggleStyle('jess-container', 'calt', this)" class="block style-button cursor-pointer">calt</label>
-                                <label onclick="toggleStyle('jess-container', 'liga', this)" class="block style-button cursor-pointer">liga</label>
-                                <label onclick="toggleStyle('jess-container', 'dlig', this)" class="block style-button cursor-pointer">dlig</label>
+                                <label onclick="toggleFeature('jess-container', 'ss01', this)" class="block style-button cursor-pointer">SS01</label>
+                                <label onclick="toggleFeature('jess-container', 'ss02', this)" class="block style-button cursor-pointer">SS02</label>
+                                <label onclick="toggleFeature('jess-container', 'calt', this)" class="block style-button cursor-pointer active-set">calt</label>
+                                <label onclick="toggleFeature('jess-container', 'liga', this)" class="block style-button cursor-pointer active-set">liga</label>
+                                <label onclick="toggleFeature('jess-container', 'dlig', this)" class="block style-button cursor-pointer active-set">dlig</label>
                             </div>
                         </div>
                         <hr class="border-black mt-2 mb-2">
@@ -192,13 +210,14 @@
                         </div>
                         <p id="wave-text" contenteditable="" class="text-xl outline-none">
                             “jess jess write” is a variable typeface family derived from exiSTing poSTers of jess jess press.
+                            cats1 cats2 cats3 cats4 cats5 cats6 star1 cats1 cats2 cats3 cats4 cats5 cats6 star1
                         </p>
                         <hr class="border-black mt-4 mb-2">
                         <div class="flex self-stretch justify-between">
                             <label class="block">16|20</label>
                             <label class="block">Regular</label>
                         </div>
-                        <p class="text-base" contenteditable="">I stressed out and systemized the characteristics of original hand-written type.</p>
+                        <p class="text-base" contenteditable="">I stressed out and systemized the characteristics of original hand-written type. And insert cat motifs of Jess Jess Press as discretionary ligatures.<br>cats1 cats2 cats3 cats4 cats5 cats6 star1 cats1 cats2 cats3 cats4 cats5 cats6 star1</p>
 
                         <hr class="border-black mt-4 mb-2">
                          <div class="flex self-stretch justify-between">
@@ -206,7 +225,87 @@
                             <label class="font-[200] block">Thin</label>
                         </div>
                         <p class="font-[200]" contenteditable="">Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic.</p>
-                        <p class="mt-4 font-[200] w-[320px]">** Check the difference among all styles by activating or inactivating buttons saying SS01 and SS02 **</p>
+                        <p class="font-[200]">cats1 cats2 cats3 cats4 cats5 cats6 star1 cats1 cats2 cats3 cats4 cats5 cats6 star1</p>
+                    </div>
+                    
+                </div>
+    
+            </div>
+            <!-- desire -->
+            <div alt="desire" class="font-desire tracking-tight grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#E65F3A] p-4 text-black">
+                <hr class="border-black col-span-full mb-4">
+                <label class="col-start-1 col-span-1 lg:col-span-2">Desire Variable</label>
+                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
+                    time placeholder</label>
+                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
+                    <a class="hover:text-rust-100" href="/archive/typeface/desire/" rel="preload">Typeface Preview ←</a></label>
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/desire/" rel="preload">Desire Variable</a></h1>
+                    <div class="col-span-1 lg:col-span-4">
+                        <label class="font-inkai">EDITABLE QUICK PREVIEW</label>
+                        <hr class="border-black mt-2 mb-2">
+                        <div class="font-inkai flex self-stretch justify-between">
+                            <label class="block">30|36</label>
+                            <label class="block">Dynamic Weight</label>
+                        </div>
+                        <p id="wavy-desire" contenteditable="" class="text-3xl  outline-none">
+                            She expected her own flowery face to always be like now <br> Filling his hazy vision<br>And eventually occupying his equally hazy mind
+                        </p>
+                        <hr class="border-black mt-4 mb-2">
+                        <div class="font-inkai flex self-stretch justify-between">
+                            <label class="block">24|32</label>
+                            <label class="block">Bold</label>
+                        </div>
+                        <p class="text-2xl font-[125] outline-none tracking-tight" contenteditable="">Each inch of her form seem to dance with charm</p>
+                        <hr class="border-black mt-4 mb-2">
+                        <div class="font-inkai flex self-stretch justify-between">
+                            <label class="block">16|24</label>
+                            <label class="block">Thin</label>
+                        </div>
+                        <p class="text-base outline-none font-[80]" contenteditable="">True love, which is impregnable<br> neither heavens gods nor hells ministers can bring low<br>for it is heavens own essence<br>representing lifes noblest and soundest state</p>
+                    </div>  
+                </div>
+            </div>
+            <!-- speechless -->
+            <div alt="speechless" id="speechless-container" class="font-speechless lining-nums grid grid-cols-1 lg:grid-cols-9 gap-x-8 bg-[#EFF6D7] p-4 text-black">
+                <hr class="border-black col-span-full mb-4">
+                <label class="col-start-1 col-span-1 lg:col-span-2">Speechless Variable</label>
+                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
+                    NOV 2023–MAR 2024</label>
+                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 text-right lg:text-left">
+                    <a class="hover:text-rust-100" href="/archive/typeface/speechless/" rel="preload">Typeface Preview ←</a></label>
+                <div class="col-span-full grid grid-cols-1 lg:grid-cols-9 gap-x-8 lg:my-8 mt-8 space-y-8 items-center">
+                    <h1 class="col-span-1 lg:col-span-5 text-8xl text-center"><a href="/archive/typeface/speechless/" rel="preload">Speechless Variable</a></h1>
+                    <div class="col-span-1 lg:col-span-4">
+                        
+                        <div class="flex self-stretch justify-between items-end">
+                            <label class="">EDITABLE QUICK PREVIEW</label>
+                            <div class="flex flex-row gap-2">
+                                <label onclick="toggleFeature('speechless-container', 'liga', this)" class="block style-button cursor-pointer active-set">liga</label>
+                                
+                            </div>
+                        </div>
+                        <hr class="border-black mt-2 mb-2">
+                        <div class="flex self-stretch justify-between">
+                            <label class="block">24|32</label>
+                            <label class="block">Dynamic Weight & Serif</label>
+                        </div>
+                        <p id="wavy-speechless" contenteditable="" class="text-xl outline-none">
+                            Devoted to all those speechless moment and disordered thoughts. All that is solid melts into the air, and all that is elastic twists into the opposite. However, everything still exists.
+                        </p>
+                        <hr class="border-black mt-4 mb-2">
+                        <div class="flex self-stretch justify-between">
+                            <label class="block">16|20</label>
+                            <label class="block">Regular</label>
+                        </div>
+                        <p class="text-base outline-none" contenteditable="">Devoted to all those speechless moment and disordered thoughts. All that is solid melts into the air, and all that is elastic twists into the opposite. However, everything still exists.</p>
+
+                        <hr class="border-black mt-4 mb-2">
+                         <div class="flex self-stretch justify-between">
+                            <label class="block">12|16</label>
+                            <label class="font-[200] block">Thin</label>
+                        </div>
+                        <p class="font-[200] outline-none" contenteditable="">Devoted to all those speechless moment and disordered thoughts. All that is solid melts into the air, and all that is elastic twists into the opposite. However, everything still exists.</p>
                     </div>
                     
                 </div>
