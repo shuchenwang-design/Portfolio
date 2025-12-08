@@ -15,8 +15,9 @@
     <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12">
         
         <div class="col-start-1 lg:col-start-3 lg:col-end-13 mx-4 my-12 space-y-4">
+            <h1 class="text-base">UIUX Windows</h1>
             <!-- ripple -->
-            <div alt="ripple" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="ripple" id="sec-ripple" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Ripple<br>A Social Media App for Performance Lovers</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -30,7 +31,7 @@
     
             </div>
             <!-- instacart -->
-            <div alt="instacart" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="instacart" id="sec-instacart" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Instacart <br>User Flow Re-design</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -44,7 +45,7 @@
     
             </div>
             <!-- earthworm archive -->
-            <div alt="ewArchive" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="ewArchive" id="sec-ewarchive" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Earthworm Archive<br>Five </label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -60,6 +61,14 @@
             </div>
         </div>
     </div>
+
+    <nav class="fixed top-64 left-24 z-50 text-xs hidden lg:block">
+        <ul class="flex flex-col gap-2">
+            <li><a href="#sec-ripple" class="toc-link">Ripple</a></li>
+            <li><a href="#sec-instacart" class="toc-link">Instacart</a></li>
+            <li><a href="#sec-ewarchive" class="toc-link">Earthworm Archive</a></li>
+        </ul>
+    </nav>
 
     <script src="/nav.js"></script>
     

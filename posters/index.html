@@ -14,9 +14,10 @@
 
     <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12">
         
-        <div class="col-start-1 lg:col-start-3 lg:col-end-13 mx-4 my-12 space-y-4">
+        <div class="col-start-1 lg:col-start-3 lg:col-end-13 mx-4 my-4 space-y-4">
+            <h1 class="text-base">Poster Windows</h1>
             <!-- biodiagram -->
-            <div alt="biodiagram" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="biodiagram" id="sec-biodiagram" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Biodiagram<br>73 Items that Connect Me To Home</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -31,8 +32,8 @@
                 </div>
     
             </div>
-            <!-- instacart -->
-            <div alt="instacart" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <!-- typolyrics -->
+            <div alt="typolyrics" id="sec-typolyrics" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Typolyrics of Internationale<br>Music Visualization</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -48,7 +49,7 @@
     
             </div>
             <!-- circling -->
-            <div alt="circling" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="circling" id="sec-circling" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Circling Album Cover</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -62,7 +63,7 @@
     
             </div>
             <!-- earthworm archive -->
-            <div alt="ewArchive" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="ewArchive" id="sec-ewarchive" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Earthworm Archive<br>Information posters of 5 earthworm species and their stories</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -79,7 +80,7 @@
     
             </div>
             <!-- rt exhibition -->
-            <div alt="rtExhibition" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="rtExhibition" id="sec-rtexhibition" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Rain And Tears<br>Thesis Exhibition Posters</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -93,7 +94,7 @@
     
             </div>
             <!-- palace of desire -->
-            <div alt="desire" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
+            <div alt="desire" id="sec-desire" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
                 <hr class="col-span-full mb-4">
                 <label class="col-start-1 col-span-1 lg:col-span-2">Palace of Desire<br>TV Series Re-screening Campaign</label>
                 <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
@@ -110,6 +111,16 @@
             </div>
         </div>
     </div>
+    <nav class="fixed bottom-48 left-24 z-50 text-xs hidden lg:block">
+        <ul class="flex flex-col gap-2">
+            <li><a href="#sec-biodiagram" class="toc-link">Biodiagram</a></li>
+            <li><a href="#sec-typolyrics" class="toc-link">Typolyrics</a></li>
+            <li><a href="#sec-circling" class="toc-link">Circling</a></li>
+            <li><a href="#sec-ewarchive" class="toc-link">Earthworm Archive</a></li>
+            <li><a href="#sec-rtexhibition" class="toc-link">Rain And Tears</a></li>
+            <li><a href="#sec-desire" class="toc-link">Palace of Desire</a></li>
+        </ul>
+    </nav>
 
     <script src="/nav.js"></script>
     
