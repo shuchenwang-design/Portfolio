@@ -188,3 +188,31 @@ function updateProjectLinks() {
     link.type = 'image/png'; 
     link.href = '/assets/favicon.png'; 
 })();
+
+
+/* ======================================================
+   GOOGLE ANALYTICS AUTO-INJECTOR
+   ====================================================== */
+(function() {
+    // 1. Your Measurement ID
+    const gaId = 'G-X3R45LM72X'; // <--- PASTE YOUR ID HERE
+
+    // 2. Prevent loading on Localhost (so you don't pollute your data while coding)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log("Google Analytics skipped (Localhost)");
+        return;
+    }
+
+    // 3. Create the external script tag
+    // <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"></script>
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+    document.head.appendChild(script);
+
+    // 4. Initialize the Data Layer
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', gaId);
+})();
