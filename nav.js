@@ -168,3 +168,23 @@ function updateProjectLinks() {
     })
     .catch(error => console.error('Error updating links:', error));
 }
+
+
+/* ======================================================
+   AUTO-ADD FAVICON
+   ====================================================== */
+(function() {
+    // 1. Check if favicon already exists (to avoid duplicates)
+    let link = document.querySelector("link[rel~='icon']");
+    
+    // 2. If not, create it
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+    }
+    
+    // 3. Set the settings
+    link.type = 'image/png'; 
+    link.href = '/assets/favicon.png'; 
+})();
