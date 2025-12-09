@@ -1,4 +1,4 @@
-<div class="fixed mt-4 ml-4 z-50 w-max-content">
+<div class="fixed mt-4 ml-4 z-50 w-max-content hidden lg:block">
     <label id="desktop-nav" class="leading-[1.3rem]">
         <a href="/" id="home_nav" rel="preload">GALLERY</a>
         <hr class="w-full bg-white h-1/4 mb-2">
@@ -15,6 +15,10 @@
     </label>
 </div>
 
+<button id="menu-btn" onclick="toggleMenu()" class="lg:hidden fixed top-4 left-4 z-[100] text-white cursor-pointer">
+    MENU
+</button>
+
 <div id="mobile-menu-overlay" class="lg:hidden fixed top-0 left-0 w-full h-[80vh] z-[90] 
      transform -translate-y-full transition-transform duration-700 ease-in-out
      bg-gradient-to-b from-black via-black/90 to-transparent pointer-events-none">
@@ -28,12 +32,12 @@
             <hr class="w-full bg-white h-[1px] my-2 opacity-50">
             
             <div class="flex flex-col gap-1">
-                <a href="/archive/typeface/">Typeface</a>
-                <a href="/archive/branding/">Branding</a>
-                <a href="/archive/uiux/">UIUX</a>
-                <a href="/archive/posters/">Posters</a>
-                <a href="/archive/publication/">Publication</a>
-                <a href="/archive/motion/">Motion</a>
+                <a href="/typeface/">Typeface</a>
+                <a href="/branding/">Branding</a>
+                <a href="/uiux/">UIUX</a>
+                <a href="/posters/">Posters</a>
+                <a href="/publication/">Publication</a>
+                <a href="/motion/">Motion</a>
             </div>
             
             <hr class="w-full bg-white h-[1px] my-2 opacity-50">
