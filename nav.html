@@ -15,7 +15,7 @@
     </label>
 </div>
 
-<button id="menu-btn" onclick="toggleMenu()" class="lg:hidden fixed top-4 left-4 z-[100] text-white cursor-pointer">
+<button id="menu-btn" onclick="toggleMenu()" class="lg:hidden text-lg fixed top-4 left-4 z-[100] text-white cursor-pointer">
     MENU
 </button>
 
@@ -24,12 +24,12 @@
      bg-gradient-to-b from-black via-black/90 to-transparent pointer-events-none">
     
     <div class="p-4 pt-16 ml-2">
-        <label id="mobile-nav" class="leading-[1.3rem] text-white block">
+        <label id="mobile-nav" class="leading-[1.3rem] text-white block text-lg leading-[24px] text-center">
             <a href="/" rel="history">GALLERY</a>
-            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            <hr class="w-full bg-white h-[1px] mt-2 mb-4 opacity-50">
             
             <a href="/archive/" rel="history">ARCHIVE</a>
-            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            <hr class="w-full bg-white h-[1px] my-3 opacity-50">
             
             <div class="flex flex-col gap-1">
                 <a href="/typeface/">Typeface</a>
@@ -40,13 +40,26 @@
                 <a href="/motion/">Motion</a>
             </div>
             
-            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            <hr class="w-full bg-white h-[1px] my-4 opacity-50">
             <a href="/about/">ABOUT</a>
+
+            <hr class="w-full bg-white h-[1px] my-4 opacity-50">
+            <a>CONTACT</a>
+            <hr class="w-full bg-white h-[1px] my-2 opacity-50">
+            <div class="flex flex-col gap-1">   
+                <a href="https://www.instagram.com/ccalciumoxidewang/">Instagram</a>
+                <a href="shuchenwangcc@gmail.com?subject=Project%20Inquiry%20from%20Portfolio">Email Inquiry</a>
+            </div>
         </label>
     </div>
 </div>
 
 <div alt="name" class="fixed grid grid-cols-1 lg:grid-cols-12 w-full mt-4 z-40">
-    <div class="lg:col-start-9 lg:col-end-11 mr-4 hover:font-[900] text-right hover:scale-[1.2] origin-right transition duration-200"><span><a href="#" rel="top">SHUCHEN WANG</a></span>
+    <div class="lg:col-start-9 lg:col-end-11 mr-4 hover:font-[900] text-lg lg:text-xs text-right hover:scale-[1.2] origin-right transition duration-200">
+        <span><a href="/about/" rel="top">SHUCHEN WANG</a></span>
+    </div>
+    <div class="hidden lg:block lg:col-start-11 lg:col-end-13 mr-4 text-right flex flex-row justify-end space-x-2">
+        <span class="hover:bg-white hover:text-black bg-white/20 px-3 py-1.5 rounded-[5px] transition duration-200"><a href="https://www.instagram.com/ccalciumoxidewang/">Instagram</a></span>
+        <span class="hover:bg-white hover:text-black bg-white/20 px-3 py-1.5 rounded-[5px] transition duration-200"><a href="shuchenwangcc@gmail.com?subject=Project%20Inquiry%20from%20Portfolio">Contact</a></span>
     </div>
 </div>

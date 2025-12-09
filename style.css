@@ -48,6 +48,7 @@ body {
     font-size: 12px;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
@@ -64,12 +65,10 @@ html {
 
 .dynamic-text {
     font-family: Inkai Variable;
-    font-size: 9vw;
     line-height: 120%;
     text-align: left;
-    column-span: all; 
     margin-top: 1rem;
-	font-style: normal;
+    ont-style: normal;
 }
 
 .slideshow-container {
