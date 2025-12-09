@@ -14,6 +14,19 @@ tailwind.config = {
                 'iris-80': '#6C40E5',
                 'iris-60': '#936FEE',
                 'gms-white': '#FCF9F0',
+                'gold-100': '#DEA000',
+                'gold-80': '#F4CA5F',
+                'gold-200': '#8C5E04',
+                'rred-100': '#D34518',
+                'rred-80': '#DC653D',
+                'rred-200': '#6B3114',
+                'olive-100': '#7F8F3C',
+                'olive-80': '#A4B453',
+                'olive-200': '#435411',
+                'disgreen-100': '#7C8F80',
+                'disgreen-50': '#BCCABF',
+                'cream-100': '#E2DFD6',
+                'cream-50': '#F2F2ED',
                 'black': '#000000ff', // Example: You can tweak your global black here too
                 'white': '#ffffffff', // Example: An off-white for softer contrast
             },
@@ -26,6 +39,8 @@ tailwind.config = {
                 'desire': ['Desire Variable'],
                 'speechless': ['Speechless Variable'],
                 'jjw': ['Jess Jess Write Variable'],
+                'opensans': ['Open Sans'],
+
 
             }
         }

@@ -36,6 +36,11 @@
   font-style: normal;
   src: url("https://freight.cargo.site/m/N2350658101133888530489165429848/Retour-Regular_otf.woff2") format("woff2");
 }
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  src: url("/assets/type/OpenSans-VariableFont_wdth,wght.ttf") format("ttf");
+}
 
 
 body {
