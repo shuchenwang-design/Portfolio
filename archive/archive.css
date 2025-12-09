@@ -1,7 +1,7 @@
 /* 1. The Card Container (The <a> tag) */
 .project-card {
     display: block;
-    border: 1px solid #333;
+    border: 1px solid #646464;
     border-radius: 8px;
     overflow: hidden; /* Keeps image corners rounded */
     text-decoration: none; /* Removes underline from link */
@@ -48,7 +48,7 @@
 
 /* 6. The Meta Data (Time, Genre, Tools) */
 .card-meta {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     line-height: 1.6;
 }
 

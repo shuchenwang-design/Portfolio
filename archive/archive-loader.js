@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             <h2 class="card-title">${project.title}</h2>
                             
                             <div class="card-meta">
-                                <p class="meta-item"><span class="meta-label">Time:</span> ${project.date}</p>
-                                <p class="meta-item"><span class="meta-label">Genre:</span> ${project.genre}</p>
-                                <p class="meta-item"><span class="meta-label">Tools:</span> ${project.software}</p>
+                                <p class="meta-item flex flex-row justify-between"><span class="meta-label">Time</span><span class="text-right">${project.date}</span></p>
+                                <p class="meta-item flex flex-row justify-between"><span class="meta-label">Genre</span><span class="text-right">${project.genre}</span></p>
+                                <p class="meta-item flex flex-row justify-between"><span class="meta-label">Tools</span><span class="text-right">${project.software}</span></p>
                             </div>
                         </div>
                     </a>
