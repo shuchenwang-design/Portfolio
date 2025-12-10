@@ -27,8 +27,8 @@ tailwind.config = {
                 'disgreen-50': '#BCCABF',
                 'cream-100': '#E2DFD6',
                 'cream-50': '#F2F2ED',
-                'black': '#000000ff', // Example: You can tweak your global black here too
-                'white': '#ffffffff', // Example: An off-white for softer contrast
+                'ssred-100': '#D35B39',
+                'ssblue-100': '#A5BEF0',
             },
             fontFamily: {
                 // You can even add your font here so you just type font-inkai
@@ -40,6 +40,8 @@ tailwind.config = {
                 'speechless': ['Speechless Variable'],
                 'jjw': ['Jess Jess Write Variable'],
                 'opensans': ['Open Sans'],
+                'notosans': ['Noto Sans'],
+                'fieldgothic': ['Field Gothic'],
 
 
             }

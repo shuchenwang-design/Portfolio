@@ -37,9 +37,16 @@
   src: url("https://freight.cargo.site/m/N2350658101133888530489165429848/Retour-Regular_otf.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Field Gothic";
+  font-weight: 400;
   font-style: normal;
-  src: url("/assets/type/OpenSans-VariableFont_wdth,wght.ttf") format("ttf");
+  src: url("/assets/type/FieldGothicTEST-No.62.woff") format("woff");
+}
+@font-face {
+  font-family: "Field Gothic";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/type/FieldGothicTEST-No.55.woff") format("woff");
 }
 
 
@@ -62,10 +69,8 @@ html {
 	position: absolute; 
     top: 90vh; 
     transform: translateY(-100%); 
-    margin-left: 1rem;
-    margin-right: 1rem;
     z-index: 2;
-    width: 96%;
+    width: 100%;
 }
 
 .dynamic-text {

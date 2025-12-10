@@ -2,16 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Her Voice Behind the Poems</title>
+    <title>Ripple</title>
+    <!-- Google Fonts Open Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Google Fonts Noto Sans-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/tailwind.config.js"></script>
+    <script>
+        tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                'red-100': '#D35B39', 
+                'blue-100': '#A5BEF0',
+            },
+        }
+    }
+}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
-    <div class="font-opensans">
+    <div class="font-notosans">
 
         <div alt="head" id="head-trigger" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
             <div class="col-start1 lg:col-start-3 lg:col-span-9">
@@ -53,22 +71,22 @@
                 </div>
             </div>
             <div class="col-start-1 lg:col-start-3 lg:col-span-9 grid gap-0 m-4 grid-cols-1 lg:grid-cols-10">
-                <div alt="resourceNfactors" class="col-start-1 col-span-1 lg:col-span-5 flex flex-col space-y-[-1.5px]">
+                <div alt="resourceNfactors" class="col-start-1 col-span-1 lg:col-span-5 flex flex-col space-y-[-1px]">
                     <div alt="resourceFrame" class="w-full h-auto">
-                        <div class="relative w-full bg-black border-[1.5px] border-gold-200 p-0">
+                        <div class="relative w-full bg-black border-[1px] border-gold-200 p-0">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute top-[3px] -left-0.5 z-10 w-[21px] h-[21px] pointer-events-none" 
+                                class="absolute top-[3px] -left-[1px] z-10 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute top-[3px] -right-0.5 z-10 w-[21px] h-[21px] rotate-90 pointer-events-none" 
+                                class="absolute top-[3px] -right-[1px] z-10 rotate-90 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute bottom-[3px] -left-0.5 z-10 w-[21px] h-[21px] -rotate-90 pointer-events-none" 
+                                class="absolute bottom-[3px] -left-[1px] z-10 -rotate-90 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute bottom-[3px] -right-0.5 z-10 w-[21px] h-[21px] rotate-180 pointer-events-none" 
+                                class="absolute bottom-[3px] -right-[1px] z-10 rotate-180 pointer-events-none" 
                                 alt="corner">
-                            <div class="border-[1.5px] border-gold-200 m-[3px] h-full">
+                            <div class="border-[1px] border-gold-200 m-[3px] h-full">
                                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 p-6 text-cream-50 items-start">
                                     
                                     <div class="lg:col-span-5 flex flex-col justify-center space-y-1">
@@ -97,20 +115,20 @@
                         </div>
                     </div>
                     <div alt="factorFrame" class="w-full h-auto">
-                        <div class="relative w-full bg-black border-[1.5px] border-gold-200 p-0">
+                        <div class="relative w-full bg-black border-[1px] border-gold-200 p-0">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute top-[3px] -left-0.5 z-10 w-[21px] h-[21px] pointer-events-none" 
+                                class="absolute top-[3px] -left-[1px] z-10 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute top-[3px] -right-0.5 z-10 w-[21px] h-[21px] rotate-90 pointer-events-none" 
+                                class="absolute top-[3px] -right-[1px] z-10 rotate-90 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute bottom-[3px] -left-0.5 z-10 w-[21px] h-[21px] -rotate-90 pointer-events-none" 
+                                class="absolute bottom-[3px] -left-[1px] z-10 -rotate-90 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute bottom-[3px] -right-0.5 z-10 w-[21px] h-[21px] rotate-180 pointer-events-none" 
+                                class="absolute bottom-[3px] -right-[1px] z-10 rotate-180 pointer-events-none" 
                                 alt="corner">
-                            <div class="border-[1.5px] border-gold-200 m-[3px] h-full">
+                            <div class="border-[1px] border-gold-200 m-[3px] h-full">
                                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 p-6 text-cream-50 items-start">
                                     
                                     <div class="lg:col-span-5 flex flex-col justify-center space-y-1">
@@ -139,22 +157,22 @@
                         </div>
                     </div>
                 </div>
-                <div alt="motiNconclu" class="col-start-1 col-span-1 lg:col-span-5 flex flex-col space-y-[-1.5px]">
-                    <div alt="motivationFrame" class="cw-full h-auto">
-                        <div class="relative w-full bg-black border-[1.5px] border-gold-200 p-0">
+                <div alt="motiNconclu" class="col-start-1 col-span-1 lg:col-span-5 flex flex-col lg:-ml-[1px]">
+                    <div alt="motivationFrame" class="cw-full h-auto -top-[1px] lg:-top-0 ">
+                        <div class="relative w-full bg-black border-[1px] border-gold-200 p-0">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute top-[3px] -left-0.5 z-10 w-[21px] h-[21px] pointer-events-none" 
+                                class="absolute top-[3px] -left-[1px] z-10 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute top-[3px] -right-0.5 z-10 w-[21px] h-[21px] rotate-90 pointer-events-none" 
+                                class="absolute top-[3px] -right-[1px] z-10 rotate-90 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute bottom-[3px] -left-0.5 z-10 w-[21px] h-[21px] -rotate-90 pointer-events-none" 
+                                class="absolute bottom-[3px] -left-[1px] z-10 -rotate-90 pointer-events-none" 
                                 alt="corner">
                             <img src="/assets/ripple-decoCorner.svg" 
-                                class="absolute bottom-[3px] -right-0.5 z-10 w-[21px] h-[21px] rotate-180 pointer-events-none" 
+                                class="absolute bottom-[3px] -right-[1px] z-10 rotate-180 pointer-events-none" 
                                 alt="corner">
-                            <div class="border-[1.5px] border-gold-200 m-[3px] h-full">
+                            <div class="border-[1px] border-gold-200 m-[3px] h-full">
                                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 p-6 text-cream-50 items-start">
                                     
                                     <div class="lg:col-span-5 flex flex-col justify-center space-y-1">
@@ -182,30 +200,30 @@
                             </div>
                         </div>
                     </div>
-                    <div alt="conclusions" class="grid grid-cols-1 lg:grid-cols-9 p-6 gap-4">
+                    <div alt="conclusions" class="grid grid-cols-1 lg:grid-cols-9 p-6 pr-2 gap-4">
                         <div class="col-start-1 lg:col-span-3 text-xl text-gold-100">Friends are necessary and irreplaceable
                         </div>
                         <div class="col-span-1 lg:col-span-6 text-cream-50 flex flex-col gap-4">
                             <div class="flex flex-row gap-4 items-center">
-                                <span class="text-2xl font-bold">87%</span>
+                                <span class="text-3xl font-bold">87%</span>
                                 <p class="text-cream-100">audiences will put off or even cancel their plan if they find no friend to go with</p>
                             </div>
                             <div class="flex flex-row gap-4 items-center">
-                                <span class="text-2xl font-bold">77%</span>
+                                <span class="text-3xl font-bold">77%</span>
                                 <p class="text-cream-100">audiences find it difficult to find a friends to go to the performance together</p>
                             </div>
                         </div>
                         <div class="col-start-1 lg:col-span-3 text-xl text-olive-100">A lot to know before-hand</div>
                         <div class="col-span-1 lg:col-span-6 text-cream-50 flex flex-col gap-4">
                             <div class="flex flex-row gap-4 items-center">
-                                <span class="text-2xl font-bold">90%</span>
+                                <span class="text-3xl font-bold">90%</span>
                                 <p class="text-cream-100">audiences find it necessary to know more background info including casting, clips, and reviews before the show. </p>
                             </div>
                         </div>
-                        <div class="col-start-1 lg:col-span-3 text-xl text-gold-100">Happiness goes on after the show</div>
+                        <div class="col-start-1 lg:col-span-3 text-xl text-rred-100">Happiness goes on after the show</div>
                         <div class="col-span-1 lg:col-span-6 text-cream-50 flex flex-col gap-4">
                             <div class="flex flex-row gap-4 items-center">
-                                <span class="text-2xl font-bold">93%</span>
+                                <span class="text-3xl font-bold">93%</span>
                                 <p class="text-cream-100">audiences love seeing others’ reviews, sharing their opinions with other audiences or friends, and watching records or fans videos after watching the performances</p>
                             </div>
                         </div>
@@ -311,7 +329,7 @@
     <div id="sec-data"><img class="h-[100vh] w-full object-cover" src="/assets/ripple-cover.jpg"></div>
 
     <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-col gap-1.5">
             <li><a href="#sec-overview" class="toc-link">Overview</a></li>
             <li><a href="#sec-research" class="toc-link">Research</a></li>
             <li><a href="#sec-concept" class="toc-link">Concept</a></li>
