@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
             currentIndex++;
             if (currentIndex >= styles.length) currentIndex = 0;
             shiftingElement.style.fontFeatureSettings = styles[currentIndex];
-        }, 1000); 
+        }, 800); 
     }
 
 });
