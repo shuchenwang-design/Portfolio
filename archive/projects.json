@@ -74,7 +74,7 @@
     {
         "id": "rt-book",
         "title": "Rain And Tears: Thesis Book",
-        "image": "https://freight.cargo.site/t/original/i/Z2502569917158405902275036003416/RT-ThesisBook-1.jpg",
+        "image": "/assets/rt-book-cover.jpg",
         "date": "APR 2025–MAY 2025",
         "genre": "Typography, Editorial",
         "software": "Indesign",
@@ -87,7 +87,7 @@
         "date": "OCT 2024-JAN 2025",
         "genre": "Typography",
         "software": "Glyphs",
-        "link": "https://shuchen-wang.cargo.site/drowsyspecimen"
+        "link": "https://shuchen-wang.cargo.site/drowsy"
     },
     {
         "id": "intoit",

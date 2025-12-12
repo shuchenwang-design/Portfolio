@@ -42,6 +42,7 @@ tailwind.config = {
                 'opensans': ['Open Sans'],
                 'notosans': ['Noto Sans'],
                 'fieldgothic': ['Field Gothic'],
+                'infini': ['Infini'],
 
 
             }
