@@ -60,6 +60,11 @@
   font-style: normal;
   src: url("/assets/type/infini-bold.woff") format("woff");
 }
+@font-face {
+  font-family: "Neue DIN Variable";
+  font-style: normal;
+  src: url("/assets/type/FwTRIAL-NeueDINVAR.woff2") format("woff2");
+}
 
 
 body {

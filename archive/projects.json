@@ -20,7 +20,7 @@
     {
         "id": "science-snacks",
         "title": "Science Snacks: Resonate with Friends",
-        "image": "https://freight.cargo.site/t/original/i/N2400630228800626234129379441752/SS01.jpg",
+        "image": "/assets/ss/cover.jpg",
         "date": "OCT 2024-DEC 2024",
         "genre": "VIS, Typography, Motion, Data Visualization",
         "software": "Indesign, Rhino",
@@ -74,7 +74,7 @@
     {
         "id": "rt-book",
         "title": "Rain And Tears: Thesis Book",
-        "image": "/assets/rt-book-cover.jpg",
+        "image": "/assets/rt/book/cover.jpg",
         "date": "APR 2025–MAY 2025",
         "genre": "Typography, Editorial",
         "software": "Indesign",

@@ -43,6 +43,7 @@ tailwind.config = {
                 'notosans': ['Noto Sans'],
                 'fieldgothic': ['Field Gothic'],
                 'infini': ['Infini'],
+                'neuedin': ['Neue DIN Variable'],
 
 
             }
