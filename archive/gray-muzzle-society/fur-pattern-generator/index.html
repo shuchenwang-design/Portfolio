@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fur Pattern Generator</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,6 +22,7 @@
             width: 100vw;
             overflow: hidden; /* Prevent body scroll */
             display: flex;
+            flex-direction: column; /* Changed to column for top-bottom layout */
         }
 
         /* Scrollbar Styling */
@@ -32,6 +35,10 @@
         .control-input {
             width: 100%; height: 6px; background-color: #FBE3B9; border-radius: 3px;
             appearance: none; cursor: pointer; transition: background 0.2s;
+        }
+        .control-input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
         .control-input::-webkit-slider-thumb {
             -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%;
@@ -50,35 +57,74 @@
         .slider-track { position: absolute; width: 100%; height: 6px; background-color: #FBE3B9; border-radius: 3px; top: 50%; transform: translateY(-50%); }
         .slider-range { position: absolute; height: 6px; background-color: #D17A00; border-radius: 3px; top: 50%; transform: translateY(-50%); }
 
-        .control-label { display: block; margin-bottom: 1px; font-size: 0.7rem; font-weight: 500; color: 9FA8DA; letter-spacing: 0.02em; }
+        .control-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; font-size: 0.75rem; font-weight: 600; color: #b4b4c7; letter-spacing: 0.02em; }
         
-        /* Layout Containers */
-        .panel {
-            background-color: #767800;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-            height: 100%;
-            flex-shrink: 0;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-        
-        .sidebar-left { width: 280px; border-right: 1px solid #767800; }
-        .sidebar-right { width: 280px; border-left: 1px solid #767800; }
-        
+        /* Layout Structure */
         .main-viewport {
-            flex-grow: 1;
+            flex: 1; /* Takes remaining height */
             background-color: #424306;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 20px;
-            height: 100%;
+            padding: 10px;
             overflow: hidden;
+            min-height: 50vh; /* Ensure canvas has space */
+        }
+
+        .bottom-panel {
+            height: 40vh; /* Fixed height for bottom area */
+            min-height: 300px;
+            background-color: #767800;
+            display: flex;
+            width: 100%;
+            border-top: 1px solid #424306;
+            flex-shrink: 0;
+        }
+
+        .controls-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            border-right: 1px solid #424306;
+            background-color: #767800;
+        }
+
+        .preview-sidebar {
+            width: 300px; /* Fixed width for preview */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: #767800;
+            flex-shrink: 0;
+        }
+        
+        /* Desktop Layout Overrides */
+        @media (min-width: 1024px) {
+            body {
+                flex-direction: row; /* Switch back to row for desktop */
+            }
+            .main-viewport {
+                height: 100vh;
+                order: 2; /* Canvas in middle */
+            }
+            .bottom-panel {
+                display: contents; /* Removes the bottom container, letting children flow into body flex */
+            }
+            .controls-scroll-area {
+                width: 300px; /* Fixed width left sidebar */
+                height: 100vh;
+                border-right: 1px solid #424306;
+                order: 1; /* Left */
+                flex: none;
+            }
+            .preview-sidebar {
+                width: 300px;
+                height: 100vh;
+                border-left: 1px solid #424306;
+                order: 3; /* Right */
+            }
         }
 
         /* Canvas Container */
@@ -101,29 +147,47 @@
             max-height: 100%;
             aspect-ratio: 1/1; 
             image-rendering: -webkit-optimize-contrast;
+            background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
         }
 
         /* Buttons & Inputs */
         .mode-button {
-            padding: 6px 12px; font-size: 0.75rem; border-radius: 4px; font-weight: 700; background-color: #424306;
-            transition: all 0.1s; flex-grow: 1; text-align: center; text-transform: uppercase;
+            padding: 6px 12px; font-size: 0.75rem; border-radius: 4px; font-weight: 700;
+            transition: all 0.15s; flex-grow: 1; text-align: center; text-transform: uppercase;
         }
-        .mode-button.active { background-color: #D17A00; color: #FBE3B9; }
-        .mode-button.inactive { background-color: #FBE3B9; color: #424306; }
+        .mode-button.active { background-color: #B64F05; color: #FCF9F0; }
+        .mode-button.inactive { background-color: #D17A00; color: #F2BA67; }
         
-        /* Fixed Color Input Styling (No white space) */
+        /* Fixed Color Input Styling */
         .color-circle {
             width: 2rem; height: 2rem; border-radius: 50%; padding: 0; border: none;
             overflow: hidden; cursor: pointer; -webkit-appearance: none; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
         }
         .color-square {
-            width: 2rem; height: 2rem; border-radius: 4px; padding: 2; border: none;
+            width: 2rem; height: 2rem; border-radius: 4px; padding: 0; border: none;
             overflow: hidden; cursor: pointer; -webkit-appearance: none; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.1s;
         }
-        /* Specific overrides for Webkit to remove internal padding */
         .color-circle::-webkit-color-swatch-wrapper, .color-square::-webkit-color-swatch-wrapper { padding: 0; }
         .color-circle::-webkit-color-swatch, .color-square::-webkit-color-swatch { border: none; }
         
+        /* Palette Swatch */
+        .palette-swatch {
+            width: 1.5rem; height: 1.5rem; border-radius: 4px; cursor: grab;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.1s;
+        }
+        .palette-swatch:hover { transform: scale(1.1); }
+        .palette-swatch:active { cursor: grabbing; }
+
+        /* Drop target highlight */
+        .drop-target-active {
+            transform: scale(1.2) !important;
+        }
+
         #statusMessage {
             position: absolute;
             bottom: 20px; 
@@ -145,135 +209,49 @@
         /* Updated header style to be shared */
         .section-header {
             font-size: 0.7rem; text-transform: uppercase; color: #FBE3B9; font-weight: 700; 
-            margin-top: 8px; margin-bottom: 4px; padding-bottom: 2px; border-bottom: 1px solid #424306;
+            margin-top: 12px; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #424306;
         }
         
         .viewport-controls {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 24px;
+            left: 24px;
             z-index: 30;
             display: flex;
             gap: 8px;
+        }
+        
+        /* Radio Button Styling for Edge Mode */
+        .edge-radio {
+            appearance: none;
+            background-color: #D17A00;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.15em;
+            height: 1.15em;
+            border: 0.15em solid #D17A00;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+        }
+        .edge-radio::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em white;
+        }
+        .edge-radio:checked::before {
+            transform: scale(1);
         }
     </style>
 </head>
 <body>
 
-    <!-- LEFT SIDEBAR: CONTROLS -->
-    <div class="panel sidebar-left space-y-3">
-        <h1 class="text-xl font-bold text-[#FBE3B9] mb-1 tracking-tight">Fur Generator</h1>
-
-        <!-- Mode Selection -->
-        <div class="flex space-x-1 mb-2">
-            <button id="modeScatter" class="mode-button">Scatter</button>
-            <button id="modeDraw" class="mode-button">Draw</button>
-            <button id="modeImage" class="mode-button">Image</button>
-        </div>
-
-        <!-- Image Controls -->
-        <div id="imageControls" class="space-y-2 hidden bg-[#424306] p-3 rounded-lg border border-[#424306]">
-            <div class="control-group">
-                <label class="control-label mb-1">Upload Image</label>
-                <input type="file" id="imageUpload" accept="image/jpeg, image/png" class="text-xs text-indigo-200 w-full file:bg-[#D17A00] file:text-[#FBE3B9] file:border-0 file:rounded-sm file:px-2 file:py-1 file:text-xs file:font-bold hover:file:bg-[#a96600] cursor-pointer"/>
-            </div>
-            <div class="control-group">
-                <label class="control-label" id="samplingLabel">Sample: 8x8 px</label>
-                <input type="range" id="samplingCellSize" min="2" max="32" value="8" step="1" class="control-input">
-            </div>
-        </div>
-
-        <!-- Colors -->
-        <div class="section-header">Colors</div>
-        <div class="control-group">
-            <label class="control-label mb-2">Fur & Background</label>
-            <div class="flex items-center space-x-4 mb-2">
-                <div class="flex space-x-2">
-                    <input type="color" id="furColor1" value="#FBE3B9" class="color-circle" title="Fur 1">
-                    <input type="color" id="furColor2" value="#F2BA67" class="color-circle" title="Fur 2">
-                    <input type="color" id="furColor3" value="#B64F05" class="color-circle" title="Fur 3">
-                </div>
-                <div class="h-6 w-px bg-[#424306]"></div>
-                <input type="color" id="bgColor" value="#D17A00" class="color-square" title="Background">
-            </div>
-        </div>
-
-        <!-- Basic Parameters -->
-        <div class="section-header">Base Properties</div>
-        
-        <div class="control-group">
-            <label class="control-label" id="furAmountLabel">Amount: 500</label>
-            <input type="range" id="furAmount" min="5" max="5000" value="500" step="1" class="control-input">
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="globalRotationLabel">Global Rotation: 0°</label>
-            <input type="range" id="globalRotation" min="-180" max="180" value="0" step="1" class="control-input">
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="maxThicknessLabel">Thickness (40 px)</label>
-            <input type="range" id="maxThickness" min="5" max="200" value="40" step="1" class="control-input">
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="maxLengthLabel">Length (300 units)</label>
-            <input type="range" id="maxLength" min="50" max="600" value="300" step="1" class="control-input">
-        </div>
-
-        <!-- Geometry Logic Parameters -->
-        <div class="section-header">Shape Geometry</div>
-        
-        <div class="control-group">
-            <label class="control-label" id="twistLabel">Twist (N): 3</label>
-            <input type="range" id="twist" min="1" max="10" value="3" step="1" class="control-input">
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="crimpFactorLabel">Arc Curviness (0.50)</label>
-            <input type="range" id="crimpFactor" min="0.00" max="0.80" value="0.50" step="0.01" class="control-input">
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="amplitudeLabel">Amplitude: 20</label>
-            <input type="range" id="curviness" min="0" max="100" value="20" step="1" class="control-input">
-        </div>
-
-        <!-- Randomization -->
-        <div class="section-header">Randomization</div>
-        
-        <div class="control-group">
-            <label class="control-label" id="rotationLabel">Rotation Spread</label>
-            <div class="double-slider-group">
-                <div class="slider-track"></div>
-                <div class="slider-range" id="rotationRangeVisual"></div>
-                <input type="range" id="rotationMin" min="0" max="360" value="0" step="1" class="control-input">
-                <input type="range" id="rotationMax" min="0" max="360" value="0" step="1" class="control-input">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="distanceLabel">Position Offset</label>
-            <div class="double-slider-group">
-                <div class="slider-track"></div>
-                <div class="slider-range" id="distanceRangeVisual"></div>
-                <input type="range" id="distanceMin" min="0" max="100" value="0" step="1" class="control-input">
-                <input type="range" id="distanceMax" min="0" max="100" value="0" step="1" class="control-input">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" id="lengthRandomizationLabel">Length Variation</label>
-            <div class="double-slider-group">
-                <div class="slider-track"></div>
-                <div class="slider-range" id="lengthRangeVisual"></div>
-                <input type="range" id="lengthMinPercent" min="20" max="180" value="100" step="10" class="control-input">
-                <input type="range" id="lengthMaxPercent" min="20" max="180" value="100" step="10" class="control-input">
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN VIEWPORT: CANVAS -->
+    <!-- MAIN VIEWPORT: CANVAS (Fixed at Top) -->
     <div class="main-viewport">
         <!-- Top Left Controls (Regenerate / Clear) -->
         <div class="viewport-controls">
@@ -298,31 +276,194 @@
         </div>
         
         <!-- Hidden High Res Canvases -->
-        <!-- highResCanvas accumulates transparent fur layers in Draw mode -->
         <canvas id="highResCanvas" style="display: none;"></canvas>
-        <!-- bigResCanvas is for temporary active path drawing or scatter/image generation -->
         <canvas id="bigResCanvas" style="display: none;"></canvas>
-        <!-- tempCanvas for download compositing -->
         <canvas id="tempCanvas" style="display: none;"></canvas>
     </div>
 
-    <!-- RIGHT SIDEBAR: FUR PREVIEW -->
-    <div class="panel sidebar-right">
-        <div class="section-header mb-4 text-center">Single Strand Preview</div>
+    <!-- BOTTOM PANEL: CONTROLS & PREVIEW -->
+    <div class="bottom-panel">
         
-        <!-- Container for the single strand preview -->
-        <div class="flex-grow flex items-center justify-center bg-[#3a3a12] rounded-lg border border-[#424306] p-0 shadow-inner mb-4 relative overflow-hidden w-full aspect-square" id="preview-container">
-            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#424306 1px, transparent 1px), linear-gradient(90deg, #424306 1px, transparent 1px); background-size: 20px 20px;"></div>
-            <!-- Square preview canvas -->
-            <canvas id="strandPreviewCanvas" class="w-full h-full relative z-10"></canvas>
+        <!-- LEFT: SCROLLABLE CONTROLS -->
+        <div class="controls-scroll-area space-y-3">
+            <!-- Mode Selection -->
+            <div class="flex space-x-1 mb-2 max-w-md">
+                <button id="modeScatter" class="mode-button">Scatter</button>
+                <button id="modeDraw" class="mode-button">Draw</button>
+                <button id="modeImage" class="mode-button">Image</button>
+                <button id="modeEdge" class="mode-button">Edge</button>
+            </div>
+
+            <!-- Image Controls -->
+            <div id="imageControls" class="space-y-2 hidden bg-[#424306] p-3 rounded-lg border border-[#424306] max-w-md">
+                <div class="control-group">
+                    <label class="control-label mb-1">Upload Image</label>
+                    <input type="file" id="imageUpload" accept="image/jpeg, image/png" class="text-xs text-indigo-200 w-full file:bg-[#D17A00] file:text-[#FBE3B9] file:border-0 file:rounded-sm file:px-2 file:py-1 file:text-xs file:font-bold hover:file:bg-[#a96600] cursor-pointer"/>
+                </div>
+                <!-- Sampling control (Image Mode) -->
+                <div id="samplingControl" class="control-group">
+                    <label class="control-label" id="samplingLabel">Sample: 4x4 px</label>
+                    <input type="range" id="samplingCellSize" min="1" max="10" value="4" step="1" class="control-input">
+                </div>
+                
+                <!-- Edge Specific Controls -->
+                <div id="edgeControls" class="hidden mt-2 pt-2 border-t border-[#D17A00]">
+                    <label class="control-label mb-2">Select Edge</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-[#FBE3B9] mb-3">
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="radio" name="edgeSide" value="top" class="edge-radio" checked>
+                            <span>Top</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="radio" name="edgeSide" value="bottom" class="edge-radio">
+                            <span>Bottom</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="radio" name="edgeSide" value="left" class="edge-radio">
+                            <span>Left</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="radio" name="edgeSide" value="right" class="edge-radio">
+                            <span>Right</span>
+                        </label>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label" id="edgeWidthLabel">Edge Area Width: 100px</label>
+                        <input type="range" id="edgeWidth" min="10" max="500" value="100" step="10" class="control-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colors (Hidden in Edge Mode) -->
+            <div id="colorControls">
+                <div class="section-header max-w-md">Colors</div>
+                
+                <!-- Brand Palette -->
+                <div class="mb-3">
+                    <label class="control-label mb-1">Brand Palette (Drag and Drop Below)</label>
+                    <div class="flex flex-wrap gap-2" id="brandPalette">
+                        <!-- Palette items injected by JS -->
+                    </div>
+                </div>
+
+                <div class="control-group max-w-md">
+                    <label class="control-label mb-2">Fur & Background</label>
+                    <div class="flex items-center space-x-4 mb-2">
+                        <div class="flex space-x-2" id="furColorPickerContainer">
+                            <input type="color" id="furColor1" value="#FBE3B9" class="color-circle" title="Fur 1">
+                            <input type="color" id="furColor2" value="#F2BA67" class="color-circle" title="Fur 2">
+                            <input type="color" id="furColor3" value="#B64F05" class="color-circle" title="Fur 3">
+                        </div>
+                        <!-- Edge mode message -->
+                        <div id="edgeColorMessage" class="hidden text-[10px] text-gray-400 italic">Colors sampled from edge</div>
+                        
+                        <div class="h-6 w-px bg-[#424306]"></div>
+                        <!-- Background Color (Opacity Removed) -->
+                        <div class="flex items-center space-x-2">
+                             <input type="color" id="bgColor" value="#D17A00" class="color-square" title="Background">
+                             <!-- Removed Opacity Controls Here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Column Layout (Removed Grid) -->
+            <div class="flex flex-col gap-y-2 max-w-md">
+                
+                <div class="section-header">Base Properties</div>
+                
+                <div class="control-group">
+                    <label class="control-label" id="furAmountLabel">Amount: 500</label>
+                    <input type="range" id="furAmount" min="5" max="5000" value="500" step="1" class="control-input">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="globalRotationLabel">Global Rotation: 0°</label>
+                    <input type="range" id="globalRotation" min="-180" max="180" value="0" step="1" class="control-input">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="maxThicknessLabel">Thickness (40 px)</label>
+                    <input type="range" id="maxThickness" min="2" max="200" value="20" step="1" class="control-input">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="maxLengthLabel">Length (100 units)</label>
+                    <input type="range" id="maxLength" min="50" max="600" value="100" step="1" class="control-input">
+                </div>
+
+                <div class="section-header">Shape Geometry</div>
+                
+                <div class="control-group">
+                    <label class="control-label" id="twistLabel">Twist (N): 3</label>
+                    <input type="range" id="twist" min="1" max="10" value="3" step="1" class="control-input">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="crimpFactorLabel">Arc Curviness (0.50)</label>
+                    <input type="range" id="crimpFactor" min="0.00" max="0.70" value="0.50" step="0.01" class="control-input">
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="amplitudeLabel">Amplitude: 20</label>
+                    <input type="range" id="curviness" min="0" max="100" value="20" step="1" class="control-input">
+                </div>
+
+                <!-- Randomization -->
+                <div class="section-header">Randomization</div>
+                
+                <div class="control-group">
+                    <label class="control-label" id="rotationLabel">Rotation Spread</label>
+                    <div class="double-slider-group">
+                        <div class="slider-track"></div>
+                        <div class="slider-range" id="rotationRangeVisual"></div>
+                        <input type="range" id="rotationMin" min="0" max="360" value="0" step="1" class="control-input">
+                        <input type="range" id="rotationMax" min="0" max="360" value="0" step="1" class="control-input">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="distanceLabel">Position Offset</label>
+                    <div class="double-slider-group">
+                        <div class="slider-track"></div>
+                        <div class="slider-range" id="distanceRangeVisual"></div>
+                        <input type="range" id="distanceMin" min="0" max="100" value="0" step="1" class="control-input">
+                        <input type="range" id="distanceMax" min="0" max="100" value="0" step="1" class="control-input">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" id="lengthRandomizationLabel">Length Variation</label>
+                    <div class="double-slider-group">
+                        <div class="slider-track"></div>
+                        <div class="slider-range" id="lengthRangeVisual"></div>
+                        <input type="range" id="lengthMinPercent" min="20" max="180" value="100" step="10" class="control-input">
+                        <input type="range" id="lengthMaxPercent" min="20" max="180" value="100" step="10" class="control-input">
+                    </div>
+                </div>
+            </div>
+            <div class="h-8"></div><!-- Spacer -->
         </div>
-        
-        <button id="downloadStrandButton" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-[#FBE3B9] font-bold rounded shadow text-xs uppercase tracking-wide transition-colors mb-4">
-            Download Strand
-        </button>
-        
-        <div class="text-xs text-indigo-200 font-regular text-center leading-relaxed mt-auto">
-            <p>Twist • Amplitude • Thickness • Curviness • Length</p>
+
+        <!-- RIGHT: SINGLE STRAND PREVIEW (Fixed) -->
+        <div class="preview-sidebar">
+            <div class="section-header mb-4 text-center">Single Strand Preview</div>
+            
+            <!-- Container for the single strand preview -->
+            <div class="flex-grow flex items-center justify-center bg-[#3a3a12] rounded-lg border border-[#424306] p-0 shadow-inner mb-4 relative overflow-hidden w-full aspect-square" id="preview-container">
+                <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#424306 1px, transparent 1px), linear-gradient(90deg, #424306 1px, transparent 1px); background-size: 20px 20px;"></div>
+                <!-- Square preview canvas -->
+                <canvas id="strandPreviewCanvas" class="w-full h-full relative z-10"></canvas>
+            </div>
+            
+            <button id="downloadStrandButton" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-[#FBE3B9] font-bold rounded shadow text-xs uppercase tracking-wide transition-colors mb-4">
+                Download Strand
+            </button>
+            
+            <div class="text-xs text-indigo-200 font-regular text-center leading-relaxed mt-auto">
+                <p>Twist • Amplitude • Thickness • Curviness • Length</p>
+            </div>
         </div>
     </div>
 
@@ -338,6 +479,10 @@
     const DENSITY_UNIT = 1000;
     const MAX_STRAND_POOL = 5000;
     const DEFAULT_IMAGE_URL = 'https://freight.cargo.site/t/original/i/B2667905040449165242817260502104/Default.jpg'; 
+    const PALETTE_COLORS = [
+        '#D17A00', '#B64F05', '#F2BA67', '#FBE3B9', '#424306', '#62640C',
+        '#8C8F08', '#4F1EC1', '#6C40E5', '#936FEE', '#FCF9F0', '#1B1716'
+    ];
 
     // --- State Variables ---
     let drawingMode = 'scatter';
@@ -371,7 +516,7 @@
     const previewCtx = previewCanvas.getContext('2d');
     const highResCtx = highResCanvas.getContext('2d');
     const bigResCtx = bigResCanvas.getContext('2d');
-    const tempCtx = tempCanvas.getContext('2d');
+    const tempCtx = tempCanvas.getContext('2d', { willReadFrequently: true });
     const strandPreviewCtx = strandPreviewCanvas.getContext('2d');
 
     // Inputs
@@ -389,12 +534,18 @@
     const maxLengthInput = document.getElementById('maxLength');
     const globalRotationInput = document.getElementById('globalRotation');
     
+    // Edge Mode Inputs
+    const edgeWidthInput = document.getElementById('edgeWidth');
+    const edgeRadios = document.getElementsByName('edgeSide');
+    
     const colorInputs = [
         document.getElementById('furColor1'),
         document.getElementById('furColor2'),
         document.getElementById('furColor3')
     ];
     const bgColorInput = document.getElementById('bgColor');
+    // Removed bgOpacityInput reference
+    const colorSection = document.getElementById('colorSection');
 
     // Set Canvas Sizes
     highResCanvas.width = HIGH_RES_WIDTH;
@@ -407,6 +558,46 @@
     const previewContainer = document.getElementById('preview-container');
     strandPreviewCanvas.width = previewContainer.clientWidth;
     strandPreviewCanvas.height = previewContainer.clientHeight;
+
+    // --- Init Palette ---
+    const brandPalette = document.getElementById('brandPalette');
+    PALETTE_COLORS.forEach(color => {
+        const swatch = document.createElement('div');
+        swatch.className = 'palette-swatch';
+        swatch.style.backgroundColor = color;
+        swatch.draggable = true;
+        
+        // Drag start: Store color
+        swatch.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', color);
+            e.dataTransfer.effectAllowed = 'copy';
+        });
+
+        brandPalette.appendChild(swatch);
+    });
+
+    // Add drag-drop listeners to color inputs
+    const allColorInputs = [...colorInputs, bgColorInput];
+    allColorInputs.forEach(input => {
+        input.addEventListener('dragover', (e) => {
+            e.preventDefault(); // Allow drop
+            input.parentElement.classList.add('drop-target-active');
+        });
+        
+        input.addEventListener('dragleave', (e) => {
+            input.parentElement.classList.remove('drop-target-active');
+        });
+
+        input.addEventListener('drop', (e) => {
+            e.preventDefault();
+            input.parentElement.classList.remove('drop-target-active');
+            const color = e.dataTransfer.getData('text/plain');
+            if (color) {
+                input.value = color;
+                handleFullGenerationCycle();
+            }
+        });
+    });
 
     // --- Data Collection ---
     function getParams() {
@@ -428,9 +619,23 @@
 
     // --- Utility Functions ---
     
-    function clearCanvas(ctx, w, h, bgColor) {
-        ctx.fillStyle = bgColor;
-        ctx.fillRect(0, 0, w, h);
+    function clearCanvas(ctx, w, h, bgColorHex) {
+        ctx.clearRect(0, 0, w, h); // Always clear first
+        
+        // If a valid color (not null/transparent) is provided, fill it
+        // This effectively treats opacity as 100% unless 'transparent' is passed explicitly
+        if (bgColorHex && bgColorHex !== 'transparent') {
+            ctx.fillStyle = bgColorHex;
+            ctx.fillRect(0, 0, w, h);
+        }
+    }
+
+    function rgbToLuminance(r, g, b) {
+        return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    }
+    
+    function rgbToHex(r, g, b) {
+        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
 
     // --- Geometry Logic ---
@@ -583,9 +788,9 @@
         setSeed(currentSeed);
         strandLocationPool = [];
         
-        if (drawingMode === 'scatter' || drawingMode === 'image') {
+        if (drawingMode === 'scatter' || drawingMode === 'image' || drawingMode === 'edge') {
             const numLocations = Math.ceil(BIG_RES_WIDTH * BIG_RES_HEIGHT / 2000); 
-            const poolSize = 8000; 
+            const poolSize = 10000; 
             for(let i=0; i<poolSize; i++) {
                 strandLocationPool.push({
                     x: seededRandom() * BIG_RES_WIDTH,
@@ -597,21 +802,13 @@
         }
     }
 
-    function rgbToLuminance(r, g, b) {
-        return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-    }
-
     function render(targetCtx, clear = true, bgColor, transparentBackground = false) {
         const params = getParams();
         const colors = colorInputs.map(c => c.value);
         
         if (clear) {
-            if (transparentBackground) {
-                targetCtx.clearRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
-            } else {
-                targetCtx.fillStyle = bgColor;
-                targetCtx.fillRect(0, 0, targetCtx.canvas.width, targetCtx.canvas.height);
-            }
+             clearCanvas(targetCtx, targetCtx.canvas.width, targetCtx.canvas.height, transparentBackground ? null : bgColor);
+             // Note: clearCanvas handles logic
         }
 
         setSeed(currentSeed);
@@ -670,6 +867,14 @@
         } else if (drawingMode === 'image') {
             if(!currentImage.src || currentImage.width === 0) return;
             
+            // FIX START
+            // Reset tempCanvas to consistent sampling size to prevent crash after high-res download
+            const samplingWidth = 300;
+            const aspect = currentImage.height / currentImage.width;
+            tempCanvas.width = samplingWidth;
+            tempCanvas.height = Math.round(samplingWidth * aspect);
+            // FIX END
+
             const cellSize = parseInt(document.getElementById('samplingCellSize').value);
             const w = tempCanvas.width;
             const h = tempCanvas.height;
@@ -706,6 +911,8 @@
                 const cIdx = Math.floor(seededRandom() * 3);
                 strandsToDraw.push({ x: finalX, y: finalY, angle: finalAngle, color: colors[cIdx] });
             }
+        } else if (drawingMode === 'edge') {
+            generateEdgeStrands(strandsToDraw);
         }
 
         strandsToDraw.forEach(s => {
@@ -717,6 +924,127 @@
         statusMessage.classList.remove('hidden');
         setTimeout(() => statusMessage.classList.add('hidden'), 2000);
     }
+    
+    function generateEdgeStrands(strandsToDraw) {
+        if(!currentImage.src || currentImage.width === 0) return;
+        
+        // FIX START
+        const samplingWidth = 300;
+        const aspect = currentImage.height / currentImage.width;
+        tempCanvas.width = samplingWidth;
+        tempCanvas.height = Math.round(samplingWidth * aspect);
+        // FIX END
+        
+        const w = tempCanvas.width;
+        const h = tempCanvas.height;
+        tempCtx.drawImage(currentImage, 0, 0, w, h);
+        const imgData = tempCtx.getImageData(0,0,w,h).data;
+        
+        const edgeSide = document.querySelector('input[name="edgeSide"]:checked').value;
+        const edgeWidth = parseInt(document.getElementById('edgeWidth').value); 
+        const density = parseInt(furAmountInput.value); 
+        
+        const scaleX = w / HIGH_RES_WIDTH;
+        const scaleY = h / HIGH_RES_HEIGHT;
+        const tempEdgeWidth = edgeWidth * scaleX; 
+        
+        const params = getParams();
+        
+        let startX, endX, startY, endY, baseAngle;
+        let offsetX = 0;
+        let offsetY = 0;
+        
+        const canvasCenterX = HIGH_RES_WIDTH / 2;
+        const canvasCenterY = HIGH_RES_HEIGHT / 2;
+        
+        if (edgeSide === 'top') {
+            startX = 0; endX = w;
+            startY = 0; endY = tempEdgeWidth;
+            baseAngle = Math.PI/2; 
+            offsetY = canvasCenterY - (startY + (endY - startY)/2) / scaleY;
+        } else if (edgeSide === 'bottom') {
+            startX = 0; endX = w;
+            startY = h - tempEdgeWidth; endY = h;
+            baseAngle = -Math.PI/2;
+            offsetY = canvasCenterY - (startY + (endY - startY)/2) / scaleY;
+        } else if (edgeSide === 'left') {
+            startX = 0; endX = tempEdgeWidth;
+            startY = 0; endY = h;
+            baseAngle = 0; 
+            offsetX = canvasCenterX - (startX + (endX - startX)/2) / scaleX;
+        } else if (edgeSide === 'right') {
+            startX = w - tempEdgeWidth; endX = w;
+            startY = 0; endY = h;
+            baseAngle = Math.PI; 
+            offsetX = canvasCenterX - (startX + (endX - startX)/2) / scaleX;
+        }
+        
+        const cellSize = 4; 
+        const cols = Math.floor((endX - startX) / cellSize);
+        const rows = Math.floor((endY - startY) / cellSize);
+        
+        for(let r=0; r<rows; r++) {
+            for(let c=0; c<cols; c++) {
+                const cx = startX + (c + 0.5) * cellSize;
+                const cy = startY + (r + 0.5) * cellSize;
+                
+                const idx = (Math.floor(cy)*w + Math.floor(cx)) * 4;
+                const rVal = imgData[idx];
+                const gVal = imgData[idx+1];
+                const bVal = imgData[idx+2];
+                
+                const spawnCount = density / 200; 
+                
+                const colorHex = "#" + ((1 << 24) + (rVal << 16) + (gVal << 8) + bVal).toString(16).slice(1);
+
+                if (seededRandom() < spawnCount % 1) spawnEdgeStrandAt(cx, cy, baseAngle, colorHex, offsetX, offsetY);
+                for(let k=0; k<Math.floor(spawnCount); k++) spawnEdgeStrandAt(cx, cy, baseAngle, colorHex, offsetX, offsetY);
+            }
+        }
+        
+        function spawnEdgeStrandAt(cx, cy, baseAngle, color, offX, offY) {
+            const bx = cx / scaleX;
+            const by = cy / scaleY;
+            
+            const dist = params.distanceMin + seededRandom() * (params.distanceMax - params.distanceMin);
+            const rAng = seededRandom() * Math.PI * 2;
+            
+            let finalX = bx + offX + Math.cos(rAng) * dist;
+            let finalY = by + offY + Math.sin(rAng) * dist;
+
+            finalX = Math.max(0, Math.min(HIGH_RES_WIDTH, finalX));
+            finalY = Math.max(0, Math.min(HIGH_RES_HEIGHT, finalY));
+
+            const rotSpread = params.rotationMinRad + seededRandom() * (params.rotationMaxRad - params.rotationMinRad);
+            const finalAngle = baseAngle + rotSpread + params.globalRotationRad;
+            
+            strandsToDraw.push({ x: finalX, y: finalY, angle: finalAngle, color: color });
+        }
+    }
+
+    // Function definition needed for handleFullGenerationCycle
+    function handleFullGenerationCycle() {
+        if (isDrawing && drawingMode === 'draw') return;
+        
+        const furColor = document.getElementById('furColor1').value; 
+        const bgColor = bgColorInput.value;
+        
+        generateStrands(); 
+        redrawPreviewAndPathOverlay();
+    }
+
+    function generateStrands() {
+         // This logic is now inside render() for efficiency in this structure,
+         // but handleFullGenerationCycle calls render implicitly via updatePreview which calls render.
+         // Wait, the previous logic split generation and rendering. 
+         // In this version I combined them into render() to simplify state management for the preview loop.
+         // So handleFullGenerationCycle actually just needs to trigger updatePreview().
+         updatePreview();
+    }
+    
+    function redrawPreviewAndPathOverlay() {
+         // This is handled by updatePreview in this structure
+    }
 
     function updatePreview() {
         updateSliders();
@@ -726,13 +1054,51 @@
             bigResCtx.clearRect(0, 0, BIG_RES_WIDTH, BIG_RES_HEIGHT);
             if (drawnPath.length > 0) render(bigResCtx, false, 'transparent', true); 
             
-            previewCtx.fillStyle = bgColor;
-            previewCtx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+            clearCanvas(previewCtx, previewCanvas.width, previewCanvas.height, bgColor);
             
             previewCtx.drawImage(highResCanvas, 0, 0, previewCanvas.width, previewCanvas.height);
             previewCtx.drawImage(bigResCanvas, 0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT, 0, 0, previewCanvas.width, previewCanvas.height);
 
+        } else if (drawingMode === 'edge') {
+            render(highResCtx, true, 'transparent', true);
+            
+            clearCanvas(previewCtx, previewCanvas.width, previewCanvas.height, bgColor);
+            
+            if(currentImage.src && currentImage.width > 0) {
+                 const edgeSide = document.querySelector('input[name="edgeSide"]:checked').value;
+                 
+                 const w = tempCanvas.width;
+                 const h = tempCanvas.height;
+                 const scaleX = w / HIGH_RES_WIDTH;
+                 const scaleY = h / HIGH_RES_HEIGHT;
+                 const edgeWidth = parseInt(document.getElementById('edgeWidth').value); 
+                 const tempEdgeWidth = edgeWidth * scaleX; 
+                 
+                 let offsetX = 0, offsetY = 0;
+                 const canvasCenterX = HIGH_RES_WIDTH / 2;
+                 const canvasCenterY = HIGH_RES_HEIGHT / 2;
+
+                 if (edgeSide === 'top') {
+                     const startY = 0; const endY = tempEdgeWidth;
+                     offsetY = canvasCenterY - (startY + (endY - startY)/2) / scaleY;
+                 } else if (edgeSide === 'bottom') {
+                     const startY = h - tempEdgeWidth; const endY = h;
+                     offsetY = canvasCenterY - (startY + (endY - startY)/2) / scaleY;
+                 } else if (edgeSide === 'left') {
+                     const startX = 0; const endX = tempEdgeWidth;
+                     offsetX = canvasCenterX - (startX + (endX - startX)/2) / scaleX;
+                 } else if (edgeSide === 'right') {
+                     const startX = w - tempEdgeWidth; const endX = w;
+                     offsetX = canvasCenterX - (startX + (endX - startX)/2) / scaleX;
+                 }
+                 
+                 previewCtx.drawImage(currentImage, offsetX, offsetY, HIGH_RES_WIDTH, HIGH_RES_HEIGHT);
+            }
+
+            previewCtx.drawImage(highResCanvas, 0, 0, previewCanvas.width, previewCanvas.height);
+        
         } else {
+            // Normal Scatter or Image Mode
             render(bigResCtx, true, bgColor, false); 
             highResCtx.drawImage(bigResCanvas, -BIG_RES_OFFSET_X, -BIG_RES_OFFSET_Y);
             previewCtx.drawImage(highResCanvas, 0, 0, previewCanvas.width, previewCanvas.height);
@@ -759,8 +1125,7 @@
             distanceMax: 0,
         };
         
-        ctx.fillStyle = bgColor;
-        ctx.fillRect(0, 0, w, h);
+        clearCanvas(ctx, w, h, bgColor);
         
         const actualLength = previewParams.maxLength;
         const padding = 40;
@@ -789,6 +1154,8 @@
         document.getElementById('maxLengthLabel').innerText = `Length (${maxLengthInput.value} units)`;
         document.getElementById('globalRotationLabel').innerText = `Global Rotation: ${globalRotationInput.value}°`;
         
+        document.getElementById('edgeWidthLabel').innerText = `Edge Area Width: ${document.getElementById('edgeWidth').value}px`;
+        
         function setRange(minId, maxId, visualId) {
             const minEl = document.getElementById(minId);
             const maxEl = document.getElementById(maxId);
@@ -813,7 +1180,7 @@
         
         document.getElementById('twistLabel').innerText = `Twist (N): ${twistInput.value}`;
         document.getElementById('amplitudeLabel').innerText = `Amplitude: ${curvinessInput.value}`;
-        document.getElementById('furAmountLabel').innerText = `Amount/Density: ${furAmountInput.value}`;
+        document.getElementById('furAmountLabel').innerText = drawingMode === 'scatter' ? `Amount: ${furAmountInput.value}` : (drawingMode === 'draw' ? `Density: ${furAmountInput.value}` : `Density Factor: ${furAmountInput.value}`);
         document.getElementById('crimpFactorLabel').innerText = `Arc Curviness (${crimpFactorInput.value})`;
     }
 
@@ -823,17 +1190,50 @@
         if(drawingMode === mode) return;
         drawingMode = mode;
         
-        ['modeScatter', 'modeDraw', 'modeImage'].forEach(id => {
+        ['modeScatter', 'modeDraw', 'modeImage', 'modeEdge'].forEach(id => {
             const btn = document.getElementById(id);
             btn.className = id === 'mode' + mode.charAt(0).toUpperCase() + mode.slice(1) ? 'mode-button active' : 'mode-button inactive';
         });
         
-        document.getElementById('imageControls').classList.toggle('hidden', mode !== 'image');
-        document.getElementById('canvas-container').style.cursor = mode === 'draw' ? 'crosshair' : 'default';
+        const imageControls = document.getElementById('imageControls');
+        const samplingControl = document.getElementById('samplingControl');
+        const edgeControls = document.getElementById('edgeControls');
+        const colorControls = document.getElementById('colorControls');
         
-        if(mode === 'scatter') furAmountInput.value = 500;
-        else if(mode === 'draw') { furAmountInput.value = 15; handleClear(); }
-        else if(mode === 'image') { furAmountInput.value = 500; handleClear(); }
+        // Reset defaults
+        furAmountInput.disabled = false;
+
+        if (mode === 'scatter') {
+            imageControls.classList.add('hidden');
+            colorControls.classList.remove('hidden');
+            furAmountInput.min = 5; furAmountInput.max = 5000; furAmountInput.value = 500;
+        } else if (mode === 'draw') {
+            imageControls.classList.add('hidden');
+            colorControls.classList.remove('hidden');
+            furAmountInput.min = 5; furAmountInput.max = 30; furAmountInput.value = 15;
+            handleClear();
+        } else if (mode === 'image') {
+            imageControls.classList.remove('hidden');
+            samplingControl.classList.remove('hidden');
+            edgeControls.classList.add('hidden');
+            colorControls.classList.remove('hidden');
+            samplingCellSizeInput.min = 1; samplingCellSizeInput.max = 10; samplingCellSizeInput.value = 4;
+            furAmountInput.min = 0; furAmountInput.max = 1500; furAmountInput.value = 400;
+            maxLengthInput.min = 50; maxLengthInput.max = 600; maxLengthInput.value = 100;
+            maxThicknessInput.min = 2; maxThicknessInput.max = 200; maxThicknessInput.value = 20;
+            handleClear();
+        } else if (mode === 'edge') {
+            imageControls.classList.remove('hidden');
+            samplingControl.classList.add('hidden'); 
+            edgeControls.classList.remove('hidden');
+            colorControls.classList.add('hidden'); 
+            furAmountInput.min = 50; furAmountInput.max = 2000; furAmountInput.value = 500;
+            maxLengthInput.min = 50; maxLengthInput.max = 600; maxLengthInput.value = 100;
+            maxThicknessInput.min = 2; maxThicknessInput.max = 200; maxThicknessInput.value = 20;
+            handleClear();
+        }
+        
+        document.getElementById('canvas-container').style.cursor = mode === 'draw' ? 'crosshair' : 'default';
         
         handleRegenerate();
     }
@@ -845,10 +1245,7 @@
     }
 
     function handleClear() {
-        // In Draw mode, clear to transparent accumulation. 
-        // In other modes, clear to solid BG (which updatePreview will do anyway by calling render with BG).
-        // But for consistency, let's just reset the accumulated HighRes buffer.
-        
+        // Clear HighRes completely (transparent)
         highResCtx.clearRect(0, 0, HIGH_RES_WIDTH, HIGH_RES_HEIGHT);
         bigResCtx.clearRect(0, 0, BIG_RES_WIDTH, BIG_RES_HEIGHT);
         drawnPath = [];
@@ -856,6 +1253,14 @@
     }
 
     function handleDownload() {
+        if (drawingMode === 'edge') {
+            const link = document.createElement('a');
+            link.download = `fur_edge_${Date.now()}.png`;
+            link.href = highResCanvas.toDataURL('image/png');
+            link.click();
+            return;
+        }
+        
         const bgColor = bgColorInput.value;
         const tempW = HIGH_RES_WIDTH;
         const tempH = HIGH_RES_HEIGHT;
@@ -863,8 +1268,15 @@
         tempCanvas.height = tempH;
         
         const ctx = tempCanvas.getContext('2d');
-        ctx.fillStyle = bgColor;
-        ctx.fillRect(0, 0, tempW, tempH);
+        
+        // Ensure clean slate
+        ctx.clearRect(0, 0, tempW, tempH);
+        
+        // CHANGED: Only fill background if NOT in image mode
+        if (drawingMode !== 'image') {
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, tempW, tempH);
+        }
         
         if (drawingMode === 'draw') {
             ctx.drawImage(highResCanvas, 0, 0); 
@@ -910,6 +1322,8 @@
     document.getElementById('modeScatter').onclick = () => setDrawingMode('scatter');
     document.getElementById('modeDraw').onclick = () => setDrawingMode('draw');
     document.getElementById('modeImage').onclick = () => setDrawingMode('image');
+    document.getElementById('modeEdge').onclick = () => setDrawingMode('edge');
+    
     document.getElementById('regenerateButton').onclick = handleRegenerate;
     document.getElementById('clearButton').onclick = handleClear;
     document.getElementById('downloadButton').onclick = handleDownload;
@@ -966,7 +1380,9 @@
 
     function init() {
         currentSeed = Date.now();
-        currentImage.onload = () => { if(drawingMode === 'image') handleRegenerate(); }
+        currentImage.onload = () => { 
+            if(drawingMode === 'image' || drawingMode === 'edge') handleRegenerate(); 
+        }
         currentImage.src = DEFAULT_IMAGE_URL;
         
         generateLocationPool();
