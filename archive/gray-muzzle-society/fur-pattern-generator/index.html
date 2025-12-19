@@ -94,7 +94,7 @@
         }
 
         .preview-sidebar {
-            width: 300px; /* Fixed width for preview */
+            width: 200px; /* Fixed width for preview */
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -159,7 +159,7 @@
             padding: 5px 10px; font-size: 0.75rem; border-radius: 5px; font-weight: 700;
             transition: all 0.15s; flex-grow: 1; text-align: center; text-transform: uppercase;
         }
-        .mode-button.active { background-color: #B64F05; color: #FCF9F0; }
+        .mode-button.active { background-color: #B64F05; color: #FBE3B9; }
         .mode-button.inactive { background-color: #D17A00; color: #F2BA67; }
         
         /* Fixed Color Input Styling */
@@ -179,7 +179,7 @@
         /* Palette Swatch */
         .palette-swatch {
             width: 1.5rem; height: 1.5rem; border-radius: 4px; cursor: grab;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 0px solid #000000;
             transition: transform 0.1s;
         }
         .palette-swatch:hover { transform: scale(1.1); }
@@ -287,20 +287,20 @@
     <div class="bottom-panel">
         
         <!-- LEFT: SCROLLABLE CONTROLS -->
-        <div class="controls-scroll-area space-y-3">
-            <div class="text-2xl font-semibold text-moss-60">Fur Pattern Generator</div>
-            <div class="section-header">Mode</div>
+        <div class="controls-scroll-area space-y-3 grid md:grid-cols-2 lg:grid-cols-1 grid-cols-1 gap-x-4">
+            <div class="col-start-1 text-2xl tracking-tight font-black text-tangerine-40">Fur Pattern Generator</div>
+            <div class="col-start-1 col-span-full section-header">Mode</div>
             <!-- Mode Selection -->
-            <div class="flex space-x-2 mb-2">
-                    <button id="modeScatter" class="mode-button">Scatter</button>
-                    <button id="modeDraw" class="mode-button">Draw</button>
-                    <button id="modeImage" class="mode-button">Image</button>
-                    <button id="modeEdge" class="mode-button">Edge</button>
+            <div class="col-start-1 col-span-full flex flex-wrap gap-2 mb-2">
+                    <button id="modeScatter" class="mode-button active">Scatter</button>
+                    <button id="modeDraw" class="mode-button inactive">Draw</button>
+                    <button id="modeImage" class="mode-button inactive">Image</button>
+                    <button id="modeEdge" class="mode-button inactive">Edge</button>
                 </div>
             
 
             <!-- Image Controls -->
-            <div id="imageControls" class="space-y-2 hidden bg-[#424306] p-3 rounded-lg border border-[#424306] max-w-md">
+            <div id="imageControls" class="space-y-2 hidden bg-[#424306] p-3 rounded-lg border border-[#424306] max-w-xs">
                 <div class="control-group">
                     <label class="control-label mb-1">Upload Image</label>
                     <input type="file" id="imageUpload" accept="image/jpeg, image/png" class="text-xs text-indigo-200 w-full file:bg-[#D17A00] file:text-[#FBE3B9] file:border-0 file:rounded-sm file:px-2 file:py-1 file:text-xs file:font-bold hover:file:bg-[#a96600] cursor-pointer"/>
@@ -341,18 +341,18 @@
             </div>
 
             <!-- Colors (Hidden in Edge Mode) -->
-            <div id="colorControls">
-                <div class="section-header max-w-md">Colors</div>
+            <div id="colorControls" class="col-start-1 md:col-span-2 lg:col-span-1 grid grid-cols-subgrid">
+                <div class="col-start-1 md:col-span-2 lg:col-span-1 section-header">Colors</div>
                 
                 <!-- Brand Palette -->
-                <div class="mb-3">
+                <div class="col-start-1 mb-3">
                     <label class="control-label mb-1">Brand Palette (Drag and Drop Below)</label>
-                    <div class="flex flex-wrap gap-2" id="brandPalette">
+                    <div class="flex flex-wrap gap-2 w-[200px]" id="brandPalette">
                         <!-- Palette items injected by JS -->
                     </div>
                 </div>
 
-                <div class="control-group max-w-md">
+                <div class="col-start-2 control-group max-w-xs">
                     <label class="control-label mb-2">Fur & Background</label>
                     <div class="flex items-center space-x-4 mb-2">
                         <div class="flex space-x-2" id="furColorPickerContainer">
@@ -374,79 +374,86 @@
             </div>
 
             <!-- Single Column Layout (Removed Grid) -->
-            <div class="flex flex-col gap-y-2 max-w-md">
+            <div class="col-start-1 md:col-span-2 lg:col-span-1 grid grid-cols-subgrid">
+                <!-- Base Properties -->
+                <div class="col-start-1 col-span-1 max-w-xs">
+                    <div class="section-header">Base Properties</div>
                 
-                <div class="section-header">Base Properties</div>
+                    <div class="control-group">
+                        <label class="control-label" id="furAmountLabel">Amount: 500</label>
+                        <input type="range" id="furAmount" min="5" max="5000" value="500" step="1" class="control-input">
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" id="globalRotationLabel">Global Rotation: 0°</label>
+                        <input type="range" id="globalRotation" min="-180" max="180" value="0" step="1" class="control-input">
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" id="maxThicknessLabel">Thickness (40 px)</label>
+                        <input type="range" id="maxThickness" min="2" max="200" value="20" step="1" class="control-input">
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" id="maxLengthLabel">Length (100 units)</label>
+                        <input type="range" id="maxLength" min="50" max="600" value="100" step="1" class="control-input">
+                    </div>
+                </div>
+                <!-- Shape Geometry -->
+                <div class="col-start-1 md:col-start-2 lg:col-start-1 col-span-1 max-w-xs">
+                    <div class="section-header">Shape Geometry</div>
                 
-                <div class="control-group">
-                    <label class="control-label" id="furAmountLabel">Amount: 500</label>
-                    <input type="range" id="furAmount" min="5" max="5000" value="500" step="1" class="control-input">
-                </div>
+                    <div class="control-group">
+                        <label class="control-label" id="twistLabel">Twist (N): 3</label>
+                        <input type="range" id="twist" min="1" max="10" value="3" step="1" class="control-input">
+                    </div>
 
-                <div class="control-group">
-                    <label class="control-label" id="globalRotationLabel">Global Rotation: 0°</label>
-                    <input type="range" id="globalRotation" min="-180" max="180" value="0" step="1" class="control-input">
-                </div>
+                    <div class="control-group">
+                        <label class="control-label" id="crimpFactorLabel">Arc Curviness (0.50)</label>
+                        <input type="range" id="crimpFactor" min="0.00" max="0.70" value="0.50" step="0.01" class="control-input">
+                    </div>
 
-                <div class="control-group">
-                    <label class="control-label" id="maxThicknessLabel">Thickness (40 px)</label>
-                    <input type="range" id="maxThickness" min="2" max="200" value="20" step="1" class="control-input">
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" id="maxLengthLabel">Length (100 units)</label>
-                    <input type="range" id="maxLength" min="50" max="600" value="100" step="1" class="control-input">
-                </div>
-
-                <div class="section-header">Shape Geometry</div>
-                
-                <div class="control-group">
-                    <label class="control-label" id="twistLabel">Twist (N): 3</label>
-                    <input type="range" id="twist" min="1" max="10" value="3" step="1" class="control-input">
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" id="crimpFactorLabel">Arc Curviness (0.50)</label>
-                    <input type="range" id="crimpFactor" min="0.00" max="0.70" value="0.50" step="0.01" class="control-input">
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label" id="amplitudeLabel">Amplitude: 20</label>
-                    <input type="range" id="curviness" min="0" max="100" value="20" step="1" class="control-input">
+                    <div class="control-group">
+                        <label class="control-label" id="amplitudeLabel">Amplitude: 20</label>
+                        <input type="range" id="curviness" min="0" max="100" value="20" step="1" class="control-input">
+                    </div>
                 </div>
 
                 <!-- Randomization -->
-                <div class="section-header">Randomization</div>
+                <div class="col-start-1 col-span-1 max-w-xs">
+                    <div class="section-header">Randomization</div>
                 
-                <div class="control-group">
-                    <label class="control-label" id="rotationLabel">Rotation Spread</label>
-                    <div class="double-slider-group">
-                        <div class="slider-track"></div>
-                        <div class="slider-range" id="rotationRangeVisual"></div>
-                        <input type="range" id="rotationMin" min="0" max="360" value="0" step="1" class="control-input">
-                        <input type="range" id="rotationMax" min="0" max="360" value="0" step="1" class="control-input">
+                    <div class="control-group">
+                        <label class="control-label" id="rotationLabel">Rotation Spread</label>
+                        <div class="double-slider-group">
+                            <div class="slider-track"></div>
+                            <div class="slider-range" id="rotationRangeVisual"></div>
+                            <input type="range" id="rotationMin" min="0" max="360" value="0" step="1" class="control-input">
+                            <input type="range" id="rotationMax" min="0" max="360" value="0" step="1" class="control-input">
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group">
-                    <label class="control-label" id="distanceLabel">Position Offset</label>
-                    <div class="double-slider-group">
-                        <div class="slider-track"></div>
-                        <div class="slider-range" id="distanceRangeVisual"></div>
-                        <input type="range" id="distanceMin" min="0" max="100" value="0" step="1" class="control-input">
-                        <input type="range" id="distanceMax" min="0" max="100" value="0" step="1" class="control-input">
+                    <div class="control-group">
+                        <label class="control-label" id="distanceLabel">Position Offset</label>
+                        <div class="double-slider-group">
+                            <div class="slider-track"></div>
+                            <div class="slider-range" id="distanceRangeVisual"></div>
+                            <input type="range" id="distanceMin" min="0" max="100" value="0" step="1" class="control-input">
+                            <input type="range" id="distanceMax" min="0" max="100" value="0" step="1" class="control-input">
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group">
-                    <label class="control-label" id="lengthRandomizationLabel">Length Variation</label>
-                    <div class="double-slider-group">
-                        <div class="slider-track"></div>
-                        <div class="slider-range" id="lengthRangeVisual"></div>
-                        <input type="range" id="lengthMinPercent" min="20" max="180" value="100" step="10" class="control-input">
-                        <input type="range" id="lengthMaxPercent" min="20" max="180" value="100" step="10" class="control-input">
+                    <div class="control-group">
+                        <label class="control-label" id="lengthRandomizationLabel">Length Variation</label>
+                        <div class="double-slider-group">
+                            <div class="slider-track"></div>
+                            <div class="slider-range" id="lengthRangeVisual"></div>
+                            <input type="range" id="lengthMinPercent" min="20" max="180" value="100" step="10" class="control-input">
+                            <input type="range" id="lengthMaxPercent" min="20" max="180" value="100" step="10" class="control-input">
+                        </div>
                     </div>
                 </div>
+                
             </div>
             <div class="h-8"></div><!-- Spacer -->
         </div>
@@ -465,10 +472,6 @@
             <button id="downloadStrandButton" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-[#FBE3B9] font-bold rounded shadow text-xs uppercase tracking-wide transition-colors mb-4">
                 Download Strand
             </button>
-            
-            <div class="text-xs text-indigo-200 font-regular text-center leading-relaxed mt-auto">
-                <p>Twist • Amplitude • Thickness • Curviness • Length</p>
-            </div>
         </div>
     </div>
 
@@ -485,8 +488,8 @@
     const MAX_STRAND_POOL = 5000;
     const DEFAULT_IMAGE_URL = '/assets/gms-Mouse.jpg'; 
     const PALETTE_COLORS = [
-        '#D17A00', '#B64F05', '#F2BA67', '#FBE3B9', '#424306', '#62640C',
-        '#8C8F08', '#4F1EC1', '#6C40E5', '#936FEE', '#FCF9F0', '#1B1716'
+        '#B64F05', '#D17A00', '#F2BA67', '#FBE3B9', '#FCF9F0', '#1B1716', '#424306', '#62640C',
+        '#8C8F08', '#4F1EC1', '#6C40E5', '#936FEE',
     ];
 
     // --- State Variables ---
@@ -1215,7 +1218,7 @@
         } else if (mode === 'draw') {
             imageControls.classList.add('hidden');
             colorControls.classList.remove('hidden');
-            furAmountInput.min = 5; furAmountInput.max = 30; furAmountInput.value = 15;
+            furAmountInput.min = 10; furAmountInput.max = 100; furAmountInput.value = 20;
             handleClear();
         } else if (mode === 'image') {
             imageControls.classList.remove('hidden');

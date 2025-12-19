@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div alt="overview" class="grid lg:grid-cols-12 grid-cols-1 gap-x-4">
+        <div id="sec-overview" class="grid lg:grid-cols-12 grid-cols-1 gap-x-4">
             <div class="col-start-1 lg:col-start-3 lg:col-span-9">
                 <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 m-4">
                 <div class="col-span-4 space-y-2 lg:mr-32 mr-16">
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div alt="colorPalatte" class="grid grid-cols-1 lg:grid-cols-12">
+        <div id="sec-color" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1">
                 <div class="grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">
                 <div class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">
@@ -149,7 +149,7 @@
             <div class="col-start-1 lg:col-start-11 col-span-1"></div>
         </div>
 
-        <div alt="logoType" class="grid grid-cols-1 lg:grid-cols-12">
+        <div id="sec-logo" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="col-start-1 col-span-1 lg:col-start-3 lg:col-span-9 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">
                 <div alt="header" class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">
                     <span>LOGO TYPE</span>
@@ -204,6 +204,14 @@
             </div>
         </div>
     </div>
+
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
+        <ul class="flex flex-col gap-1.5">
+            <li><a href="#sec-overview" class="toc-link">Overview</a></li>
+            <li><a href="#sec-color" class="toc-link">Color Palette</a></li>
+            <li><a href="#sec-logo" class="toc-link">Logo</a></li>
+        </ul>
+    </nav>
 
     <script src="/nav.js"></script>
     <script src="/sticky-header.js"></script>
