@@ -6,10 +6,12 @@
     <title>Fur Pattern Generator</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
     <!-- Load Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
     <style>
         /* Global Styles */
         body {
@@ -113,7 +115,7 @@
                 display: contents; /* Removes the bottom container, letting children flow into body flex */
             }
             .controls-scroll-area {
-                width: 320px; /* Fixed width left sidebar */
+                width: 326px; /* Fixed width left sidebar */
                 height: 100vh;
                 border-right: 1px solid #424306;
                 order: 1; /* Left */
@@ -286,15 +288,16 @@
         
         <!-- LEFT: SCROLLABLE CONTROLS -->
         <div class="controls-scroll-area space-y-3">
-            <div class="title font-gms">Fur Pattern Generator</div>
+            <div class="text-2xl font-semibold text-moss-60">Fur Pattern Generator</div>
             <div class="section-header">Mode</div>
             <!-- Mode Selection -->
-            <div class="absolute t-4 flex space-x-2 mb-2">
-                <button id="modeScatter" class="mode-button">Scatter</button>
-                <button id="modeDraw" class="mode-button">Draw</button>
-                <button id="modeImage" class="mode-button">Image</button>
-                <button id="modeEdge" class="mode-button">Edge</button>
-            </div>
+            <div class="flex space-x-2 mb-2">
+                    <button id="modeScatter" class="mode-button">Scatter</button>
+                    <button id="modeDraw" class="mode-button">Draw</button>
+                    <button id="modeImage" class="mode-button">Image</button>
+                    <button id="modeEdge" class="mode-button">Edge</button>
+                </div>
+            
 
             <!-- Image Controls -->
             <div id="imageControls" class="space-y-2 hidden bg-[#424306] p-3 rounded-lg border border-[#424306] max-w-md">
@@ -480,7 +483,7 @@
     const BIG_RES_OFFSET_Y = (BIG_RES_HEIGHT - HIGH_RES_HEIGHT) / 2;
     const DENSITY_UNIT = 1000;
     const MAX_STRAND_POOL = 5000;
-    const DEFAULT_IMAGE_URL = 'https://freight.cargo.site/t/original/i/B2667905040449165242817260502104/Default.jpg'; 
+    const DEFAULT_IMAGE_URL = '/assets/gms-Mouse.jpg'; 
     const PALETTE_COLORS = [
         '#D17A00', '#B64F05', '#F2BA67', '#FBE3B9', '#424306', '#62640C',
         '#8C8F08', '#4F1EC1', '#6C40E5', '#936FEE', '#FCF9F0', '#1B1716'
