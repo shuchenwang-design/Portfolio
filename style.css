@@ -65,6 +65,30 @@
   font-style: normal;
   src: url("/assets/type/FwTRIAL-NeueDINVAR.woff2") format("woff2");
 }
+@font-face {
+    font-family: "Mendl Sans";
+    font-weight: 400;
+    font-style: Dusk;
+    src: url("https://freight.cargo.site/m/D2680641049277061790549410004056/MendlSansTrial-DuskRegular.woff") format("woff");
+  }
+  @font-face {
+    font-family: "G M S";
+    font-weight: 600;
+    font-style: normal;
+    src: url("https://freight.cargo.site/m/X2680612735111328636726700883032/GMS-MendlSans-SemiBold.woff") format("woff");
+  }
+  @font-face {
+    font-family: "Mendl Sans";
+    font-weight: 600;
+    font-style: Dawn;
+    src: url("https://freight.cargo.site/m/A2681081325041226413680521067608/MendlSans-DawnSemiBold.woff") format("woff");
+  }
+@font-face {
+    font-family: "Mendl Sans";
+    font-weight: 600;
+    font-style: Dusk;
+    src: url("https://freight.cargo.site/m/N2681081331331566142815478168664/MendlSans-DuskSemiBold.woff") format("woff");
+  }
 
 
 body {

@@ -44,7 +44,8 @@ tailwind.config = {
                 'fieldgothic': ['Field Gothic'],
                 'infini': ['Infini'],
                 'neuedin': ['Neue DIN Variable'],
-
+                'gms': ['G M S'],
+                'mendl': ['Mendl Sans'],
 
             }
         }
