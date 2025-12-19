@@ -14,15 +14,18 @@
     <div id="nav-placeholder"></div>
 
     <div class="font-mendl">
-        <div alt="head" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+        <div id="head-trigger" data-id="gms" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
             <div class="col-start1 lg:col-start-3 lg:col-span-9">
-                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12"><img class="object-cover object-[50%_50%] w-full" src="https://freight.cargo.site/t/original/i/G2680563682175123870866877922392/GMS-Head.jpg"></div>
-                <div alt="head" class="grid lg:grid-cols-12 grid-cols-1 gap-4  m-4">
-                <span class="font-gms text-6xl col-span-8">GRAY MUZZLE SOCIETY</span>
-                <span class="col-span-2 mt-4">Branding, Web,<br>Type, Creative Tools</span>
-                <span class="col-span-2 text-right mt-4">MAR 2024–APR 2024<br>Revised in NOV 2025</span>
+                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12">
                 </div>
-                <hr class="my-2">
+                <div class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 px-4 my-2 items-center">
+                    <div class="col-span-2 leading-none lg:col-span-7 my-2">
+                        <h1 id="project-title" class="font-gms text-[3rem]"></h1>
+                        <span id="project-subtitle" class="text-base font-[400]"></span></div>
+                    <span id="project-genre" class="text-xs col-span-1 lg:col-span-2 "></span>
+                    <span id="project-date" class="text-xs col-span-1 lg:col-span-3 text-right"></span>
+                </div>
+                <hr class="my-2 bg-white">
             </div>
         </div>
 
@@ -36,7 +39,7 @@
                     <a href="fur-pattern-generator" class="cursor-pointer hover:text-tangerine-100 transition-colors duration-300">Fur Pattern Generator ←</a>
                     </p>
                 </div>
-                <img alt="overviewImage" class="col-span-8 w-full object-cover" src="https://freight.cargo.site/t/original/i/D2657101832858141347678766971992/Ripple-Overview.jpg">
+                <img alt="overviewImage" class="col-span-8 w-full object-cover" src="/assets/gms/gms-overview.jpg">
                 </div>
                 <hr class="mt-8 mb-4 bg-white">
             </div>
@@ -203,5 +206,6 @@
     </div>
 
     <script src="/nav.js"></script>
+    <script src="/sticky-header.js"></script>
 </body>
 </html>
