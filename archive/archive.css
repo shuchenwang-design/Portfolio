@@ -1,18 +1,17 @@
 /* 1. The Card Container (The <a> tag) */
 .project-card {
     display: block;
-    border: 1px solid #646464;
-    border-radius: 8px;
+    border: 0px solid #646464;
+    border-radius: 0px;
     overflow: hidden; /* Keeps image corners rounded */
     text-decoration: none; /* Removes underline from link */
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: 0.2s ease;
     background-color: #111; /* Dark background */
 }
 
 .project-card:hover {
     transform: translateY(-5px); /* Lift up effect */
-    background-color: white; /* Rust color on hover */
-    color: black;
+    background-color: rgb(30, 30, 30); /* Rust color on hover */
 }
 
 /* 2. The Image Wrapper */

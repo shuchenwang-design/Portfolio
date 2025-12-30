@@ -1,5 +1,5 @@
 /* ======================================================
-   SECTION 1: GLOBAL FUNCTIONS 
+   SECTION 1: MOBILE MENU INTERACTION
    ====================================================== */
 
 function toggleMenu() {
@@ -25,15 +25,21 @@ function toggleMenu() {
 
 
 /* ======================================================
-   SECTION 2: PAGE LOAD LOGIC
+   SECTION 2: INITIALIZATION (Runs on Load)
    ====================================================== */
 
 document.addEventListener("DOMContentLoaded", function() {
-    loadNavigation();
+    loadNavigation();      // Loads the header/menu
+    initScrollSpy();       // Wavy nav highlighting
+    loadGlobalProjectData(); // NEW: Loads Links AND Page Content from JSON
 });
 
+
+/* ======================================================
+   SECTION 3: NAVIGATION LOADER
+   ====================================================== */
+
 function loadNavigation() {
-    // With a custom domain, we always look at the root /
     fetch('/nav.html')
     .then(response => {
         if (!response.ok) throw new Error("Could not load nav.html");
@@ -43,8 +49,6 @@ function loadNavigation() {
         const placeholder = document.getElementById('nav-placeholder');
         if (placeholder) {
             placeholder.innerHTML = data;
-            
-            // Run Highlight Logic
             highlightActivePage();
         }
     })
@@ -55,10 +59,8 @@ function loadNavigation() {
 function highlightActivePage() {
     const dotIcon = '<span style="margin-right: 5px;">●</span>';
     
-    // Get current path (e.g. "/archive/" or "/")
+    // Get current path
     let currentPath = window.location.pathname;
-    
-    // Clean the path
     if (currentPath.endsWith('index.html')) currentPath = currentPath.replace('index.html', '');
     if (currentPath.endsWith('/') && currentPath.length > 1) currentPath = currentPath.slice(0, -1);
     if (currentPath === "") currentPath = "/";
@@ -68,11 +70,8 @@ function highlightActivePage() {
     navLinks.forEach(link => {
         let linkHref = link.getAttribute('href');
         if (!linkHref) return;
-
-        // Clean link href
         if (linkHref.endsWith('/') && linkHref.length > 1) linkHref = linkHref.slice(0, -1);
 
-        // Matching Logic
         if (linkHref === "/" && currentPath === "/") {
             link.innerHTML = dotIcon + link.innerHTML;
             link.classList.add('active-page');
@@ -84,133 +83,123 @@ function highlightActivePage() {
     });
 }
 
-//bottom wavy nav section sensor
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. Select all the sections we want to track
+
+/* ======================================================
+   SECTION 4: SCROLL SPY (Bottom Wavy Nav)
+   ====================================================== */
+
+function initScrollSpy() {
     const sections = document.querySelectorAll('div[id^="sec-"]');
     const navLinks = document.querySelectorAll('.toc-link');
 
-    // 2. Create the Observer
+    if (sections.length === 0) return;
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Get the ID of the section currently on screen
                 const id = entry.target.getAttribute('id');
                 
-                // Remove active class from ALL links
-                navLinks.forEach(link => {
-                    link.classList.remove('active-toc-link');
-                });
+                navLinks.forEach(link => link.classList.remove('active-toc-link'));
 
-                // Add active class ONLY to the matching link
                 const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active-toc-link');
-                }
+                if (activeLink) activeLink.classList.add('active-toc-link');
             }
         });
     }, {
-        // Options:
-        // rootMargin: '-50% 0px -50% 0px' creates a "line" in the middle of the screen.
-        // The animation triggers when a section crosses this middle line.
         rootMargin: '-45% 0px -45% 0px' 
     });
 
-    // 3. Tell the observer to watch every section
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-});
-
-
-//Links look up system
-/* ======================================================
-   AUTOMATIC LINK MANAGER
-   Updates all <a data-project="..."> links using JSON data
-   ====================================================== */
-
-document.addEventListener("DOMContentLoaded", function() {
-    updateProjectLinks();
-});
-
-function updateProjectLinks() {
-    // 1. Fetch the Master List
-    fetch('/archive/projects.json')
-    .then(response => response.json())
-    .then(projects => {
-        
-        // 2. Create a "Lookup Map" for speed
-        // Turns the array into: { "inkai": "/url...", "ripple": "/url..." }
-        const urlMap = {};
-        projects.forEach(p => {
-            if (p.id) {
-                urlMap[p.id] = p.link;
-            }
-        });
-
-        // 3. Find ALL links on the page waiting for a URL
-        const linksToUpdate = document.querySelectorAll('a[data-project]');
-
-        // 4. Update them
-        linksToUpdate.forEach(link => {
-            const projectId = link.getAttribute('data-project');
-            
-            // If we have a URL for this ID, update the href
-            if (urlMap[projectId]) {
-                link.setAttribute('href', urlMap[projectId]);
-            } else {
-                console.warn(`Project ID "${projectId}" not found in JSON.`);
-            }
-        });
-
-    })
-    .catch(error => console.error('Error updating links:', error));
+    sections.forEach(section => observer.observe(section));
 }
 
 
 /* ======================================================
-   AUTO-ADD FAVICON
+   SECTION 5: GLOBAL DATA MANAGER (LINKS & CONTENT)
+   (Replaces the old Link Manager)
    ====================================================== */
+
+function loadGlobalProjectData() {
+    // 1. Fetch JSON once
+    fetch('/archive/projects.json')
+    .then(response => response.json())
+    .then(projects => {
+        
+        // --- PART A: UPDATE LINKS (Lookup System) ---
+        const urlMap = {};
+        projects.forEach(p => { if (p.id) urlMap[p.id] = p.link; });
+
+        const linksToUpdate = document.querySelectorAll('a[data-project]');
+        linksToUpdate.forEach(link => {
+            const projectId = link.getAttribute('data-project');
+            if (urlMap[projectId]) {
+                link.setAttribute('href', urlMap[projectId]);
+            }
+        });
+
+        // --- PART B: UPDATE PAGE CONTENT (Branding/Motion Lists) ---
+        // Finds any div with data-id="..." and fills its inner .js-title/.js-meta
+        const contentSections = document.querySelectorAll('div[data-id]');
+        
+        contentSections.forEach(section => {
+            const projectId = section.getAttribute('data-id');
+            // Skip the main header if you are using header-loader.js separately
+            // OR let this handle it if classes match.
+            
+            const project = projects.find(p => p.id === projectId);
+
+            if (project) {
+                // 1. Fill Title (.js-title)
+                const titleEl = section.querySelector('.js-title');
+                if (titleEl) {
+                    // Split title logic: "Name: Subtitle" -> "Name<br>Subtitle"
+                    if (project.title.includes(':')) {
+                        titleEl.innerHTML = project.title.replace(':', '<br>');
+                    } else {
+                        titleEl.innerHTML = project.title;
+                    }
+                }
+
+                // 2. Fill Meta (.js-meta)
+                const metaEl = section.querySelector('.js-meta');
+                if (metaEl) {
+                    metaEl.innerHTML = `${project.date}<br>${project.genre}`;
+                }
+            }
+        });
+
+    })
+    .catch(error => console.error('Error loading project data:', error));
+}
+
+
+/* ======================================================
+   SECTION 6: UTILITIES (Favicon & Analytics)
+   ====================================================== */
+
+// Auto-Add Favicon
 (function() {
-    // 1. Check if favicon already exists (to avoid duplicates)
     let link = document.querySelector("link[rel~='icon']");
-    
-    // 2. If not, create it
     if (!link) {
         link = document.createElement('link');
         link.rel = 'icon';
         document.head.appendChild(link);
     }
-    
-    // 3. Set the settings
     link.type = 'image/png'; 
     link.href = '/assets/favicon.png'; 
 })();
 
-
-/* ======================================================
-   GOOGLE ANALYTICS AUTO-INJECTOR
-   ====================================================== */
+// Google Analytics
 (function() {
-    // 1. Your Measurement ID
-    const gaId = 'G-X3R45LM72X'; // <--- PASTE YOUR ID HERE
-
-    // 2. Prevent loading on Localhost (so you don't pollute your data while coding)
+    const gaId = 'G-X3R45LM72X'; // Your ID
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         console.log("Google Analytics skipped (Localhost)");
         return;
     }
-
-    // 3. Create the external script tag
-    // <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"></script>
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
     document.head.appendChild(script);
 
-    // 4. Initialize the Data Layer
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
