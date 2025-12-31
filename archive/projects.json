@@ -3,7 +3,7 @@
         "id": "ripple",
         "title": "Ripple: Spreading Love for Performances",
         "image": "https://freight.cargo.site/t/original/i/J2650437434977960375970492005464/Ripple-1.jpg",
-        "date": "Revised OCT 2025–NOV 2025",
+        "date": "Revised OCT 2025-NOV 2025",
         "genre": "VIS, UI, UX",
         "software": "Figma, Illustrator",
         "link": "/archive/ripple/"
@@ -12,7 +12,7 @@
         "id": "rt-motion",
         "title": "Rain And Tears: Her Voice Behind the Poems",
         "image": "/assets/rt/motion/herVoice-cover.jpg",
-        "date": "APR 2025–MAY 2025, Revised OCT 2025",
+        "date": "APR 2025-MAY 2025, Revised OCT 2025",
         "genre": "Lettering, Motion, Data Visualization",
         "software": "Rhino, TouchDesigner, After Effects, Indesign",
         "link": "/archive/rt/voice/"
@@ -48,7 +48,7 @@
         "id": "6esens",
         "title": "SIXIÈME SENS",
         "image": "/assets/6esens-cover.jpg",
-        "date": "MAR 2023–MAY 2023",
+        "date": "MAR 2023-MAY 2023",
         "genre": "3D, Motion",
         "software": "Cinema 4D, Octane Render",
         "link": "/motion/#sec-6esens"
@@ -75,7 +75,7 @@
         "id": "rt-book",
         "title": "Rain And Tears: Thesis Book",
         "image": "/assets/rt/book/cover.jpg",
-        "date": "APR 2025–MAY 2025",
+        "date": "APR 2025-MAY 2025",
         "genre": "Typography, Editorial",
         "software": "Indesign",
         "link": "/archive/rt/thesis-book/"
@@ -93,7 +93,7 @@
         "id": "intoit",
         "title": "Into It: Interactive Book Publisher",
         "image": "https://freight.cargo.site/t/original/i/J2502537671548788783177848274008/IntoIt-1.jpg",
-        "date": "JAN 2024–FEB 2024",
+        "date": "JAN 2024-FEB 2024",
         "genre": "Branding, Motion",
         "software": "Figma, Illustrator, Cinema 4D, After Effects",
         "link": "https://shuchen-wang.cargo.site/intoit"
@@ -102,7 +102,7 @@
         "id": "typolyrics",
         "title": "Typolyrics of Internationale",
         "image": "https://freight.cargo.site/t/original/i/J2172698093824846147040166755416/LyricsPhoto01.png",
-        "date": "NOV 2024–DEC 2024",
+        "date": "NOV 2024-DEC 2024",
         "genre": "Typography, Motion",
         "software": "Indesign, Illustrator, After Effects",
         "link": "https://shuchen-wang.cargo.site/typolyrics"
@@ -111,7 +111,7 @@
         "id": "ewarchive",
         "title": "Earthworm Archive",
         "image": "https://freight.cargo.site/t/original/i/L2176902336498101759684789877848/EWGallery_1.png",
-        "date": "FEB 2024–APR 2024",
+        "date": "FEB 2024-APR 2024",
         "genre": "Typography, Illustration, Web Design",
         "software": "Indesign, Illustrator, Figma",
         "link": "https://shuchen-wang.cargo.site/earthworm-archive"
@@ -120,7 +120,7 @@
         "id": "rt-zine",
         "title": "Rain And Tears: Changing Phases of the Divine Woman's Imagery",
         "image": "https://freight.cargo.site/t/original/i/X2388885658993309929211445853272/RT_scan.jpg",
-        "date": "SEP 2024–MAY 2025",
+        "date": "SEP 2024-MAY 2025",
         "genre": "Typography, Lettering, Illustration",
         "software": "Indesign, Rhino",
         "link": "https://shuchen-wang.cargo.site/rt-magazine"
@@ -129,7 +129,7 @@
         "id": "retour-typeface",
         "title": "Retour Typeface Design",
         "image": "/assets/retour-cover.jpg",
-        "date": "FEB 2025–ONGOING",
+        "date": "FEB 2025-ONGOING",
         "genre": "Typeface Design",
         "software": "RoboFont",
         "link": "/typeface/#retour-container"
@@ -138,7 +138,7 @@
         "id": "biodiagram",
         "title": "Biodiagram: 73 Items that Connect Me To Home",
         "image": "https://freight.cargo.site/t/original/i/E2180736016696760069755934817368/BD1.png",
-        "date": "SEP 2024–OCT 2024",
+        "date": "SEP 2024-OCT 2024",
         "genre": "Typography, Data Visualization",
         "software": "Indesign, Illustrator",
         "link": "https://shuchen-wang.cargo.site/biodiagram-73items"
@@ -147,7 +147,7 @@
         "id": "desire-branding",
         "title": "Palace of Desire: TV Series Rebranding",
         "image": "https://freight.cargo.site/t/original/i/Q2502065986015427764803042753624/Desire-1.jpg",
-        "date": "JAN 2024–FEB 2024",
+        "date": "JAN 2024-FEB 2024",
         "genre": "Branding, Motion, Typeface Design",
         "software": "Figma, Indesign, Illustrator, Cinema 4D, After Effects, Glyphs",
         "link": "https://shuchen-wang.cargo.site/palaceofdesire"
@@ -156,7 +156,7 @@
         "id": "rt-exhibition",
         "title": "Rain And Tears: Thesis Exhibition",
         "image": "https://freight.cargo.site/t/original/i/V2389429054067541692770431482968/Shuchen_Thesis_Exhibition01.jpg",
-        "date": "JAN 2025–MAR 2025",
+        "date": "JAN 2025-MAR 2025",
         "genre": "Typography, Lettering, Illustration",
         "software": "Indesign, Illustrator, Rhino, TouchDesigner, Photoshop",
         "link": "https://shuchen-wang.cargo.site/rt-exhibition"
@@ -165,7 +165,7 @@
         "id": "figgarden",
         "title": "Secret Garden of Figs",
         "image": "/assets/fig-cover.jpg",
-        "date": "JAN 2023–FEB 2023",
+        "date": "JAN 2023-FEB 2023",
         "genre": "3D, Motion",
         "software": "Cinema 4D, Octane Render",
         "link": "/motion/#sec-figgarden"
@@ -174,7 +174,7 @@
         "id": "desire-typeface",
         "title": "Desire Typeface Design",
         "image": "https://freight.cargo.site/t/original/i/I2384694650622995350231567252568/Desire_1.jpg",
-        "date": "JAN 2024–MAR 2024",
+        "date": "JAN 2024-MAR 2024",
         "genre": "Typeface Design",
         "software": "Glyphs",
         "link": "/typeface/#desire-container"
@@ -183,7 +183,7 @@
         "id": "jjp",
         "title": "Jess Jess Press",
         "image": "https://freight.cargo.site/t/original/i/X2632628075496845559494099549272/JJW_2.jpg",
-        "date": "JUNE 2024–JUL 2024",
+        "date": "JUNE 2024-JUL 2024",
         "genre": "VIS",
         "software": "Figma, Indesign",
         "link": "/branding/#sec-jjp"
@@ -192,7 +192,7 @@
         "id": "jjw-typeface",
         "title": "Jess Jess Write",
         "image": "https://freight.cargo.site/t/original/i/B2632628075478398815420389997656/JJW_1.jpg",
-        "date": "JUNE 2024–JUL 2024",
+        "date": "JUNE 2024-JUL 2024",
         "genre": "VIS, Typeface Design",
         "software": "Glyphs",
         "link": "/typeface/#jess-container"
@@ -201,7 +201,7 @@
         "id": "srj",
         "title": "Shakespeare's R &amp; J",
         "image": "https://freight.cargo.site/t/original/i/D2344292549804860666666683677784/SRJ_storyboard.png",
-        "date": "JAN 2024–FEB 2024",
+        "date": "JAN 2024-FEB 2024",
         "genre": "Motion",
         "software": "After Effects, Illustrator, Cinema 4D",
         "link": "/motion/#sec-srj"
@@ -210,7 +210,7 @@
         "id": "ewfacts",
         "title": "Earthworm Facts",
         "image": "https://freight.cargo.site/t/original/i/W2222028278745421990057988013144/EWIN_storyBoard.png",
-        "date": "FEB 2024–MAR 2024",
+        "date": "FEB 2024-MAR 2024",
         "genre": "Motion",
         "software": "After Effects, Illustrator, Cinema 4D",
         "link": "/motion/#sec-ewfacts"
@@ -219,7 +219,7 @@
         "id": "mounou",
         "title": "MOUNOU",
         "image": "https://freight.cargo.site/t/original/i/W2381570842438553364742292061272/Mounou_opener.jpg",
-        "date": "OCT 2023–DEC 2023",
+        "date": "OCT 2023-DEC 2023",
         "genre": "Branding, Typography",
         "software": "Indesign, Figma, Illustrator",
         "link": "/publication/#sec-mounou"
@@ -228,7 +228,7 @@
         "id": "instacart",
         "title": "Instacart User-flow Re-design",
         "image": "https://freight.cargo.site/t/original/i/I2381361807605612158771580320856/Insta_thumbnail.png",
-        "date": "OCT 2023–NOV 2023",
+        "date": "OCT 2023-NOV 2023",
         "genre": "UX, UI",
         "software": "Figma",
         "link": "/uiux/#sec-instacart"
@@ -237,7 +237,7 @@
         "id": "ziyou",
         "title": "Ziyou Craft Beer",
         "image": "https://freight.cargo.site/t/original/i/U2380943285145949713555502873688/Ziyou_Render.jpg",
-        "date": "JUL 2022–SEP 2022",
+        "date": "JUL 2022-SEP 2022",
         "genre": "VIS, Packaging",
         "software": "Figma, Illustrator, Indesign",
         "link": "/branding/#sec-ziyou"
@@ -246,7 +246,7 @@
         "id": "speechless-typeface",
         "title": "Speechless Typeface Design",
         "image": "/assets/speechless-cover.jpg",
-        "date": "OCT 2023–JAN 2024",
+        "date": "OCT 2023-JAN 2024",
         "genre": "Typeface Design",
         "software": "Glyphs",
         "link": "/typeface/#speechless-container"
