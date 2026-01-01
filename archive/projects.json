@@ -92,11 +92,11 @@
     {
         "id": "intoit",
         "title": "Into It: Interactive Book Publisher",
-        "image": "https://freight.cargo.site/t/original/i/J2502537671548788783177848274008/IntoIt-1.jpg",
+        "image": "/assets/intoit/cover.jpg",
         "date": "JAN 2024-FEB 2024",
         "genre": "Branding, Motion",
         "software": "Figma, Illustrator, Cinema 4D, After Effects",
-        "link": "https://shuchen-wang.cargo.site/intoit"
+        "link": "/archive/into-it/"
     },
     {
         "id": "typolyrics",
