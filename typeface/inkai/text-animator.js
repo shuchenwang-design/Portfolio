@@ -156,29 +156,124 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Glyph Name Dictionary
     const glyphNames = {
-        '!': 'exclam', '"': 'quotedbl', '#': 'numbersign', '$': 'dollar',
-        '%': 'percent', '&': 'ampersand', '\'': 'quotesingle', '(': 'parenleft',
-        ')': 'parenright', '*': 'asterisk', '+': 'plus', ',': 'comma',
-        '-': 'hyphen', '.': 'period', '/': 'slash', ':': 'colon',
-        ';': 'semicolon', '<': 'less', '=': 'equal', '>': 'greater',
-        '?': 'question', '@': 'at', '[': 'bracketleft', '\\': 'backslash',
-        ']': 'bracketright', '^': 'asciicircum', '_': 'underscore', '`': 'grave',
-        '{': 'braceleft', '|': 'bar', '}': 'braceright', '~': 'asciitilde',
-        '0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four',
-        '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine',
-        ' ': 'space'
+        // Numbers
+        '1': 'one', '2': 'two', '3': 'three', '4': 'four', '5': 'five',
+        '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine', '0': 'zero',
+
+        // Symbols & Currency
+        '@': 'at', '&': 'ampersand', '™': 'trademark', '°': 'degree', '|': 'bar',
+        '¢': 'cent', '$': 'dollar', '€': 'Euro', '£': 'sterling', '¥': 'yen',
+        '+': 'plus', '−': 'minus', '×': 'multiply', '÷': 'divide', '=': 'equal',
+        '≠': 'notequal', '>': 'greater', '<': 'less', '≥': 'greaterequal', '≤': 'lessequal',
+        '±': 'plusminus', '≈': 'approxequal', '~': 'asciitilde', '^': 'asciicircum',
+        '%': 'percent', '‰': 'perthousand',
+
+        // Arrows
+        '↑': 'arrowup', '↗': 'arrownortheast', '→': 'arrowright', '↘': 'arrowsoutheast',
+        '↓': 'arrowdown', '↙': 'arrowsouthwest', '←': 'arrowleft', '↖': 'arrownorthwest',
+        '↔': 'arrowleftrightarrow', '↕': 'arrowupdownarrow',
+
+        // Punctuation
+        '!': 'exclam', '?': 'question', '¡': 'exclamdown', '¿': 'questiondown',
+        '·': 'periodcentered', '•': 'bullet', '#': 'numbersign', '/': 'slash',
+        '\\': 'backslash', '{': 'braceleft', '[': 'bracketleft', '(': 'parenleft',
+        '*': 'asterisk', ')': 'parenright', ']': 'bracketright', '}': 'braceright',
+        '-': 'hyphen', '–': 'endash', '—': 'emdash', '_': 'underscore',
+        '.': 'period', ',': 'comma', ':': 'colon', ';': 'semicolon', '…': 'ellipsis',
+        '“': 'quotedblleft', '”': 'quotedblright', '‘': 'quoteleft', '’': 'quoteright',
+        '"': 'quotedbl', "'": 'quotesingle', ' ': 'space',
+
+        // Uppercase Latin Extended
+        'Á': 'Aacute', 'Ă': 'Abreve', 'Ǎ': 'Acaron', 'Â': 'Acircumflex', 'Ä': 'Adieresis',
+        'À': 'Agrave', 'Ā': 'Amacron', 'Ą': 'Aogonek', 'Å': 'Aring', 'Ã': 'Atilde', 'Æ': 'AE',
+        'Ć': 'Cacute', 'Č': 'Ccaron', 'Ç': 'Ccedilla', 'Ĉ': 'Ccircumflex', 'Ċ': 'Cdotaccent',
+        'Ď': 'Dcaron', 'Đ': 'Dcroat', 'Ð': 'Eth',
+        'É': 'Eacute', 'Ě': 'Ecaron', 'Ê': 'Ecircumflex', 'Ë': 'Edieresis', 'Ė': 'Edotaccent',
+        'È': 'Egrave', 'Ē': 'Emacron', 'Ę': 'Eogonek', 'Ẽ': 'Etilde', 'Ə': 'Schwa',
+        'Ğ': 'Gbreve', 'Ĝ': 'Gcircumflex', 'Ģ': 'Gcommaaccent', 'Ġ': 'Gdotaccent', 'Ḡ': 'Gmacron',
+        'Ħ': 'Hbar', 'Ĥ': 'Hcircumflex', 'Ĳ': 'IJ',
+        'Í': 'Iacute', 'Ǐ': 'Icaron', 'Î': 'Icircumflex', 'Ï': 'Idieresis', 'İ': 'Idotaccent',
+        'Ì': 'Igrave', 'Ī': 'Imacron', 'Į': 'Iogonek', 'Ĩ': 'Itilde',
+        'J': 'J', 'Ĵ': 'Jcircumflex',
+        'Ķ': 'Kcommaaccent',
+        'Ĺ': 'Lacute', 'Ľ': 'Lcaron', 'Ļ': 'Lcommaaccent', 'Ł': 'Lslash',
+        'Ń': 'Nacute', 'Ň': 'Ncaron', 'Ņ': 'Ncommaaccent', 'Ñ': 'Ntilde',
+        'Ó': 'Oacute', 'Ǒ': 'Ocaron', 'Ô': 'Ocircumflex', 'Ö': 'Odieresis', 'Ò': 'Ograve',
+        'Ő': 'Ohungarumlaut', 'Ō': 'Omacron', 'Ø': 'Oslash', 'Õ': 'Otilde', 'Œ': 'OE',
+        'Þ': 'Thorn',
+        'Ŕ': 'Racute', 'Ř': 'Rcaron', 'Ŗ': 'Rcommaaccent',
+        'Ś': 'Sacute', 'Š': 'Scaron', 'Ş': 'Scedilla', 'Ŝ': 'Scircumflex', 'Ș': 'Scommaaccent', 'ẞ': 'Germandbls',
+        'Ť': 'Tcaron', 'Ţ': 'Tcedilla', 'Ț': 'Tcommaaccent',
+        'Ú': 'Uacute', 'Ŭ': 'Ubreve', 'Ǔ': 'Ucaron', 'Û': 'Ucircumflex', 'Ü': 'Udieresis',
+        'Ǘ': 'Udieresisacute', 'Ǚ': 'Udieresiscaron', 'Ǜ': 'Udieresisgrave', 'Ǖ': 'Udieresismacron',
+        'Ù': 'Ugrave', 'Ű': 'Uhungarumlaut', 'Ū': 'Umacron', 'Ų': 'Uogonek', 'Ů': 'Uring', 'Ũ': 'Utilde',
+        'Ẃ': 'Wacute', 'Ŵ': 'Wcircumflex', 'Ẅ': 'Wdieresis', 'Ẁ': 'Wgrave',
+        'Ý': 'Yacute', 'Ŷ': 'Ycircumflex', 'Ÿ': 'Ydieresis', 'Ỳ': 'Ygrave', 'Ỹ': 'Ytilde',
+        'Ź': 'Zacute', 'Ž': 'Zcaron', 'Ż': 'Zdotaccent',
+
+        // Lowercase Latin Extended
+        'á': 'aacute', 'ă': 'abreve', 'ǎ': 'acaron', 'â': 'acircumflex', 'ä': 'adieresis',
+        'à': 'agrave', 'ā': 'amacron', 'ą': 'aogonek', 'å': 'aring', 'ã': 'atilde', 'æ': 'ae',
+        'ć': 'cacute', 'č': 'ccaron', 'ç': 'ccedilla', 'ĉ': 'ccircumflex', 'ċ': 'cdotaccent',
+        'ď': 'dcaron', 'đ': 'dcroat', 'ð': 'eth',
+        'é': 'eacute', 'ě': 'ecaron', 'ê': 'ecircumflex', 'ë': 'edieresis', 'ė': 'edotaccent',
+        'è': 'egrave', 'ē': 'emacron', 'ę': 'eogonek', 'ẽ': 'etilde', 'ə': 'schwa',
+        'ğ': 'gbreve', 'ĝ': 'gcircumflex', 'ģ': 'gcommaaccent', 'ġ': 'gdotaccent', 'ḡ': 'gmacron',
+        'ħ': 'hbar', 'ĥ': 'hcircumflex', 'ĳ': 'ij',
+        'í': 'iacute', 'ǐ': 'icaron', 'î': 'icircumflex', 'ï': 'idieresis', 'ì': 'igrave',
+        'ī': 'imacron', 'į': 'iogonek', 'ĩ': 'itilde', 'ı': 'dotlessi',
+        'j': 'j', 'ĵ': 'jcircumflex',
+        'ķ': 'kcommaaccent',
+        'ĺ': 'lacute', 'ľ': 'lcaron', 'ļ': 'lcommaaccent', 'ł': 'lslash',
+        'ń': 'nacute', 'ň': 'ncaron', 'ņ': 'ncommaaccent', 'ñ': 'ntilde',
+        'ó': 'oacute', 'ǒ': 'ocaron', 'ô': 'ocircumflex', 'ö': 'odieresis', 'ò': 'ograve',
+        'ő': 'ohungarumlaut', 'ō': 'omacron', 'ø': 'oslash', 'õ': 'otilde', 'œ': 'oe',
+        'þ': 'thorn',
+        'ŕ': 'racute', 'ř': 'rcaron', 'ŗ': 'rcommaaccent',
+        'ś': 'sacute', 'š': 'scaron', 'ş': 'scedilla', 'ŝ': 'scircumflex', 'ș': 'scommaaccent', 'ß': 'germandbls',
+        'ť': 'tcaron', 'ţ': 'tcedilla', 'ț': 'tcommaaccent',
+        'ú': 'uacute', 'ŭ': 'ubreve', 'ǔ': 'ucaron', 'û': 'ucircumflex', 'ü': 'udieresis',
+        'ǘ': 'udieresisacute', 'ǚ': 'udieresiscaron', 'ǜ': 'udieresisgrave', 'ǖ': 'udieresismacron',
+        'ù': 'ugrave', 'ű': 'uhungarumlaut', 'ū': 'umacron', 'ų': 'uogonek', 'ů': 'uring', 'ũ': 'utilde',
+        'ẃ': 'wacute', 'ŵ': 'wcircumflex', 'ẅ': 'wdieresis', 'ẁ': 'wgrave',
+        'ý': 'yacute', 'ŷ': 'ycircumflex', 'ÿ': 'ydieresis', 'ỳ': 'ygrave', 'ỹ': 'ytilde',
+        'ź': 'zacute', 'ž': 'zcaron', 'ż': 'zdotaccent'
     };
 
-    // Explode Text into Grid Cells
+    // 2. Generate Grid
     sourceContainers.forEach(container => {
-        const rawText = container.innerText.replace(/\n/g, ''); 
+        let items = [];
+
+        // CHECK: Is this a ligature box?
+        if (container.classList.contains('ligature-grid')) {
+            // METHOD A: Split by SPACES (for ligatures like "fi", "ffi")
+            // We trim() to remove start/end whitespace, then split by 1 or more spaces
+            items = container.innerText.trim().split(/\s+/);
+        } else {
+            // METHOD B: Split by CHARACTER (Standard)
+            // Remove newlines and split every single character
+            items = container.innerText.replace(/\n/g, '').split('');
+        }
+
+        // Clear the container
         container.innerHTML = ''; 
         
-        rawText.split('').forEach(char => {
+        // Generate Cells
+        items.forEach(char => {
+            // Skip empty items (e.g. trailing spaces)
+            if (!char) return; 
+
             const cell = document.createElement('div');
             cell.innerText = char;
-            cell.className = "glyph-cell aspect-square flex items-center justify-center border-r border-b border-[#111010] hover:bg-[#111010] hover:text-[#f6f0ec] cursor-crosshair transition-colors duration-100 text-2xl";
             
+            // Note: Added 'ligature-cell' class for specific styling if needed
+            cell.className = "glyph-cell aspect-square flex items-center justify-center border-r border-b border-[#292626] hover:bg-[#292626] hover:text-[#F0E9DD] cursor-crosshair transition-colors duration-100 text-2xl";
+            
+            // For ligatures, we might want to turn on "liga" explicitly in the grid cell
+            if (char.length > 1) {
+                cell.style.fontFeatureSettings = '"liga" 1, "dlig" 1'; 
+            }
+
             cell.addEventListener('mouseenter', () => updatePreview(char));
             container.appendChild(cell);
         });

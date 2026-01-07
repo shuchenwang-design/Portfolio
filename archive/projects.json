@@ -83,11 +83,11 @@
     {
        "id": "drowsy-typeface",
         "title": "Drowsy Typeface Design",
-        "image": "https://freight.cargo.site/t/original/i/W2385996403760756075064014879832/Drowsy_repre.jpg",
+        "image": "/assets/drowsy/representativeGlyphs.jpg",
         "date": "OCT 2024-JAN 2025",
         "genre": "Typography",
         "software": "Glyphs",
-        "link": "https://shuchen-wang.cargo.site/drowsy"
+        "link": "/typeface/drowsy/"
     },
     {
         "id": "intoit",
