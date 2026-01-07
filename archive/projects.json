@@ -56,11 +56,11 @@
     {
         "id": "inkai-typeface",
         "title": "Inkai Typeface Design",
-        "image": "https://freight.cargo.site/t/original/i/G2169579931081960479622068124760/Specimen_0118_36-37.jpg",
+        "image": "/assets/inkai/construction-1.jpg",
         "date": "NOV 2024-FEB 2025",
         "genre": "Typeface Design",
         "software": "Glyphs",
-        "link": "https://shuchen-wang.cargo.site/inkai"
+        "link": "/typeface/inkai"
     },
     {
        "id": "drowsy-specimen",
