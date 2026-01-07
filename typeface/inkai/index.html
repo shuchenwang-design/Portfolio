@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inkai Typeface Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .previewSlider{
+            -webkit-appearance: none;  
+            width: 100%;               
+            height: 8px;
+            background: rgba(240, 233, 221, 0);
+            border: 1pt solid #111010;
+            border-radius: 4px;      
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .previewSlider::-webkit-slider-thumb {
+            -webkit-appearance: none; 
+            appearance: none;          
+            width: 16px;              
+            height: 16px;   
+            border:1pt solid #111010;
+            background: #f6f0ec;     
+            border-radius: 50%;      
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .previewSlider::-webkit-slider-thumb:hover {
+            background: #111010;     
+        }
+        .circle-btn {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1pt solid #111010;
+            background-color: transparent;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        .circle-btn.active {
+            background-color: #111010;
+        }
+        .Feature-box{
+            aspect-ratio: 8/7;
+            background: #f6f0ec;
+            outline: 1px solid  #111010;
+            color:#111010;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-feature-settings: "liga" 0, "calt" 0;
+        }
+        .Feature-box:hover {
+            font-feature-settings: "liga" 1, "calt" 1;
+        }
+
+    </style>
+    
+</head>
+<body class="bg-[#f6f0ec] ">
+
+    <div id="nav-placeholder" class="mix-blend-difference"></div>
+    <div class="font-inkai text-[#111010]">
+
+        <div id="head-trigger" data-id="intoit" class="grid lg:grid-cols-12 grid-cols-1 gap-4 pt-8">
+            <div class="col-start1 lg:col-start-3 lg:col-span-9">
+                <hr class="my-4 border-[#111010]">
+            </div>
+        </div>
+
+        <div id="sec-preview" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+            <div class="col-start-1 col-span-1 lg:col-start-3 lg:col-span-9">
+                <div class="mx-4">
+                    <label class="labels">CUSTOM PREVIEW</label>
+                    <div class="my-16">
+                        <div class="text-[15vw] leading-none text-center outline-none" contenteditable="true" id="editableText">INKAI<br>墨楷</div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-9 items-center">
+                        <div class="col-span-1 lg:col-span-3 flex flex-col lg:flex-row gap-2 items-center">
+                            <label>SIZE</label>
+                            <input id="fontSizeSlider" class="previewSlider lg:w-[200px] mb-1" max="2000" min="500" type="range" value="1500">
+                        </div>
+                        <div class="col-span-1 lg:col-span-3 flex flex-col lg:flex-row gap-2 items-center">
+                            <label>WEIGHT</label>
+                            <input id="fontWeightSlider" class="previewSlider lg:w-[200px] mb-1" max="900" min="400"type="range" value="400">
+                        </div>
+                        <div class="col-span-3 flex flex-row gap-8 text-right justify-end">
+                            <div class="space-x-2 flex items-center">
+                                <button class="circle-btn active mb-1" id="ligaBtn"></button><label>LIGATURE: ON</label>
+                            </div>
+                            <div class="space-x-2 flex items-center">
+                                <button class="circle-btn mb-1" id="breathBtn"></button><label>BREATHING: OFF</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="my-4 border-[#111010]">
+            </div>
+        </div>
+        <div id="sec-about" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="col-span-1 lg:col-span-9">ABOUT</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-subgrid gap-2">
+                    <div class="col-span-1 lg:col-span-4">
+                        <p>INKAI marries Chinese traditional calligraphy especially Kaishu (regular script) with Latin typography. It has sharp edges and powerful vision, creating a harmonious balance between traditional Chinese calligraphy and modern typographic principles. Designed for optimal readability, INKAI delivers both cultural richness and practical functionality.</p>
+                    </div>
+                    <div class="col-span-1 col-start-1 lg:col-span-3 lg:col-start-7 flex flex-row gap-12 items-center">
+                        <a data-project="inkai-specimen" href="" rel="preload" class="col-span-1 lg:col-span-2 flex flex-col items-center gap-4">
+                            <img class="object-fit font-inkai block" src="/assets/inkai/specimen-icon.svg">
+                            <label>View Specimen</label>
+                        </a>
+                        <a class="col-span-1 lg:col-span-2 flex flex-col items-center gap-4" href="mailto:shuchenwangcc@gmail.com" rel="mailto">
+                            <img class="object-fit font-inkai block" src="/assets/inkai/fontRequest-icon.svg">
+                            <label>Request Test Font</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-9 my-4 border-[#111010]">    
+        </div>
+        <div id="sec-skeleton" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="col-start-1 lg:col-span-3">CALLIGRAPHY SKELETON</label>
+                <p class="lg:col-span-6"><span>Write letters under the logic of Chinese traditional calligraphy.</span></p>
+                <div class="col-start-1 lg:col-span-9 -space-y-12">
+                    <img class="col-span-1 w-full h-auto object-contain" src="/assets/inkai/construction-1.jpg">
+                    <img class="col-span-1 w-full h-auto object-contain" src="/assets/inkai/construction-2.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#111010]">
+        </div>
+        <div id="sec-weight" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="col-start-1 lg:col-span-3">WEIGHT AS MOISTURE</label>
+                <p class="lg:col-span-6"><span>Ink spreads more after dipping and gradually dries during the writing process.</span></p>
+                <div class="col-start-1 lg:col-span-9">
+                    <img class="col-span-1 w-full h-auto object-contain" src="/assets/inkai/weight.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 mt-4 border-[#111010]">
+        </div>
+        <div id="sec-ligature" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="col-start-1 lg:col-span-3">LIGATURES &amp; CONTEXTUAL ALTERNATES</label>
+                <p class="lg:col-span-6"></p>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-2 lg:grid-cols-3" id="basicLatin">
+                    <div class="Feature-box text-9xl">fa</div>
+                    <div class="Feature-box text-9xl">fb</div>
+                    <div class="Feature-box text-9xl">fh</div>
+                    <div class="Feature-box text-9xl">fi</div>
+                    <div class="Feature-box text-9xl">fj</div>
+                    <div class="Feature-box text-9xl">ff</div>
+                    <div class="Feature-box text-9xl">ffi</div>
+                    <div class="Feature-box text-9xl">iiiii</div>
+                    <div class="Feature-box text-9xl">ij</div>
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#111010]">
+        </div>
+        <div id="sec-glyph" class="grid grid-cols-1 lg:grid-cols-12 relative items-start">
+    
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-x-4 mx-4 grid-cols-1 lg:grid-cols-9 relative">
+                <label class="col-span-1 lg:col-span-4 sticky py-4 top-0 z-10 bg-[#f6f0ec]">FULL GLYPHS</label>
+                <div class="col-span-1 lg:col-span-5 sticky z-10 top-0 py-4 gap-2 flex items-center bg-transparent">
+                    <label class="hidden">WEIGHT</label>
+                    <input id="glyph-weight-slider" class="hidden previewSlider w-[200px]" 
+                        max="900" min="400" type="range" value="400">
+                </div>
+                <div id="selectGlyph" class="col-start-1 col-span-1 lg:col-span-4 sticky top-0 z-20 lg:h-screen flex-grow flex flex-col transition-all duration-100 p-4 overflow-hidden">
+                        
+                    <div id="big-char" class="h-full text-center leading-none justify-center flex flex-col gap-8 select-none">
+                        <span class="preview-span text-[21vh] lg:text-[12rem]">&amp;</span>
+                        <span class="preview-span text-[14vh] lg:text-[8rem]">&amp;</span>
+                        <span class="preview-span text-[7vh] lg:text-[4rem]">&amp;</span>
+                    </div>
+
+                    <div class="flex justify-between border-t text-white mix-blend-difference pt-2 shrink-0">
+                        <div class="space-x-4">
+                            <label id="meta-postscript">ampersand</label>
+                            <label id="meta-unicode">U+0026</label>
+                        </div>
+                        <label id="meta-weight" class="uppercase ">Weight: 400</label>
+                    </div>
+                </div>
+
+
+                <div id="glyphList" class="col-span-1 lg:col-span-5 ">
+                    
+                    
+                    <div class="mb-12">
+                        <label class="block my-2">BASIC LATIN</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+                        </div>
+                    </div>
+                    <div class="mb-12">
+                        <label class="block my-2">NUMBERAL</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            1234567890
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2">SYMBOLS</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            @&™°|¢$€£¥+−×÷=≠><≥≤±≈~^%‰↑↗→↘↓↙←↖↔↕
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2">PUNCTUATION</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            !?¡¿·•#/\{[(*)]}-–—_.,:;…“”‘’"'
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2">ACCENTS</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            ÁĂǍÂÄÀĀĄÅÃÆĆČÇĈĊĎĐÐÉĚÊËĖÈĒĘẼƏĞĜĢĠḠĦĤĲÍǏÎÏİÌĪĮĨJĴĶĹĽĻŁŃŇŅÑÓǑÔÖÒŐŌØÕŒÞŔŘŖŚŠŞŜȘẞŤŢȚÚŬǓÛÜǗǙǛǕÙŰŪŲŮŨẂŴẄẀÝŶŸỲỸŹŽŻáăǎâäàāąåãæćčçĉċďđðéěêëėèēęẽəğĝģġḡħĥíǐîïìīįĩĳĵķĺľļłńňņñóǒôöòőōøõœþŕřŗśšşŝșßťţțúŭǔûüǘǚǜǖùűūųůũẃŵẅẁýŷÿỳỹźžż
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   
+
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent mix-blend-difference">
+        <ul class="flex flex-col gap-1.5 ">
+            <li><a href="#sec-preview" class="toc-link">Custom Preview</a></li>
+            <li><a href="#sec-about" class="toc-link">About</a></li>
+            <li><a href="#sec-skeleton" class="toc-link">Calligraphy Skeleton</a></li>
+            <li><a href="#sec-weight" class="toc-link">Weight as Moisture</a></li>
+            <li><a href="#sec-glyph" class="toc-link">Full Glyphs</a></li>
+        </ul>
+    </nav>
+
+    <script src="/nav.js"></script>
+    <script src="/typeface/inkai/text-animator.js"></script>
+</body>
+</html>

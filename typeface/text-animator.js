@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        const text = element.innerText;
+        const text = element.innerHTML;
         element.innerHTML = text.split('').map(char => {
             if (char === ' ') return ' '; 
             return `<span class="inline-block">${char}</span>`;
