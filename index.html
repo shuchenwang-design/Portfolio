@@ -1,5 +1,5 @@
-<!DOCTYPE htmx>
-<htmx lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <!DOCTYPE html>
+<body class="no-scrollbar">
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -131,28 +130,29 @@
             </div>
         </div>
     </div>
-    <!-- into it -->
-    <div id="sec-intoit" alt="intoIt" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+    <!-- gms -->
+    <div id="sec-gms" data-id="gms" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
         <div alt="iiLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Into It: Interactive Book Publisher</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">JAN 2024–FEB 2024</label>
+            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Gray Muzzle Society</label>
+            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">Revised in DEC 2025</label>
             <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
                 <a class="hover:text-rust-100" data-project="intoit" href="" rel="preload">Case Study ← </a></label>
         </div>
 
         <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
             <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2502537671548788783177848274008/IntoIt-1.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/T2502537671567235527251557825624/IntoIt-2.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2502537671585682271325267377240/IntoIt-3.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/I2502537671604129015398976928856/IntoIt-4.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/F2502537671622575759472686480472/IntoIt-5.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/L2502537671641022503546396032088/IntoIt-6.jpg">
-                <img alt="Image 67" class="slideshow-image" src="https://freight.cargo.site/t/original/i/U2502537671659469247620105583704/IntoIt-7.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-1.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-2.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-3.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-4.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-5.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-6.jpg">
+                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-7.jpg">
             </div>
         </div>
     </div>
-    <!-- earthworm archive -->
+
+    <!-- earthworm archive 
     <div id="sec-ewarchive" alt="earthwormArchive" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
         <div alt="eaLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
             <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Earthworm Archive</label>
@@ -173,6 +173,8 @@
             </div>
         </div>
     </div>
+    -->
+
     <!-- typolyrics -->
     <div id="sec-typolyrics" alt="typolyrics" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
         <div alt="tlLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
@@ -192,7 +194,8 @@
             </div>
         </div>
     </div>
-    <!-- biodiagram -->
+
+    <!-- biodiagram 
     <div id="sec-biodiagram" alt="biodiagram" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
         <div alt="tlLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
             <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Biodiagram: 73 Items that Connect Me To Home</label>
@@ -209,7 +212,9 @@
             </div>
         </div>
     </div>
-    <!-- palace of desire -->
+    -->
+
+    <!-- palace of desire 
     <div id="sec-desire" alt="palaceOfDesire" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
         <div alt="pdLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
             <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Palace of Desire: TV Series Rebranding</label>
@@ -231,7 +236,9 @@
             </div>
         </div>
     </div>
-    <!-- thesis book -->
+    -->
+
+    <!-- thesis book 
     <div id="sec-rtbook" alt="thesis book" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
         <div alt="pdLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
             <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Rain And Tears: Thesis Book</label>
@@ -253,6 +260,7 @@
             </div>
         </div>
     </div>
+    -->
 
     <nav class="fixed pt-[50vh] px-16 top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
         <ul class="flex flex-col gap-1.5 ">
@@ -261,12 +269,9 @@
             <li><a href="#sec-ss" class="toc-link">Science Snacks</a></li>
             <li><a href="#sec-inkai" class="toc-link">Inkai Typeface & Specimen</a></li>
             <li><a href="#sec-drowsy" class="toc-link">Drowsy Typeface & Specimen</a></li>
-            <li><a href="#sec-intoit" class="toc-link">Into It</a></li>
-            <li><a href="#sec-ewarchive" class="toc-link">Earthworm Archive</a></li>
+            <li><a href="#sec-gms" class="toc-link">Gray Muzzle Society</a></li>
             <li><a href="#sec-typolyrics" class="toc-link">Typolyrics</a></li>
-            <li><a href="#sec-biodiagram" class="toc-link">Biodiagram</a></li>
-            <li><a href="#sec-desire" class="toc-link">Palace of Desire</a></li>
-            <li><a href="#sec-rtbook" class="toc-link">Rain And Tears</a></li>
+            
         </ul>
     </nav>
     
@@ -276,83 +281,111 @@
             if (!dynamicText) return;
             const multiplierWidth = e.clientX / window.innerWidth;
             const multiplierHeight = e.clientY / window.innerHeight;
-            const multiplierDistance = Math.sqrt(multiplierWidth ** 2 + multiplierHeight ** 2);const randomWeight = Math.floor(multiplierDistance * (900 - 400) + 400);
+            const multiplierDistance = Math.sqrt(multiplierWidth ** 2 + multiplierHeight ** 2);
+            const randomWeight = Math.floor(multiplierDistance * (900 - 400) + 400);
             dynamicText.style.fontVariationSettings = `"wght" ${randomWeight}`;
         }
         window.addEventListener("mousemove", updateText);
 
-        //Gallery
-        const container = document.getElementById('slideshow-container');
-        const wrapper = document.getElementById('slideshow-wrapper');
-        
-        // --- Configuration ---
+        // --- SLIDESHOW LOGIC ---
         const CONFIG = {
-            autoSpeed: 0.2,
+            autoSpeed: 0.1, 
             friction: 0.95
         };
 
-        // Initialize all slideshows
-        document.querySelectorAll('.js-slideshow').forEach(section => {
-            initSlideshow(section);
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.js-slideshow').forEach(initSlideshow);
         });
 
         function initSlideshow(section) {
-            // Find the specific container and wrapper inside THIS section
             const container = section.querySelector('.slideshow-container');
             const wrapper = section.querySelector('.slideshow-wrapper');
-            
-            if (!container || !wrapper) return; // Safety check
 
-            // --- State for THIS slideshow only ---
+            if (!container || !wrapper) return;
+
+            // 1. SETUP CSS
+            wrapper.style.display = 'flex';
+            wrapper.style.width = 'max-content'; 
+            
+            // 2. MEASURE & CLONE
+            const singleSetWidth = wrapper.scrollWidth;
+            const children = Array.from(wrapper.children);
+            children.forEach(child => {
+                const clone = child.cloneNode(true);
+                clone.classList.add('flex-shrink-0'); 
+                child.classList.add('flex-shrink-0'); 
+                wrapper.appendChild(clone);
+            });
+
+            // --- STATE ---
             let isDragging = false;
             let startX = 0;
             let currentX = 0;
             let velocity = 0;
             let lastPageX = 0;
+            let animationId = null; // Track the animation loop
 
-            // 1. CLONE CONTENT (Infinite Loop Setup)
-            wrapper.innerHTmx += wrapper.innerHTmx; 
-
-            // 2. PHYSICS ENGINE
+            // 3. PHYSICS ENGINE
             function animate() {
-                const halfWidth = wrapper.scrollWidth / 2;
-                
-                // Loop Logic
-                if (currentX <= -halfWidth) {
-                    currentX += halfWidth;
-                } else if (currentX > 0) {
-                    currentX -= halfWidth;
+                // Infinite Loop Logic
+                if (currentX <= -singleSetWidth) {
+                    currentX += singleSetWidth;
+                } 
+                else if (currentX > 0) {
+                    currentX -= singleSetWidth;
                 }
 
                 if (!isDragging) {
-                    // Auto move + Momentum + Friction
                     currentX -= CONFIG.autoSpeed;
                     currentX += velocity;
                     velocity *= CONFIG.friction;
                     if (Math.abs(velocity) < 0.01) velocity = 0;
                 }
 
-                wrapper.style.transform = `translateX(${currentX}px)`;
-                requestAnimationFrame(animate);
+                wrapper.style.transform = `translate3d(${currentX}px, 0, 0)`;
+                
+                // Keep looping
+                animationId = requestAnimationFrame(animate);
             }
-            animate(); // Start this specific slideshow
 
-            // 3. INTERACTION
+            // 4. INTERSECTION OBSERVER (The Fix)
+            // This watches the 'section'. When it enters screen, start animate. When leaves, stop.
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Element is visible: Start animation if not already running
+                        if (!animationId) {
+                            animate();
+                        }
+                    } else {
+                        // Element is NOT visible: Stop animation to save performance
+                        if (animationId) {
+                            cancelAnimationFrame(animationId);
+                            animationId = null;
+                        }
+                    }
+                });
+            }, { threshold: 0.1 }); // 0.1 means trigger when 10% of the item is visible
+
+            observer.observe(section);
+
+            // 5. INTERACTION
             const startDrag = (x) => {
                 isDragging = true;
                 startX = x;
                 lastPageX = x;
                 velocity = 0;
                 container.style.cursor = 'grabbing';
+                wrapper.style.transition = 'none'; 
             };
 
             const moveDrag = (e, pageX) => {
                 if (!isDragging) return;
-                e.preventDefault();
+                e.preventDefault(); 
                 const delta = pageX - lastPageX;
                 lastPageX = pageX;
                 currentX += delta;
-                velocity = delta; 
+                velocity = delta;
             };
 
             const endDrag = () => {
@@ -360,13 +393,10 @@
                 container.style.cursor = 'grab';
             };
 
-            // Event Listeners
             container.addEventListener('mousedown', (e) => startDrag(e.pageX));
             container.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX));
-
             container.addEventListener('mousemove', (e) => moveDrag(e, e.pageX));
             container.addEventListener('touchmove', (e) => moveDrag(e, e.touches[0].pageX));
-
             container.addEventListener('mouseleave', endDrag);
             container.addEventListener('mouseup', endDrag);
             container.addEventListener('touchend', endDrag);
