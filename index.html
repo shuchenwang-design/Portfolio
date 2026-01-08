@@ -7,16 +7,36 @@
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/tailwind.config.js"></script>
-
-    <!-- Load Google Fonts: Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- My Style Sheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Loading</title>
+        <link rel="stylesheet" href="loading.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+         <div id="loading-screen">
+            <div class="progress-wrapper">
+                <div id="loading-percentage" class="text-[#f6f0ec] text-sm flex justify-between">0%</div>
+                <div class="progress-track">
+                    <div id="loading-bar" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="loading.js"></script>
+
+        <div id="main-content"></div>
+
+    </body>
+    </html>
+
     <div id="nav-placeholder"></div>
     <div class="head grid grid-cols-1 lg:grid-cols-12">
         <div class="col-start-1 col-span-1 lg:col-start-8 lg:col-span-5 mx-2">
