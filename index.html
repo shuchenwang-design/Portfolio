@@ -1,276 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-scrollbar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Home Page</title>
-    <!-- Load Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/tailwind.config.js"></script>
-    <!-- My Style Sheet -->
+    
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loading.css">
 </head>
 
-<body class="no-scrollbar">
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Loading</title>
-        <link rel="stylesheet" href="loading.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body>
-         <div id="loading-screen">
-            <div class="progress-wrapper">
-                <div id="loading-percentage" class="text-[#f6f0ec] text-sm flex justify-between">0%</div>
-                <div class="progress-track">
-                    <div id="loading-bar" class="progress-fill"></div>
+<body class="">
+
+    <div id="loading-screen">
+        <div class="progress-wrapper">
+            <div id="loading-percentage" class="text-sm flex justify-between">0%</div>
+            <div class="progress-track">
+                <div id="loading-bar" class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="loading.js"></script>
+
+    <div id="main-content">
+
+        <div id="nav-placeholder"></div>
+        
+        <div class="head grid grid-cols-1 lg:grid-cols-12">
+            <div class="col-start-1 col-span-1 lg:col-start-8 lg:col-span-5 mx-2">
+                <label class="text-base mx-2 block lg:mr-[5vw] mr-4">Her Voice Behind the Poems<br>
+                    <a class="text-xs hover:text-black hover:bg-white border pt-2 py-1.5 px-3 mt-1 inline-block rounded-lg" href="/archive/rt/motion/" data-project="rt-motion" rel="preload">Case Study ←</a>
+                </label>
+                <div class="!text-[6rem] dynamic-text" id="dynamic-text" style="font-variation-settings: &quot;wght&quot; 805;">RAIN AND<br>TEARS
                 </div>
             </div>
         </div>
-        
-        <script src="loading.js"></script>
 
-        <div id="main-content"></div>
+        <div id="sec-head" class="relative w-full h-[95vh] flex opacity-65" id="background-image">
+            <video alt="home" autoplay="" class="mt-[-5rem] w-full object-cover" loop="" muted="" playsinline="" src="https://freight.cargo.site/t/original/i/D2611091149679338779014498303064/Homepage.mp4"></video>
+        </div>
 
-    </body>
-    </html>
+        <div id="sec-ripple" alt="rippleGallery" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="rippleLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Ripple: Spreading Love <br>for Performances</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-2">Revised OCT 2025–NOV 2025</label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 text-left">
+                    <a class="hover:text-rust-100" data-project="ripple" href="" rel="preload">Case Study ← </a></label>
+            </div>
 
-    <div id="nav-placeholder"></div>
-    <div class="head grid grid-cols-1 lg:grid-cols-12">
-        <div class="col-start-1 col-span-1 lg:col-start-8 lg:col-span-5 mx-2">
-            <label class="text-base mx-2 block lg:mr-[5vw] mr-4">Her Voice Behind the Poems<br>
-                <a class="text-xs hover:text-black hover:bg-white border pt-2 py-1.5 px-3 mt-1 inline-block rounded-lg" href="/archive/rt/motion/" data-project="rt-motion" rel="preload">Case Study ←</a>
-            </label>
-            <div class="!text-[6rem] dynamic-text" id="dynamic-text" style="font-variation-settings: &quot;wght&quot; 805;">RAIN AND<br>TEARS
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img alt="img1" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2650437434977960375970492005464/Ripple-1.jpg">
+                    <img alt="img2" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/R2655632964283243438514725141592/Ripple-Concept.jpg">
+                    <img alt="img3" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Y2658399663627816191501835385944/Ripple-6.jpg">
+                    <img alt="img4" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2653908209262956849575781153880/Ripple-7.jpg">
+                    <img alt="img5" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/D2653908209281403593649490705496/Ripple-8.jpg">
+                    <img alt="img6" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2658399663646262935575544937560/Ripple-9.jpg">
+                </div>
             </div>
         </div>
-    </div>
-    <div id="sec-head" class="relative w-full h-[95vh] flex opacity-65" id="background-image">
-        <video alt="home" autoplay="" class="mt-[-5rem] w-full object-cover" loop="" muted="" playsinline="" src="https://freight.cargo.site/t/original/i/D2611091149679338779014498303064/Homepage.mp4"></video>
-    </div>
 
-    <!-- ripple -->
-    <div id="sec-ripple" alt="rippleGallery" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="rippleLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Ripple: Spreading Love <br>for Performances</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-2">Revised OCT 2025–NOV 2025</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 text-left">
-                <a class="hover:text-rust-100" data-project="ripple" href="" rel="preload">Case Study ← </a></label>
-        </div>
+        <div id="sec-ss" alt="science snacks" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Science Snacks:<br>Resonate with Friends</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">OCT 2024-JAN 2025</label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
+                    <a class="hover:text-rust-100" data-project="science-snacks" href="" rel="preload">Case Study ← </a></label>
+            </div>
 
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img alt="img1" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2650437434977960375970492005464/Ripple-1.jpg">
-                <img alt="img2" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/R2655632964283243438514725141592/Ripple-Concept.jpg">
-                <img alt="img3" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Y2658399663627816191501835385944/Ripple-6.jpg">
-                <img alt="img4" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2653908209262956849575781153880/Ripple-7.jpg">
-                <img alt="img5" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/D2653908209281403593649490705496/Ripple-8.jpg">
-                <img alt="img6" draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2658399663646262935575544937560/Ripple-9.jpg">
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2400630228800626234129379441752/SS01.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2502664155246645267091865943128/SS03.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/O2400627022332231109713988893784/SS04.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/O2400627022350677853787698445400/SS05.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/S2400627022369124597861407997016/SS06.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/U2400627022387571341935117548632/SS07.jpg">
+                </div>
             </div>
         </div>
-    </div>
-    <!-- science snacks -->
-    <div id="sec-ss" alt="science snacks" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Science Snacks:<br>Resonate with Friends</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">OCT 2024-JAN 2025</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="science-snacks" href="" rel="preload">Case Study ← </a></label>
-        </div>
 
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2400630228800626234129379441752/SS01.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2502664155246645267091865943128/SS03.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/O2400627022332231109713988893784/SS04.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/O2400627022350677853787698445400/SS05.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/S2400627022369124597861407997016/SS06.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/U2400627022387571341935117548632/SS07.jpg">
+        <div id="sec-inkai" alt="inkai" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Inkai Typeface Design & Specimen</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024-FEB 2025</label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
+                    <a class="hover:text-rust-100" data-project="inkai-typeface" href="" rel="preload">Typeface Preview ← </a><br>
+                    <a class="hover:text-rust-100" data-project="inkai-specimen" href="" rel="preload">Specimen Case Study← </a></label>
+            </div>
+
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Y2443103519159778022661072043096/IS_photo3.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/S2381527200153746346778472692824/IS_photo2.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2169656670053815945420658130008/DSC03098.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2443095873242613887083860933720/IS_photo.jpg">
+                </div>
             </div>
         </div>
-    </div>
-    <!-- inkai -->
-    <div id="sec-inkai" alt="inkai" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Inkai Typeface Design & Specimen</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024-FEB 2025</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="inkai-typeface" href="" rel="preload">Typeface Preview ← </a><br>
-                <a class="hover:text-rust-100" data-project="inkai-specimen" href="" rel="preload">Specimen Case Study← </a></label>
-        </div>
 
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Y2443103519159778022661072043096/IS_photo3.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/S2381527200153746346778472692824/IS_photo2.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2169656670053815945420658130008/DSC03098.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2443095873242613887083860933720/IS_photo.jpg">
+        <div id="sec-drowsy" alt="drowsy" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Drowsy Typeface Design & Specimen</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">OCT 2024-JAN 2025</label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
+                    <a class="hover:text-rust-100" data-project="drowsy-typeface" href="" rel="preload">Typeface Preview ← </a><br>
+                    <a class="hover:text-rust-100" data-project="drowsy-specimen" href="" rel="preload">Specimen Case Study← </a></label>
+            </div>
+
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/G2299683334026290885364023508056/Drowsy1.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/L2299683334044737629437733059672/Drowsy2.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Z2299683334063184373511442611288/Drowsy3.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/H2299683334081631117585152162904/Drowsy4.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2299683334100077861658861714520/Drowsy5.jpg">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2299681226006165118131303038040/Drowsy6.jpg">
+                </div>
             </div>
         </div>
-    </div>
-    <!-- drowsy -->
-    <div id="sec-drowsy" alt="drowsy" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Drowsy Typeface Design & Specimen</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">OCT 2024-JAN 2025</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="drowsy-typeface" href="" rel="preload">Typeface Preview ← </a><br>
-                <a class="hover:text-rust-100" data-project="drowsy-specimen" href="" rel="preload">Specimen Case Study← </a></label>
-        </div>
 
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/G2299683334026290885364023508056/Drowsy1.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/L2299683334044737629437733059672/Drowsy2.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Z2299683334063184373511442611288/Drowsy3.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/H2299683334081631117585152162904/Drowsy4.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2299683334100077861658861714520/Drowsy5.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/C2299681226006165118131303038040/Drowsy6.jpg">
+        <div id="sec-typolyrics" alt="typolyrics" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="tlLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Typolyrics of Internationale</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024–DEC 2024</label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
+                    <a class="hover:text-rust-100" data-project="typolyrics" href="" rel="preload">Case Study ← </a></label>
+            </div>
+
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2172698093824846147040166755416/LyricsPhoto01.png">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/K2172704751642163974365245553752/LyricsPhoto02.png">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2172704751660610718438955105368/LyricsPhoto03.png">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/H2172698093880186379261295410264/LyricsPhoto04.png">
+                    <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2172698093898633123335004961880/LyricsPhoto05.png">
+                </div>
             </div>
         </div>
-    </div>
-    <!-- gms -->
-    <div id="sec-gms" data-id="gms" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="iiLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Gray Muzzle Society</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">Revised in DEC 2025</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="intoit" href="" rel="preload">Case Study ← </a></label>
-        </div>
 
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-1.jpg">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-2.jpg">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-3.jpg">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-4.jpg">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-5.jpg">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-6.jpg">
-                <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-7.jpg">
+        <div id="sec-gms" data-id="gms" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="iiLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Gray Muzzle Society</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">Revised in DEC 2025</label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
+                    <a class="hover:text-rust-100" data-project="intoit" href="" rel="preload">Case Study ← </a></label>
+            </div>
+
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-1.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-2.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-3.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-4.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-5.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-6.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gms/gallery-7.jpg">
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- earthworm archive 
-    <div id="sec-ewarchive" alt="earthwormArchive" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="eaLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Earthworm Archive</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">FEB 2024–APR 2024</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="ewarchive" href="" rel="preload">Case Study ← </a></label>
-        </div>
-
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/L2176902336498101759684789877848/EWGallery_1.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Z2176918420786108693327839968344/EWGallery_2.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/K2176918420804555437401549519960/EWGallery_3.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Z2176918420823002181475259071576/EWGallery_4.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/L2176918420841448925548968623192/EWGallery_5.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/K2176918420859895669622678174808/EWGallery_6.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2176918420878342413696387726424/EWGallery_7.png">
-            </div>
-        </div>
-    </div>
-    -->
-
-    <!-- typolyrics -->
-    <div id="sec-typolyrics" alt="typolyrics" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="tlLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Typolyrics of Internationale</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024–DEC 2024</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="typolyrics" href="" rel="preload">Case Study ← </a></label>
-        </div>
-
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/J2172698093824846147040166755416/LyricsPhoto01.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/K2172704751642163974365245553752/LyricsPhoto02.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2172704751660610718438955105368/LyricsPhoto03.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/H2172698093880186379261295410264/LyricsPhoto04.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2172698093898633123335004961880/LyricsPhoto05.png">
-            </div>
-        </div>
-    </div>
-
-    <!-- biodiagram 
-    <div id="sec-biodiagram" alt="biodiagram" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="tlLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Biodiagram: 73 Items that Connect Me To Home</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">SEP 2024–OCT 2024</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="biodiagram" href="" rel="preload">Case Study ← </a></label>
-        </div>
-
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/E2180736016696760069755934817368/BD1.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2180736016715206813829644368984/BD2.png">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/U2180736016733653557903353920600/BD3.png">
-            </div>
-        </div>
-    </div>
-    -->
-
-    <!-- palace of desire 
-    <div id="sec-desire" alt="palaceOfDesire" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="pdLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Palace of Desire: TV Series Rebranding</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">JAN 2024–FEB 2024</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="desire-branding" href="" rel="preload">Case Study ← </a></label>
-        </div>
-
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Q2502065986015427764803042753624/Desire-1.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Z2502065986033874508876752305240/Desire-2.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Q2502065986052321252950461856856/Desire-3.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/N2502065986070767997024171408472/Desire-4.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/F2502065986089214741097880960088/Desire-5.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2502065986107661485171590511704/Desire-6.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/U2502065986126108229245300063320/Desire-7.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/B2502065986144554973319009614936/Desire-8.jpg">
-            </div>
-        </div>
-    </div>
-    -->
-
-    <!-- thesis book 
-    <div id="sec-rtbook" alt="thesis book" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
-        <div alt="pdLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-            <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Rain And Tears: Thesis Book</label>
-            <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">APR 2025–MAY 2025</label>
-            <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                <a class="hover:text-rust-100" data-project="rt-book" href="" rel="preload">Case Study ← </a></label>
-        </div>
-
-        <div class="!flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
-            <div class="slideshow-wrapper">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/Z2502569917158405902275036003416/RT-ThesisBook-1.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/K2502569917176852646348745555032/RT-ThesisBook-2.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/T2502569917195299390422455106648/RT-ThesisBook-3.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/S2502569917213746134496164658264/RT-ThesisBook-4.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/U2502569917232192878569874209880/RT-ThesisBook-5.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/D2502569917250639622643583761496/RT-ThesisBook-6.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/E2502569917269086366717293313112/RT-ThesisBook-7.jpg">
-                <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/L2502569917287533110791002864728/RT-ThesisBook-8.jpg">
-            </div>
-        </div>
-    </div>
-    -->
-
-    <nav class="fixed pt-[50vh] px-16 top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
-        <ul class="flex flex-col gap-1.5 ">
+    </div> <nav class="fixed pt-[50vh] px-16 top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent pointer-events-none">
+        <ul class="flex flex-col gap-1.5 pointer-events-auto">
             <li><a href="#sec-head" class="toc-link">Her Voice Behind the Poems</a></li>
             <li><a href="#sec-ripple" class="toc-link">Ripple</a></li>
             <li><a href="#sec-ss" class="toc-link">Science Snacks</a></li>
             <li><a href="#sec-inkai" class="toc-link">Inkai Typeface & Specimen</a></li>
             <li><a href="#sec-drowsy" class="toc-link">Drowsy Typeface & Specimen</a></li>
-            <li><a href="#sec-gms" class="toc-link">Gray Muzzle Society</a></li>
             <li><a href="#sec-typolyrics" class="toc-link">Typolyrics</a></li>
+            <li><a href="#sec-gms" class="toc-link">Gray Muzzle Society</a></li>
             
         </ul>
     </nav>
@@ -348,24 +249,21 @@
                 animationId = requestAnimationFrame(animate);
             }
 
-            // 4. INTERSECTION OBSERVER (The Fix)
-            // This watches the 'section'. When it enters screen, start animate. When leaves, stop.
+            // 4. INTERSECTION OBSERVER
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Element is visible: Start animation if not already running
                         if (!animationId) {
                             animate();
                         }
                     } else {
-                        // Element is NOT visible: Stop animation to save performance
                         if (animationId) {
                             cancelAnimationFrame(animationId);
                             animationId = null;
                         }
                     }
                 });
-            }, { threshold: 0.1 }); // 0.1 means trigger when 10% of the item is visible
+            }, { threshold: 0.1 }); 
 
             observer.observe(section);
 
@@ -405,3 +303,4 @@
 
     <script src="nav.js"></script>
 </body>
+</html>
