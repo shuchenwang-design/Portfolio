@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <style>
-        
         /* View States */
         .project-item .view-compact { display: grid; }
         .project-item .view-expanded { display: none; }
@@ -25,13 +24,13 @@
 
     <div class="z-20 px-4 py-4 grid grid-cols-7 lg:grid-cols-12 gap-x-4 relative">
         
-        <div class="z-20 col-start-1 col-span-7 lg:col-start-6 lg:col-span-7 grid grid-cols-subgrid pt-8 pb-2 border-b border-white">
+        <div class="z-20 sticky top-4 col-start-1 col-span-7 lg:col-start-6 lg:col-span-7 grid grid-cols-subgrid pt-8 pb-2 border-b border-white">
             <hr class="col-span-full border-white">
-            <div class="col-span-full px-4 gap-4 grid grid-cols-subgrid text-sm uppercase">
+            <div class="col-span-full px-0 lg:px-4 gap-4 grid grid-cols-subgrid text-sm uppercase">
                 <div class="col-span-3 py-3">Name</div>
                 <div class="col-span-1 py-3">Year</div>
                 <div class="col-span-1 py-3">Genre</div>
-                <div class="col-span-2 py-3">Tools</div>
+                <div class="col-span-2 py-3 text-right lg:text-left">Tools</div>
             </div>
             </div>
 

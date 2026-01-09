@@ -4,55 +4,40 @@
         "title": "Ripple: Spreading Love for Performances",
         "image": "https://freight.cargo.site/t/original/i/J2650437434977960375970492005464/Ripple-1.jpg",
         "date": "Revised OCT 2025-NOV 2025",
-        "genre": "VIS, UI, UX",
+        "genre": "App Design, User Experience, Branding",
         "software": "Figma, Illustrator",
         "link": "/archive/ripple/",
-        "overview": "Ripple is a platform that connects performers and audiences, fostering a vibrant community for sharing and discovering live performances. The design focuses on user experience, making it easy for users to navigate and engage with content."
+        "overview": "<p>Ripple is a social-driven performance app designed to bring audiences closer, therefore enriches the experience before and after a performance, creating an environment where sharred experiences ripple outward across personal networks.</p>"
     },
     {
         "id": "rt-motion",
-        "title": "Rain And Tears: Her Voice Behind the Poems",
+        "title": "Her Voice Behind the Poems",
         "image": "/assets/rt/motion/herVoice-cover.jpg",
         "date": "APR 2025-MAY 2025, Revised OCT 2025",
-        "genre": "Lettering, Motion, Data Visualization",
+        "genre": "Data Visualization, Motion, Lettering",
         "software": "Rhino, TouchDesigner, After Effects, Indesign",
-        "link": "/archive/rt/voice/"
+        "link": "/archive/rt/voice/",
+        "overview": "<p>Centered on the recurring image of the Divine Woman in Chinese mythology, the project reflects on how her figure, started from stories of women drowned in water, gradually dissolves into myth, leaving the original voices unheard.</p><p>The lettering, shaped by the voice reading the poems, and the water-inspired imagery echo the Divine Woman’s shifting presence. By contrasting literal and free translations, the project seeks to visualize the hidden voices behind the poems.</p>"
     },
     {
         "id": "science-snacks",
         "title": "Science Snacks: Resonate with Friends",
         "image": "/assets/ss/cover.jpg",
         "date": "OCT 2024-DEC 2024",
-        "genre": "VIS, Typography, Motion, Data Visualization",
+        "genre": "Publication, VIS, Motion, Data Visualization",
         "software": "Indesign, Rhino",
-        "link": "/archive/science-snacks/"
+        "link": "/archive/science-snacks/",
+        "overview": "<p>In physics, resonance phenomena occurs with all types of vibrations and waves. And most importantly, it demonstrates interaction between at least two systems.</p><p>This book seperates each experiment into two parts: hands-up and eyes-on. With the special binding technique, readers are encouraged to read with their friends together and discuss about the resonance between real life and theories.</p>"
     },
     {
         "id": "gms",
         "title": "Gray Muzzle Society: Non-profit Organization Rebranding",
         "image": "/assets/gms/cover.jpg",
         "date": "Revised in DEC 2025",
-        "genre": "Branding, UIUX, Vibe Coding, Type Design",
+        "genre": "Branding, UI, UX, Creative Coding, Typeface Design",
         "software": "Figma, Adobe Illustrator, Visual Studio Code",
-        "link": "/archive/gray-muzzle-society/"
-    },
-    {
-        "id": "inkai-specimen",
-        "title": "Inkai Typeface Specimen",
-        "image": "https://freight.cargo.site/t/original/i/Y2443103519159778022661072043096/IS_photo3.jpg",
-        "date": "NOV 2024-FEB 2025",
-        "genre": "Typography",
-        "software": "Indesign, Glyphs",
-        "link": "https://shuchen-wang.cargo.site/inkaispecimen"
-    },
-    {
-        "id": "6esens",
-        "title": "SIXIÈME SENS",
-        "image": "/assets/gwantsi/6esens-cover.jpg",
-        "date": "MAR 2023-MAY 2023",
-        "genre": "3D, Motion",
-        "software": "Cinema 4D, Octane Render",
-        "link": "/motion/#sec-6esens"
+        "link": "/archive/gray-muzzle-society/",
+        "overview": "<p>The Gray Muzzle Society is a non-profit dedicated to giving senior, special needs, and \"misfit\" animals a second chance. Through foster networks, farm sanctuaries, and reptile rescue programs, they fulfill a touching mission: ensuring every animal grows old in a loving home. The visual identity centers on the texture and flow of animal fur, used as a metaphor for the organization’s impact.</p>"
     },
     {
         "id": "inkai-typeface",
@@ -61,14 +46,62 @@
         "date": "NOV 2024-FEB 2025",
         "genre": "Typeface Design",
         "software": "Glyphs",
-        "link": "/typeface/inkai"
+        "link": "/typeface/inkai",
+        "overview": "<p>INKAI marries Chinese traditional calligraphy especially Kaishu (regular script) with Latin typography. It has sharp edges and powerful vision, creating a harmonious balance between traditional Chinese calligraphy and modern typographic principles. Designed for optimal readability, INKAI delivers both cultural richness and practical functionality.</p>"
+    },
+    {
+        "id": "inkai-specimen",
+        "title": "Inkai Typeface Specimen",
+        "image": "https://freight.cargo.site/t/original/i/Y2443103519159778022661072043096/IS_photo3.jpg",
+        "date": "NOV 2024-FEB 2025",
+        "genre": "Publication, Typeface Design",
+        "software": "Indesign, Glyphs",
+        "link": "https://shuchen-wang.cargo.site/inkaispecimen"
+    },
+    {
+        "id": "6esens",
+        "title": "SIXIÈME SENS",
+        "image": "/assets/gwantsi/6esens-cover.jpg",
+        "date": "MAR 2023-MAY 2023",
+        "genre": "3D Motion",
+        "software": "Cinema 4D, Octane Render, Touch Designer, After Effects",
+        "link": "/motion/#sec-6esens"
+    },
+
+    {
+        "id": "aeiou",
+        "title": "A,E,I,O,U",
+        "image": "/assets/gwantsi/aeiou-cover.jpg",
+        "date": "JAN 2023-FEB 2023",
+        "genre": "Motion Graphics",
+        "software": "After Effects, Illustrator",
+        "link": "/motion/#aeiou"
+    },
+    {
+        "id": "figgarden",
+        "title": "Secret Gardens of Figs",
+        "image": "/assets/gwantsi/fig-cover.jpg",
+        "date": "JAN 2023-FEB 2023",
+        "genre": "3D Motion",
+        "software": "Cinema 4D, Octane Render, After Effects",
+        "link": "/motion/#sec-figgarden"
+    },
+    {
+       "id": "drowsy-typeface",
+        "title": "Drowsy Typeface Design",
+        "image": "/assets/drowsy/representativeGlyphs.jpg",
+        "date": "OCT 2024-JAN 2025",
+        "genre": "Typeface Design",
+        "software": "Glyphs",
+        "link": "/typeface/drowsy/",
+        "overview": "<p>Drowsy is a medium-weight display sans-serif typeface with high contrast. Its elegant curves, even portion, and unique terminal treatments evoke a peaceful, poetic feeling, and effortless chic. With 3 styles: dripping, floating, and stretching, it adapts to various moods from boutique glamour to joyful dance.</p>"
     },
     {
        "id": "drowsy-specimen",
         "title": "Drowsy Typeface Specimen",
         "image": "https://freight.cargo.site/t/original/i/G2299683334026290885364023508056/Drowsy1.jpg",
         "date": "OCT 2024-JAN 2025",
-        "genre": "Typography",
+        "genre": "Publication, Typeface Design",
         "software": "Indesign, Glyphs",
         "link": "https://shuchen-wang.cargo.site/drowsyspecimen"
     },
@@ -77,25 +110,35 @@
         "title": "Rain And Tears: Thesis Book",
         "image": "/assets/rt/book/cover.jpg",
         "date": "APR 2025-MAY 2025",
-        "genre": "Typography, Editorial",
+        "genre": "Publication, Copywriting",
         "software": "Indesign",
-        "link": "/archive/rt/thesis-book/"
+        "link": "/archive/rt/thesis-book/",
+        "overview": "<p>The thesis book documents my concepts, essay, design, and production process for my theie project, Rain And Tears, in a dynamic, fluid, and multi-layered type system that resonate with its visual.</p>"
     },
     {
-       "id": "drowsy-typeface",
-        "title": "Drowsy Typeface Design",
-        "image": "/assets/drowsy/representativeGlyphs.jpg",
-        "date": "OCT 2024-JAN 2025",
-        "genre": "Typography",
-        "software": "Glyphs",
-        "link": "/typeface/drowsy/"
+        "id": "rt-zine",
+        "title": "Changing Phases of the Divine Woman's Imagery",
+        "image": "https://freight.cargo.site/t/original/i/X2388885658993309929211445853272/RT_scan.jpg",
+        "date": "SEP 2024-MAY 2025",
+        "genre": "Publication, Lettering, Illustration",
+        "software": "Indesign, Rhino",
+        "link": "https://shuchen-wang.cargo.site/rt-magazine"
+    },
+    {
+        "id": "rt-exhibition",
+        "title": "Rain And Tears Exhibition",
+        "image": "https://freight.cargo.site/t/original/i/V2389429054067541692770431482968/Shuchen_Thesis_Exhibition01.jpg",
+        "date": "JAN 2025-MAR 2025",
+        "genre": "Typography, Lettering, Illustration",
+        "software": "Indesign, Illustrator, Rhino, TouchDesigner, Photoshop",
+        "link": "https://shuchen-wang.cargo.site/rt-exhibition"
     },
     {
         "id": "intoit",
         "title": "Into It: Interactive Book Publisher",
         "image": "/assets/intoit/cover.jpg",
         "date": "JAN 2024-FEB 2024",
-        "genre": "Branding, Motion",
+        "genre": "Branding, Motion, 3D",
         "software": "Figma, Illustrator, Cinema 4D, After Effects",
         "link": "/archive/into-it/"
     },
@@ -113,7 +156,7 @@
         "title": "Circling Album Cover",
         "image": "/assets/circling-cover.jpg",
         "date": "JAN 2024",
-        "genre": "Lettering, Node-based Coding",
+        "genre": "Coding, Typography",
         "software": "Rhino Grasshopper, Photoshop, Illustrator",
         "link": "/poster/#sec-circling"
     },
@@ -125,15 +168,6 @@
         "genre": "Typography, Illustration, Web Design",
         "software": "Indesign, Illustrator, Figma",
         "link": "https://shuchen-wang.cargo.site/earthworm-archive"
-    },
-    {
-        "id": "rt-zine",
-        "title": "Rain And Tears: Changing Phases of the Divine Woman's Imagery",
-        "image": "https://freight.cargo.site/t/original/i/X2388885658993309929211445853272/RT_scan.jpg",
-        "date": "SEP 2024-MAY 2025",
-        "genre": "Typography, Lettering, Illustration",
-        "software": "Indesign, Rhino",
-        "link": "https://shuchen-wang.cargo.site/rt-magazine"
     },
     {
         "id": "retour-typeface",
@@ -149,7 +183,7 @@
         "title": "Biodiagram: 73 Items that Connect Me To Home",
         "image": "https://freight.cargo.site/t/original/i/E2180736016696760069755934817368/BD1.png",
         "date": "SEP 2024-OCT 2024",
-        "genre": "Typography, Data Visualization",
+        "genre": "Data Visualization, Typography",
         "software": "Indesign, Illustrator",
         "link": "https://shuchen-wang.cargo.site/biodiagram-73items"
     },
@@ -158,27 +192,9 @@
         "title": "Palace of Desire: TV Series Rebranding",
         "image": "https://freight.cargo.site/t/original/i/Q2502065986015427764803042753624/Desire-1.jpg",
         "date": "JAN 2024-FEB 2024",
-        "genre": "Branding, Motion, Typeface Design",
+        "genre": "Branding, 3D/2D Motion, Typeface Design",
         "software": "Figma, Indesign, Illustrator, Cinema 4D, After Effects, Glyphs",
         "link": "https://shuchen-wang.cargo.site/palaceofdesire"
-    },
-    {
-        "id": "rt-exhibition",
-        "title": "Rain And Tears: Thesis Exhibition",
-        "image": "https://freight.cargo.site/t/original/i/V2389429054067541692770431482968/Shuchen_Thesis_Exhibition01.jpg",
-        "date": "JAN 2025-MAR 2025",
-        "genre": "Typography, Lettering, Illustration",
-        "software": "Indesign, Illustrator, Rhino, TouchDesigner, Photoshop",
-        "link": "https://shuchen-wang.cargo.site/rt-exhibition"
-    },
-    {
-        "id": "figgarden",
-        "title": "Secret Garden of Figs",
-        "image": "/assets/gwantsi/fig-cover.jpg",
-        "date": "JAN 2023-FEB 2023",
-        "genre": "3D, Motion",
-        "software": "Cinema 4D, Octane Render",
-        "link": "/motion/#sec-figgarden"
     },
     {
         "id": "desire-typeface",
@@ -191,37 +207,28 @@
     },
     {
         "id": "jjp",
-        "title": "Jess Jess Press",
+        "title": "Jess Jess Press: Start-up RISO Studio Branding",
         "image": "https://freight.cargo.site/t/original/i/X2632628075496845559494099549272/JJW_2.jpg",
         "date": "JUNE 2024-JUL 2024",
-        "genre": "VIS",
+        "genre": "Branding",
         "software": "Figma, Indesign",
         "link": "/branding/#sec-jjp"
     },
     {
         "id": "jjw-typeface",
-        "title": "Jess Jess Write",
+        "title": "Jess Jess Write: Custom Typeface for Jess Jess Press",
         "image": "https://freight.cargo.site/t/original/i/B2632628075478398815420389997656/JJW_1.jpg",
         "date": "JUNE 2024-JUL 2024",
-        "genre": "VIS, Typeface Design",
+        "genre": "Typeface Design",
         "software": "Glyphs",
         "link": "/typeface/#jess-container"
-    },
-    {
-        "id": "aeiou",
-        "title": "A,E,I,O,U",
-        "image": "/assets/gwantsi/aeiou-cover.jpg",
-        "date": "JAN 2023-FEB 2023",
-        "genre": "3D, Motion",
-        "software": "Cinema 4D, Octane Render",
-        "link": "/motion/#sec-figgarden"
     },
     {
         "id": "srj",
         "title": "Shakespeare's R &amp; J",
         "image": "https://freight.cargo.site/t/original/i/D2344292549804860666666683677784/SRJ_storyboard.png",
         "date": "JAN 2024-FEB 2024",
-        "genre": "Motion",
+        "genre": "Motion Graphics",
         "software": "After Effects, Illustrator, Cinema 4D",
         "link": "/motion/#sec-srj"
     },
@@ -230,7 +237,7 @@
         "title": "Earthworm Facts",
         "image": "https://freight.cargo.site/t/original/i/W2222028278745421990057988013144/EWIN_storyBoard.png",
         "date": "FEB 2024-MAR 2024",
-        "genre": "Motion",
+        "genre": "3D/2D Motion",
         "software": "After Effects, Illustrator, Cinema 4D",
         "link": "/motion/#sec-ewfacts"
     },
@@ -239,7 +246,7 @@
         "title": "MOUNOU",
         "image": "https://freight.cargo.site/t/original/i/W2381570842438553364742292061272/Mounou_opener.jpg",
         "date": "OCT 2023-DEC 2023",
-        "genre": "Branding, Typography",
+        "genre": "Branding, Publication",
         "software": "Indesign, Figma, Illustrator",
         "link": "/publication/#sec-mounou"
     },
@@ -257,7 +264,7 @@
         "title": "Ziyou Craft Beer",
         "image": "https://freight.cargo.site/t/original/i/U2380943285145949713555502873688/Ziyou_Render.jpg",
         "date": "JUL 2022-SEP 2022",
-        "genre": "VIS, Packaging",
+        "genre": "Branding, Packaging",
         "software": "Figma, Illustrator, Indesign",
         "link": "/branding/#sec-ziyou"
     },
