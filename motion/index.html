@@ -7,8 +7,21 @@
     <script src="/tailwind.config.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+
+    <link rel="stylesheet" href="/loading.css">
 </head>
 <body class="bg-black text-white">
+
+    <div id="loading-screen">
+        <div class="progress-wrapper">
+            <div id="loading-percentage" class="text-sm flex justify-between">0%</div>
+            <div class="progress-track">
+                <div id="loading-bar" class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/loading.js"></script>
 
     <div id="nav-placeholder"></div>
 
@@ -85,6 +98,21 @@
                     <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/T2351263822794171202795192138840/Fig_03.mp4" type="video/mp4"></video>
                     <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/P2351263822812617946868901690456/Fig_04.mp4" type="video/mp4"></video>
                     <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/T2351263822831064690942611242072/Fig_05.mp4" type="video/mp4"></video>
+                </div>
+            </div>
+            <div alt="aeiou" id="sec-aeiou" data-id="aeiou" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
+                <hr class="col-span-1 lg:col-span-9 mb-4">
+                <label class="col-span-1 lg:col-span-2">A, E, I, O, U<br>Giafé The Gallerie<br>Team work with Xinyi Zhang &amp; Xinyue Liang</label>
+                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
+                    DEC 2022<br>After Effects, Illustrator</label>
+                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
+                    <a class="hover:text-rust-100" data-project="aeiou" href rel="preload">Case Study ←</a></label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-5 gap-2 mt-4">
+                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/A.mp4" type="video/mp4"></video>
+                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/E.mp4" type="video/mp4"></video>
+                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/I.mp4" type="video/mp4"></video>
+                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/O.mp4" type="video/mp4"></video>
+                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/U.mp4" type="video/mp4"></video>
                 </div>
             </div>
             <div alt="RJ" id="sec-rj" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
