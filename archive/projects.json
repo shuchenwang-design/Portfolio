@@ -6,7 +6,8 @@
         "date": "Revised OCT 2025-NOV 2025",
         "genre": "VIS, UI, UX",
         "software": "Figma, Illustrator",
-        "link": "/archive/ripple/"
+        "link": "/archive/ripple/",
+        "overview": "Ripple is a platform that connects performers and audiences, fostering a vibrant community for sharing and discovering live performances. The design focuses on user experience, making it easy for users to navigate and engage with content."
     },
     {
         "id": "rt-motion",
@@ -47,7 +48,7 @@
     {
         "id": "6esens",
         "title": "SIXIÈME SENS",
-        "image": "/assets/6esens-cover.jpg",
+        "image": "/assets/gwantsi/6esens-cover.jpg",
         "date": "MAR 2023-MAY 2023",
         "genre": "3D, Motion",
         "software": "Cinema 4D, Octane Render",
@@ -56,7 +57,7 @@
     {
         "id": "inkai-typeface",
         "title": "Inkai Typeface Design",
-        "image": "/assets/inkai/construction-1.jpg",
+        "image": "/assets/inkai/weight.jpg",
         "date": "NOV 2024-FEB 2025",
         "genre": "Typeface Design",
         "software": "Glyphs",
@@ -173,7 +174,7 @@
     {
         "id": "figgarden",
         "title": "Secret Garden of Figs",
-        "image": "/assets/fig-cover.jpg",
+        "image": "/assets/gwantsi/fig-cover.jpg",
         "date": "JAN 2023-FEB 2023",
         "genre": "3D, Motion",
         "software": "Cinema 4D, Octane Render",
@@ -205,6 +206,15 @@
         "genre": "VIS, Typeface Design",
         "software": "Glyphs",
         "link": "/typeface/#jess-container"
+    },
+    {
+        "id": "aeiou",
+        "title": "A,E,I,O,U",
+        "image": "/assets/gwantsi/aeiou-cover.jpg",
+        "date": "JAN 2023-FEB 2023",
+        "genre": "3D, Motion",
+        "software": "Cinema 4D, Octane Render",
+        "link": "/motion/#sec-figgarden"
     },
     {
         "id": "srj",

@@ -7,22 +7,43 @@
     <script src="/tailwind.config.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="archive.css?v=1">
+    <style>
+        
+        /* View States */
+        .project-item .view-compact { display: grid; }
+        .project-item .view-expanded { display: none; }
+        
+        /* Active State */
+        .project-item.active .view-compact { display: none; }
+        .project-item.active .view-expanded { display: grid; }
+    </style>
 </head>
 
-
-<body class="bg-black text-white">
+<body class="bg-black text-white min-h-screen">
 
     <div id="nav-placeholder"></div>
 
-    <div class="mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12">
+    <div class="z-20 px-4 py-4 grid grid-cols-7 lg:grid-cols-12 gap-x-4 relative">
         
-        <div id="archive-grid" class="grid grid-cols-1 lg:col-start-3 lg:col-end-12 lg:grid-cols-3 gap-4">
+        <div class="z-20 col-start-1 col-span-7 lg:col-start-6 lg:col-span-7 grid grid-cols-subgrid pt-8 pb-2 border-b border-white">
+            <hr class="col-span-full border-white">
+            <div class="col-span-full px-4 gap-4 grid grid-cols-subgrid text-sm uppercase">
+                <div class="col-span-3 py-3">Name</div>
+                <div class="col-span-1 py-3">Year</div>
+                <div class="col-span-1 py-3">Genre</div>
+                <div class="col-span-2 py-3">Tools</div>
             </div>
+            </div>
+
+        <div id="archive-list" class="contents">
+            </div>
+
+        <div class="z-0 fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <img id="bg-image" class="w-full h-full object-cover transition-opacity duration-500" src="" alt="">
+        </div>
     </div>
 
     <script src="/nav.js"></script>
-    
     <script src="archive-loader.js"></script>
 </body>
 </html>
