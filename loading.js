@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(data => { wordsList = data; startRain(); })
                 .catch(() => { wordsList = ["INKAI", "DESIGN", "FLOW"]; startRain(); });
 
-            // 2. Progress Bar (Fixed 5 Seconds)
-            const duration = 5000; 
+            // 2. Progress Bar (Fixed 3 Seconds)
+            const duration = 3000; 
             const intervalStep = 100;
             const increment = 100 / (duration / intervalStep);
             let progress = 0;
