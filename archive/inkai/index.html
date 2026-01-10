@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="no-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <title>inkai Type Specimen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        @keyframes opacitySwitch {
+            0%, 45% { opacity: 1; }   /* Visible (Top Image) for roughly 2s */
+            50%, 95% { opacity: 0; }  /* Invisible (Bottom Image) for roughly 2s */
+            100% { opacity: 1; }      /* Loop back */
+        }
+
+        .animate-switch {
+            animation: opacitySwitch 2s infinite; /* 4s total loop */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="font-inkai" >
+
+        <div id="head-trigger" data-id="inkai-specimen" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+            <div class="col-start1 lg:col-start-3 lg:col-span-9">
+                <div alt="headImage" class="flex lg:h-[80vh] h-[60vh] mt-12">
+                </div>
+                <div class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 p-4 items-start">
+                    <div class="col-span-2 leading-none lg:col-span-6 mt-2">
+                        <h1 id="project-title" class="capitalize text-[3rem] leading-[120%]"></h1>
+                        <span id="project-subtitle" class="text-base font-[400]"></span>
+                    </div>
+                    
+                    <div class="col-span-1 lg:col-span-3 mt-4 space-y-1">
+                        <span id="project-genre" class="block"></span>
+                        <span id="project-software" class="block col-span-1 lg:col-span-2 "></span>
+                    </div>
+                        
+                    <span id="project-date" class="col-span-1 lg:col-span-3 text-right mt-4"></span>
+                </div>
+                <hr class="my-2 bg-white">
+            </div>
+        </div>
+
+        <div id="sec-overview" class="grid lg:grid-cols-12 grid-cols-1 gap-x-4">
+            <div class="col-start-1 lg:col-start-3 lg:col-span-9">
+                <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 my-2 mx-4">
+                    <div class="lg:col-span-4 mr-16 space-y-2">
+                        <label class="js-section-title">OVERVIEW</label>
+                        <div id="project-overview" class="space-y-2"></div>
+                    </div>
+                    <img alt="overviewImage" class="object-contain lg:object-right col-span-1 w-full lg:col-span-8 min-h-[50vh] lg:h-[60vh]" src="/assets/inkai/overview.jpg">
+                </div>
+                <hr class="my-4 bg-white">
+            </div>
+        </div>
+        <div id="sec-concept" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Concept &amp; Sketches</label>
+                <div class="relative col-span-1 lg:col-span-9">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/concept-1.jpg">
+                    <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/inkai/concept-2.jpg">
+                </div>
+
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="relative">
+                        <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/sketch-1.jpg">
+                        <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/inkai/sketch-2.jpg">
+                    </div>
+                    <div class="relative">
+                        <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/sketch-3.jpg">
+                        <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/inkai/sketch-4.jpg">
+                    </div>
+                    <div class="relative">
+                        <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/sketch-5.jpg">
+                        <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/inkai/sketch-6.jpg">
+                    </div>
+                    
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">  
+        </div>
+        <div id="sec-opener" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-3">Openers</label>
+                <p class="col-span-1 lg:col-span-4">Demonstrate the collision between vertical typography of ancient Chinese culture and horizontal typography of mordern life.</p>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/inkai/opener-1.jpg">
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/opener-3.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/opener-4.jpg">
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-features" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Features</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/inkai/feature-1.jpg">
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/feature-2.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/feature-3.jpg">
+                    </div>
+
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/feature-4.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/feature-5.jpg">
+                    </div>
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/inkai/feature-6.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-weight" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-3">Weight</label>
+                <p class="col-span-1 col-span-5">In calligraphy, the ink will be extermely heavy after dipping. The weight of inkai is dedicated to the ink spreading on rice paper. Therefore, INKAI is a uniwidth type family to make sure when increasing the weight, letters will be still in their original position and show the spreading process.</p>
+                <img class="col-span-1 lg:col-span-9 w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/weight-1.jpg">
+
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/weight-2.jpg">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/weight-3.jpg">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/weight-4.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">  
+        </div>
+        <div id="sec-full" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Full Glyphs</label>
+
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/fullglyphs-1.jpg">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/inkai/fullglyphs-2.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">  
+        </div>
+        <div id="sec-showcase" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Showcase</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/inkai/showcase-3.jpg">
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/showcase-2.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/showcase-1.jpg">
+                    </div>
+
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/showcase-4.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/inkai/showcase-5.jpg">
+                    </div>
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/inkai/showcase-6.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-binding" class="grid grid-cols-1 lg:grid-cols-12 mb-4">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Binding</label>
+                
+                <div class="col-span-1 lg:col-span-9 flex flex-col gap-4">
+                    <img class="w-full h-auto" src="/assets/inkai/binding-1.jpg">
+                    <img class="w-full h-auto" src="/assets/inkai/binding-2.jpg">
+                    <img class="w-full h-auto" src="/assets/inkai/binding-3.jpg">
+                <div class="grid grid-cols-2 gap-2">
+                    <img class="w-full h-auto" src="/assets/inkai/binding-4.jpg">
+                    <img class="w-full h-auto" src="/assets/inkai/binding-5.jpg">
+                </div>
+                    
+                </div>
+                
+            </div> 
+        </div>
+
+    </div>
+
+    <div id="sec-end"><img class="h-[100vh] w-full object-cover object-center" src="/assets/inkai/end.jpg"></div>
+
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
+        <ul id="toc-project-list" class="flex flex-col gap-1.5">
+        </ul>
+    </nav>
+
+    <script src="/nav.js"></script>
+    <script src="/sticky-header.js"></script>
+</body>
+</html>

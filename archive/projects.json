@@ -51,12 +51,13 @@
     },
     {
         "id": "inkai-specimen",
-        "title": "Inkai Typeface Specimen",
-        "image": "https://freight.cargo.site/t/original/i/Y2443103519159778022661072043096/IS_photo3.jpg",
+        "title": "Inkai Specimen",
+        "image": "/assets/inkai/cover.jpg",
         "date": "NOV 2024-FEB 2025",
         "genre": "Publication, Typeface Design",
         "software": "Indesign, Glyphs",
-        "link": "https://shuchen-wang.cargo.site/inkaispecimen"
+        "link": "/archive/inkai/",
+        "overview": "<p>INKAI blends Chinese traditional calligraphy into Latin typeface design. With its sharp edges and powerful vision, INKAI creates a harmonious balance between traditional Chinese calligraphy and modern typographic principles.</p><p>This type specimen introduces INKAI from its concepts, sketches, features, glyphs sets. And give several typographic samples to showcase the bilingual usage, pratical functionality, and cultural richness of this tyepeface.</p>"
     },
     {
         "id": "6esens",
@@ -104,7 +105,7 @@
         "genre": "Publication, Typeface Design",
         "software": "Indesign, Glyphs",
         "link": "/archive/drowsy/",
-        "overview": "<p>The specimen captures the peacefulness, poetic feeling, and effortless chic of 'Drowsy' the typeface evoked from its elegant curves, even portion, and special treatments on terminals.</p><p>For each style set, I selected a poem that share the similar feeling as the style set. With its vintage color palette and butterfly binding, the specimen guides readers to the glamour, joyful, and gentle world of 'Drowsy'.</p>"
+        "overview": "<p>The specimen captures the peacefulness, poetic feeling, and effortless chic of \"Drowsy\" the typeface evoked from its elegant curves, even portion, and special treatments on terminals.</p><p>For each style set, I selected a poem that share the similar feeling as the style set. With its vintage color palette and butterfly binding, the specimen guides readers to the glamour, joyful, and gentle world of \"Drowsy\".</p>"
     },
     {
         "id": "rt-book",
