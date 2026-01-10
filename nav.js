@@ -152,7 +152,7 @@ function loadGlobalProjectData() {
                 let cleanTitle = project.title.includes(':') ? project.title.split(':')[0].trim() : project.title;
 
                 if (titleEl) titleEl.innerHTML = project.title.replace(':', '<br>');
-                if (metaEl) metaEl.innerHTML = `${project.date}<br>${project.genre}`;
+                if (metaEl) metaEl.innerHTML = `${project.date}<br>${project.software}`;
 
                 // Generate Wavy Nav (Archive Page)
                 // 2. Generate Wavy Nav Link

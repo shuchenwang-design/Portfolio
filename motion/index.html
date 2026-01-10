@@ -7,35 +7,24 @@
     <script src="/tailwind.config.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-
-    <link rel="stylesheet" href="/loading.css">
 </head>
 <body class="bg-black text-white">
 
-    <div id="loading-screen">
-        <div class="progress-wrapper">
-            <div id="loading-percentage" class="text-sm flex justify-between">0%</div>
-            <div class="progress-track">
-                <div id="loading-bar" class="progress-fill"></div>
-            </div>
-        </div>
-    </div>
-    
-    <script src="/loading.js"></script>
 
     <div id="nav-placeholder"></div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12">
         
-        <div class="col-start-1 lg:col-start-3 lg:col-end-13 mx-4 my-10 space-y-4">
-            <h1 class="hidden lg:block absolute top-4 text-base">Motion Windows</h1>
-            <div alt="herVoice" id="sec-hervoice" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Her Voice Behind the Poems</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    FEB 2025–MAR 2025<br>Illustrator, Rhino Grasshopper<br>Touch Designer, After Effects</label>
+        <div class="col-start-1 lg:col-start-3 lg:col-end-13 mb-10 space-y-4">
+            <div class="sticky top-0 pt-12 pb-2 lg:py-4 text-base bg-gradient-to-b from-black to-transparent border-b border-white z-10">
+                <h1 class="ml-4">Motion Pavilion</h1>
+            </div>
+
+            <div id="sec-hervoice" data-id="rt-motion" class="grid grid-cols-1 lg:grid-cols-9 gap-x-8 mx-4">
+                <label class="js-title col-start-1 col-span-1 lg:col-span-2"></label>
+                <label class="js-meta col-start-1 lg:col-start-3 col-span-1 lg:col-span-3"></label>
                 <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="rt-motion" href rel="preload">Case Study ←</a></label>
+                    <a data-project="rt-motion" href rel="preload">Case Study ←</a></label>
                 <div class="col-start-1 col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-0 mt-4">
                     <video autoplay class="aspect-sqaure h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/W2610785412088682519893765209176/VoiceBehind_Slutty_1080p.mp4" type="video/mp4"></video>
                     <video autoplay class="aspect-sqaure h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/L2610789837554819523183745645656/VoiceBehind_Ink_1080p.mp4" type="video/mp4"></video>
@@ -43,131 +32,145 @@
                 </div>
     
             </div>
-            <div alt="desire" id="sec-desire" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Palace of Desire</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    Revised in JUL 2024<br>Cinema 4D, After Effects</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="desire-branding" href rel="preload">Case Study ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-2 mt-4">
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/D2636429682581390583726073920600/Poster1_1106.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/W2636429682599837327799783472216/Poster2_1106.mp4" type="video/mp4"></video>
-                    <img class="h-auto w-full col-span-1 lg:pl-2 object-cover" src="https://freight.cargo.site/t/original/i/Q2465927051253678932102064847960/Desire_Keyframes.jpg">
+            <div id="sec-desire" data-id="desire-branding" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta col-span-1 lg:col-span-3"></label>
+                    <label class="col-span-1 lg:col-span-4">
+                        <a data-project="desire-branding" href rel="preload">Case Study ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-2 mt-4">
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/D2636429682581390583726073920600/Poster1_1106.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/W2636429682599837327799783472216/Poster2_1106.mp4" type="video/mp4"></video>
+                        <img class="lg:h-full h-auto w-full col-span-1 lg:pl-2 object-cover" src="https://freight.cargo.site/t/original/i/Q2465927051253678932102064847960/Desire_Keyframes.jpg">
+                    </div>
                 </div>
             </div>
-            <div alt="typolyrics" id="sec-typolyrics" class="w-full">
-                <div alt="typolyricsLabel" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Typolyrics of Internationale</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    NOV 2024–JAN 2025<br>Indesign, Rhino, After Effects</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="typolyrics" href rel="preload">Case Study ←</a></label>
-            </div>
-            <div alt="typolyricsMotion" id="sec-typolyrics" class="grid grid-cols-1 lg:grid-cols-9 gap-0">
-                    <video autoplay class="h-auto w-[full] col-start-1 lg:col-end-4" loop muted playsinline src="https://freight.cargo.site/t/original/i/W2204157846706365139683582884952/LI_Final_1.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-start-1 lg:col-start-4 lg:col-end-7" loop muted playsinline src="https://freight.cargo.site/t/original/i/Q2204157846724811883757292436568/SS_1.mp4"></video>
-                    <video autoplay class="h-auto w-full col-start-1 lg:col-start-7 lg:col-end-10" loop muted playsinline src="https://freight.cargo.site/t/original/i/G2204157846687918395609873333336/Esp_Final-2.mp4"></video>
+            <div id="sec-typolyrics" data-id="typolyrics" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta lg:col-span-3 col-span-1"></label>
+                    <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
+                        <a data-project="typolyrics" href="" rel="preload">Case Study ←</a>
+                    </label>
+
+                    <video autoplay class="h-auto w-full aspect-[3/4] col-start-1 lg:col-span-3 object-cover" loop muted playsinline src="/assets/typolyrics/Li.mp4"></video>
+                    <video autoplay class="h-auto w-full aspect-[3/4] col-start-1 lg:col-span-3 object-cover" loop muted playsinline src="/assets/typolyrics/ss.mp4"></video>
+                    <video autoplay class="h-auto w-full aspect-[3/4] col-start-1 lg:col-span-3 object-cover" loop muted playsinline src="/assets/typolyrics/le.mp4"></video>
                 </div>
             </div>
-            <div alt="sixSense" id="sec-6esens" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">SIXIÈME SENS<br>GIAFÉ The Gallerie<br>Team work with Xinyi Zhang and Xinyue Liang</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    MAR 2023–MAY 2023<br>Cinema 4D, Octane Render, After Effects</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="6esens" href rel="preload">Case Study ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-4 gap-2 mt-4">
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/F2457706769034940657397695462488/Sound.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/K2351263822701937482426644380760/6esens_Smell.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/O2351263822738830970574063483992/6esens_visual.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/V2351263822720384226500353932376/6esens_touch.mp4" type="video/mp4"></video>
+            <div id="sec-6esens" data-id="6esens" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta col-span-1 lg:col-span-3"></label>
+                    <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
+                        <a data-project="6esens" href rel="preload">Case Study ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-4 gap-2 mt-4">
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/F2457706769034940657397695462488/Sound.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/K2351263822701937482426644380760/6esens_Smell.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/O2351263822738830970574063483992/6esens_visual.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/V2351263822720384226500353932376/6esens_touch.mp4" type="video/mp4"></video>
+                    </div>
                 </div>
+                
             </div>
-            <div alt="figGarden" id="sec-figgarden" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Secret Garden of Figs<br>Giafé The Gallerie<br>Team work with Yue Wang</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    JAN 2023–FEB 2023<br>Cinema 4D, Octane Render, After Effects</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="figgarden" href rel="preload">Case Study ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-5 gap-2 mt-4">
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/N2351263822757277714647773035608/Fig_01.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/R2351263822775724458721482587224/Fig_02.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/T2351263822794171202795192138840/Fig_03.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/P2351263822812617946868901690456/Fig_04.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/T2351263822831064690942611242072/Fig_05.mp4" type="video/mp4"></video>
-                </div>
-            </div>
+            
             <div alt="aeiou" id="sec-aeiou" data-id="aeiou" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
                 <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-span-1 lg:col-span-2">A, E, I, O, U<br>Giafé The Gallerie<br>Team work with Xinyi Zhang &amp; Xinyue Liang</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    DEC 2022<br>After Effects, Illustrator</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="aeiou" href rel="preload">Case Study ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-5 gap-2 mt-4">
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/A.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/E.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/I.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/O.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/U.mp4" type="video/mp4"></video>
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta col-span-1 lg:col-span-3"></label>
+                    <label class="col-span-1 lg:col-span-4">
+                        <a data-project="aeiou" href rel="preload">Case Study ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-5 gap-2 mt-4">
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/A.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/E.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/I.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/O.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="/assets/gwantsi/U.mp4" type="video/mp4"></video>
+                    </div>
                 </div>
+                
             </div>
-            <div alt="RJ" id="sec-rj" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Shakespeare's R&amp;J Title Sequence</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    JAN 2024–FEB 2024<br>After Effects, Cinema 4D, Octane Render</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="srj" href rel="preload">Case Study ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4 items-start mt-4">
-                    <img class="h-auto w-full col-start-1 col-span-1 align-top object-contain" src="https://freight.cargo.site/t/original/i/D2344292549804860666666683677784/SRJ_storyboard.png">
-                    <video autoplay class="h-auto w-full col-span-1 col-start-1 lg:col-start-2 lg:col-span-2" loop muted playsinline src="https://freight.cargo.site/t/original/i/P2204554940524221104272735157336/SRJ.mp4" type="video/mp4"></video>
+
+            <div aid="sec-figgarden" data-id="figgarden" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta col-span-1 lg:col-span-3"></label>
+                    <label class="col-span-1 lg:col-span-4">
+                        <a data-project="figgarden" href rel="preload">Case Study ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-4 gap-2 mt-4">
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/N2351263822757277714647773035608/Fig_01.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/R2351263822775724458721482587224/Fig_02.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/T2351263822794171202795192138840/Fig_03.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1" loop muted playsinline src="https://freight.cargo.site/t/original/i/T2351263822831064690942611242072/Fig_05.mp4" type="video/mp4"></video>
+                    </div>
                 </div>
+                
             </div>
-            <div alt="ewFacts" id="sec-ewfacts" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Earthworm Facts</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    FEB 2024–MAR 2024<br>Cinema 4D, Octane Render, After Effects</label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" data-project="ewarchive" href rel="preload">Case Study ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 items-start mt-4">
-                    <img class="h-auto w-full col-start-1 col-span-1 row-span-2 align-top object-contain lg:pr-2" src="https://freight.cargo.site/t/original/i/W2222028278745421990057988013144/EWIN_storyBoard.png">
-                    <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/X2222005695983072537792965983320/EWIN_1.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/P2222005696001519281866675534936/EWIN_2.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/V2222005696019966025940385086552/EWIN_3.mp4" type="video/mp4"></video>
-                    <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/B2222015384877142836703018564696/EWIN_4.mp4" type="video/mp4"></video>
+
+            <div id="sec-rj" data-id="srj" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta lg:col-start-3 col-span-1 lg:col-span-3"></label>
+                    <label class="col-span-1 lg:col-span-4">
+                        <a data-project="srj" href rel="preload">Case Study ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4 items-start mt-4">
+                        <img class="h-auto w-full col-start-1 col-span-1 align-top object-contain" src="https://freight.cargo.site/t/original/i/D2344292549804860666666683677784/SRJ_storyboard.png">
+                        <video autoplay class="h-auto w-full col-span-1 col-start-1 lg:col-start-2 lg:col-span-2" loop muted playsinline src="https://freight.cargo.site/t/original/i/P2204554940524221104272735157336/SRJ.mp4" type="video/mp4"></video>
+                    </div>
                 </div>
+                
             </div>
-            <div alt="playground" id="sec-play" class="grid grid-cols-1 lg:grid-cols-9 gap-x-4">
-                <hr class="col-span-1 lg:col-span-9 mb-4">
-                <label class="col-start-1 col-span-1 lg:col-span-2">Small Pieces</label>
-                <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
-                    </label>
-                <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
-                    <a class="hover:text-rust-100" href="/archive/" rel="preload">Full Archive ←</a></label>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
-                    <div class="h-auto w-full col-span-1 space-y-2 mb-4">
-                        <label><a class="hover:text-rust-100" data-project="intoit" href rel="preload">Into It ←</a></label>
-                        <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/K2457703997928152416601432603736/Morph0319.mp4"></video>
+            <div id="sec-ewfacts" data-id="ewfacts" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="js-title col-span-1 lg:col-span-2"></label>
+                    <label class="js-meta col-start-1 lg:col-start-3 col-span-1 lg:col-span-3"></label>
+                    <label class="col-span-1 lg:col-span-4">
+                        <a data-project="ewarchive" href rel="preload">Case Study ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 items-start mt-4">
+                        <img class="h-auto w-full col-start-1 col-span-1 row-span-2 align-top object-contain lg:pr-2" src="https://freight.cargo.site/t/original/i/W2222028278745421990057988013144/EWIN_storyBoard.png">
+                        <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/X2222005695983072537792965983320/EWIN_1.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/P2222005696001519281866675534936/EWIN_2.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/V2222005696019966025940385086552/EWIN_3.mp4" type="video/mp4"></video>
+                        <video autoplay class="h-auto w-full col-span-1 row-span1" loop muted playsinline src="https://freight.cargo.site/t/original/i/B2222015384877142836703018564696/EWIN_4.mp4" type="video/mp4"></video>
                     </div>
-                    <div class="h-auto w-full col-span-1 space-y-2 mb-4">
-                        <label><a class="hover:text-rust-100" data-project="jjp" href rel="preload">Jess Jess Press ←</a></label>
-                        <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/B2457721693170319307299625319512/JJS_anima.mp4"></video>
-                    </div>
-                    <div class="h-auto w-full col-span-1 space-y-2 mb-4">
-                        <label>Procrastination</label>
-                        <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/J2457717869750568637668280974424/2024-04-21-Shuchen_workshop.mp4"></video>
-                    </div>
-                    <div class="h-auto w-full col-span-1 space-y-2 mb-4">
-                        <label>No.6 Cinema</a></label>
-                        <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/D2351263822683490738352934829144/6esens_Heart.mp4"></video>
-                    </div>
-                    
                 </div>
+                
+            </div>
+            <div alt="playground" id="sec-play" class="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <hr class="col-span-full">
+                <div class="col-span-1 lg:col-span-9 mx-4 grid grid-cols-subgrid">
+                    <label class="col-start-1 col-span-1 lg:col-span-2">Small Pieces</label>
+                    <label class="col-start-1 lg:col-start-3 col-span-1 lg:col-span-3">
+                        </label>
+                    <label class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4">
+                        <a href="/archive/" rel="preload">Full Archive ←</a></label>
+                    <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
+                        <div class="h-auto w-full col-span-1 space-y-2 mb-4">
+                            <label><a data-project="intoit" href rel="preload">Into It ←</a></label>
+                            <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/K2457703997928152416601432603736/Morph0319.mp4"></video>
+                        </div>
+                        <div class="h-auto w-full col-span-1 space-y-2 mb-4">
+                            <label><a data-project="jjp" href rel="preload">Jess Jess Press ←</a></label>
+                            <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/B2457721693170319307299625319512/JJS_anima.mp4"></video>
+                        </div>
+                        <div class="h-auto w-full col-span-1 space-y-2 mb-4">
+                            <label>Procrastination</label>
+                            <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/J2457717869750568637668280974424/2024-04-21-Shuchen_workshop.mp4"></video>
+                        </div>
+                        <div class="h-auto w-full col-span-1 space-y-2 mb-4">
+                            <label>No.6 Cinema</a></label>
+                            <video autoplay loop muted playsinline src="https://freight.cargo.site/t/original/i/D2351263822683490738352934829144/6esens_Heart.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
