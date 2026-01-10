@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="no-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <title>Drowsy Type Specimen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+<body class="">
+
+    <div id="nav-placeholder"></div>
+    <div class="font-drowsy" >
+
+        <div id="head-trigger" data-id="drowsy-specimen" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+            <div class="col-start1 lg:col-start-3 lg:col-span-9">
+                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12">
+                </div>
+                <div class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 px-4 my-2 items-center">
+                    <div class="col-span-2 leading-none lg:col-span-7 my-2">
+                        <h1 id="project-title" class="capitalize text-[3rem]"></h1>
+                        <span id="project-subtitle" class="text-base font-[400]"></span></div>
+                    <span id="project-genre" class="text-xs col-span-1 lg:col-span-2 "></span>
+                    <span id="project-date" class="text-xs col-span-1 lg:col-span-3 text-right"></span>
+                </div>
+                <hr class="my-2 bg-white">
+            </div>
+        </div>
+
+        <div id="sec-overview" class="grid lg:grid-cols-12 grid-cols-1 gap-x-4">
+            <div class="col-start-1 lg:col-start-3 lg:col-span-9">
+                <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 my-2 mx-4">
+                    <div class="lg:col-span-4 mr-16 space-y-2">
+                        <label class="js-section-title">OVERVIEW</label>
+                        <div id="project-overview" class="space-y-2"></div>
+                    </div>
+                    <img alt="overviewImage" class="object-contain lg:object-right col-span-1 w-full lg:col-span-8 min-h-[50vh] lg:h-[60vh]" src="/assets/drowsy/overview.jpg">
+                </div>
+                <hr class="my-4 bg-white">
+            </div>
+        </div>
+        <div id="sec-feature" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Features</label>
+                
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-3 w-full h-auto" src="/assets/drowsy/features.jpg">
+                    <img class="w-full h-auto object-cover" src="/assets/drowsy/features-1.jpg">
+                    <img class="w-full h-auto object-cover" src="/assets/drowsy/features-2.jpg">
+                    <img class="w-full h-auto object-cover" src="/assets/drowsy/features-3.jpg">
+                </div>
+                
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-typography" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Style Sets</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-3 w-full h-auto" src="/assets/drowsy/stylesets.jpg">
+                    <img class="w-full h-auto object-cover" src="/assets/drowsy/stylesets-1.jpg">
+                    <img class="w-full h-auto object-cover" src="/assets/drowsy/stylesets-2.jpg">
+                    <img class="w-full h-auto object-cover" src="/assets/drowsy/stylesets-3.jpg">
+                </div>
+                
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-binding" class="grid grid-cols-1 lg:grid-cols-12 mb-4">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Binding Details</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-3 w-full h-auto" src="/assets/drowsy/binding.jpg">
+                </div>
+                
+            </div>  
+        </div>
+
+    </div>
+
+    <div id="sec-end"><img class="h-[100vh] w-full object-cover object-top" src="/assets/drowsy/end.jpg"></div>
+
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
+        <ul id="toc-project-list" class="flex flex-col gap-1.5">
+        </ul>
+    </nav>
+
+    <script src="/nav.js"></script>
+    <script src="/sticky-header.js"></script>
+</body>
+</html>

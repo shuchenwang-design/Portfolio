@@ -88,7 +88,7 @@
     },
     {
        "id": "drowsy-typeface",
-        "title": "Drowsy Typeface Design",
+        "title": "Drowsy Typeface",
         "image": "/assets/drowsy/representativeGlyphs.jpg",
         "date": "OCT 2024-JAN 2025",
         "genre": "Typeface Design",
@@ -98,12 +98,13 @@
     },
     {
        "id": "drowsy-specimen",
-        "title": "Drowsy Typeface Specimen",
-        "image": "https://freight.cargo.site/t/original/i/G2299683334026290885364023508056/Drowsy1.jpg",
+        "title": "Drowsy Specimen",
+        "image": "/assets/drowsy/cover.jpg",
         "date": "OCT 2024-JAN 2025",
         "genre": "Publication, Typeface Design",
         "software": "Indesign, Glyphs",
-        "link": "https://shuchen-wang.cargo.site/drowsyspecimen"
+        "link": "/archive/drowsy/",
+        "overview": "<p>The specimen captures the peacefulness, poetic feeling, and effortless chic of 'Drowsy' the typeface evoked from its elegant curves, even portion, and special treatments on terminals.</p><p>For each style set, I selected a poem that share the similar feeling as the style set. With its vintage color palette and butterfly binding, the specimen guides readers to the glamour, joyful, and gentle world of 'Drowsy'.</p>"
     },
     {
         "id": "rt-book",

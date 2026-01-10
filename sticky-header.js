@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const project = projects.find(p => p.id === projectId);
             if (!project) return;
 
-            // Populate Content
+            // --- POPULATE CONTENT ---
+
+            // A. Image
             const imgTag = document.getElementById('header-cover-img');
             const imgContainer = container.querySelector('[alt="headImage"]');
             
@@ -30,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 imgContainer.innerHTML = `<img class="object-cover w-full h-full" src="${project.image}" alt="${project.title}">`;
             }
 
+            // B. Title & Subtitle
             const titleElement = document.getElementById('project-title');
             const subtitleElement = document.getElementById('project-subtitle');
             
@@ -43,11 +46,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
 
+            // C. Meta Data (Genre, Software, Date)
             const genreElement = document.getElementById('project-genre');
             if (genreElement) genreElement.innerText = project.genre; 
 
+            // [NEW] Software
+            const softwareElement = document.getElementById('project-software');
+            if (softwareElement && project.software) {
+                softwareElement.innerText = project.software;
+            }
+
             const dateElement = document.getElementById('project-date');
             if (dateElement) dateElement.innerHTML = project.date.replace('–', '–<br>'); 
+
+            // [NEW] Overview
+            const overviewElement = document.getElementById('project-overview');
+            if (overviewElement && project.overview) {
+                overviewElement.innerHTML = project.overview;
+            }
 
             // Initialize Header AFTER data is loaded
             initStickyHeader();
@@ -68,11 +84,11 @@ function initStickyHeader() {
     // 1. Create the Sticky Bar
     const stickyBar = document.createElement('div');
     
-    // Added 'bg-black' to match your theme
-    stickyBar.className = "fixed top-0 left-0 w-full text-white p-4 z-20 transition-all duration-500 opacity-0 pointer-events-none bg-gradient-to-b from-black to-transparent";
+    // Style settings
+    stickyBar.className = "fixed top-0 left-0 w-full text-white p-4 z-10 transition-all duration-500 opacity-0 pointer-events-none bg-gradient-to-b from-black to-transparent";
     
     const innerText = document.createElement('div');
-    // Align with your grid (col-start-3 is approx 16.66% on 12 col grid)
+    // Align with your grid
     innerText.className = "max-w-screen-2xl mx-auto px-4 lg:px-0 text-sm text-center lg:text-left lg:ml-[16.66%]"; 
     
     // Copy the text from the H1
@@ -84,7 +100,7 @@ function initStickyHeader() {
     // 2. Observer Logic
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // If the Title is OFF screen (scrolled past) -> Show Sticky Bar
+            // Show bar only if Head Trigger is OFF screen AND we scrolled down
             if (!entry.isIntersecting && window.scrollY > 50) {
                 stickyBar.classList.remove('opacity-0', 'pointer-events-none');
             } else {
