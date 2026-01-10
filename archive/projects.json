@@ -217,13 +217,13 @@
         "link": "/branding/#sec-jjp"
     },
     {
-        "id": "jjw-typeface",
+        "id": "jjw",
         "title": "Jess Jess Write: Custom Typeface for Jess Jess Press",
-        "image": "https://freight.cargo.site/t/original/i/B2632628075478398815420389997656/JJW_1.jpg",
+        "image": "/assets/jjw/cover.jpg",
         "date": "JUNE 2024-JUL 2024",
         "genre": "Typeface Design",
         "software": "Glyphs",
-        "link": "/typeface/#jess-container"
+        "link": "/typeface/jjw/"
     },
     {
         "id": "srj",

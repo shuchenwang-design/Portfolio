@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="no-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <title>Jess Jess Write</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .previewSlider{
+            -webkit-appearance: none;  
+            width: 100%;               
+            height: 8px;
+            background: rgba(240, 233, 221, 0);
+            border: 1pt solid #181D14;
+            border-radius: 4px;      
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .previewSlider::-webkit-slider-thumb {
+            -webkit-appearance: none; 
+            appearance: none;          
+            width: 16px;              
+            height: 16px;   
+            border:1pt solid #181D14;
+            background: #F8F4C9;     
+            border-radius: 50%;      
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .previewSlider::-webkit-slider-thumb:hover {
+            background: #181D14;     
+        }
+        .liga-box{
+            aspect-ratio: 8/7;
+            background: #F8F4C9;
+            outline: 1px solid  #181D14;
+            color:#181D14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-feature-settings: "liga" 0, "calt" 0;
+        }
+        .liga-box:hover {
+            font-feature-settings: "liga" 1, "calt" 1;
+        }
+
+        .dlig-span {
+            font-feature-settings: "liga" 1, "calt" 1, "dlig" 1;
+        }
+
+        .circle-btn {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1pt solid #111010;
+            background-color: transparent;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        .circle-btn.active {
+            background-color: #111010;
+        }
+
+
+        .ss-box{
+            aspect-ratio: 3/2;
+            background: #F8F4C9;
+            outline: 1px solid  #181D14;
+            color:#181D14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-feature-settings: "liga", "calt", "dlig";
+        }
+
+        .glyph-box{
+            aspect-ratio: 1/1;
+            background: #F8F4C9;
+            outline: 1px solid  #181D14;
+            color:#181D14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: crosshair;
+            font-feature-settings: "liga", "calt", "dlig";
+        }
+
+        .style-button {
+            border: 1px solid #181D14;
+            background-color: #F8F4C9;
+            padding: 4px 20px;
+            border-radius: 6px;
+        }
+
+        .style-button.active {
+            background-color: #181D14;
+            color: #F8F4C9;
+        }
+
+    </style>
+    
+</head>
+<body class="bg-[#F8F4C9] font-jjw">
+
+    <div id="nav-placeholder" class="mix-blend-difference z-50"></div>
+    <div class="text-[#181D14]">
+
+        <div id="head-trigger" data-id="intoit" class="grid lg:grid-cols-12 grid-cols-1 gap-4 pt-8">
+            <div class="col-start1 lg:col-start-3 lg:col-span-9">
+                <hr class="my-4 border-[#181D14]">
+            </div>
+        </div>
+
+        <div id="sec-preview" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+            <div class="col-start-1 col-span-1 lg:col-start-3 lg:col-span-9">
+                <div class="mx-4">
+                    <label class="js-section-title labels">CUSTOM PREVIEW</label>
+                    <div class="my-16">
+                        <div class="text-[10vw] leading-none text-center outline-none" contenteditable="true" id="editableText">jess jess write!<br>cats1cats2cats3cats4cats5cats6star1</div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-9 items-center gap-4">
+                        <div class="col-span-1 lg:col-span-3 flex flex-row gap-2 items-center">
+                            <label>SIZE</label>
+                            <input id="fontSizeSlider" class="previewSlider lg:w-[240px] mb-1" max="1500" min="200" type="range" value="1000">
+                        </div>
+                        <div class="col-span-1 lg:col-span-3 flex flex-col lg:flex-row gap-2 items-center">
+                            <label>WEIGHT</label>
+                            <input id="fontWeightSlider" class="previewSlider lg:w-[200px] mb-1" max="600" min="200"type="range" value="400">
+                        </div>
+                        <div class="col-span-3 flex flex-col lg:flex-row gap-2 text-right justify-end">
+                            <button class="style-button" id="ss01Btn">SS01</button>
+                            <button class="style-button" id="ss02Btn">SS02</button>
+                            <button class="style-button active" id="ligaBtn">liga</button>
+                            <button class="style-button active" id="caltBtn">calt</button>
+                            <button class="style-button active" id="dligBtn">dlig</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="my-4 border-[#181D14]">
+            </div>
+        </div>
+        <div id="sec-about" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title col-span-1 lg:col-span-9">ABOUT</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-subgrid gap-2">
+                    <div class="col-span-1 lg:col-span-9 flex flex-col lg:flex-row gap-4 text-base dlig-span">
+                        <p>cats1jess jess write is a variable typeface family derived from existing posters of jess jess press.</p>
+                        <p>cats2The characteristics of original hand-written type has been highlighted and systemized for consistency.</p>
+                        <p>cats3weights and alternates are available, guaranteeing reproduction of various promotional materials.</p>
+                        <p>cats4Cat and star symbols from branding enrich the playfulness and provide stronger brand recognition.</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <div id="sec-sample" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 grid-cols-1 lg:grid-cols-9">
+                <div class="col-span-1 lg:col-span-6">
+                    <hr class="my-4 border-[#181D14]"> 
+                    <label class="js-section-title mx-4 col-start-1 lg:col-span-3">samples</label>
+                    <p class="mx-4 text-4xl leading-[150%] mt-4 dlig-span font-[600]">jess jess press is an emerging press dedicated to uplifting queercats1 and femcats5 artists and artists of colorcats3 in the comics/magazine publishingcats2 industry.</p>
+                    <p class="mx-4 text-base mb-8 font-[600]">Bold, calt, dlig, liga</p>
+
+                    <hr class="my-4 border-[#181D14]"> 
+                    <p class="mx-4 text-4xl leading-[150%] mt-4 dlig-span font-[200]">jess jess press is an emerging press dedicated to uplifting queercats1 and femcats5 artists and artists of colorcats3 in the comics/magazine publishingcats2 industry.</p>
+                    <p class="mx-4 text-base mb-8">thin, calt, dlig, liga</p>
+                </div>
+                <div class="col-span-1 lg:col-span-3">
+                    <hr class="my-4 border-[#181D14]"> 
+                    <label class="col-start-1 lg:col-span-3">DEFAULT STYLE | 20PX</label>
+                    <p class="text-xl leading-[140%] mt-4 dlig-span">Christine Zito is a printmaker and illustrator, graduated with her BFA from MICA 24. She works both digitally and traditionally, using the language and texture of block prints to inspire her work. “The Tree Next to the Art Store” is a 2 page wordless comic inspired by the weird things Christine had seen on her breaks at work. It all starts with a beer left in the tree next to the art store.<br></p>
+                    <hr class="my-4 border-[#181D14]"> 
+                    <label class="col-start-1 lg:col-span-3">DEFAULT STYLE | 16PX</label>
+                    <p class="text-base leading-[130%] mt-4 dlig-span">Join us Friday, August 8, for a Risograph Mini-Zine Workshops presented by @jessjesspress Join Artists-in-Residence Jess Lin and Jess Lipinsky in the studio to learn about the risograph printing process and create an 8-page, 2-color collaborative mini-zine! Participants will receive 10 copies of their zines to take home. All materials included, no prior experience required.
+                        <br>cats5Making Space Bmore, 709 N Howard St
+                        <br>cats2Sliding Scale tickets $50-$75-$100
+                        <br>cats3RSVP required via the link in our bio<br></p>
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#181D14]">
+        </div>
+        <div id="sec-repre" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title col-start-1 lg:col-span-3">representative glyphs</label>
+                <div class="col-start-1 lg:col-span-9 flex flex-col gap-8">
+                    
+                    <div id="wave-text" class="text-[8vw] leading-[120%] text-center dlig-span my-8">@ fall;studio*<br>(?cats4176%riso!)<br>star1rose &amp; catscats1
+                    </div>
+
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#181D14]">
+        </div>
+        <div id="sec-ligature" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="col-start-1 lg:col-span-3">LIGATURES &amp; CONTEXTUAL ALTERNATES</label>
+                <p class="lg:col-span-6"></p>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-2 lg:grid-cols-3" id="basicLatin">
+                    <div class="liga-box text-9xl">ca</div>
+                    <div class="liga-box text-9xl">fi</div>
+                    <div class="liga-box text-9xl">la</div>
+                    <div class="liga-box text-9xl ss01">le</div>
+                    <div class="liga-box text-9xl ss01">ll</div>
+                    <div class="liga-box text-9xl ss01">lo</div>
+                    <div class="liga-box text-9xl ss02">sa</div>
+                    <div class="liga-box text-9xl ss02">st</div>
+                    <div class="liga-box text-9xl ss02">te</div>
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#181D14]">
+        </div>
+        <div id="sec-ss" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title col-span-1 lg:col-span-3">discretionary ligatures</label>
+                <p class="lg:col-span-6"></p>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2" id="basicLatin">
+                    <div class="ss-box text-[240px]">cats1</div>
+                    <div class="ss-box text-[240px]">cats2</div>
+                    <div class="ss-box text-[240px]">cats3</div>
+                    <div class="ss-box text-[240px]">cats4</div>
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 mt-4 border-[#181D14]">
+        </div>
+        <div id="sec-glyph" class="grid grid-cols-1 lg:grid-cols-12 relative items-start">
+    
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-x-4 mx-4 grid-cols-1 lg:grid-cols-9 relative">
+                <label class="js-section-title col-span-1 lg:col-span-4 sticky py-4 top-0 z-10 bg-[#F8F4C9]">FULL GLYPHS</label>
+                <div class="col-span-1 lg:col-span-5 sticky z-10 top-0 py-4 gap-2 flex items-center">
+                    <button class="style-button" id="ss01">SS01</button>
+                    <button class="style-button" id="ss02">SS02</button>
+                    <div class="flex items-center bg-[#F8F4C9] border border-[#181D14] px-2 py-1 rounded-md gap-2">
+                        <label >WEIGHT</label>
+                        <input id="glyph-weight-slider" class="previewSlider w-[160px]" 
+                            max="600" min="200" type="range" value="400">
+                    </div>
+                </div>
+                <div id="selectGlyph" class="col-start-1 col-span-1 lg:col-span-4 sticky top-0 z-20 lg:h-screen flex-grow flex flex-col transition-all duration-100 p-4 overflow-hidden">
+                        
+                    <div id="big-char" style="font-feature-settings: 'liga', 'calt', 'dlig';" class="h-full text-center leading-none justify-between flex flex-col py-12 select-none">
+                        <span class="preview-span text-[21vh] lg:text-[12rem]">&amp;</span>
+                        <span class="preview-span text-[14vh] lg:text-[8rem]">&amp;</span>
+                        <span class="preview-span text-[7vh] lg:text-[4rem]">&amp;</span>
+                    </div>
+
+                    <div class="flex justify-between border-t text-white mix-blend-difference pt-2">
+                        <div class="space-x-4">
+                            <label id="meta-postscript">ampersand</label>
+                            <label id="meta-unicode">U+0026</label>
+                        </div>
+                        <label id="meta-weight" class="uppercase ">Weight: 400</label>
+                    </div>
+                </div>
+
+
+                <div id="glyphList" class="col-span-1 lg:col-span-5 ">
+                    
+                    
+                    <div class="mb-12">
+                        <label class="block my-2">BASIC LATIN</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            abcdefghijklmnopqrstuvwxyz
+                        </div>
+                    </div>
+                    <div class="mb-12">
+                        <label class="block my-2">NUMBERAL</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            1234567890
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2">SYMBOLS</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            @&©®™°|$+−×÷=≠><≥≤±≈~^∞%‰↑↗→↘↓↙←↖↔↕
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2">PUNCTUATION</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            !?•#/\(*)-–—_.,:;…“”‘’"'
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2">LIGATURES</label>
+                        <div class="glyph-grid-source ligature-grid grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            ca fi la le ll lo sa st te
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <label class="block mb-2 uppercase">discretionary ligatures</label>
+                        <div class="glyph-grid-source ligature-grid grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            cats1 cats2 cats3 cats4 cats5 cats6 star1
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   
+
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full text-xs hidden lg:block transition-all duration-500 mix-blend-difference pointer-events-none">
+        <ul id="toc-project-list" class="flex flex-col gap-1.5 pointer-events-auto">
+        </ul>
+    </nav>
+
+    <script src="/nav.js"></script>
+    <script src="/typeface/jjw/text-animator.js"></script>
+</body>
+</html>
