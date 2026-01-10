@@ -15,13 +15,16 @@
     <div id="nav-placeholder"></div>
     <div class="font-neuedin font-[400]">
 
-        <div alt="head" id="head-trigger" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+        <div id="head-trigger" data-id="typolyrics" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
             <div class="col-start1 lg:col-start-3 lg:col-span-9">
-                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12"><img class="object-cover w-full" src="/assets/ss-cover.jpg"></div>
-                <div alt="title" class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 px-4 my-2 items-center">
-                    <div class="col-span-2 leading-none lg:col-span-7 my-2"><h1 id="project-title" class="font-bold text-[3rem]">Into It</h1><span class="text-base font-[400]">Interactive Book Publisher</span></div>
-                    <span class="text-xs col-span-1 lg:col-span-2 ">Typography, Illustration,<br>Data Visualization</span>
-                    <span class="text-xs col-span-1 lg:col-span-3 text-right">OCT 2024–DEC 2024</span>
+                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12">
+                </div>
+                <div class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 px-4 my-2 items-center">
+                    <div class="col-span-2 leading-none lg:col-span-7 my-2">
+                        <h1 id="project-title" class="font-bold uppercase text-[3rem]"></h1>
+                        <span id="project-subtitle" class="text-base font-[400]"></span></div>
+                    <span id="project-genre" class="text-xs col-span-1 lg:col-span-2 "></span>
+                    <span id="project-date" class="text-xs col-span-1 lg:col-span-3 text-right"></span>
                 </div>
                 <hr class="my-2 bg-white">
             </div>
@@ -31,11 +34,15 @@
             <div class="col-start-1 lg:col-start-3 lg:col-span-9">
                 <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 my-2 mx-4">
                 <div class="lg:col-span-4 mr-16 space-y-2">
-                    <label class="block">OVERVIEW</label>
-                    <p>In physics, resonance phenomena occurs with all types of vibrations and waves. And most importantly, it demonstrates interaction between at least two systems.</p>
-                    <p>This book seperates each experiment into two parts: hands-up and eyes-on. With the special binding technique, readers are encouraged to read with their friends together and discuss about the resonance between real life and theories .</p>
+                    <label class="js-section-title">OVERVIEW</label>
+                    <p>What does the specter of communism look like?</p><p>While type treatments vary based on rhythms and expressions of music: powerful anthem, playful children's song and gentle expression of hope, the spatial typography and clear, sharp appearance sew music of different languages and feelings together.</p>
                 </div>
-                <img alt="overviewImage" class="lg:col-span-8 w-full h-full object-cover" src="/assets/ss-overview.jpg">
+                <div class="col-span-1 lg:col-span-8 grid grid-cols-3 gap-4">
+                    <img alt="overviewImage" class="object-contain" src="/assets/typolyrics/overview-1.png">
+                    <img alt="overviewImage" class="mt-20 object-contain" src="/assets/typolyrics/overview-2.png">
+                    <img alt="overviewImage" class="object-contain" src="/assets/typolyrics/overview-3.png">
+                </div>
+                
                 </div>
                 <hr class="mt-8 mb-4 bg-white">
             </div>
@@ -174,15 +181,7 @@
     <div id="sec-end"><img class="h-[100vh] w-full object-cover object-[20%]" src="/assets/ss-end.jpg"></div>
 
     <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
-        <ul class="flex flex-col gap-1.5">
-            <li><a href="#sec-overview" class="toc-link">Overview</a></li>
-            <li><a href="#sec-vis" class="toc-link">Visual & Type System</a></li>
-            <li><a href="#sec-parashape" class="toc-link">Parameterized Shapes</a></li>
-            <li><a href="#sec-binding" class="toc-link">Binding Details</a></li>
-            <li><a href="#sec-covertoc" class="toc-link">Covers & TOCs</a></li>
-            <li><a href="#sec-review" class="toc-link">Review Spreads</a></li>
-            <li><a href="#sec-experiment" class="toc-link">Experiment Spreads</a></li>
-            <li><a href="#sec-prototype" class="toc-link">Prototype</a></li>
+        <ul id="toc-project-list" class="flex flex-col gap-1.5">
         </ul>
     </nav>
 

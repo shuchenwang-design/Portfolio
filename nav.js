@@ -25,18 +25,17 @@ function toggleMenu() {
 
 
 /* ======================================================
-   SECTION 2: INITIALIZATION (Runs on Load)
+   SECTION 2: INITIALIZATION
    ====================================================== */
 
 document.addEventListener("DOMContentLoaded", function() {
-    loadNavigation();      // Loads the header/menu
-    initScrollSpy();       // Wavy nav highlighting
-    loadGlobalProjectData(); // NEW: Loads Links AND Page Content from JSON
+    loadNavigation();         // Top Header
+    loadGlobalProjectData();  // Content & Nav Generation
 });
 
 
 /* ======================================================
-   SECTION 3: NAVIGATION LOADER
+   SECTION 3: TOP NAVIGATION LOADER
    ====================================================== */
 
 function loadNavigation() {
@@ -58,9 +57,8 @@ function loadNavigation() {
 
 function highlightActivePage() {
     const dotIcon = '<span style="margin-right: 5px;">●</span>';
-    
-    // Get current path
     let currentPath = window.location.pathname;
+    
     if (currentPath.endsWith('index.html')) currentPath = currentPath.replace('index.html', '');
     if (currentPath.endsWith('/') && currentPath.length > 1) currentPath = currentPath.slice(0, -1);
     if (currentPath === "") currentPath = "/";
@@ -72,11 +70,7 @@ function highlightActivePage() {
         if (!linkHref) return;
         if (linkHref.endsWith('/') && linkHref.length > 1) linkHref = linkHref.slice(0, -1);
 
-        if (linkHref === "/" && currentPath === "/") {
-            link.innerHTML = dotIcon + link.innerHTML;
-            link.classList.add('active-page');
-        }
-        else if (linkHref !== "/" && currentPath.includes(linkHref)) {
+        if ((linkHref === "/" && currentPath === "/") || (linkHref !== "/" && currentPath.includes(linkHref))) {
             link.innerHTML = dotIcon + link.innerHTML;
             link.classList.add('active-page');
         }
@@ -85,7 +79,7 @@ function highlightActivePage() {
 
 
 /* ======================================================
-   SECTION 4: SCROLL SPY (Bottom Wavy Nav)
+   SECTION 4: SCROLL SPY (For both Wavy Nav & TOC List)
    ====================================================== */
 
 function initScrollSpy() {
@@ -99,14 +93,20 @@ function initScrollSpy() {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
                 
-                navLinks.forEach(link => link.classList.remove('active-toc-link'));
+                navLinks.forEach(link => {
+                    // Remove active styles
+                    link.classList.remove('text-white', 'active-toc-link');
+                });
 
+                // Highlight matches
                 const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
-                if (activeLink) activeLink.classList.add('active-toc-link');
+                if (activeLink) {
+                    activeLink.classList.add('text-white', 'active-toc-link');
+                }
             }
         });
     }, {
-        rootMargin: '-45% 0px -45% 0px' 
+        rootMargin: '-20% 0px -60% 0px' 
     });
 
     sections.forEach(section => observer.observe(section));
@@ -114,69 +114,117 @@ function initScrollSpy() {
 
 
 /* ======================================================
-   SECTION 5: GLOBAL DATA MANAGER (LINKS & CONTENT)
-   (Replaces the old Link Manager)
+   SECTION 5: GLOBAL DATA MANAGER
    ====================================================== */
 
 function loadGlobalProjectData() {
-    // 1. Fetch JSON once
+    // 1. Try to generate TOC from Page Content first (For Project Pages)
+    generatePageTOC();
+
+    // 2. Fetch JSON for everything else (Archive, Header Data, Wavy Nav)
     fetch('/archive/projects.json')
     .then(response => response.json())
     .then(projects => {
         
-        // --- PART A: UPDATE LINKS (Lookup System) ---
+        // A. Update Links
         const urlMap = {};
         projects.forEach(p => { if (p.id) urlMap[p.id] = p.link; });
-
-        const linksToUpdate = document.querySelectorAll('a[data-project]');
-        linksToUpdate.forEach(link => {
-            const projectId = link.getAttribute('data-project');
-            if (urlMap[projectId]) {
-                link.setAttribute('href', urlMap[projectId]);
-            }
+        document.querySelectorAll('a[data-project]').forEach(link => {
+            const pid = link.getAttribute('data-project');
+            if (urlMap[pid]) link.setAttribute('href', urlMap[pid]);
         });
 
-        // --- PART B: UPDATE PAGE CONTENT (Branding/Motion Lists) ---
-        // Finds any div with data-id="..." and fills its inner .js-title/.js-meta
+        // B. Populate Page Content (Title/Meta/Wavy Nav)
         const contentSections = document.querySelectorAll('div[data-id]');
+        const wavyNavList = document.getElementById('toc-list');
         
+        if (wavyNavList) wavyNavList.innerHTML = '';
+
         contentSections.forEach(section => {
             const projectId = section.getAttribute('data-id');
-            // Skip the main header if you are using header-loader.js separately
-            // OR let this handle it if classes match.
-            
             const project = projects.find(p => p.id === projectId);
 
             if (project) {
-                // 1. Fill Title (.js-title)
+                // Populate Headers
                 const titleEl = section.querySelector('.js-title');
-                if (titleEl) {
-                    // Split title logic: "Name: Subtitle" -> "Name<br>Subtitle"
-                    if (project.title.includes(':')) {
-                        titleEl.innerHTML = project.title.replace(':', '<br>');
-                    } else {
-                        titleEl.innerHTML = project.title;
-                    }
-                }
-
-                // 2. Fill Meta (.js-meta)
                 const metaEl = section.querySelector('.js-meta');
-                if (metaEl) {
-                    metaEl.innerHTML = `${project.date}<br>${project.genre}`;
+                
+                let cleanTitle = project.title.includes(':') ? project.title.split(':')[0].trim() : project.title;
+
+                if (titleEl) titleEl.innerHTML = project.title.replace(':', '<br>');
+                if (metaEl) metaEl.innerHTML = `${project.date}<br>${project.genre}`;
+
+                // Generate Wavy Nav (Archive Page)
+                // 2. Generate Wavy Nav Link
+                if (wavyNavList) {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    
+                    a.href = `#${section.id}`; 
+                    a.className = "toc-link capitalize hover:text-rust-100 transition-colors duration-300 block w-fit max-w-[10rem] truncate";
+                    
+                    // --- THE FIX: Convert to lowercase ---
+                    a.innerText = cleanTitle.toLowerCase(); 
+                    
+                    a.title = cleanTitle; 
+
+                    li.appendChild(a);
+                    wavyNavList.appendChild(li);
                 }
             }
         });
 
+        // Initialize ScrollSpy after generating links
+        initScrollSpy();
     })
     .catch(error => console.error('Error loading project data:', error));
 }
 
 
 /* ======================================================
-   SECTION 6: UTILITIES (Favicon & Analytics)
+   NEW HELPER: GENERATE TOC FROM PAGE CONTENT
+   (For Project Detail Pages using #toc-list)
    ====================================================== */
 
-// Auto-Add Favicon
+function generatePageTOC() {
+    const tocList = document.getElementById('toc-project-list');
+    if (!tocList) return; 
+
+    const sections = document.querySelectorAll('div[id^="sec-"]');
+
+    sections.forEach(section => {
+        const titleSpan = section.querySelector('.js-section-title');
+        
+        if (titleSpan) {
+            const titleText = titleSpan.innerText;
+            
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            
+            a.href = `#${section.id}`;
+            
+            // Keep your 'capitalize' class here
+            a.className = "toc-link capitalize hover:text-white transition-colors duration-300 block w-fit max-w-[10rem] truncate";
+            
+            // --- THE FIX: Convert to lowercase first ---
+            // "OVERVIEW" becomes "overview", then CSS makes it "Overview"
+            a.innerText = titleText.toLowerCase(); 
+            
+            a.title = titleText; 
+
+            li.appendChild(a);
+            tocList.appendChild(li);
+        }
+    });
+
+    initScrollSpy();
+}
+
+
+/* ======================================================
+   SECTION 6: UTILITIES
+   ====================================================== */
+
 (function() {
     let link = document.querySelector("link[rel~='icon']");
     if (!link) {
@@ -188,13 +236,9 @@ function loadGlobalProjectData() {
     link.href = '/assets/favicon.png'; 
 })();
 
-// Google Analytics
 (function() {
-    const gaId = 'G-X3R45LM72X'; // Your ID
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log("Google Analytics skipped (Localhost)");
-        return;
-    }
+    const gaId = 'G-X3R45LM72X'; 
+    if (window.location.hostname === 'localhost') return;
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;

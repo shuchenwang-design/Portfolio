@@ -34,7 +34,7 @@
             <div class="col-start-1 col-span-1 lg:col-start-3 lg:col-span-9">
                 <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 mx-4">
                 <div class="lg:col-span-4 mr-16 lg:mr-32  space-y-2">
-                    <label class="block">OVERVIEW</label>
+                    <label class="js-section-title">OVERVIEW</label>
                     <p>INTO IT is an American publisher focus on interactive books. They aim at bringing immersive, enjoyable, and interesting reading experience for readers from children to young adults.</p>
                     <p>For branding solution, I used 'dices' as the core imagery, creating spatial optical illusion on flat plane.</p>
                 </div>
@@ -45,7 +45,7 @@
         </div>
         <div id="sec-vis" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-span-1 lg:col-span-9">VISUAL SYSTEM</label>
+                <label class="js-section-title col-span-1 lg:col-span-9">VISUAL SYSTEM</label>
                 <div class="col-span-1 lg:col-span-9 grid grid-cols-subgrid gap-2">
                     <div class="col-span-1 lg:col-span-4 relative">
                         <video class="w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full object-cover" 
@@ -59,7 +59,7 @@
         </div>
         <div id="sec-fic" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3">FICTION BOOK COVERS</label>
+                <label class="js-section-title col-start-1 lg:col-span-3">FICTION BOOK COVERS</label>
                 <p class="lg:col-span-6"><span>Roll a dice and view it from different angles</span></p>
                 <div class="col-start-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2 gap-2">
                     <img class="col-span-1 w-full h-auto object-contain" src="/assets/intoit/bookCover1.jpg">
@@ -72,7 +72,7 @@
         </div>
         <div id="sec-nonfic" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3">NON-FICTION BOOK COVERS</label>
+                <label class="js-section-title col-start-1 lg:col-span-3">NON-FICTION BOOK COVERS</label>
                 <p class="lg:col-span-6"><span>Unbox surprise inside the room.</span></p>
                 <div class="col-start-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2 gap-2">
                     <img class="col-span-1 w-full h-auto object-contain" src="/assets/intoit/bookCover3.jpg">
@@ -85,7 +85,7 @@
         </div>
         <div id="sec-special" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3">SPECIAL DELIVERABLES</label>
+                <label class="js-section-title col-start-1 lg:col-span-3">SPECIAL DELIVERABLES</label>
                 <p class="lg:col-span-6"></p>
                 <img class="col-span-1 lg:col-span-9 w-full h-auto object-contain" src="/assets/intoit/specialBag.jpg"> 
             </div>
@@ -97,12 +97,7 @@
     <div id="sec-end"><img class="h-[100vh] w-full object-cover object-[20%]" src="/assets/intoit/billboard.jpg"></div>
 
     <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
-        <ul class="flex flex-col gap-1.5">
-            <li><a href="#sec-overview" class="toc-link">Overview</a></li>
-            <li><a href="#sec-vis" class="toc-link">Visual System</a></li>
-            <li><a href="#sec-fic" class="toc-link">Fictional Book Covers</a></li>
-            <li><a href="#sec-nonfic" class="toc-link">Non-fictional Book Covers</a></li>
-            <li><a href="#sec-special" class="toc-link">Special Deliverables</a></li>
+        <ul id="toc-project-list" class="flex flex-col gap-1.5">
         </ul>
     </nav>
 

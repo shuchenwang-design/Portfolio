@@ -145,11 +145,11 @@
     {
         "id": "typolyrics",
         "title": "Typolyrics: Music of Internationale",
-        "image": "https://freight.cargo.site/t/original/i/J2172698093824846147040166755416/LyricsPhoto01.png",
+        "image": "/assets/typolyrics/cover.jpg",
         "date": "NOV 2024-DEC 2024",
         "genre": "Typography, Motion",
         "software": "Indesign, Illustrator, After Effects",
-        "link": "https://shuchen-wang.cargo.site/typolyrics"
+        "link": "/archive/typolyrics/"
     },
     {
         "id": "circling",

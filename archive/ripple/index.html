@@ -21,15 +21,18 @@
     <div id="nav-placeholder"></div>
     <div class="font-notosans">
 
-        <div alt="head" id="head-trigger" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+        <div id="head-trigger" data-id="ripple" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
             <div class="col-start1 lg:col-start-3 lg:col-span-9">
-                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12"><img class="object-cover w-full" src="/assets/ripple-cover.jpg"></div>
-                <div alt="title" class="grid lg:grid-cols-12 grid-cols-2 gap-4 p-4 items-center">
-                    <h1 id="project-title" class="font-Atleigh col-span-2 text-[6rem] leading-[6rem] lg:col-span-7">RIPPLE</h1>
-                    <span class="text-xs col-span-1 lg:col-span-2 ">UI, UX, VIS</span>
-                    <span class="text-xs col-span-1 lg:col-span-3 text-right">OCT 2023–DEC 2023<br>Revised in OCT 2025–NOV 2025</span>
+                <div alt="headImage" class="flex lg:h-[70vh] h-[60vh] mt-12">
                 </div>
-                <hr class="my-2 bg-white">
+                <div class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 px-4 my-2 items-center">
+                    <div class="col-span-2 leading-none lg:col-span-6 my-2">
+                        <h1 id="project-title" class="font-Atleigh uppercase text-[4rem]"></h1>
+                        <span id="project-subtitle" class="text-base font-[400]"></span></div>
+                    <span id="project-genre" class="text-xs col-span-1 lg:col-span-2 "></span>
+                    <span id="project-date" class="text-xs col-span-1 lg:col-span-4 text-right"></span>
+                </div>
+                <hr class="my-4 bg-white">
             </div>
         </div>
 
@@ -37,7 +40,7 @@
             <div class="col-start-1 lg:col-start-3 lg:col-span-9">
                 <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 my-2 mx-4">
                 <div class="lg:col-span-4 mr-16 space-y-2">
-                    <label class="block">OVERVIEW</label>
+                    <label class="js-section-title">OVERVIEW</label>
                     <p>Ripple is a social-driven performance app designed to bring audiences closer, therefore enriches the experience before and after a performance, creating an environment where sharred experiences ripple outward across personal networks.<br></p>
                     <p>
                         <a href="https://www.figma.com/proto/5bSvhhURokBCvB50vlfIB2/Ripples?page-id=127%3A12736&amp;node-id=127-12737&amp;p=f&amp;viewport=89232%2C1052%2C16.95&amp;t=pSUFMFm40bzFP1BZ-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=127%3A12737">View Figma Prototype ← </a>
@@ -50,7 +53,7 @@
         </div>
         <div alt="research" id="sec-research" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-end-12 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-end-9">RESEARCH</label>
+                <label class="js-section-title col-start-1 lg:col-end-9">RESEARCH</label>
                 <div class="col-start-1 col-span-1 lg:col-end-5 space-y-2 px-2 flex flex-col text-center">
                     <p class="text-5xl font-bold">5</p>
                     <p>In-depth Interviews<br>40~60 mins/person</p>
@@ -224,7 +227,7 @@
         </div>
         <div alt="concept" id="sec-concept" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">CONCEPT</label>
+                <label class="js-section-title col-start-1 lg:col-span-3 lg:mr-32 mr-16">CONCEPT</label>
                 <p class="lg:col-span-6"></p>
                 
                 <p class="text-2xl col-start-1 lg:col-span-4 text-cream-50 leading-[36px]">
@@ -247,7 +250,7 @@
 
         <div alt="vis" id="sec-vis" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">VISUAL SYSTEM</label>
+                <label class="js-section-title col-start-1 lg:col-span-3 lg:mr-32 mr-16">VISUAL SYSTEM</label>
                 <p class="lg:col-span-6 text-2xl">Bring the Opera House to the interface,<br>because <span class="underline decoration-rred-100">performance-watching is not limited to the auditorium</span></p>
 
                 <img class="col-start-1 col-span-full w-full aspect-[2.8/1] object-cover" src="https://freight.cargo.site/t/original/i/T2657315907599817908130913926232/Ripple-VIS1.jpg">
@@ -262,7 +265,7 @@
         </div>
         <div alt="component" id="sec-component" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">COMPONENT SYSTEM</label>
+                <label class="js-section-title col-start-1 lg:col-span-3 lg:mr-32 mr-16">COMPONENT SYSTEM</label>
                 <p class="lg:col-span-6"></p>
 
                 <div class="col-start-1 col-span-full flex flex-col gap-4">
@@ -275,7 +278,7 @@
         </div>
         <div alt="features" id="sec-feature" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">FEATURES</label>
+                <label class="js-section-title col-start-1 lg:col-span-3 lg:mr-32 mr-16">FEATURES</label>
                 <p class="lg:col-span-6"></p>
 
                 <div class="col-start-1 col-span-full flex flex-col gap-4">
@@ -291,7 +294,7 @@
         </div>
         <div alt="prototype" id="sec-prototype" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">PROTOTYPE</label>
+                <label class="js-section-title col-start-1 lg:col-span-3 lg:mr-32 mr-16">PROTOTYPE</label>
                 <p class="lg:col-span-6"></p>
 
                 <div class="col-start-1 col-span-full flex flex-col gap-4">
@@ -303,7 +306,7 @@
         </div>
         <div alt="responsive" id="sec-responsive" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
-                <label class="col-start-1 lg:col-span-3 lg:mr-32 mr-16">RESPONSIVE DESIGN</label>
+                <label class="js-section-title col-start-1 lg:col-span-3 lg:mr-32 mr-16">RESPONSIVE DESIGN</label>
                 <p class="lg:col-span-6"></p>
 
                 <div class="col-start-1 col-span-full flex flex-col gap-4">
@@ -319,15 +322,7 @@
     <div id="sec-data"><img class="h-[100vh] w-full object-cover" src="/assets/ripple-cover.jpg"></div>
 
     <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
-        <ul class="flex flex-col gap-1.5">
-            <li><a href="#sec-overview" class="toc-link">Overview</a></li>
-            <li><a href="#sec-research" class="toc-link">Research</a></li>
-            <li><a href="#sec-concept" class="toc-link">Concept</a></li>
-            <li><a href="#sec-vis" class="toc-link">Visual Identity System</a></li>
-            <li><a href="#sec-component" class="toc-link">Components</a></li>
-            <li><a href="#sec-feature" class="toc-link">Features</a></li>
-            <li><a href="#sec-prototype" class="toc-link">Prototype</a></li>
-            <li><a href="#sec-responsive" class="toc-link">Responsive</a></li>
+        <ul id="toc-project-list" class="flex flex-col gap-1.5">
         </ul>
     </nav>
 

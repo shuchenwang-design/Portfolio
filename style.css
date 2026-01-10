@@ -156,6 +156,11 @@ html {
 }
 
 
+a:hover{
+    color: #90c016;
+    transition: all 0.3s ease;
+}
+
 .toc-link {
     opacity: 0.7;
     text-decoration: none;
@@ -165,6 +170,6 @@ html {
 
 .toc-link:hover {
     opacity: 1;
-    color: #D35B39;
 }
+
 
