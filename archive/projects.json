@@ -42,7 +42,7 @@
     {
         "id": "inkai-typeface",
         "title": "Inkai Typeface Design",
-        "image": "/assets/inkai/weight.jpg",
+        "image": "/assets/inkai/typeCover.jpg",
         "date": "NOV 2024-FEB 2025",
         "genre": "Typeface Design",
         "software": "Glyphs",
@@ -174,11 +174,11 @@
     {
         "id": "retour-typeface",
         "title": "Retour Typeface Design",
-        "image": "/assets/retour-cover.jpg",
+        "image": "/assets/retour/cover.jpg",
         "date": "FEB 2025-ONGOING",
         "genre": "Typeface Design",
         "software": "RoboFont",
-        "link": "/typeface/#retour-container"
+        "link": "/typeface/retour/"
     },
     {
         "id": "biodiagram",

@@ -34,7 +34,7 @@
   font-family: "Retour";
   font-weight: 400;
   font-style: normal;
-  src: url("https://freight.cargo.site/m/N2350658101133888530489165429848/Retour-Regular_otf.woff2") format("woff2");
+  src: url("/assets/type/Retour-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Field Gothic";
@@ -66,9 +66,9 @@
   src: url("/assets/type/FwTRIAL-NeueDINVAR.woff2") format("woff2");
 }
 @font-face {
-    font-family: "Mendl Sans";
+    font-family: "Mendl Sans Dusk";
     font-weight: 400;
-    font-style: Dusk;
+    font-style: normal;
     src: url("https://freight.cargo.site/m/D2680641049277061790549410004056/MendlSansTrial-DuskRegular.woff") format("woff");
   }
   @font-face {
@@ -78,15 +78,15 @@
     src: url("https://freight.cargo.site/m/X2680612735111328636726700883032/GMS-MendlSans-SemiBold.woff") format("woff");
   }
   @font-face {
-    font-family: "Mendl Sans";
+    font-family: "Mendl Sans Dawn";
     font-weight: 600;
-    font-style: Dawn;
+    font-style: normal;
     src: url("https://freight.cargo.site/m/A2681081325041226413680521067608/MendlSans-DawnSemiBold.woff") format("woff");
   }
 @font-face {
-    font-family: "Mendl Sans";
+    font-family: "Mendl Sans Dusk";
     font-weight: 600;
-    font-style: Dusk;
+    font-style: normal;
     src: url("https://freight.cargo.site/m/N2681081331331566142815478168664/MendlSans-DuskSemiBold.woff") format("woff");
   }
 
@@ -164,4 +164,7 @@ a:hover{
     opacity: 1;
 }
 
+span {
+  font-weight: inherit;
+}
 

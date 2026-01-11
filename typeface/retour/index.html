@@ -13,7 +13,7 @@
             -webkit-appearance: none;           
             height: 8px;
             background: transparent;
-            border: 1pt solid #181D14;
+            border: 1pt solid #1C1A17;
             border-radius: 4px;      
             outline: none;
             transition: 0.3s ease;
@@ -23,17 +23,17 @@
             appearance: none;          
             width: 16px;              
             height: 16px;   
-            border:1pt solid #181D14;
-            background: #f8f4f8;     
+            border:1pt solid #1C1A17;
+            background: #DAAD65;     
             border-radius: 50%;      
             cursor: pointer;
             transition: 0.3s ease;
         }
         .previewSlider::-webkit-slider-thumb:hover {
-            background: #181D14;     
+            background: #1C1A17;     
         }
         hr{
-            border-color: #181D14;
+            border-color: #1C1A17;
         }
 
         @keyframes loopVisibility {
@@ -52,7 +52,7 @@
     </style>
     
 </head>
-<body class="bg-[#F8F4C9] text-[#181D14] font-retour">
+<body class="bg-[#DAAD65] text-[#1C1A17] font-retour">
 
     <div id="nav-placeholder" class=""></div>
     <div>
@@ -68,23 +68,17 @@
                 <div class="mx-4">
                     <label class="js-section-title labels">CUSTOM PREVIEW</label>
                     <div class="my-16">
-                        <div class="text-[10vw] leading-none text-center outline-none" contenteditable="true" id="editableText">Un jour je serai de retour près de toi</div>
+                        <div class="text-[8vw] pb-4 leading-[120%] text-center outline-none" contenteditable="true" id="editableText">Un jour je<br>serai de retour près de toi</div>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-9 items-center gap-4">
-                        <div class="col-span-1 lg:col-span-3 flex flex-row gap-2 items-center">
+                        <div class="col-span-1 lg:col-span-6 flex flex-row gap-2 items-center">
                             <label>SIZE</label>
-                            <input id="fontSizeSlider" class="previewSlider w-full lg:w-[240px] mb-1" max="1500" min="200" type="range" value="1000">
-                        </div>
-                        <div class="col-span-1 lg:col-span-3 flex flex-col lg:flex-row gap-2 items-center">
-                            <label>WEIGHT</label>
-                            <input id="fontWeightSlider" class="previewSlider w-full lg:w-[240px] mb-1" max="600" min="200"type="range" value="400">
+                            <input id="fontSizeSlider" class="previewSlider w-full lg:w-[240px] mb-1" max="1500" min="200" type="range" value="800">
                         </div>
                         <div class="col-span-3 flex flex-col lg:flex-row gap-2 text-right justify-end">
-                            <button class="style-button" id="ss01Btn">SS01</button>
-                            <button class="style-button" id="ss02Btn">SS02</button>
-                            <button class="style-button active" id="ligaBtn">liga</button>
-                            <button class="style-button active" id="caltBtn">calt</button>
-                            <button class="style-button active" id="dligBtn">dlig</button>
+                            <button class="style-button" id="ss01Btn">ss01</button>
+                            <button class="style-button" id="ss02Btn">ss02</button>
+                            <button class="style-button" id="ss03Btn">ss03</button>
                         </div>
                     </div>
                 </div>
@@ -96,16 +90,12 @@
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
                 <label class="js-section-title col-span-1 lg:col-span-9">about</label>
                 <div class="col-span-1 lg:col-span-9 grid grid-cols-subgrid gap-2">
-                    <div class="col-span-1 lg:col-span-5 grid grid-cols-1 lg:grid-cols-2 py-8 gap-8 text-base dlig-span">
-                        <p><span class="block text-4xl">cats1</span>jess jess write is a variable typeface family derived from existing posters of jess jess press.</p>
-                        <p><span class="block text-4xl">cats2</span>The characteristics of original hand-written type has been highlighted and systemized for consistency.</p>
-                        <p><span class="block text-4xl">cats3</span>weights and alternates are available, guaranteeing reproduction of various promotional materials.</p>
-                        <p><span class="block text-4xl">cats4</span>Cat and star symbols from branding enrich the playfulness and provide stronger brand recognition.</p>
+                    <div class="col-span-1 lg:col-span-5 grid grid-cols-1 lg:grid-cols-2 py-8 gap-8 text-3xl dlig-span">
+                        <p>Still writing the content...</p>
                     </div>
                     <div class="col-span-1 lg:col-span-4 py-8 gap-2 text-base dlig-span">
                         <a data-project="jjp" href="" rel="preload" class="w-full flex flex-col items-center">
-                            <img class="w-full object-contain max-w-[200px]" src="/assets/jjw/press-icon.svg">
-                            <label class="mt-4 cursor-pointer text-center"><span class="text-5xl block">↑</span>view type application<br>for jess jess press</label>
+                            <label class="mt-4 cursor-pointer text-center">Pretend here is the link for specimen and type download</label>
                         </a>
                     </div>
                 </div>
@@ -115,40 +105,46 @@
         </div>
         <div id="sec-feature" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
-                
-                <div class="col-span-1 lg:col-span-9">
-                    <div class="relative">
-                        <label class="js-section-title absolute top-0 left-0 z-10 ">features</label>
-                        <img src="/assets/jjw/feature-1.jpg" class="feature-loop w-full h-auto object-contain">
-                        <img src="/assets/jjw/feature-2.jpg" class="feature-loop [animation-delay:1s] absolute top-0 left-0 z-[1] w-full h-auto object-contain">
-                        <img src="/assets/jjw/feature-3.jpg" class="feature-loop [animation-delay:2s] absolute top-0 left-0 z-[2] w-full h-auto object-contain">
-                        <img src="/assets/jjw/feature-4.jpg" class="feature-loop [animation-delay:3s] absolute top-0 left-0 z-[3] w-full h-auto object-contain">
-                    </div>
-                </div>
+                <label class="js-section-title col-span-1 lg:col-span-9">features</label>
+                <p class="col-span-1 lg:col-span-9 text-3xl">We need some drinkable type on our way to retour. Coffee is an excellent choice. Who else can retour without a cup of coffee? Everyone including me will fall asleep! We need to make sure the coffee is hand-made, fresh, and long-lasting. Therefore, we have no choive but:</p>
+                <p class="col-span-1 lg:col-span-9 text-center text-8xl py-12">Use the coffee beans!</p>
             </div>
         </div>
         <div id="sec-sample" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 grid-cols-1 lg:grid-cols-9">
                 <div class="col-span-1 lg:col-span-6">
-                    <hr class="my-4"> 
-                    <label class="js-section-title mx-4 col-start-1 lg:col-span-3">samples</label>
-                    <p class="mx-4 text-4xl leading-[150%] mt-4 dlig-span font-[600]">jess jess press is an emerging press dedicated to uplifting queercats1 and femcats5 artists and artists of colorcats3 in the comics/magazine publishingcats2 industry.</p>
-                    <p class="mx-4 text-base mb-8 font-[600]">Bold, calt, dlig, liga</p>
+                    <hr class="my-4">
+                    <label class="js-section-title mx-4 col-start-1 lg:col-span-3 uppercase">samples</label>
 
+                    <label class="block mx-4 mt-4 ">Retour in different languages | 48px on 60px</label>
+                    <p class="mx-4 text-[84px] capitalize leading-[96px] mt-4 dlig-span">Dönüş Návrat Visszatérés Rückkehr back Återkomst</p>
+                    
                     <hr class="my-4"> 
-                    <p class="mx-4 text-4xl leading-[150%] mt-4 dlig-span font-[200]">jess jess press is an emerging press dedicated to uplifting queercats1 and femcats5 artists and artists of colorcats3 in the comics/magazine publishingcats2 industry.</p>
-                    <p class="mx-4 text-base mb-8">thin, calt, dlig, liga</p>
+                    <label class="block mx-4 mt-4 ">Quote by Sylvia Plath, The Bell Jar | 48px on 60px | normal case</label>
+                    <p class="mx-4 text-[32px] leading-[36px] mt-4 dlig-span">
+                        I saw my life branching out before me like the green fig tree in the story. From the tip of every branch, like a fat purple fig, a wonderful future beckoned and winked.</p>
+                    
+                    <hr class="my-4"> 
+                    <label class="mx-4">Examples of APA citation format | 14px on 2px</label>
+                    <div class="mx-4 text-[14px] leading-[20px] mt-4 dlig-span font-[200] pl-8 -indent-8">
+                        <p>Chen, X. (2018). The evolution of the image of the xiang consorts in the poetry of wei and jin dynasties (master’s thesis). Minnan Normal University.</p>
+                        <p>Liu, Y. (1996). An examination of the mythological imagery of water in chinese literature. Arts and Literature Research(1), 88–102.</p>
+                        <p>Peng, A. (2007). A review of studies on the archetypes of the goddess of wushan. Journal of Hunan University of Science and Engineering, 28(2), 57–60.</p>
+                    </div>
+
+                    
+                    
                 </div>
                 <div class="col-span-1 lg:col-span-3">
                     <hr class="my-4"> 
-                    <label class="col-start-1 lg:col-span-3">DEFAULT STYLE | 20PX</label>
-                    <p class="text-xl leading-[140%] mt-4 dlig-span">Christine Zito is a printmaker and illustrator, graduated with her BFA from MICA 24. She works both digitally and traditionally, using the language and texture of block prints to inspire her work. “The Tree Next to the Art Store” is a 2 page wordless comic inspired by the weird things Christine had seen on her breaks at work. It all starts with a beer left in the tree next to the art store.<br></p>
+                    <label class="col-start-1 lg:col-span-3">English Text | 12px on 16px</label>
+                    <p class="text-xs leading-[16px] mt-4 dlig-span">ON THE ENDS OF GOOD AND EVIL BY THE ROMAN ORATOR, POLITICIAN AND PHILOSOPHER MARCUS TULLIUS CICERO FOR ZANY QUALITY KILOWATT JUX. But I must explain to you how all this mistaken* idea of denouncing of a pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of 2014 the great explorer of the DMS Lat: 40° 46' 36.0336" N truth, the master-builder of human happiness. No one rejects, ‘dislikes,’ or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure and/or rationally encounter consequences that are extremely painful. Nor again—is there anyone 1967 who loves or pursues or desires $5,238 to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and (pain can procure) him some great pleasure. Quality means to take a trivial example, “which” of us ever undertakes laborious physical exercise, except to obtain some advantage from it! But who H&M has any right to find fault with a man 9–5 who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? Wilwright Electrical Co.</p>
                     <hr class="my-4"> 
-                    <label class="col-start-1 lg:col-span-3">DEFAULT STYLE | 16PX</label>
-                    <p class="text-base leading-[130%] mt-4 dlig-span">Join us Friday, August 8, for a Risograph Mini-Zine Workshops presented by @jessjesspress Join Artists-in-Residence Jess Lin and Jess Lipinsky in the studio to learn about the risograph printing process and create an 8-page, 2-color collaborative mini-zine! Participants will receive 10 copies of their zines to take home. All materials included, no prior experience required.
-                        <br>cats5Making Space Bmore, 709 N Howard St
-                        <br>cats2Sliding Scale tickets $50-$75-$100
-                        <br>cats3RSVP required via the link in our bio<br></p>
+                    <label class="col-start-1 lg:col-span-3">Slovak Text | 10px on 14px</label>
+                    <p class="text-[10px] leading-[140%] mt-4 dlig-span">Hudba sa vo všeobecnosti definuje ako špecifická ľudská aktivita, ktorá sa pomocou v priestore a čase charakteristicky zoskupených tónov a zvukov a na základe spoločenských skúseností usiluje o (hlavne estetickú) komunikáciu. Hudba je konkrétnejší druh umenia, ktorého výrazovými prostriedkami sú tóny a základnými komponentmi harmónia, melódia, rytmus a farba. Podľa Cassiodora je hudba matematická veda. Slovenská populárna hudba, v zmysle pop music, sa začala rozvíjať v tridsiatych rokoch dvadsiateho storočia. Každé obdobie je charakteristické nástupom rôznych generácii či už hudobníkov, skladateľov, alebo textárov. Hudobná veda je veda o hudbe, teda o celkovej aktivite ľudskej spoločnosti v oblasti hudobného prejavu. Zvuk je každé pozdĺžne mechanické vlnenie v látkovom prostredí, ktoré je schopné vyvolať v ľudskom uchu sluchový vnem. Frekvencia tohto vlnenia leží približne v rozsahu 16 Hz až 20.</p>
+                    <hr class="my-4"> 
+                    <label class="col-start-1 lg:col-span-3">Danish Text | 10px on 14px</label>
+                    <p class="text-[10px] leading-[140%] mt-4 dlig-span">Musik opfattes traditionelt som en sammensætning af toner, der synges eller spilles på et instrument. En tænketank hvilken? USA definerede musik som "mønstre af lyde, der varierer i højde og varighed og som frembringes af følelsesmæssige, sociale, kulturelle og intellektuelle grunde". Den bredeste definition er, at musik er organiserede lydbegivenheder der opfattes æstetisk. Musik kan inddeles i tre hovedgrupper:partiturmusik, det vil sige den nedskrevne musik, populærmusik og den mundtlig overleverede musik som folkeviser, børnesange og skillingsviser. Musik anvendes overalt i verden. Samtlige kulturer har udviklet og brugt musikken til for eksempel dans og fest. Musikken er højst sandsynligt opstået meget tidligt i menneskets historie. Mennesket har dyrket musik i flere tusinde år. I Slovenien r der fundet nogle 53.000 år gamle fløjter af ben, som neandertalere har spillet på. 9pt Regular.</p>
                 </div>
             </div>
             <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">
@@ -158,7 +154,8 @@
                 <label class="js-section-title col-start-1 lg:col-span-3">representative glyphs</label>
                 <div class="col-start-1 lg:col-span-9 flex flex-col gap-8">
                     
-                    <div id="wave-text" class="text-[8vw] leading-[120%] text-center dlig-span my-8">@ fall;studio*<br>(?cats2$176%!)<br>star1rose &amp; catscats1
+                    <div id="wave-text" class="text-[12vw] leading-[120%] text-center dlig-span my-8">
+                        μ@*gr&R£<br>Qðøasj?65
                     </div>
 
                 </div>
@@ -170,15 +167,15 @@
                 <label class="col-start-1 lg:col-span-3">LIGATURES &amp; CONTEXTUAL ALTERNATES</label>
                 <p class="lg:col-span-6"></p>
                 <div class="col-span-1 lg:col-span-9 grid grid-cols-2 lg:grid-cols-3" id="basicLatin">
-                    <div class="liga-box text-9xl">ca</div>
-                    <div class="liga-box text-9xl">fi</div>
-                    <div class="liga-box text-9xl">la</div>
-                    <div class="liga-box text-9xl ss01">le</div>
-                    <div class="liga-box text-9xl ss01">ll</div>
-                    <div class="liga-box text-9xl ss01">lo</div>
-                    <div class="liga-box text-9xl ss02">sa</div>
-                    <div class="liga-box text-9xl ss02">st</div>
-                    <div class="liga-box text-9xl ss02">te</div>
+                    <div class="liga-box text-9xl">this</div>
+                    <div class="liga-box text-9xl">font</div>
+                    <div class="liga-box text-9xl">has</div>
+                    <div class="liga-box text-9xl ss01">no</div>
+                    <div class="liga-box text-9xl ss01">liga</div>
+                    <div class="liga-box text-9xl ss01">nor</div>
+                    <div class="liga-box text-9xl ss02">calt</div>
+                    <div class="liga-box text-9xl ss02">yet</div>
+                    <div class="liga-box text-9xl ss02">xo</div>
                 </div>
             </div>
             <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">
@@ -188,10 +185,10 @@
                 <label class="js-section-title col-span-1 lg:col-span-3">discretionary ligatures</label>
                 <p class="lg:col-span-6"></p>
                 <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2" id="basicLatin">
-                    <div class="ss-box text-[240px]">cats1</div>
-                    <div class="ss-box text-[240px]">cats2</div>
-                    <div class="ss-box text-[240px]">cats3</div>
-                    <div class="ss-box text-[240px]">cats4</div>
+                    <div class="ss-box text-[240px]">s</div>
+                    <div class="ss-box text-[240px]">j</div>
+                    <div class="ss-box text-[240px]">y</div>
+                    <div class="ss-box text-[240px]">Q</div>
                 </div>
             </div>
             <hr class="col-start-1 lg:col-start-3 lg:col-span-9 mt-4">
@@ -199,15 +196,11 @@
         <div id="sec-glyph" class="grid grid-cols-1 lg:grid-cols-12 relative items-start">
     
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-x-4 mx-4 grid-cols-1 lg:grid-cols-9 relative">
-                <label class="js-section-title col-span-1 lg:col-span-4 sticky py-4 top-0 z-10 bg-[#F8F4C9]">FULL GLYPHS</label>
+                <label class="js-section-title col-span-1 lg:col-span-4 sticky py-4 top-0 z-10 bg-[#DAAD65]">FULL GLYPHS</label>
                 <div class="col-span-1 lg:col-span-5 sticky z-[80] top-0 py-4 gap-2 flex items-center">
-                    <button class="style-button " id="ss01">SS01</button>
-                    <button class="style-button " id="ss02">SS02</button>
-                    <div class="flex items-center bg-[#F8F4C9] border-[#181D14] border px-2 py-1 rounded-md gap-2">
-                        <label >WEIGHT</label>
-                        <input id="glyph-weight-slider" class="previewSlider w-[160px]" 
-                            max="600" min="200" type="range" value="400">
-                    </div>
+                    <button class="style-button " id="ss01">Ss01</button>
+                    <button class="style-button " id="ss02">Ss02</button>
+                    <button class="style-button " id="ss03">Ss03</button>
                 </div>
                 <div id="selectGlyph" class="col-start-1 col-span-1 lg:col-span-4 sticky top-0 z-20 lg:h-screen flex-grow flex flex-col transition-all duration-100 p-4 overflow-hidden">
                         
@@ -217,7 +210,7 @@
                         <span class="preview-span text-[7vh] lg:text-[4rem]">&amp;</span>
                     </div>
 
-                    <div class="flex justify-between border-t border-[#F8F4C9] text-[#F8F4C9] mix-blend-difference pt-2">
+                    <div class="flex justify-between border-t border-[#DAAD65] text-[#DAAD65] mix-blend-difference pt-2">
                         <div class="space-x-4">
                             <label id="meta-postscript">ampersand</label>
                             <label id="meta-unicode">U+0026</label>
@@ -233,7 +226,7 @@
                     <div class="mb-12">
                         <label class="block my-2">BASIC LATIN</label>
                         <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
-                            abcdefghijklmnopqrstuvwxyz
+                            ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
                         </div>
                     </div>
                     <div class="mb-12">
@@ -246,28 +239,21 @@
                     <div class="mb-12">
                         <label class="block mb-2">SYMBOLS</label>
                         <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
-                            @&©®™°|$+−×÷=≠><≥≤±≈~^∞%‰↑↗→↘↓↙←↖↔↕
+                            @&$%+=|~¢£¥¦§©°±¶×÷−ƒ€≈
                         </div>
                     </div>
 
                     <div class="mb-12">
                         <label class="block mb-2">PUNCTUATION</label>
                         <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
-                            !?•#/\(*)-–—_.,:;…“”‘’"'
+                            !'"#()*,-./:;?[\]_{}¡·¿‘’…–—‚„“”
                         </div>
                     </div>
 
                     <div class="mb-12">
-                        <label class="block mb-2">LIGATURES</label>
-                        <div class="glyph-grid-source ligature-grid grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
-                            ca fi la le ll lo sa st te
-                        </div>
-                    </div>
-
-                    <div class="mb-12">
-                        <label class="block mb-2 uppercase">discretionary ligatures</label>
-                        <div class="glyph-grid-source ligature-grid grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
-                            cats1 cats2 cats3 cats4 cats5 cats6 star1
+                        <label class="block mb-2">ACCENTS</label>
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                            ÁĂǍÂÄÀĀĄÅÃÆĆČÇĈĊĎĐÐÉĚÊËĖÈĒĘẼƏĞĜĢĠḠĦĤĲÍǏÎÏİÌĪĮĨJĴĶĹĽĻŁŃŇŅÑÓǑÔÖÒŐŌØÕŒÞŔŘŖŚŠŞŜȘẞŤŢȚÚŬǓÛÜǗǙǛǕÙŰŪŲŮŨẂŴẄẀÝŶŸỲỸŹŽŻáăǎâäàāąåãæćčçĉċďđðéěêëėèēęẽəğĝģġḡħĥíǐîïìīįĩĳĵķĺľļłńňņñóǒôöòőōøõœþŕřŗśšşŝșßťţțúŭǔûüǘǚǜǖùűūųůũẃŵẅẁýŷÿỳỹźžż
                         </div>
                     </div>
                     
@@ -286,5 +272,32 @@
 
     <script src="/nav.js"></script>
     <script src="/typeface/typepage-animator.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const shiftingElements = document.querySelectorAll('.ss-box');
+
+        if (shiftingElements.length > 0) {
+            const styles = [
+                '"ss01" 0, "ss02" 0, "ss03" 0',
+                '"ss01" 1, "ss02" 0, "ss03" 0', 
+                '"ss01" 0, "ss02" 1, "ss03" 0', 
+                '"ss01" 0, "ss02" 0, "ss03" 1'        
+            ];
+
+            shiftingElements.forEach((element, index) => {
+                let currentIndex = 0; 
+                const delay = index * 250; 
+
+                setTimeout(() => {
+                    setInterval(() => {
+                        currentIndex++;
+                        if (currentIndex >= styles.length) currentIndex = 0;
+                        element.style.fontFeatureSettings = styles[currentIndex];
+                    }, 800); 
+                }, delay);
+            });
+        }
+    });
+    </script>
 </body>
 </html>

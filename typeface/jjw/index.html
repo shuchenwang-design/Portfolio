@@ -24,7 +24,7 @@
             width: 16px;              
             height: 16px;   
             border:1pt solid #181D14;
-            background: #f8f4f8;     
+            background: #F8F4C9;     
             border-radius: 50%;      
             cursor: pointer;
             transition: 0.3s ease;
@@ -286,5 +286,31 @@
 
     <script src="/nav.js"></script>
     <script src="/typeface/typepage-animator.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const shiftingElements = document.querySelectorAll('.ss-box');
+
+        if (shiftingElements.length > 0) {
+            const styles = [
+                '"ss01" 0, "ss02" 0, "dlig" 1', 
+                '"ss01" 1, "dlig" 1',           
+                '"ss01" 1, "dlig" 0'            
+            ];
+
+            shiftingElements.forEach((element, index) => {
+                let currentIndex = 0; 
+                const delay = index * 250; 
+
+                setTimeout(() => {
+                    setInterval(() => {
+                        currentIndex++;
+                        if (currentIndex >= styles.length) currentIndex = 0;
+                        element.style.fontFeatureSettings = styles[currentIndex];
+                    }, 800); 
+                }, delay);
+            });
+        }
+    });
+    </script>
 </body>
 </html>

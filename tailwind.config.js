@@ -45,7 +45,7 @@ tailwind.config = {
                 'infini': ['Infini'],
                 'neuedin': ['Neue DIN Variable'],
                 'gms': ['G M S'],
-                'mendl': ['Mendl Sans'],
+                'mendl': ['Mendl Sans Dusk'],
 
             }
         }

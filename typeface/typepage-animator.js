@@ -259,6 +259,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const topFeatureMap = {
         'ss01Btn': 'ss01',
         'ss02Btn': 'ss02',
+        'ss03Btn': 'ss03',
         'ligaBtn': 'liga',
         'caltBtn': 'calt',
         'dligBtn': 'dlig'
@@ -437,13 +438,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const bottomFeatureMap = {
         'ss01': 'ss01', 
-        'ss02': 'ss02'
+        'ss02': 'ss02',
+        'ss03': 'ss03'
     };
 
     // Initialize with standard features ON
     const bottomFeatureState = { 
         'ss01': 0, 
         'ss02': 0, 
+        'ss03': 0, 
         'dlig': 1, 
         'liga': 1, 
         'calt': 1 
@@ -477,30 +480,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- FIX: Apply the default state (dlig: 1) immediately on load ---
     updateGlyphStyles();
 
-
-    // =================================================================
-    // PART C: DECORATIVE ANIMATIONS (SS-BOX)
-    // =================================================================
-    const shiftingElements = document.querySelectorAll('.ss-box');
-
-    if (shiftingElements.length > 0) {
-        const styles = [
-            '"ss01" 0, "ss02" 0, "dlig" 1', 
-            '"ss01" 1, "dlig" 1',           
-            '"ss01" 1, "dlig" 0'            
-        ];
-
-        shiftingElements.forEach((element, index) => {
-            let currentIndex = 0; 
-            const delay = index * 250; 
-
-            setTimeout(() => {
-                setInterval(() => {
-                    currentIndex++;
-                    if (currentIndex >= styles.length) currentIndex = 0;
-                    element.style.fontFeatureSettings = styles[currentIndex];
-                }, 800); 
-            }, delay);
-        });
-    }
 });

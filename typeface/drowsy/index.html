@@ -254,5 +254,31 @@
 
     <script src="/nav.js"></script>
     <script src="/typeface/typepage-animator.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const shiftingElements = document.querySelectorAll('.ss-box');
+
+        if (shiftingElements.length > 0) {
+            const styles = [
+                '"ss01" 0, "ss02" 0', 
+                '"ss01" 1, "ss02" 0',           
+                '"ss01" 0, "ss02" 1'            
+            ];
+
+            shiftingElements.forEach((element, index) => {
+                let currentIndex = 0; 
+                const delay = index * 250; 
+
+                setTimeout(() => {
+                    setInterval(() => {
+                        currentIndex++;
+                        if (currentIndex >= styles.length) currentIndex = 0;
+                        element.style.fontFeatureSettings = styles[currentIndex];
+                    }, 800); 
+                }, delay);
+            });
+        }
+    });
+    </script>
 </body>
 </html>
