@@ -1,4 +1,68 @@
 /* ======================================================
+   PART 0: DYNAMIC THEME EXTRACTION
+   ====================================================== */
+// We read the computed color of the body (which you set via Tailwind classes like text-[#111010])
+// and apply it to the navigation elements.
+
+const bodyStyles = window.getComputedStyle(document.body);
+const themeText = bodyStyles.color; 
+const themeBG = bodyStyles.backgroundColor; 
+
+const encodedColor = encodeURIComponent(themeText);
+const waveSvg = `data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3' viewBox='0 0 12 3'%3E%3Cpath d='M0,3 C3,3 3,0 6,0 C9,0 9,3 12,3' fill='none' stroke='${encodedColor}' stroke-width='1.5'/%3E%3C/svg%3E`;
+
+// Create a dynamic stylesheet
+const navStyleSheet = document.createElement("style");
+navStyleSheet.innerText = `
+    /* Force links to use the theme text color */
+    body .dynamic-theme-nav {
+        color: ${themeText};
+        text-decoration: none;
+        transition: all 0.3s ease-out;
+    }
+
+    body .toc-link dynamic-theme-wavy {
+        color: ${themeText};
+        opacity:0.7;
+    }
+    body .toc-link dynamic-theme-wavy:hover {
+        color: ${themeText};
+        opacity:1;
+
+    }
+
+    body .active-toc-link {
+        opacity: 1 !important; 
+        background: url("${waveSvg}") repeat-x bottom left;
+        background-size: 12px 3px;
+        padding-bottom: 2px; 
+        animation: moveWave 1s linear infinite;
+    }
+
+    body .button-contact{
+        color: ${themeText} !important;
+        padding: 3px 6px;
+        background-color:transparent;
+        border: 1px solid ${themeText} !important;
+        border-radius: 5px;
+        transition: all 0.3s ease-out;
+    }
+    body .button-contact:hover{
+        color: ${themeBG} !important;
+        background-color: ${themeText} !important;
+    }
+    
+    /* HR lines in the menu */
+    .dynamic-theme-hr {
+        border-color: ${themeText};
+        opacity: 1;
+    }
+    
+`;
+document.head.appendChild(navStyleSheet);
+
+
+/* ======================================================
    SECTION 1: MOBILE MENU INTERACTION
    ====================================================== */
 
@@ -48,6 +112,24 @@ function loadNavigation() {
         const placeholder = document.getElementById('nav-placeholder');
         if (placeholder) {
             placeholder.innerHTML = data;
+            
+            // --- NEW LOGIC ---
+            const menuLinks = placeholder.querySelectorAll('a');
+            const menuHrs = placeholder.querySelectorAll('hr');
+
+            menuLinks.forEach(link => {
+                // THE FIX: Skip elements that are contact buttons
+                if (link.classList.contains('button-contact')) return;
+
+                link.classList.add('dynamic-theme-nav', 'transition-all', 'duration-300', 'hover:tracking-widest');
+                link.classList.remove('hover:text-gray-300'); 
+            });
+
+            menuHrs.forEach(hr => {
+                hr.classList.add('dynamic-theme-hr');
+                hr.classList.remove('border-white/20'); 
+            });
+
             highlightActivePage();
         }
     })
@@ -79,7 +161,7 @@ function highlightActivePage() {
 
 
 /* ======================================================
-   SECTION 4: SCROLL SPY (For both Wavy Nav & TOC List)
+   SECTION 4: SCROLL SPY
    ====================================================== */
 
 function initScrollSpy() {
@@ -94,14 +176,12 @@ function initScrollSpy() {
                 const id = entry.target.getAttribute('id');
                 
                 navLinks.forEach(link => {
-                    // Remove active styles
-                    link.classList.remove('text-white', 'active-toc-link');
+                    link.classList.remove('active-toc-link');
                 });
 
-                // Highlight matches
                 const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
                 if (activeLink) {
-                    activeLink.classList.add('text-white', 'active-toc-link');
+                    activeLink.classList.add('active-toc-link');
                 }
             }
         });
@@ -118,10 +198,8 @@ function initScrollSpy() {
    ====================================================== */
 
 function loadGlobalProjectData() {
-    // 1. Try to generate TOC from Page Content first (For Project Pages)
     generatePageTOC();
 
-    // 2. Fetch JSON for everything else (Archive, Header Data, Wavy Nav)
     fetch('/archive/projects.json')
     .then(response => response.json())
     .then(projects => {
@@ -134,7 +212,7 @@ function loadGlobalProjectData() {
             if (urlMap[pid]) link.setAttribute('href', urlMap[pid]);
         });
 
-        // B. Populate Page Content (Title/Meta/Wavy Nav)
+        // B. Populate Page Content
         const contentSections = document.querySelectorAll('div[data-id]');
         const wavyNavList = document.getElementById('toc-list');
         
@@ -145,27 +223,21 @@ function loadGlobalProjectData() {
             const project = projects.find(p => p.id === projectId);
 
             if (project) {
-                // Populate Headers
                 const titleEl = section.querySelector('.js-title');
                 const metaEl = section.querySelector('.js-meta');
-                
                 let cleanTitle = project.title.includes(':') ? project.title.split(':')[0].trim() : project.title;
 
                 if (titleEl) titleEl.innerHTML = project.title.replace(':', '<br>');
                 if (metaEl) metaEl.innerHTML = `${project.date}<br>${project.software}`;
 
-                // Generate Wavy Nav (Archive Page)
-                // 2. Generate Wavy Nav Link
                 if (wavyNavList) {
                     const li = document.createElement('li');
                     const a = document.createElement('a');
                     
                     a.href = `#${section.id}`; 
-                    a.className = "toc-link capitalize hover:text-rust-100 transition-colors duration-300 block w-fit max-w-[10rem] truncate";
+                    a.className = "toc-link toc-link dynamic-theme-wavy capitalize transition-colors duration-300 block w-fit max-w-[10rem] truncate";
                     
-                    // --- THE FIX: Convert to lowercase ---
                     a.innerText = cleanTitle.toLowerCase(); 
-                    
                     a.title = cleanTitle; 
 
                     li.appendChild(a);
@@ -174,21 +246,15 @@ function loadGlobalProjectData() {
             }
         });
 
-        // Initialize ScrollSpy after generating links
         initScrollSpy();
     })
     .catch(error => console.error('Error loading project data:', error));
 }
 
-
-/* ======================================================
-   NEW HELPER: GENERATE TOC FROM PAGE CONTENT
-   (For Project Detail Pages using #toc-list)
-   ====================================================== */
-
 function generatePageTOC() {
-    const tocList = document.getElementById('toc-project-list');
-    if (!tocList) return; 
+    const tocList = document.getElementById('toc-project-list') || document.getElementById('toc-list');
+    
+    if (!tocList || tocList.innerHTML.trim() !== "") return; 
 
     const sections = document.querySelectorAll('div[id^="sec-"]');
 
@@ -197,19 +263,13 @@ function generatePageTOC() {
         
         if (titleSpan) {
             const titleText = titleSpan.innerText;
-            
             const li = document.createElement('li');
             const a = document.createElement('a');
             
             a.href = `#${section.id}`;
+            a.className = "toc-link dynamic-theme-wavy capitalize transition-colors duration-300 block w-fit max-w-[10rem] truncate";
             
-            // Keep your 'capitalize' class here
-            a.className = "toc-link capitalize hover:text-white transition-colors duration-300 block w-fit max-w-[10rem] truncate";
-            
-            // --- THE FIX: Convert to lowercase first ---
-            // "OVERVIEW" becomes "overview", then CSS makes it "Overview"
             a.innerText = titleText.toLowerCase(); 
-            
             a.title = titleText; 
 
             li.appendChild(a);

@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         .previewSlider{
-            -webkit-appearance: none;  
-            width: 100%;               
+            -webkit-appearance: none;           
             height: 8px;
-            background: rgba(240, 233, 221, 0);
-            border: 1pt solid #292626;
+            background: transparent;
+            border: 1pt solid #1c1d2a;
             border-radius: 4px;      
             outline: none;
             transition: 0.3s ease;
@@ -24,77 +23,29 @@
             appearance: none;          
             width: 16px;              
             height: 16px;   
-            border:1pt solid #292626;
-            background: #F0E9DD;     
+            border:1pt solid #1c1d2a;
+            background: #a3c5f0;     
             border-radius: 50%;      
             cursor: pointer;
             transition: 0.3s ease;
         }
         .previewSlider::-webkit-slider-thumb:hover {
-            background: #292626;     
+            background: #1c1d2a;     
         }
-        .liga-box{
-            aspect-ratio: 8/7;
-            background: #F0E9DD;
-            outline: 1px solid  #292626;
-            color:#292626;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-feature-settings: "liga" 0, "calt" 0;
+        hr{
+            border-color: #1c1d2a;
         }
-        .liga-box:hover {
-            font-feature-settings: "liga" 1, "calt" 1;
-        }
-
-        .ss-box{
-            aspect-ratio: 3/2;
-            background: #F0E9DD;
-            outline: 1px solid  #292626;
-            color:#292626;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-feature-settings: "liga", "calt";
-        }
-
-        .glyph-box{
-            aspect-ratio: 1/1;
-            background: #F0E9DD;
-            outline: 1px solid  #292626;
-            color:#292626;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: crosshair;
-            font-feature-settings: "liga", "calt";
-        }
-
-        .style-button {
-            border: 1px solid #292626;
-            background-color: #F0E9DD;
-            padding: 4px 20px;
-            border-radius: 6px;
-        }
-
-        .style-button.active {
-            background-color: #292626;
-            color: #F0E9DD;
-        }
-
     </style>
     
 </head>
-<body class="bg-[#F0E9DD] font-drowsy">
+<body class="bg-[#A3C5F0] text-[#1C1D2A] border-[#1C1D2A] outline-[#1C1D2A] font-drowsy">
 
-    <div id="nav-placeholder" class="mix-blend-difference z-50"></div>
-    <div class="text-[#292626]">
+    <div id="nav-placeholder"></div>
+    <div >
 
         <div id="head-trigger" data-id="intoit" class="grid lg:grid-cols-12 grid-cols-1 gap-4 pt-8">
             <div class="col-start1 lg:col-start-3 lg:col-span-9">
-                <hr class="my-4 border-[#292626]">
+                <hr class="my-4 border-[#1C1D2A]">
             </div>
         </div>
 
@@ -119,7 +70,7 @@
                     </div>
                 </div>
                 
-                <hr class="my-4 border-[#292626]">
+                <hr class="my-4 border-[#1C1D2A]">
             </div>
         </div>
         <div id="sec-about" class="grid grid-cols-1 lg:grid-cols-12">
@@ -145,26 +96,26 @@
         <div id="sec-sample" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 grid-cols-1 lg:grid-cols-9">
                 <div class="col-span-1 lg:col-span-6">
-                    <hr class="my-4 border-[#292626]"> 
+                    <hr class="my-4 border-[#1C1D2A]"> 
                     <label class="mx-4 col-start-1 lg:col-span-3">STYLE SET 02</label>
                     <p class="mx-4 text-4xl leading-[150%] mt-4" style="font-feature-settings:'ss02';">She walks in beauty, like the night<br>Of cloudless climes and starry skies;<br>And all that’s best of dark and bright<br>Meet in her aspect and her eyes; <br></p>
                     <p class="mx-4 text-base mb-8">She Walks in Beauty, Lord Byron, 1814</p>
 
-                    <hr class="my-4 border-[#292626]"> 
+                    <hr class="my-4 border-[#1C1D2A]"> 
                     <label class="mx-4 col-start-1 lg:col-span-3">STYLE SET 01</label>
                     <p class="mx-4 text-4xl leading-[150%] mt-4" style="font-feature-settings:'ss01';">Si clair, Leur incarnat léger,<br>qu’il voltige dans l’air<br>Assoupi de sommeils touffus.<br>Aimai-je un rêve?</p>
                     <p class="mx-4 text-base mb-8">L’Après-midi d’un faune, Stéphane Mallarmé</p>
                 </div>
                 <div class="col-span-1 lg:col-span-3">
-                    <hr class="my-4 border-[#292626]"> 
+                    <hr class="my-4 border-[#1C1D2A]"> 
                     <label class="col-start-1 lg:col-span-3">DEFAULT STYLE | 20PX</label>
                     <p class="text-xl leading-[140%] mt-4">Drowsy est une police d'affichage sans-serif de poids moyen avec un fort contraste. Ses courbes élégantes, ses proportions équilibrées et ses traitements uniques des terminaisons évoquent une sensation de paix, de poésie et d’élégance naturelle. Avec trois styles – dégoulinant, flottant et étiré – elle s’adapte à diverses ambiances, allant du glamour boutique à la danse joyeuse.<br></p>
-                    <hr class="my-4 border-[#292626]"> 
+                    <hr class="my-4 border-[#1C1D2A]"> 
                     <label class="col-start-1 lg:col-span-3">DEFAULT STYLE | 16PX</label>
                     <p class="text-base leading-[130%] mt-4">Drowsy est une police d'affichage sans-serif de poids moyen avec un fort contraste. Ses courbes élégantes, ses proportions équilibrées et ses traitements uniques des terminaisons évoquent une sensation de paix, de poésie et d’élégance naturelle. Avec trois styles – dégoulinant, flottant et étiré – elle s’adapte à diverses ambiances, allant du glamour boutique à la danse joyeuse.<br></p>
                 </div>
             </div>
-            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#292626]">
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#1C1D2A]">
         </div>
         <div id="sec-repre" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
@@ -178,7 +129,7 @@
 
                 </div>
             </div>
-            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#292626]">
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#1C1D2A]">
         </div>
         <div id="sec-ligature" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
@@ -196,7 +147,7 @@
                     <div class="liga-box text-9xl ss02">ll</div>
                 </div>
             </div>
-            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#292626]">
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4 border-[#1C1D2A]">
         </div>
         <div id="sec-ss" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
@@ -209,12 +160,12 @@
                     <div class="ss-box text-[240px]">ij</div>
                 </div>
             </div>
-            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 mt-4 border-[#292626]">
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 mt-4 border-[#1C1D2A]">
         </div>
         <div id="sec-glyph" class="grid grid-cols-1 lg:grid-cols-12 relative items-start">
     
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-x-4 mx-4 grid-cols-1 lg:grid-cols-9 relative">
-                <label class="col-span-1 lg:col-span-4 sticky py-4 top-0 z-10 bg-[#F0E9DD]">FULL GLYPHS</label>
+                <label class="col-span-1 lg:col-span-4 sticky py-4 top-0 z-10 bg-[#A3C5F0]">FULL GLYPHS</label>
                 <div class="col-span-1 lg:col-span-5 sticky z-10 top-0 py-4 gap-2 flex items-center">
                     <button class="style-button" id="ss01">SS01</button>
                     <button class="style-button" id="ss02">SS02</button>
@@ -227,7 +178,7 @@
                         <span class="preview-span text-[7vh] lg:text-[4rem]">&amp;</span>
                     </div>
 
-                    <div class="flex justify-between border-t text-white mix-blend-difference pt-2">
+                    <div class="flex justify-between border-t border-[#A3C5F0] text-[#A3C5F0] mix-blend-difference pt-2">
                         <div class="space-x-4">
                             <label id="meta-postscript">ampersand</label>
                             <label id="meta-unicode">U+0026</label>
@@ -242,41 +193,41 @@
                     
                     <div class="mb-12">
                         <label class="block my-2">BASIC LATIN</label>
-                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-[#1C1D2A]">
                             ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
                         </div>
                     </div>
                     <div class="mb-12">
                         <label class="block my-2">NUMBERAL</label>
-                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-[#1C1D2A]">
                             1234567890
                         </div>
                     </div>
 
                     <div class="mb-12">
                         <label class="block mb-2">SYMBOLS</label>
-                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-[#1C1D2A]">
                             ฿@&¶§©®™°|¦†‡¢¤$€₴₽£₩¥+−×÷=≠><≥≤±≈~¬^∞∫∏∑√∂%‰↑↗→↘↓↙←↖↔↕
                         </div>
                     </div>
 
                     <div class="mb-12">
                         <label class="block mb-2">PUNCTUATION</label>
-                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-[#1C1D2A]">
                             !?¡¿·•#/\{[(*)]}«»‹›-–—_.,:;…“”‘’"'
                         </div>
                     </div>
 
                     <div class="mb-12">
                         <label class="block mb-2">ACCENTS</label>
-                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                        <div class="glyph-grid-source grid grid-cols-6 lg:grid-cols-10 border-l border-t border-[#1C1D2A]">
                             ÁĂǍÂÄÀĀĄÅÃÆĆČÇĈĊĎĐÐÉĚÊËĖÈĒĘẼƏĞĜĢĠḠĦĤĲÍǏÎÏİÌĪĮĨJĴĶĹĽĻŁŃŇŅÑÓǑÔÖÒŐŌØÕŒÞŔŘŖŚŠŞŜȘẞŤŢȚÚŬǓÛÜǗǙǛǕÙŰŪŲŮŨẂŴẄẀÝŶŸỲỸŹŽŻáăǎâäàāąåãæćčçĉċďđðéěêëėèēęẽəğĝģġḡħĥíǐîïìīįĩĳĵķĺľļłńňņñóǒôöòőōøõœþŕřŗśšşŝșßťţțúŭǔûüǘǚǜǖùűūųůũẃŵẅẁýŷÿỳỹźžż
                         </div>
                     </div>
 
                     <div class="mb-12">
                         <label class="block mb-2">LIGATURES</label>
-                        <div class="glyph-grid-source ligature-grid grid grid-cols-6 lg:grid-cols-10 border-l border-t border-black">
+                        <div class="glyph-grid-source ligature-grid grid grid-cols-6 lg:grid-cols-10 border-l border-t border-[#1C1D2A]">
                             fi fj ff ffi ffj fb ffb fk ffk fh ffh ft fft fl ffl ll ii ĳ
                         </div>
                     </div>
@@ -289,7 +240,7 @@
 
    
 
-    <nav class="fixed p-16 pt-[60vh] top-0 h-full text-xs hidden lg:block transition-all duration-500 mix-blend-difference pointer-events-none">
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full text-xs hidden lg:block transition-all duration-500 pointer-events-none">
         <ul class="flex flex-col gap-1.5 pointer-events-auto">
             <li><a href="#sec-preview" class="toc-link">Custom Preview</a></li>
             <li><a href="#sec-about" class="toc-link">About</a></li>
@@ -302,6 +253,6 @@
     </nav>
 
     <script src="/nav.js"></script>
-    <script src="/typeface/drowsy/text-animator.js"></script>
+    <script src="/typeface/typepage-animator.js"></script>
 </body>
 </html>

@@ -1,6 +1,122 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // =================================================================
+    // PART 0: DYNAMIC THEME EXTRACTION
+    // =================================================================
+    // Read the colors directly from the body tag to apply to elements dynamically
+    const bodyStyles = window.getComputedStyle(document.body);
+    const themeBright = bodyStyles.backgroundColor; // The Bright Background
+    const themeDark = bodyStyles.color;         // The Dark Text/Border Color
+
+    // Inject a dynamic stylesheet for the Grid Hover states
+    // (We do this because we can't generate Tailwind hover classes dynamically)
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `
+        .dynamic-theme-cell {
+            border-color: ${themeDark} !important;
+            color: ${themeDark};
+        }
+        .dynamic-theme-cell:hover {
+            background-color: ${themeDark} !important;
+            color: ${themeBright} !important;
+        }
+
+        .previewSlider{
+            -webkit-appearance: none;           
+            height: 8px;
+            background: transparent;
+            border: 1pt solid ${themeDark};
+            border-radius: 4px;      
+            outline: none;
+            transition: 0.3s ease;
+        }
+        .previewSlider::-webkit-slider-thumb {
+            -webkit-appearance: none; 
+            appearance: none;          
+            width: 16px;              
+            height: 16px;   
+            border:1pt solid ${themeDark};
+            background:${themeBright};     
+            border-radius: 50%;      
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .previewSlider::-webkit-slider-thumb:hover {
+            background: ${themeDark};     
+        }
+        .liga-box{
+            aspect-ratio: 8/7;
+            background: ${themeBright};
+            outline: 1px solid  ${themeDark};
+            color:${themeDark};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-feature-settings: "liga" 0, "calt" 0, "dlig" 0;
+        }
+        .liga-box:hover {
+            font-feature-settings: "liga" 1, "calt" 1, "dlig" 1;
+        }
+
+        .dlig-span {
+            font-feature-settings: "liga" 1, "calt" 1, "dlig" 1;
+        }
+
+        .circle-btn {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1pt solid ${themeDark};
+            background-color: transparent;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+        .circle-btn.active {
+            background-color: ${themeDark};
+        }
+
+
+        .ss-box{
+            aspect-ratio: 3/2;
+            background: ${themeBright};
+            outline: 1px solid  ${themeDark};
+            color:${themeDark};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-feature-settings: "liga", "calt", "dlig";
+        }
+
+        .glyph-box{
+            aspect-ratio: 1/1;
+            background: ${themeBright};
+            outline: 1px solid  ${themeDark};
+            color:${themeDark};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: crosshair;
+            font-feature-settings: "liga", "calt", "dlig";
+        }
+
+        .style-button {
+            border: 1px solid ${themeDark};
+            background-color: ${themeBright};
+            padding: 4px 20px;
+            border-radius: 6px;
+        }
+
+        .style-button.active {
+            background-color: ${themeDark};
+            color: ${themeBright};
+        }
+    `;
+    document.head.appendChild(styleSheet);
+
+
+    // =================================================================
     // PART A: TOP PREVIEW (Editable Text, Sliders, Breathing)
     // =================================================================
     
@@ -53,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Text Setup
         textZone.contentEditable = "false";
         originalText = textZone.innerHTML;
-        textZone.classList.add('uppercase'); // Optional based on design
+        textZone.classList.add('uppercase'); 
 
         initBreathingLogic(textZone, 100, 900, 10, 100); 
     }
@@ -98,8 +214,17 @@ document.addEventListener("DOMContentLoaded", function() {
             let direction = Math.random() > 0.5 ? 1 : -1;
 
             const intervalId = setInterval(() => {
+                // FIX: Combine weight AND kerning in one variation/feature update
+                // Note: 'kern' is usually on by default, but forcing it in feature settings ensures it stays.
+                
+                // 1. Set Weight
                 span.style.fontVariationSettings = `"wght" ${currentWeight}`;
                 span.style.fontWeight = currentWeight;
+
+                // 2. FORCE Kerning (and other standard features)
+                // If you are using other features like 'liga' or 'ss01' in the main text, 
+                // you might need to append them here too, e.g. '"kern" 1, "liga" 1'
+                span.style.fontFeatureSettings = '"kern" 1, "liga" 1, "calt" 1'; 
 
                 if (currentWeight >= maxWeight) direction = -1;
                 else if (currentWeight <= minWeight) direction = 1;
@@ -131,7 +256,6 @@ document.addEventListener("DOMContentLoaded", function() {
     initWavyText('wave-text', 200, 600, 1, 5);
 
     // 3. Top Buttons (SS01, SS02, Liga, Calt, Dlig) for #editableText
-    // Note: These buttons IDs usually have "Btn" suffix (e.g. "ss01Btn") based on your previous code
     const topFeatureMap = {
         'ss01Btn': 'ss01',
         'ss02Btn': 'ss02',
@@ -215,11 +339,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // CHECK: Is this a ligature box?
         if (container.classList.contains('ligature-grid')) {
             // METHOD A: Split by SPACES (for ligatures like "fi", "ffi")
-            // We trim() to remove start/end whitespace, then split by 1 or more spaces
             items = container.innerText.trim().split(/\s+/);
         } else {
             // METHOD B: Split by CHARACTER (Standard)
-            // Remove newlines and split every single character
             items = container.innerText.replace(/\n/g, '').split('');
         }
 
@@ -228,25 +350,25 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Generate Cells
         items.forEach(char => {
-            // Skip empty items (e.g. trailing spaces)
             if (!char) return; 
 
             const cell = document.createElement('div');
             cell.innerText = char;
             
-            // Note: Added 'ligature-cell' class for specific styling if needed
-            cell.className = "glyph-cell aspect-square flex items-center justify-center border-r border-b border-[#181D14] hover:bg-[#181D14] hover:text-[#F8F4C9] cursor-crosshair transition-colors duration-100 text-2xl";
+            // DYNAMIC EDIT: Removed hardcoded colors. 
+            // Added 'dynamic-theme-cell' class which uses the injected CSS rules from Part 0.
+            cell.className = "glyph-cell aspect-square flex items-center justify-center border-r border-b cursor-crosshair transition-colors duration-100 text-2xl dynamic-theme-cell";
             
-            // For ligatures, we might want to turn on "liga" explicitly in the grid cell
-            if (char.length > 1) {
-                cell.style.fontFeatureSettings = '"liga" 1, "dlig" 1'; 
-            }
+            // --- FIX: DELETE THIS BLOCK ---
+            // We removed the code that forced settings here. 
+            // Now the cell will listen to the parent container's settings.
+            // ------------------------------
 
             cell.addEventListener('mouseenter', () => updatePreview(char));
             container.appendChild(cell);
         });
     });
-
+    
     // 3. Update Preview Logic
     function updatePreview(char) {
         // A. Waterfall Text
@@ -290,24 +412,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 5. Hover Effects (Invert colors on hover)
     if (glyphList && selectGlyph) {
-        // Initial State
-        selectGlyph.classList.add('text-[#181D14]', 'bg-[#F8F4C9]');
+        // Initial State (Use extracted Theme Colors)
+        selectGlyph.style.color = themeDark;
+        selectGlyph.style.backgroundColor = themeBright;
 
         // Hover In -> Invert
         glyphList.addEventListener('mouseenter', () => {
-            selectGlyph.classList.remove('text-[#181D14]', 'bg-[#F8F4C9]');
-            selectGlyph.classList.add('text-[#F8F4C9]', 'bg-[#181D14]');
+            selectGlyph.style.color = themeBright;
+            selectGlyph.style.backgroundColor = themeDark;
         });
 
         // Hover Out -> Restore
         glyphList.addEventListener('mouseleave', () => {
-            selectGlyph.classList.remove('text-[#F8F4C9]', 'bg-[#181D14]');
-            selectGlyph.classList.add('text-[#181D14]', 'bg-[#F8F4C9]');
+            selectGlyph.style.color = themeDark;
+            selectGlyph.style.backgroundColor = themeBright;
         });
     }
 
-    // 6. Bottom Buttons (SS01, SS02 for Grid)
-    // Note: These IDs are "ss01", "ss02" (No "Btn" suffix)
+   // 6. Bottom Buttons (SS01, SS02 for Grid)
     const glyphTargets = [
         document.getElementById('selectGlyph'),
         document.getElementById('glyphList')
@@ -318,7 +440,14 @@ document.addEventListener("DOMContentLoaded", function() {
         'ss02': 'ss02'
     };
 
-    const bottomFeatureState = { 'ss01': 0, 'ss02': 0 };
+    // Initialize with standard features ON
+    const bottomFeatureState = { 
+        'ss01': 0, 
+        'ss02': 0, 
+        'dlig': 1, 
+        'liga': 1, 
+        'calt': 1 
+    };
 
     Object.keys(bottomFeatureMap).forEach(btnId => {
         const btn = document.getElementById(btnId);
@@ -344,6 +473,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    
+    // --- FIX: Apply the default state (dlig: 1) immediately on load ---
+    updateGlyphStyles();
 
 
     // =================================================================
