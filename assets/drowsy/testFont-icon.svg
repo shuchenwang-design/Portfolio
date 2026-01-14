@@ -1,13 +1,18 @@
 <svg width="255" height="300" viewBox="0 0 255 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_721_22)">
-<path d="M254.058 24H33.4883V244.57H254.058V24Z" fill="#A3C5F0" stroke="#1C1D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M239.16 38.8896H18.5898V259.46H239.16V38.8896Z" fill="#A3C5F0" stroke="#1C1D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M222.57 55.4893H2V276.06H222.57V55.4893Z" fill="#A3C5F0" stroke="#1C1D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M119.347 127.47V130.062H85.6512V228.27H71.5392V130.062H37.6992V127.47H119.347Z" fill="#1C1D2A"/>
-<path d="M132.361 201.342V158.574H122.281V156.27H132.361V138.702H146.041V156.27H168.073V158.574H146.041V206.67C146.041 221.214 149.641 228.27 156.985 228.27C165.049 228.27 171.961 220.206 175.273 206.382L177.433 206.958C173.545 222.798 166.345 230.574 155.689 230.574C139.849 230.574 132.361 220.926 132.361 201.342Z" fill="#1C1D2A"/>
+<g clip-path="url(#clip0_840_21)">
+<mask id="mask0_840_21" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="255" height="300">
+<path d="M255 0H0V300H255V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_840_21)">
+<path d="M254.058 24H33.4883V244.57H254.058V24Z" fill="#6FA4FF" stroke="#11121C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M239.16 38.8887H18.5898V259.459H239.16V38.8887Z" fill="#6FA4FF" stroke="#11121C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M222.57 55.4902H2V276.061H222.57V55.4902Z" fill="#6FA4FF" stroke="#11121C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119.347 127.471V130.063H85.6512V228.271H71.5392V130.063H37.6992V127.471H119.347Z" fill="#11121C"/>
+<path d="M132.361 201.341V158.573H122.281V156.269H132.361V138.701H146.041V156.269H168.073V158.573H146.041V206.669C146.041 221.213 149.641 228.269 156.985 228.269C165.049 228.269 171.961 220.205 175.273 206.381L177.433 206.957C173.545 222.797 166.345 230.573 155.689 230.573C139.849 230.573 132.361 220.925 132.361 201.341Z" fill="#11121C"/>
+</g>
 </g>
 <defs>
-<clipPath id="clip0_721_22">
+<clipPath id="clip0_840_21">
 <rect width="255" height="300" fill="white"/>
 </clipPath>
 </defs>
