@@ -168,3 +168,15 @@ span {
   font-weight: inherit;
 }
 
+.topage-button{
+  padding: 8px 12px;
+  border: 1px solid white;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: all 0.3s ease-out;
+}
+.topage-button:hover{
+  background-color: white;
+  color:black;
+}
+

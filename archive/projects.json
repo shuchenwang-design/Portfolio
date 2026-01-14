@@ -61,7 +61,7 @@
     },
     {
         "id": "6esens",
-        "title": "SIXIÈME SENS",
+        "title": "SIXIÈME SENS: with Xinyi Liang, Xinyi Zhang, Yu Liu",
         "image": "/assets/gwantsi/6esens-cover.jpg",
         "date": "MAR 2023-MAY 2023",
         "genre": "3D Motion",
@@ -71,7 +71,7 @@
 
     {
         "id": "aeiou",
-        "title": "A,E,I,O,U",
+        "title": "A,E,I,O,U: with Xinyue Liang, Xinyi Zhang, Yu Liu",
         "image": "/assets/gwantsi/aeiou-cover.jpg",
         "date": "JAN 2023-FEB 2023",
         "genre": "Motion Graphics",
@@ -80,7 +80,7 @@
     },
     {
         "id": "figgarden",
-        "title": "Secret Gardens of Figs",
+        "title": "Secret Gardens of Figs: with Yue Wang",
         "image": "/assets/gwantsi/fig-cover.jpg",
         "date": "JAN 2023-FEB 2023",
         "genre": "3D Motion",

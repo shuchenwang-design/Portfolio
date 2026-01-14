@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loading.css">
+    
 </head>
 
 <body class="bg-black text-white">
@@ -31,10 +32,11 @@
         
         <div class="head grid grid-cols-1 lg:grid-cols-12">
             <div class="col-start-1 col-span-1 lg:col-start-8 lg:col-span-5 mx-2">
-                <label class="text-base mx-2 block lg:mr-[5vw] mr-4">Her Voice Behind the Poems<br>
-                    <a class="text-xs hover:text-black hover:bg-white border pt-2 py-1.5 px-3 mt-1 inline-block rounded-lg" href="/archive/rt/motion/" data-project="rt-motion" rel="preload">Case Study ←</a>
-                </label>
-                <div class="!text-[6rem] dynamic-text" id="dynamic-text" style="font-variation-settings: &quot;wght&quot; 805;">RAIN AND<br>TEARS
+                <div class="mx-2 lg:mr-[5vw] mr-4 flex flex-col justify-start gap-2">
+                    <span class="text-base block">Her Voice Behind the Poems</span>
+                    <a class="self-start inline-block topage-button" href="" data-project="rt-motion" rel="preload">Case Study ←</a>
+                </div>
+                <div class="!lg:text-[6rem] !text-[4.5rem] dynamic-text" id="dynamic-text" style="font-variation-settings: &quot;wght&quot; 805;">RAIN AND<br>TEARS
                 </div>
             </div>
         </div>
@@ -43,12 +45,13 @@
             <video alt="home" autoplay="" class="mt-[-5rem] w-full object-cover" loop="" muted="" playsinline="" src="https://freight.cargo.site/t/original/i/D2611091149679338779014498303064/Homepage.mp4"></video>
         </div>
 
-        <div id="sec-ripple" alt="rippleGallery" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+        <div id="sec-ripple" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
             <div alt="rippleLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
                 <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Ripple: Spreading Love <br>for Performances</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-2">Revised OCT 2025–NOV 2025</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 text-left">
-                    <a class="hover:text-rust-100" data-project="ripple" href="" rel="preload">Case Study ← </a></label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start -translate-y-[12px]">
+                    <span class="topage-button"><a data-project="ripple" href="" rel="preload">Case Study ← </a></span>
+                </div>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
@@ -63,12 +66,13 @@
             </div>
         </div>
 
-        <div id="sec-ss" alt="science snacks" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+        <div id="sec-ss" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
             <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
                 <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Science Snacks:<br>Resonate with Friends</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">OCT 2024-JAN 2025</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                    <a class="hover:text-rust-100" data-project="science-snacks" href="" rel="preload">Case Study ← </a></label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start -translate-y-[12px]">
+                    <span class="topage-button"><a data-project="science-snacks" href="" rel="preload">Case Study ← </a></span>
+                </div>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
@@ -83,13 +87,15 @@
             </div>
         </div>
 
-        <div id="sec-inkai" alt="inkai" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+        <!-- inkai specimen 
+        <div id="sec-inkai" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
             <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
                 <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Inkai Typeface Design & Specimen</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024-FEB 2025</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                    <a class="hover:text-rust-100" data-project="inkai-typeface" href="" rel="preload">Typeface Preview ← </a><br>
-                    <a class="hover:text-rust-100" data-project="inkai-specimen" href="" rel="preload">Specimen Case Study← </a></label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start space-x-2">
+                    <span class="block topage-button py-[6px]"><a data-project="inkai-typeface" href="" rel="preload">Typeface ← </a></span>
+                    <span class="block topage-button py-[6px]"><a data-project="inkai-specimen" href="" rel="preload">Specimen ← </a></span>
+                </div>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
@@ -100,15 +106,38 @@
                     <img draggable="false" class="slideshow-image" src="https://freight.cargo.site/t/original/i/P2443095873242613887083860933720/IS_photo.jpg">
                 </div>
             </div>
+        </div> -->
+
+        <div id="sec-inkai" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+            <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Inkai Typeface & Specimen</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024-FEB 2025</label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start space-x-2 -translate-y-[12px]">
+                    <span class="block topage-button py-[6px]"><a data-project="inkai-typeface" href="" rel="preload">Typeface ← </a></span>
+                    <span class="block topage-button py-[6px]"><a data-project="inkai-specimen" href="" rel="preload">Specimen ← </a></span>
+                </div>
+            </div>
+
+            <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                <div class="slideshow-wrapper">
+                    <img draggable="false" class="slideshow-image" src="/assets/inkai/feature-1.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/inkai/feature-2.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/inkai/feature-3.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/inkai/feature-4.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/inkai/feature-5.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/inkai/feature-6.jpg">
+                </div>
+            </div>
         </div>
 
-        <div id="sec-drowsy" alt="drowsy" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+        <div id="sec-drowsy" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
             <div alt="ssLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
-                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Drowsy Typeface Design & Specimen</label>
+                <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Drowsy Typeface & Specimen</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">OCT 2024-JAN 2025</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                    <a class="hover:text-rust-100" data-project="drowsy-typeface" href="" rel="preload">Typeface Preview ← </a><br>
-                    <a class="hover:text-rust-100" data-project="drowsy-specimen" href="" rel="preload">Specimen Case Study← </a></label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start space-x-2 h-[32px] -translate-y-[12px]">
+                    <span class="block topage-button py-[6px]"><a data-project="drowsy-typeface" href="" rel="preload">Typeface ← </a></span>
+                    <span class="block topage-button py-[6px]"><a data-project="drowsy-specimen" href="" rel="preload">Specimen ← </a></span>
+                </div>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
@@ -123,12 +152,13 @@
             </div>
         </div>
 
-        <div id="sec-typolyrics" alt="typolyrics" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+        <div id="sec-typolyrics" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
             <div alt="tlLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
                 <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Typolyrics of Internationale</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">NOV 2024–DEC 2024</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                    <a class="hover:text-rust-100" data-project="typolyrics" href="" rel="preload">Case Study ← </a></label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start -translate-y-[12px]">
+                    <span class="topage-button"><a data-project="typolyrics" href="" rel="preload">Case Study ← </a></span>
+                </div>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
@@ -146,8 +176,9 @@
             <div alt="iiLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
                 <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Gray Muzzle Society</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">Revised in DEC 2025</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                    <a class="hover:text-rust-100" data-project="gms" href="" rel="preload">Case Study ← </a></label>
+                <div class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start -translate-y-[12px]">
+                    <span class="topage-button"><a data-project="gms" href="" rel="preload">Case Study ← </a></span>
+                </div>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
@@ -163,19 +194,23 @@
             </div>
         </div>
 
-        <div id="sec-gwantsi" data-id="gms" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
+        <div id="sec-gwantsi" class="js-slideshow relative mt-4 w-full h-[95vh] flex flex-col">
             <div alt="iiLabels" class="grid grid-cols-1 lg:grid-cols-12 mt-4">
                 <label class="mx-4 text-left col-start-1 lg:col-start-3 lg:col-span-2">Motion Series for Giafé</label>
                 <label class="mx-4 text-left col-start-1 lg:col-start-5 lg:col-span-3">2023<br>GI Lab Team</label>
-                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 ">
-                    <a class="hover:text-rust-100" data-project="6esens" href="" rel="preload">Watch Animation ← </a></label>
+                <label class="mx-4 col-start-1 lg:col-start-8 lg:col-span-4 flex flex-row justify-end lg:justify-start -translate-y-[12px]">
+                    <span class="topage-button"><a data-project="6esens" href="" rel="preload">Animation ← </a></span>
             </div>
 
             <div class="overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
                 <div class="slideshow-wrapper">
-                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/aeiou-cover.jpg">
-                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/6esens-cover.jpg">
                     <img draggable="false" class="slideshow-image" src="/assets/gwantsi/fig-cover.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/fig-series.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/6esens-cover.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/6esens-series.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/aeiou-cover.jpg">
+                    <img draggable="false" class="slideshow-image" src="/assets/gwantsi/aeiou-series.jpg">
+                    
                 </div>
             </div>
         </div>
@@ -195,16 +230,67 @@
     </nav>
     
     <script>
-        function updateText(e) {
-            const dynamicText = document.getElementById('dynamic-text');
+        const dynamicText = document.getElementById('dynamic-text');
+
+        // 1. DESKTOP LOGIC (Mouse Interaction)
+        function handleMouseMove(e) {
             if (!dynamicText) return;
             const multiplierWidth = e.clientX / window.innerWidth;
             const multiplierHeight = e.clientY / window.innerHeight;
+            
+            // Calculate distance from top-left (0 to ~1.41)
             const multiplierDistance = Math.sqrt(multiplierWidth ** 2 + multiplierHeight ** 2);
-            const randomWeight = Math.floor(multiplierDistance * (900 - 400) + 400);
-            dynamicText.style.fontVariationSettings = `"wght" ${randomWeight}`;
+            
+            // Clamp weight between 400 and 900
+            // We use Math.min to ensure it never exceeds 900 even if cursor is at very bottom-right
+            let calculatedWeight = Math.floor(multiplierDistance * 500 + 400); 
+            if (calculatedWeight > 900) calculatedWeight = 900;
+
+            dynamicText.style.fontVariationSettings = `"wght" ${calculatedWeight}`;
         }
-        window.addEventListener("mousemove", updateText);
+
+        // 2. MOBILE LOGIC (Scroll Interaction)
+        function handleScroll() {
+            if (!dynamicText) return;
+
+            const scrollY = window.scrollY;
+            const maxScrollDistance = window.innerHeight * 0.5; // 80vh
+            
+            // Calculate progress (0.0 to 1.0)
+            let progress = scrollY / maxScrollDistance;
+            
+            // Cap progress at 1.0 (so weight stops increasing after 80vh)
+            if (progress > 1) progress = 1;
+            if (progress < 0) progress = 0;
+
+            // Map progress to Weight (400 -> 900)
+            const scrollWeight = Math.floor(400 + (progress * 500));
+            
+            dynamicText.style.fontVariationSettings = `"wght" ${scrollWeight}`;
+        }
+
+        // 3. INITIALIZATION
+        function initDynamicText() {
+            // Remove existing listeners to prevent duplicates if window is resized
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("scroll", handleScroll);
+
+            // Check width (using 1024px as the desktop breakpoint)
+            if (window.innerWidth < 1024) {
+                // --- MOBILE MODE ---
+                window.addEventListener("scroll", handleScroll);
+                handleScroll(); // Run immediately to set initial weight based on load position
+            } else {
+                // --- DESKTOP MODE ---
+                window.addEventListener("mousemove", handleMouseMove);
+            }
+        }
+
+        // Run on load
+        initDynamicText();
+
+        // Optional: Re-check if user resizes window (e.g. rotating a tablet)
+        window.addEventListener("resize", initDynamicText);
 
         // --- SLIDESHOW LOGIC ---
         const CONFIG = {
