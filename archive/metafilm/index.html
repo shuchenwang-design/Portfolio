@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="no-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <title>SIFF Metafilm</title>
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load Google Fonts: roboto serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+SC:wght@200..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+    <div class="font-notosans" >
+
+        <div id="head-trigger" data-id="metafilm" class="grid lg:grid-cols-12 grid-cols-1 gap-4">
+            <div class="col-start1 lg:col-start-3 lg:col-span-9">
+                <div alt="headImage" class="flex lg:h-[80vh] h-[60vh] object-top mt-12">
+                </div>
+                <div class="grid lg:grid-cols-12 grid-cols-2 gap-x-4 p-4 items-start">
+                    <div class="col-span-2 leading-none lg:col-span-6 mt-2">
+                        <h1 id="project-title" class="capitalize font-roboto font-extrabold text-[3rem] leading-[120%]"></h1>
+                        <span id="project-subtitle" class="text-base font-[400]"></span>
+                    </div>
+                    
+                    <div class="col-span-1 lg:col-span-3 mt-4 space-y-1">
+                        <span id="project-genre" class="block"></span>
+                        <span id="project-software" class="block"></span>
+                    </div>
+                    
+                    <div class="col-span-1 lg:col-span-3 mt-4 text-right ">
+                        <span id="project-date" class="mt-4"></span>
+                        <span class="block">GI Lab Teamwork</span>
+                    </div>
+                </div>
+                <hr class="my-2 bg-white">
+            </div>
+        </div>
+
+        <div id="sec-concept" class="grid lg:grid-cols-12 grid-cols-1 gap-x-4">
+            <div class="col-start-1 lg:col-start-3 lg:col-span-9">
+                <div class="grid lg:grid-cols-12 grid-cols-1 gap-4 my-2 mx-4">
+                    <div class="lg:col-span-4 mr-16 space-y-2">
+                        <label class="js-section-title">CONCEPT</label>
+                        <div id="project-overview" class="space-y-2"></div>
+                    </div>
+                    <div class="col-span-1 lg:col-span-8 grid grid-cols-3 gap-2">
+                        <label class="col-span-full">Keywords</label>
+                        <div class="space-y-4">
+                            <img class="object-contain w-full" src="/assets/metafilm/keywords-1.jpg">
+                            <span class="block text-center text-xl font-roboto">Film Industry</span>
+                            <p class="hidden lg:block">Drew inspiration from classic symbols in cinematic history: the geometry of film reels, the conical beam of prism projection, the cylindrical form of the Zoetrope, and the elegant curves of the Golden Goblet Award.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <img class="object-contain w-full" src="/assets/metafilm/keywords-2.jpg">
+                            <span class="block text-center text-xl font-roboto">Festival Spirit</span>
+                            <p class="hidden lg:block">To create a celebratory mood, we incorporated elements like amusement park carousels, floating airships and hot air balloons, glowing sky lanterns, and fireworks displays.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <img class="object-contain w-full" src="/assets/metafilm/keywords-3.jpg">
+                            <span class="block text-center text-xl font-roboto">Futurism</span>
+                            <p class="hidden lg:block">The structure is designed like a digital Hanging Gardens of Babylon. It is an indefinable form intended to spark boundless imagination and unrestrained fantasy.</p>
+                        </div>
+                    </div>
+                    <div class="relative col-span-1 lg:col-span-12 py-24 text-center space-y-4 overflow-hidden z-20 ">
+                        <p class="relative z-20 px-4 lg:px-24 text-2xl lg:text-3xl leading-[125%] font-roboto mt-8 ">"La reconstitution d'une illusion parfaite du monde extérieur avec le son, la couleur et le relief."<br>"Le mythe directeur de l'invention du cinéma est donc l'accomplissement de celui qui domine confusément toutes les techniques de reproduction mécanique de la réalité au XIXe siècle. C'est le mythe du Cinéma total."</p>
+                        <p>André Bazin, Qu' Est-Ce Que Le Cinema</p>
+                        <img class="absolute top-0 z-10 left-0 object-cover opacity-10 w-full h-full" src="/assets/metafilm/cover.jpg">
+                    </div>
+                        
+                </div>
+                <hr class="my-4 bg-white">
+            </div>
+        </div>
+        <div id="sec-sketch" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Scene Design Overview</label>
+                <div class="relative col-span-1 lg:col-span-9">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/concept-1.jpg">
+                    <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/metafilm/concept-2.jpg">
+                </div>
+
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="relative">
+                        <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/sketch-1.jpg">
+                        <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/metafilm/sketch-2.jpg">
+                    </div>
+                    <div class="relative">
+                        <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/sketch-3.jpg">
+                        <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/metafilm/sketch-4.jpg">
+                    </div>
+                    <div class="relative">
+                        <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/sketch-5.jpg">
+                        <img class="animate-switch absolute top-0 left-0 z-10 w-full lg:h-full h-auto object-center object-contain" src="/assets/metafilm/sketch-6.jpg">
+                    </div>
+                    
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">  
+        </div>
+        <div id="sec-bridge" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-3">Red Carpet Bridge</label>
+                <p class="col-span-1 lg:col-span-4">Demonstrate the collision between vertical typography of ancient Chinese culture and horizontal typography of mordern life.</p>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/metafilm/opener-1.jpg">
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/opener-3.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/opener-4.jpg">
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-square" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Central Square</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/metafilm/feature-1.jpg">
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/feature-2.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/feature-3.jpg">
+                    </div>
+
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/feature-4.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/feature-5.jpg">
+                    </div>
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/metafilm/feature-6.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-weight" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-3">Light Palace</label>
+                <p class="col-span-1 lg:col-span-5"></p>
+                <img class="col-span-1 lg:col-span-9 w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/weight-1.jpg">
+
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/weight-2.jpg">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/weight-3.jpg">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/weight-4.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">  
+        </div>
+        <div id="sec-full" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Brand & Film Pavilions</label>
+
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/fullglyphs-1.jpg">
+                    <img class="w-full h-auto lg:h-full object-center object-contain" src="/assets/metafilm/fullglyphs-2.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">  
+        </div>
+        <div id="sec-ui" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">App Design Overview</label>
+                <div class="col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/metafilm/showcase-3.jpg">
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/showcase-2.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/showcase-1.jpg">
+                    </div>
+
+                    <div class="col-span-1 grid gap-4 grid-cols-2 grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 ">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/showcase-4.jpg">
+                        <img class="w-full h-auto object-contain" src="/assets/metafilm/showcase-5.jpg">
+                    </div>
+                    <img class="col-span-1 lg:col-span-2 w-full h-auto" src="/assets/metafilm/showcase-6.jpg">
+                </div>
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-4">    
+        </div>
+        <div id="sec-vis" class="grid grid-cols-1 lg:grid-cols-12 mb-4">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Visual System</label>
+                
+                <div class="col-span-1 lg:col-span-9 flex flex-col gap-4">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-1.jpg">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-2.jpg">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-3.jpg">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img class="w-full h-auto" src="/assets/metafilm/binding-4.jpg">
+                        <img class="w-full h-auto" src="/assets/metafilm/binding-5.jpg">
+                    </div>
+                </div>
+                
+            </div> 
+        </div>
+        <div id="sec-vis" class="grid grid-cols-1 lg:grid-cols-12 mb-4">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">Interface</label>
+                
+                <div class="col-span-1 lg:col-span-9 flex flex-col gap-4">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-1.jpg">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-2.jpg">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-3.jpg">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img class="w-full h-auto" src="/assets/metafilm/binding-4.jpg">
+                        <img class="w-full h-auto" src="/assets/metafilm/binding-5.jpg">
+                    </div>
+                </div>
+                
+            </div> 
+        </div>
+        <div id="sec-vis" class="grid grid-cols-1 lg:grid-cols-12 mb-4">
+            <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 mx-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title uppercase col-span-1 lg:col-span-9">My Contribution</label>
+                
+                <div class="col-span-1 lg:col-span-9 flex flex-col gap-4">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-1.jpg">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-2.jpg">
+                    <img class="w-full h-auto" src="/assets/metafilm/binding-3.jpg">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img class="w-full h-auto" src="/assets/metafilm/binding-4.jpg">
+                        <img class="w-full h-auto" src="/assets/metafilm/binding-5.jpg">
+                    </div>
+                </div>
+                
+            </div> 
+        </div>
+
+    </div>
+
+    <div id="sec-end"><img class="h-[100vh] w-full object-cover object-center" src="/assets/metafilm/fullScene.jpg"></div>
+
+    <nav class="fixed p-16 pt-[60vh] top-0 h-full z-20 text-xs hidden lg:block transition-all duration-500 hover:bg-gradient-to-r hover:from-black hover:to-transparent">
+        <ul id="toc-project-list" class="flex flex-col gap-1.5">
+        </ul>
+    </nav>
+
+    <script src="/nav.js"></script>
+    <script src="/sticky-header.js"></script>
+</body>
+</html>
