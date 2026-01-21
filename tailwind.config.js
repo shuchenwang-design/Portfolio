@@ -20,6 +20,7 @@ tailwind.config = {
                 'rred-100': '#D34518',
                 'rred-80': '#DC653D',
                 'rred-200': '#6B3114',
+                'rred-300':'#371405',
                 'olive-100': '#7F8F3C',
                 'olive-80': '#A4B453',
                 'olive-200': '#435411',
