@@ -47,8 +47,9 @@ tailwind.config = {
                 'neuedin': ['Neue DIN Variable'],
                 'gms': ['G M S'],
                 'mendl': ['Mendl Sans Dusk'],
-                'notoserif': ['Noto Serif'],
+                'notoserif': ['Noto Serif SC'],
                 'roboto': ['Roboto Serif'],
+                'gilroy': ['Gilroy'],
 
             }
         }

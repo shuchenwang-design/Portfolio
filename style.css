@@ -83,11 +83,24 @@
     font-style: normal;
     src: url("https://freight.cargo.site/m/A2681081325041226413680521067608/MendlSans-DawnSemiBold.woff") format("woff");
   }
-@font-face {
+  @font-face {
     font-family: "Mendl Sans Dusk";
     font-weight: 600;
     font-style: normal;
     src: url("https://freight.cargo.site/m/N2681081331331566142815478168664/MendlSans-DuskSemiBold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Gilroy";
+    font-weight: 300;
+    font-style: normal;
+    src: url("/assets/type/GILROY-LIGHT.OTF") format("otf");
+  }
+  @font-face {
+    font-family: "Gilroy";
+    font-weight: 800;
+    font-style: normal;
+    src: url("/assets/type/GILROY-EXTRABOLD.OTF") format("otf");
   }
 
 
