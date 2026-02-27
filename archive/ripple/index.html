@@ -433,13 +433,30 @@
             </div>
             <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-2">
         </div>
+
+        <div id="sec-userflow" class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="js-slideshow lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
+                <label class="js-section-title col-span-1 lg:col-span-3 lg:mr-32 mr-16">USER FLOW</label>
+                <p class="col-span-1 lg:col-span-6"></p>
+                <div class="col-span-1 lg:col-span-9 lg:max-h-[60vh] overflow-hidden !flex-1 relative slideshow-container w-full mt-4 cursor-grab active:cursor-grabbing">
+                    <div class="slideshow-wrapper">
+                        <img draggable="false" class="slideshow-image" src="/assets/ripple/userFlow-1.jpg">
+                        <img draggable="false" class="slideshow-image" src="/assets/ripple/userFlow-2.jpg">
+                    </div>
+                </div>
+                
+            </div>
+            <hr class="col-start-1 lg:col-start-3 lg:col-span-9 my-2">
+        </div>
+
+        
         <div id="sec-concept" class="grid grid-cols-1 lg:grid-cols-12">
             <div class="lg:col-start-3 lg:col-span-9 col-start-1 col-span-1 grid gap-4 m-4 grid-cols-1 lg:grid-cols-9">  
                 <label class="js-section-title col-span-1 lg:col-span-3">CONCEPT</label>
                 <p class="col-span-1 lg:col-span-6"></p>
                 
                 <p class="text-2xl col-span-1 lg:col-span-4 text-cream-50 leading-[36px]">
-                    Ripple is a social-driven performance app designed to <span class="underline decoration-rred-100">bring audiences closer</span>, therefore enriches the experience <span class="underline decoration-gold-100">before and after a performance</span>, creating an environment where <span class="underline decoration-olive-100">shared experiences ripple outward acrosspersonal networks.</span>
+                    Ripple is a social-driven performance app designed to <span class="underline decoration-rred-100">bring audiences closer</span>, therefore enriches the experience <span class="underline decoration-gold-100">before and after a performance</span>, creating an environment where <span class="underline decoration-olive-100">shared experiences ripple outward across personal networks.</span>
                 </p>
                 <img class="col-start-1 lg:col-start-6 col-span-1 lg:col-span-4 w-full aspect-auto my-4 object-contain" src="https://freight.cargo.site/t/original/i/W2657223993266376252580010605656/Ripple-LogoBW.jpg">
                 <div class="relative col-span-1 lg:col-span-9 grid grid-cols-1 lg:grid-cols-3 text-cream-50 block overflow-hidden lg:h-[70vh] min-h-[40vh] py-8 items-center -space-y-[1px] lg:-space-x-[1px]">
@@ -625,39 +642,6 @@
                 <div class="col-span-1 lg:col-span-9 grid grid-cols-2 lg:grid-cols-11 gap-2 items-center">
                     
                     <div class="relative col-span-1 lg:col-span-2">
-                        <img class="w-full object-contain" src="/assets/ripple/feature4-1.jpg">
-                        <p class="lg:absolute lg:top-full lg:w-full p-4 text-center">Planning in private & group chats</p>
-                    </div>
-                    <div class="relative col-span-1 lg:col-span-2">
-                        <img class="w-full object-contain" src="/assets/ripple/feature4-2.jpg">
-                        <p class="lg:absolute lg:top-full lg:w-full p-4 text-center">Chat allowing sharing links and recent Moments</p>
-                    </div>
-                    <div class="relative col-span-1 lg:col-span-2">
-                        <img class="w-full object-contain" src="/assets/ripple/feature4-3.jpg">
-                        <p class="lg:absolute lg:top-full lg:w-full p-4 text-center">Track friends' plan on Homepage</p>
-                    </div>
-                    <img class="col-span-2 lg:col-span-3 order-first lg:order-none w-full object-contain" src="/assets/ripple/feature4-4.jpg">
-                    <div class="relative col-span-1 lg:col-span-2">
-                        <img class="w-full object-contain" src="/assets/ripple/feature4-5.jpg">
-                        <p class="lg:absolute lg:top-full lg:w-full p-4 text-center">Scrolling moments from friends, groups, and near-by</p>
-                    </div>
-                </div>
-
-                <div id="feature4" class="col-span-1 lg:col-span-9 items-center">
-                    <div class="relative w-full mt-12 mx-auto">
-                        <div class="text-center pt-4">
-                            <p class="text-sm uppercase">Feature 4</p>
-                            <p class="text-xl font-bold">Community Involvement on Reviews</p>
-                            <p>Lower the social friction<br>as well as increase the community engagement</p>
-                        </div>
-                        <div class="absolute inset-0 border-t border-disgreen-50"></div>
-                        <div class="absolute inset-x-0 inset-y-1 border-t border-disgreen-50"></div>
-                         <img src="/assets/ripple/decoTop-1.svg" class="absolute top-[-20px] left-[50%] translate-x-[-50%] z-10 pointer-events-none">
-                    </div>
-                </div>
-                <div class="col-span-1 lg:col-span-9 grid grid-cols-2 lg:grid-cols-11 gap-2 items-center">
-                    
-                    <div class="relative col-span-1 lg:col-span-2">
                         <img class="w-full object-contain" src="/assets/ripple/feature5-1.jpg">
                         <p class="lg:absolute lg:top-full lg:w-full p-4 text-center">Reviews on performance page</p>
                     </div>
@@ -722,7 +706,121 @@
         </ul>
     </nav>
 
+    <script>
+        // --- SLIDESHOW LOGIC ---
+        const CONFIG = {
+            autoSpeed: 0.1, 
+            friction: 0.95
+        };
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.js-slideshow').forEach(initSlideshow);
+        });
+
+        function initSlideshow(section) {
+            const container = section.querySelector('.slideshow-container');
+            const wrapper = section.querySelector('.slideshow-wrapper');
+
+            if (!container || !wrapper) return;
+
+            // 1. SETUP CSS
+            wrapper.style.display = 'flex';
+            wrapper.style.width = 'max-content'; 
+            
+            // 2. MEASURE & CLONE
+            const singleSetWidth = wrapper.scrollWidth;
+            const children = Array.from(wrapper.children);
+            children.forEach(child => {
+                const clone = child.cloneNode(true);
+                clone.classList.add('flex-shrink-0'); 
+                child.classList.add('flex-shrink-0'); 
+                wrapper.appendChild(clone);
+            });
+
+            // --- STATE ---
+            let isDragging = false;
+            let startX = 0;
+            let currentX = 0;
+            let velocity = 0;
+            let lastPageX = 0;
+            let animationId = null; // Track the animation loop
+
+            // 3. PHYSICS ENGINE
+            function animate() {
+                // Infinite Loop Logic
+                if (currentX <= -singleSetWidth) {
+                    currentX += singleSetWidth;
+                } 
+                else if (currentX > 0) {
+                    currentX -= singleSetWidth;
+                }
+
+                if (!isDragging) {
+                    currentX -= CONFIG.autoSpeed;
+                    currentX += velocity;
+                    velocity *= CONFIG.friction;
+                    if (Math.abs(velocity) < 0.01) velocity = 0;
+                }
+
+                wrapper.style.transform = `translate3d(${currentX}px, 0, 0)`;
+                
+                // Keep looping
+                animationId = requestAnimationFrame(animate);
+            }
+
+            // 4. INTERSECTION OBSERVER
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (!animationId) {
+                            animate();
+                        }
+                    } else {
+                        if (animationId) {
+                            cancelAnimationFrame(animationId);
+                            animationId = null;
+                        }
+                    }
+                });
+            }, { threshold: 0.1 }); 
+
+            observer.observe(section);
+
+            // 5. INTERACTION
+            const startDrag = (x) => {
+                isDragging = true;
+                startX = x;
+                lastPageX = x;
+                velocity = 0;
+                container.style.cursor = 'grabbing';
+                wrapper.style.transition = 'none'; 
+            };
+
+            const moveDrag = (e, pageX) => {
+                if (!isDragging) return;
+                e.preventDefault(); 
+                const delta = pageX - lastPageX;
+                lastPageX = pageX;
+                currentX += delta;
+                velocity = delta;
+            };
+
+            const endDrag = () => {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            };
+
+            container.addEventListener('mousedown', (e) => startDrag(e.pageX));
+            container.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX));
+            container.addEventListener('mousemove', (e) => moveDrag(e, e.pageX));
+            container.addEventListener('touchmove', (e) => moveDrag(e, e.touches[0].pageX));
+            container.addEventListener('mouseleave', endDrag);
+            container.addEventListener('mouseup', endDrag);
+            container.addEventListener('touchend', endDrag);
+        }
+    </script>
     <script src="/nav.js"></script>
     <script src="/sticky-header.js"></script>
+    
 </body>
 </html>
