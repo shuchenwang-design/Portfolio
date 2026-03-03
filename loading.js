@@ -19,23 +19,59 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(data => { wordsList = data; startRain(); })
                 .catch(() => { wordsList = ["INKAI", "DESIGN", "FLOW"]; startRain(); });
 
-            // 2. Progress Bar (Fixed 3 Seconds)
+            // 2. Progress Bar (Wait for MAX of 3s OR Window Load)
             const duration = 3000; 
-            const intervalStep = 100;
+            const intervalStep = 50; // Lower step for smoother animation
             const increment = 100 / (duration / intervalStep);
             let progress = 0;
 
+            // Flags to track our two conditions
+            let isMinTimeReached = false;
+            let isPageLoaded = document.readyState === 'complete'; 
+
+            // Condition A: Actual page content finishes loading
+            if (!isPageLoaded) {
+                window.addEventListener('load', () => {
+                    isPageLoaded = true;
+                    checkComplete();
+                });
+            }
+
+            // Condition B: 3 seconds have passed
+            setTimeout(() => {
+                isMinTimeReached = true;
+                checkComplete();
+            }, duration);
+
+            // The Progress Animation
             const loadInterval = setInterval(() => {
-                progress += increment; 
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(loadInterval);
-                    finishLoading();
+                if (!isMinTimeReached || !isPageLoaded) {
+                    progress += increment;
+                    
+                    // Cap the visual progress at 99% until the page is actually fully loaded
+                    if (progress >= 99) progress = 99;
+                    
+                    percText.innerHTML = '<span>I am raining</span><span>' + Math.floor(progress) + '%</span>';
+                    bar.style.width = progress + "%";
                 }
-                percText.innerHTML = '<span>I am raining</span><span>' + Math.floor(progress) + '%</span>';
-                bar.style.width = progress + "%";
             }, intervalStep);
 
+            // Master Check: Only finish when BOTH conditions are true
+            function checkComplete() {
+                if (isPageLoaded && isMinTimeReached) {
+                    clearInterval(loadInterval);
+                    
+                    // Snap to 100%
+                    progress = 100;
+                    percText.innerHTML = '<span>I am raining</span><span>100%</span>';
+                    bar.style.width = "100%";
+                    
+                    // Tiny buffer to let the user see "100%" before it vanishes
+                    setTimeout(() => {
+                        finishLoading();
+                    }, 150); 
+                }
+            }
 
             // 3. Falling System
             function startRain() {
