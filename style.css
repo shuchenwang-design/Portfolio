@@ -102,6 +102,24 @@
     font-style: normal;
     src: url("/assets/type/GILROY-EXTRABOLD.OTF") format("otf");
   }
+  @font-face {
+    font-family: "GIlab";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/assets/type/GILAB-Regular.otf") format("otf");
+  }
+  @font-face {
+    font-family: "HarmonyOS-Sans-SC";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/assets/type/HarmonyOS_Sans_Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Bokchoy";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/assets/type/BOKCHOY-REGULAR.OTF") format("otf");
+  }
 
 
 body {

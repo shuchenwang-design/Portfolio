@@ -50,6 +50,10 @@ tailwind.config = {
                 'notoserif': ['Noto Serif SC'],
                 'roboto': ['Roboto Serif'],
                 'gilroy': ['Gilroy'],
+                'gilab': ['GIlab'],
+                'harmonySC': ['HarmonyOS-Sans-SC'],
+                'xyjxs': ['XinYiJiXiangSong'],
+                'bokchoy': ['Bokchoy'],
 
             }
         }
