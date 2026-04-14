@@ -68,7 +68,6 @@
         "software": "Cinema 4D, Octane Render, Touch Designer, After Effects",
         "link": "/motion/#sec-6esens"
     },
-
     {
         "id": "aeiou",
         "title": "A,E,I,O,U: with Xinyue Liang, Xinyi Zhang, Yu Liu",
@@ -86,6 +85,15 @@
         "genre": "3D Motion",
         "software": "Cinema 4D, Octane Render, After Effects",
         "link": "/motion/#sec-figgarden"
+    },
+     {
+        "id": "gwantsi",
+        "title": "Gwantsi Interactive: GI Lab Team",
+        "image": "/assets/gwantsi/gi-cover.jpg",
+        "date": "2022-2023",
+        "genre": "Branding, UI/UX, Motion, Illustration, Type Design",
+        "software": "Figma, Illustrator, After Effects, Cinema 4D, TouchDesigner, Glyphs",
+        "link": "/archive/gwantsi/"
     },
     {
        "id": "drowsy-typeface",
